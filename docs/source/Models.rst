@@ -5,52 +5,6 @@ These models are designed to handle both deterministic and probabilistic forecas
 Models are evaluated using cross-validation schemes. Let's get started with cross-validation class before going dive into the models.
 
 
-Cross-validation schemes are used to assess model performance and to quantify uncertainty.
-
-.. figure:: ./images/cv.png
-   :scale: 70 %
-   :alt: Cross-validation scheme used in wass2s
-
-   Figure 1: Cross-validation scheme used in wass2s
-
-The cross-validation module provides a custom cross-validator for time series data:
-
-- `CustomTimeSeriesSplit`: A custom splitter for time series data that accounts for temporal dependencies.
-- `WAS_Cross_Validator`: A wrapper class that uses the custom splitter to perform cross-validation with various models.
-
-**CustomTimeSeriesSplit**
-
-**Initialization**
-
-- `n_splits`: Number of splits for cross-validation.
-
-**Methods**
-
-- `split`: Generates indices for training and test sets, omitting a specified number of samples after the test index.
-- `get_n_splits`: Returns the number of splits.
-
-**WAS_Cross_Validator**
-
-**Initialization**
-
-- `n_splits`: Number of splits for cross-validation.
-- `nb_omit`: Number of samples to omit from training after the test index.
-
-**Methods**
-
-- `get_model_params`: Retrieves parameters for the model's `compute_model` method.
-- `cross_validate`: Performs cross-validation and computes deterministic hindcast and tercile probabilities.
-
-**Example Usage**
-
-.. code-block:: python
-
-    from wass2s.was_cross_validate import WAS_Cross_Validator
-
-    # Initialize the cross-validator
-    cv = WAS_Cross_Validator(n_splits=30, nb_omit=4)
-
-A better example will be provided in the next sections.
 
 The models modules are organized into several classes, each implementing a specific type of model:
 
