@@ -9,6 +9,8 @@ build:
   os: ubuntu-22.04
   tools:
     python: "3.12"
+  environment:
+    PIP_NO_BUILD_ISOLATION: "1" 
     # You can also specify other tool versions:
     # nodejs: "20"
     # rust: "1.70"
