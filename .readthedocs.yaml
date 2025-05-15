@@ -35,6 +35,11 @@ formats:
 conda:
   environment: WAS_S2S_linux.yml
 
+# python:
+#  install:
+#    - requirements: docs/requirements.txt
+
 python:
   install:
-    - requirements: docs/requirements.txt
+    # No additional pip installs; everything is in the conda env
+    - method: setuptools
