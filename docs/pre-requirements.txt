@@ -87,8 +87,7 @@ six==1.16.0          # wrapper only; needs libsnappy system lib
 sortedcontainers==2.4.0
 sparse==0.15.4
 statsmodels==0.14.2
-threadpoolctl==3.5.0        # wheel available but heavy; Conda easier
-tk==8.6.13              # only for building from source; ignore if wheels suffice
+threadpoolctl==3.5.0        # wheel available but heavy; Conda easier          # only for building from source; ignore if wheels suffice
 toolz==0.12.1
 tornado==6.4.1
 traitlets==5.14.3
