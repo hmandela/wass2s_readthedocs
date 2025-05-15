@@ -1,5 +1,5 @@
 sphinx>=4.0
 sphinx-rtd-theme>=1.0
 numpy>=1.26
-somoclu>=1.7.6
+somoclu>=1.6.1
 wass2s>=0.1.10
