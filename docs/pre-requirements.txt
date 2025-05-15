@@ -25,7 +25,6 @@ distributed==2024.6.2       # requires system eccodes; consider pip-eccodes-pyth
 exceptiongroup==1.2.0
 executing==2.0.1
 findlibs==0.0.5
-fmt==10.2.1
 folium==0.17.0
 fonttools==4.53.1
 fsspec==2024.6.1
