@@ -27,8 +27,7 @@ executing==2.0.1
 findlibs==0.0.5
 folium==0.17.0
 fonttools==4.53.1
-fsspec==2024.6.1
-gdal==3.9.1             # wheel only for manylinux; else use Conda
+fsspec==2024.6.1            # wheel only for manylinux; else use Conda
 geojson==3.1.0
 geopandas==1.0.1
 h2==4.1.0
