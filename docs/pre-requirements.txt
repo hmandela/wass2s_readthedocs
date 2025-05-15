@@ -21,8 +21,7 @@ cytoolz==0.12.3
 dask==2024.6.2
 dask-expr==1.1.6
 debugpy==1.8.2
-distributed==2024.6.2
-eccodes==2.36.0         # requires system eccodes; consider pip-eccodes-python
+distributed==2024.6.2       # requires system eccodes; consider pip-eccodes-python
 esmpy==8.6.1
 exceptiongroup==1.2.0
 executing==2.0.1
