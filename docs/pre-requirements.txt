@@ -49,7 +49,6 @@ mapclassify==2.6.1
 markupsafe==2.1.5
 matplotlib==3.8.4
 msgpack==1.0.8
-nb_black==1.0.7
 nest-asyncio==1.6.0
 netcdf4==1.7.1          # requires libnetcdf system libs
 networkx==3.3
