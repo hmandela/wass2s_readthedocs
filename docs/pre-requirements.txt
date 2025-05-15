@@ -74,7 +74,6 @@ pyqt5==5.15.10          # large wheels; Conda recommended
 pyshp==2.3.1
 pysocks==1.7.1
 python-dateutil==2.9.0.post0
-python-eccodes==1.7.1
 python-lmdb==1.5.1
 python-tzdata==2024.1
 pytz==2024.1
