@@ -1,0 +1,194 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quantifying uncertainty via cross-validation &mdash; wass2s 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Models Modules" href="Models.html" />
+    <link rel="prev" title="Processing Modules" href="Processing.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            wass2s
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="Usage.html">Usage</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="Usage.html#modules">Modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Download.html">Download module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Processing.html">Processing Modules</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Quantifying uncertainty via cross-validation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#estimating-prediction-uncertainty">Estimating Prediction Uncertainty</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Models.html">Models Modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Verification.html">WAS_Verification Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Verification.html#deterministic-metrics">Deterministic Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Verification.html#probabilistic-metrics">Probabilistic Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Verification.html#ensemble-metrics">Ensemble Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Verification.html#tercile-probability-computation">Tercile Probability Computation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Verification.html#gcm-validation">GCM Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Verification.html#annual-year-validation">Annual Year Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mme.html">wass2s api</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html">wass2s api</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">wass2s api</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">wass2s</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="Usage.html">Usage</a></li>
+      <li class="breadcrumb-item active">Quantifying uncertainty via cross-validation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/cv.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="quantifying-uncertainty-via-cross-validation">
+<h1>Quantifying uncertainty via cross-validation<a class="headerlink" href="#quantifying-uncertainty-via-cross-validation" title="Link to this heading"></a></h1>
+<p>Cross-validation schemes are used to assess model performance and to quantify uncertainty. <cite>wass2s</cite> uses a cross-validation scheme that splits the data into training, omit, and test periods. The scheme is a variation of the <cite>K-Fold</cite> cross-validation scheme, but it is tailored for time series data throughout <cite>CustomTimeSeriesSplit</cite> and <cite>WAS_Cross_Validator</cite> class. The scheme is illustrated in the figure below (Figure 1).</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="_images/cvv.png"><img alt="Cross-validation scheme used in wass2s" src="_images/cvv.png" style="width: 693.0px; height: 303.09999999999997px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 1: Cross-validation scheme used in wass2s</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The figure shows how we split our data (1981–2010) to validate the model. Each row is a “fold” or a test run.</p>
+<ul class="simple">
+<li><p><strong>Pink (Training)</strong>: Years we use to train the model. For example, in the first row, we train on 1986–2010.</p></li>
+<li><p><strong>Yellow (Omit)</strong>: A buffer years we skip to avoid cheating. Climate data has patterns over time, so we don’t want to train on a years right after/before the one we’re predicting, which would make the model look better than it really is. In this case we’ve omitted four years (in the first row, we skip 1982-1985).</p></li>
+<li><p><strong>White (Predict)</strong>: The year we predict. In the first row, we predict 1981.</p></li>
+</ul>
+<p><strong>CustomTimeSeriesSplit</strong></p>
+<p>A custom splitter for time series data that accounts for temporal dependencies.</p>
+<p><strong>Initialization</strong></p>
+<ul class="simple">
+<li><p><cite>n_splits</cite>: Number of splits for cross-validation.</p></li>
+</ul>
+<p><strong>Methods</strong></p>
+<ul class="simple">
+<li><p><cite>split</cite>: Generates indices for training and test sets, omitting a specified number of samples after the test index.</p></li>
+<li><p><cite>get_n_splits</cite>: Returns the number of splits.</p></li>
+</ul>
+<p><strong>WAS_Cross_Validator</strong></p>
+<p>A wrapper class that uses the custom splitter to perform cross-validation with various models.</p>
+<p><strong>Initialization</strong></p>
+<ul class="simple">
+<li><p><cite>n_splits</cite>: Number of splits for cross-validation.</p></li>
+<li><p><cite>nb_omit</cite>: Number of samples to omit from training after the test index.</p></li>
+</ul>
+<p><strong>Methods</strong></p>
+<ul class="simple">
+<li><p><cite>get_model_params</cite>: Retrieves parameters for the model’s <cite>compute_model</cite> method.</p></li>
+<li><p><cite>cross_validate</cite>: Performs cross-validation and computes deterministic hindcast and tercile probabilities.</p></li>
+</ul>
+<p><strong>Example Usage</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s.was_cross_validate</span> <span class="kn">import</span> <span class="n">WAS_Cross_Validator</span>
+
+<span class="c1"># Initialize the cross-validator</span>
+<span class="n">cv</span> <span class="o">=</span> <span class="n">WAS_Cross_Validator</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">nb_omit</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="estimating-prediction-uncertainty">
+<h2>Estimating Prediction Uncertainty<a class="headerlink" href="#estimating-prediction-uncertainty" title="Link to this heading"></a></h2>
+<p>The cross-validation makes out-of-sample predictions for each fold’s prediction period, and errors are calculated by comparing predictions to actual values. These errors are collected across all folds.
+Running the statistical models—e.g. multiple linear regression—yields the most likely value of the predictand (best-guess) for the coming season.
+Because seasonal outlooks are inherently probabilistic, we must go beyond this single best-guess and quantify the likelihood of other possible outcomes.
+wass2s does so by analysing the cross-validation errors described earlier. The method explicitly takes the statistical distribution of the predictand into account.
+If, for instance, the predictand is approximately Gaussian, we assume the predicted values follow a normal distribution whose mean is the single best-guess and whose variance equals the cross-validated error variance.
+Comparing that forecast probability-density function with the climatological density (see the example in Figure 2) lets us integrate the areas that fall below-normal (values below the 1st tercile), near-normal (values between the 1st and 3rd terciles), and above-normal (values above the 3rd tercile).
+These integrals are the tercile probabilities ultimately delivered to users.</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="_images/generation_proba.png"><img alt="Generation of probabilistic forecasts" src="_images/generation_proba.png" style="width: 439.59999999999997px; height: 322.7px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 2: Generation of probabilistic forecasts</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Processing.html" class="btn btn-neutral float-left" title="Processing Modules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Models.html" class="btn btn-neutral float-right" title="Models Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Mandela C. M. HOUNGNIBO.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

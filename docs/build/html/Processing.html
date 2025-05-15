@@ -1,0 +1,425 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Processing Modules &mdash; wass2s 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Quantifying uncertainty via cross-validation" href="cv.html" />
+    <link rel="prev" title="Download module" href="Download.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            wass2s
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="Usage.html">Usage</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="Usage.html#modules">Modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Download.html">Download module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Processing Modules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#computing-predictands">Computing Predictands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#merging-and-adjusting-data">Merging and Adjusting Data</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cv.html">Quantifying uncertainty via cross-validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Models.html">Models Modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Verification.html">WAS_Verification Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Verification.html#deterministic-metrics">Deterministic Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Verification.html#probabilistic-metrics">Probabilistic Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Verification.html#ensemble-metrics">Ensemble Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Verification.html#tercile-probability-computation">Tercile Probability Computation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Verification.html#gcm-validation">GCM Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Verification.html#annual-year-validation">Annual Year Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mme.html">wass2s api</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html">wass2s api</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">wass2s api</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">wass2s</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="Usage.html">Usage</a></li>
+      <li class="breadcrumb-item active">Processing Modules</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Processing.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="processing-modules">
+<h1>Processing Modules<a class="headerlink" href="#processing-modules" title="Link to this heading"></a></h1>
+<p>The Processing modules provide tools for computing various climate indices or predictands from daily data, such as onset and cessation of the rainy season, dry and wet spells, number of rainy days, extreme precipitation indices, and heat wave indices. Additionally, it offers methods for merging or adjusting gridded data with station observations to correct biases.</p>
+<p>These modules are divided into two main parts:</p>
+<ol class="arabic simple">
+<li><p><strong>Computing Predictands</strong>: Classes for calculating different climate indices from daily data.</p></li>
+<li><p><strong>Merging and Adjusting Data</strong>: Classes for combining gridded data with station observations to improve accuracy.</p></li>
+</ol>
+<p><strong>Prerequisites</strong></p>
+<ul class="simple">
+<li><p><strong>Dask</strong>: Required for parallel processing in gridded data computations.</p></li>
+<li><p><strong>Data Formats</strong>: Gridded data should be in xarray DataArray format with coordinates (T, Y, X). Station data should be in CDT format for daily data or CPT format for seasonal aggregation before merging.</p></li>
+<li><p><strong>Climate Data Tools (CDT)</strong>: Format for daily data.</p></li>
+</ul>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ID</p></th>
+<th class="head"><p>ALLADA</p></th>
+<th class="head"><p>APLAHOUE</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>LON</p></td>
+<td><p>2.133333</p></td>
+<td><p>1.666667</p></td>
+</tr>
+<tr class="row-odd"><td><p>LAT</p></td>
+<td><p>6.65</p></td>
+<td><p>6.916667</p></td>
+</tr>
+<tr class="row-even"><td><p>DAILY/ELEV</p></td>
+<td><p>92.0</p></td>
+<td><p>153.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>19810101</p></td>
+<td><p>0.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p>19810102</p></td>
+<td><p>0.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>19810103</p></td>
+<td><p>0.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p>19810104</p></td>
+<td><p>0.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>19810105</p></td>
+<td><p>0.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p>19810106</p></td>
+<td><p>0.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>19810107</p></td>
+<td><p>0.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p>19810108</p></td>
+<td><p>0.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>19810109</p></td>
+<td><p>0.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p>19810110</p></td>
+<td><p>0.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>…</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>Climate Prediction Tools (CPT)</strong>: Format for seasonal aggregation (used in climate prediction tools) before merging.</p></li>
+</ul>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>STATION</p></th>
+<th class="head"><p>ABEO</p></th>
+<th class="head"><p>ABUJ</p></th>
+<th class="head"><p>ADEK</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>LAT</p></td>
+<td><p>7.2</p></td>
+<td><p>7.6</p></td>
+<td><p>9.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>LON</p></td>
+<td><p>3.3</p></td>
+<td><p>5.2</p></td>
+<td><p>7.2</p></td>
+</tr>
+<tr class="row-even"><td><p>1991</p></td>
+<td><p>514.9</p></td>
+<td><p>715.1</p></td>
+<td><p>934.3</p></td>
+</tr>
+<tr class="row-odd"><td><p>1992</p></td>
+<td><p>503.6</p></td>
+<td><p>736.4</p></td>
+<td><p>714.6</p></td>
+</tr>
+<tr class="row-even"><td><p>1993</p></td>
+<td><p>414.6</p></td>
+<td><p>891.0</p></td>
+<td><p>709.6</p></td>
+</tr>
+<tr class="row-odd"><td><p>1994</p></td>
+<td><p>345.6</p></td>
+<td><p>1034.7</p></td>
+<td><p>491.7</p></td>
+</tr>
+<tr class="row-even"><td><p>1995</p></td>
+<td><p>492.2</p></td>
+<td><p>837.6</p></td>
+<td><p>938.8</p></td>
+</tr>
+<tr class="row-odd"><td><p>…</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="computing-predictands">
+<h2>Computing Predictands<a class="headerlink" href="#computing-predictands" title="Link to this heading"></a></h2>
+<p>This section includes classes for computing various climate indices:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">WAS_compute_onset</span></code>: Computes the onset of the rainy season.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WAS_compute_cessation</span></code>: Computes the cessation of the rainy season.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WAS_compute_onset_dry_spell</span></code>: Computes the longest dry spell after the onset.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WAS_compute_cessation_dry_spell</span></code>: Computes the longest dry spell in flourishing period.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WAS_count_wet_spells</span></code>: Computes the number of wet spells between onset and cessation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WAS_count_dry_spells</span></code>: Computes the number of dry spells between onset and cessation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WAS_count_rainy_days</span></code>: Computes the number of rainy days between onset and cessation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WAS_r95_99p</span></code>: Computes extreme precipitation indices R95p and R99p.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WAS_compute_HWSDI</span></code>: Computes the Heat Wave Severity Duration Index.</p></li>
+</ul>
+<p>Each class has methods for computing the index from gridded data (<code class="docutils literal notranslate"><span class="pre">compute</span></code>) and, where applicable, from station data in CDT format (<code class="docutils literal notranslate"><span class="pre">compute_insitu</span></code>).</p>
+<p><strong>Onset Computation</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">WAS_compute_onset</span></code> class computes the onset of the rainy season based on user-defined or default criteria for different zones.</p>
+<p><strong>Initialization</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">user_criteria=None)</span></code>: Initializes the class with user-defined criteria. If not provided, default criteria are used.</p></li>
+<li><p>Dictionaries <code class="docutils literal notranslate"><span class="pre">onset_criteria</span></code>,  <code class="docutils literal notranslate"><span class="pre">cessation_criteria</span></code>, <code class="docutils literal notranslate"><span class="pre">onset_dryspell_criteria</span></code>, <code class="docutils literal notranslate"><span class="pre">cessation_dryspell_criteria</span></code> show how to define the criteria for onset, cessation, onset dry spell and cessation dry spell computations.</p></li>
+</ul>
+<p><strong>Methods</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">compute(self,</span> <span class="pre">daily_data,</span> <span class="pre">nb_cores)</span></code>: Computes onset dates for gridded daily rainfall data.
+* <code class="docutils literal notranslate"><span class="pre">daily_data</span></code>: xarray DataArray with daily rainfall data (coords: T, Y, X).
+* <code class="docutils literal notranslate"><span class="pre">nb_cores</span></code>: Number of CPU cores for parallel processing.
+* Returns: xarray DataArray with onset dates.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compute_insitu(self,</span> <span class="pre">daily_df)</span></code>: Computes onset dates for station data in CDT format.
+* <code class="docutils literal notranslate"><span class="pre">daily_df</span></code>: pandas DataFrame in CDT format.
+* Returns: pandas DataFrame in CPT format with onset dates.</p></li>
+</ul>
+<p><strong>Criteria Dictionary</strong></p>
+<p>The criteria dictionary defines parameters for onset computation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;zone_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Sahel100_0mm&quot;</span><span class="p">,</span> <span class="s2">&quot;start_search&quot;</span><span class="p">:</span> <span class="s2">&quot;06-01&quot;</span><span class="p">,</span> <span class="s2">&quot;cumulative&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;number_dry_days&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;thrd_rain_day&quot;</span><span class="p">:</span> <span class="mf">0.85</span><span class="p">,</span> <span class="s2">&quot;end_search&quot;</span><span class="p">:</span> <span class="s2">&quot;08-30&quot;</span><span class="p">},</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;zone_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Sahel200_100mm&quot;</span><span class="p">,</span> <span class="s2">&quot;start_search&quot;</span><span class="p">:</span> <span class="s2">&quot;05-15&quot;</span><span class="p">,</span> <span class="s2">&quot;cumulative&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;number_dry_days&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;thrd_rain_day&quot;</span><span class="p">:</span> <span class="mf">0.85</span><span class="p">,</span> <span class="s2">&quot;end_search&quot;</span><span class="p">:</span> <span class="s2">&quot;08-15&quot;</span><span class="p">},</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">zone_name</span></code>: Name of the zone.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start_search</span></code>: Start date for searching the onset (e.g., “06-01”).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cumulative</span></code>: Cumulative rainfall threshold (mm).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">number_dry_days</span></code>: Maximum number of dry days allowed after onset.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">thrd_rain_day</span></code>: Rainfall threshold to consider a day as rainy (mm).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">end_search</span></code>: End date for searching the onset.</p></li>
+</ul>
+<p><strong>Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="c1"># Download daily rainfall data</span>
+<span class="n">downloader</span> <span class="o">=</span> <span class="n">WAS_Download</span><span class="p">()</span>
+<span class="n">downloader</span><span class="o">.</span><span class="n">WAS_Download_AgroIndicators_daily</span><span class="p">(</span>
+    <span class="n">dir_to_save</span><span class="o">=</span><span class="s2">&quot;/path/to/save&quot;</span><span class="p">,</span>
+    <span class="n">variables</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;AGRO.PRCP&quot;</span><span class="p">],</span>
+    <span class="n">year_start</span><span class="o">=</span><span class="mi">1993</span><span class="p">,</span>
+    <span class="n">year_end</span><span class="o">=</span><span class="mi">2016</span><span class="p">,</span>
+    <span class="n">area</span><span class="o">=</span><span class="p">[</span><span class="mi">60</span><span class="p">,</span> <span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">60</span><span class="p">,</span> <span class="mi">180</span><span class="p">],</span>
+    <span class="n">force_download</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+
+<span class="c1"># Load daily rainfall data</span>
+<span class="n">rainfall</span> <span class="o">=</span> <span class="n">prepare_predictand</span><span class="p">(</span><span class="n">dir_to_save</span><span class="p">,</span> <span class="n">variables</span><span class="p">,</span> <span class="n">year_start</span><span class="p">,</span> <span class="n">year_end</span><span class="p">,</span> <span class="n">daily</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ds</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1">## NB: prepare_predictand is a utility function that loads the data and prepares it for the computation of the predictand.</span>
+<span class="c1">## ds is set to False because the data will be loaded as dataarray.</span>
+
+<span class="c1"># Print predefined  onset criteria</span>
+<span class="n">onset_criteria</span>
+<span class="c1"># Define user criteria</span>
+<span class="n">user_criteria</span> <span class="o">=</span> <span class="n">onset_criteria</span>
+<span class="c1"># adjust user criteria</span>
+<span class="n">user_criteria</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;start_search&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;06-15&quot;</span>
+<span class="n">user_criteria</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;end_search&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;09-01&quot;</span>
+<span class="c1"># Compute onset</span>
+<span class="n">was_onset</span> <span class="o">=</span> <span class="n">WAS_compute_onset</span><span class="p">(</span><span class="n">user_criteria</span><span class="p">)</span>
+<span class="n">onset</span> <span class="o">=</span> <span class="n">was_onset</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">daily_data</span><span class="o">=</span><span class="n">rainfall</span><span class="p">,</span> <span class="n">nb_cores</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="c1"># Plot the mean onset date to check the results</span>
+<span class="n">plot_date</span><span class="p">(</span><span class="n">onset</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;T&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><strong>Cessation Computation</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">WAS_compute_cessation</span></code> class computes the cessation of the rainy season based on soil moisture balance criteria.</p>
+<ul class="simple">
+<li><p>Similar initialization and methods as <code class="docutils literal notranslate"><span class="pre">WAS_compute_onset</span></code> with criteria including:
+* <code class="docutils literal notranslate"><span class="pre">date_dry_soil</span></code>: Date when soil is assumed dry (e.g., “01*01”).
+* <code class="docutils literal notranslate"><span class="pre">ETP</span></code>: Evapotranspiration rate (mm/day).
+* <code class="docutils literal notranslate"><span class="pre">Cap_ret_maxi</span></code>: Maximum soil water retention capacity (mm).</p></li>
+</ul>
+<p><strong>Dry Spell Computation</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">WAS_compute_onset_dry_spell</span></code> class computes the longest dry spell after the onset.</p>
+<ul class="simple">
+<li><p>Includes an additional <code class="docutils literal notranslate"><span class="pre">nbjour</span></code> parameter in the criteria for the number of days to check after onset.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">WAS_compute_cessation_dry_spell</span></code> class computes the longest dry spell in flourishing period.</p>
+<ul class="simple">
+<li><p>Includes an additional <code class="docutils literal notranslate"><span class="pre">nbjour</span></code> parameter in the criteria for the number of days to check after cessation.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">WAS_count_dry_spells</span></code> class computes the number of dry spells between onset and cessation. Requires onset and cessation dates as inputs.</p>
+<p><strong>Wet Spell Computation</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">WAS_count_wet_spells</span></code> class computes the number of wet spells between onset and cessation. Requires onset and cessation dates as inputs.</p>
+<p><strong>Rainy Days Computation</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">WAS_count_rainy_days</span></code> class computes the number of rainy days between onset and cessation. Requires onset and cessation dates as inputs.</p>
+<p><strong>Extreme Precipitation Indices</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">WAS_r95_99p</span></code> class computes R95p and R99p indices. Initialization with a base period (e.g., <code class="docutils literal notranslate"><span class="pre">slice(&quot;1991-01-01&quot;,</span> <span class="pre">&quot;2020-12-31&quot;)</span></code>) and optional season (list of months).</p>
+<ul class="simple">
+<li><p>Methods:
+* <code class="docutils literal notranslate"><span class="pre">compute_r95p</span></code> and <code class="docutils literal notranslate"><span class="pre">compute_r99p</span></code> for gridded data.
+* <code class="docutils literal notranslate"><span class="pre">compute_insitu_r95p</span></code> and <code class="docutils literal notranslate"><span class="pre">compute_insitu_r99p</span></code> for station data.</p></li>
+</ul>
+<p><strong>Heat Wave Indices</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">WAS_compute_HWSDI</span></code> class computes the Heat Wave Severity Duration Index. Computes TXin90 (90th percentile of daily max temperature) and counts heatwave days with at least 6 consecutive hot days.</p>
+</section>
+<section id="merging-and-adjusting-data">
+<h2>Merging and Adjusting Data<a class="headerlink" href="#merging-and-adjusting-data" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">WAS_Merging</span></code> class provides methods for merging gridded data with station observations to adjust for biases.</p>
+<p><strong>Initialization</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">df,</span> <span class="pre">da,</span> <span class="pre">date_month_day=&quot;08-01&quot;)</span></code>: Initializes with station data DataFrame (CPT format), gridded data DataArray, and a date string.</p></li>
+</ul>
+<p><strong>Methods</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">simple_bias_adjustment(self,</span> <span class="pre">missing_value=-999.0,</span> <span class="pre">do_cross_validation=False)</span></code>: Adjusts gridded data using kriging of residuals.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">regression_kriging(self,</span> <span class="pre">missing_value=-999.0,</span> <span class="pre">do_cross_validation=False)</span></code>: Uses linear regression followed by kriging of residuals.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">neural_network_kriging(self,</span> <span class="pre">missing_value=-999.0,</span> <span class="pre">do_cross_validation=False)</span></code>: Uses a neural network followed by kriging of residuals.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">multiplicative_bias(self,</span> <span class="pre">missing_value=-999.0,</span> <span class="pre">do_cross_validation=False)</span></code>: Applies a multiplicative bias correction.</p></li>
+</ul>
+<p>Each method returns the adjusted gridded data as an xarray DataArray and optionally cross-validation results as a DataFrame.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">plot_merging_comparaison(self,</span> <span class="pre">df_Obs,</span> <span class="pre">da_estimated,</span> <span class="pre">da_corrected,</span> <span class="pre">missing_value=-999.0)</span></code>: Visualizes the comparison between observations, original estimates, and corrected data.</p></li>
+</ul>
+<p><strong>Example: Merging Onset with Station Observations</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load station onset data in CPT format</span>
+<span class="n">cpt_input_file_path</span> <span class="o">=</span> <span class="s2">&quot;./path/to/cpt_file.csv&quot;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">cpt_input_file_path</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=-</span><span class="mf">999.0</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;latin1&quot;</span><span class="p">)</span>
+
+<span class="c1"># Filter for relevant years and stations</span>
+<span class="n">year_start</span><span class="p">,</span> <span class="n">year_end</span> <span class="o">=</span> <span class="mi">1981</span><span class="p">,</span> <span class="mi">2020</span>  <span class="c1"># Example years</span>
+<span class="n">onset_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;STATION&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;LAT&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;STATION&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;LON&#39;</span><span class="p">)</span> <span class="o">|</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;STATION&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="n">year_start</span><span class="p">,</span> <span class="n">year_end</span><span class="p">))]</span>
+
+<span class="c1"># Verify station network</span>
+<span class="n">verify_station_network</span><span class="p">(</span><span class="n">onset_df</span><span class="p">,</span> <span class="n">area</span><span class="p">)</span>
+<span class="c1">## NB: verify_station_network is a utility function that verifies the station network. area is the extent of the gridded onset domain.</span>
+
+<span class="c1"># Instantiate WAS_Merging</span>
+<span class="n">data_merger</span> <span class="o">=</span> <span class="n">WAS_Merging</span><span class="p">(</span><span class="n">onset_df</span><span class="p">,</span> <span class="n">onset</span><span class="p">,</span> <span class="n">date_month_day</span><span class="o">=</span><span class="s1">&#39;02-01&#39;</span><span class="p">)</span>
+<span class="c1">## NB: date_month_day is set to &#39;02-01&#39; because the onset start_search criteria is set to the month of February.</span>
+<span class="c1">## Important to verify the T dimension in the gridded onset computed. the month and day must match the date_month_day.</span>
+
+<span class="c1"># Perform simple bias adjustment</span>
+<span class="n">onset_adjusted</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">data_merger</span><span class="o">.</span><span class="n">simple_bias_adjustment</span><span class="p">(</span><span class="n">do_cross_validation</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Plot comparison</span>
+<span class="n">data_merger</span><span class="o">.</span><span class="n">plot_merging_comparaison</span><span class="p">(</span><span class="n">onset_df</span><span class="p">,</span> <span class="n">onset</span><span class="p">,</span> <span class="n">onset_adjusted</span><span class="p">)</span>
+<span class="c1">## NB: plot_merging_comparaison is a utility function that plots the comparison between the station onset, the gridded onset and the adjusted onset.</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Download.html" class="btn btn-neutral float-left" title="Download module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cv.html" class="btn btn-neutral float-right" title="Quantifying uncertainty via cross-validation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Mandela C. M. HOUNGNIBO.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

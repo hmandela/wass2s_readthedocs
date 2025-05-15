@@ -1,0 +1,275 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>wass2s documentation &mdash; wass2s 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="Installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            wass2s
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">wass2s api</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">wass2s</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">wass2s documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="wass2s-documentation">
+<h1>wass2s documentation<a class="headerlink" href="#wass2s-documentation" title="Link to this heading"></a></h1>
+<p>A python-based tool for seasonal climate forecast in West Africa and the Sahel.</p>
+<p>The wass2s tool is designed to facilitate implementation of the new generation of seasonal forecasts in West Africa and the Sahel using various statistical and machine learning methods. New generation of seasonal forecasts aligns with the World Meteorological Organization’s (WMO) guidelines for objective, operational, and scientifically rigorous seasonal forecasting methods. wass2s helps forecaster to download GCM, reanalysis, and satellite/observation data, build statistical or machine learning models, verify the models using cross-validation, and forecast.
+A user-friendly <a class="reference external" href="https://github.com/hmandela/WASS2S_notebooks">jupyter-lab notebook</a>  streamlines the forecasting process .</p>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Automated Forecasting</p></li>
+<li><p>Reproducibility</p></li>
+<li><p>Modularity</p></li>
+<li><p>Exploration of Machine Learning Models.</p></li>
+</ul>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Usage.html">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Usage.html#modules">Modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Download.html">Download module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Processing.html">Processing Modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cv.html">Quantifying uncertainty via cross-validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Models.html">Models Modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Verification.html">WAS_Verification Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Verification.html#deterministic-metrics">Deterministic Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Verification.html#probabilistic-metrics">Probabilistic Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Verification.html#ensemble-metrics">Ensemble Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Verification.html#tercile-probability-computation">Tercile Probability Computation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Verification.html#gcm-validation">GCM Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Verification.html#annual-year-validation">Annual Year Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mme.html">wass2s api</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html">wass2s api</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">wass2s api</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-wass2s.was_download">wass2s.was_download module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_download.WAS_Download"><code class="docutils literal notranslate"><span class="pre">WAS_Download</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_download.plot_map"><code class="docutils literal notranslate"><span class="pre">plot_map()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-wass2s.was_compute_predictand">wass2s.was_compute_predictand module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_compute_predictand.WAS_compute_HWSDI"><code class="docutils literal notranslate"><span class="pre">WAS_compute_HWSDI</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_compute_predictand.WAS_compute_HWSDI_Seasonal"><code class="docutils literal notranslate"><span class="pre">WAS_compute_HWSDI_Seasonal</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_compute_predictand.WAS_compute_HWSDI_monthly"><code class="docutils literal notranslate"><span class="pre">WAS_compute_HWSDI_monthly</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_compute_predictand.WAS_compute_cessation"><code class="docutils literal notranslate"><span class="pre">WAS_compute_cessation</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_compute_predictand.WAS_compute_cessation_dry_spell"><code class="docutils literal notranslate"><span class="pre">WAS_compute_cessation_dry_spell</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_compute_predictand.WAS_compute_onset"><code class="docutils literal notranslate"><span class="pre">WAS_compute_onset</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_compute_predictand.WAS_compute_onset_dry_spell"><code class="docutils literal notranslate"><span class="pre">WAS_compute_onset_dry_spell</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_compute_predictand.WAS_count_dry_spells"><code class="docutils literal notranslate"><span class="pre">WAS_count_dry_spells</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_compute_predictand.WAS_count_rainy_days"><code class="docutils literal notranslate"><span class="pre">WAS_count_rainy_days</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_compute_predictand.WAS_count_wet_spells"><code class="docutils literal notranslate"><span class="pre">WAS_count_wet_spells</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_compute_predictand.WAS_r95_99p"><code class="docutils literal notranslate"><span class="pre">WAS_r95_99p</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-wass2s.was_merge_predictand">wass2s.was_merge_predictand module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_merge_predictand.WAS_Merging"><code class="docutils literal notranslate"><span class="pre">WAS_Merging</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-wass2s.was_cross_validate">wass2s.was_cross_validate module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_cross_validate.CustomTimeSeriesSplit"><code class="docutils literal notranslate"><span class="pre">CustomTimeSeriesSplit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_cross_validate.WAS_Cross_Validator"><code class="docutils literal notranslate"><span class="pre">WAS_Cross_Validator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-wass2s.was_linear_models">wass2s.was_linear_models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_linear_models.WAS_ElasticNet_Model"><code class="docutils literal notranslate"><span class="pre">WAS_ElasticNet_Model</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_linear_models.WAS_LassoLars_Model"><code class="docutils literal notranslate"><span class="pre">WAS_LassoLars_Model</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_linear_models.WAS_Lasso_Model"><code class="docutils literal notranslate"><span class="pre">WAS_Lasso_Model</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_linear_models.WAS_LinearRegression_Model"><code class="docutils literal notranslate"><span class="pre">WAS_LinearRegression_Model</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_linear_models.WAS_Ridge_Model"><code class="docutils literal notranslate"><span class="pre">WAS_Ridge_Model</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-wass2s.was_eof">wass2s.was_eof module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_eof.WAS_EOF"><code class="docutils literal notranslate"><span class="pre">WAS_EOF</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-wass2s.was_pcr">wass2s.was_pcr module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_pcr.WAS_PCR"><code class="docutils literal notranslate"><span class="pre">WAS_PCR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-wass2s.was_cca">wass2s.was_cca module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_cca.WAS_CCA"><code class="docutils literal notranslate"><span class="pre">WAS_CCA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_cca.WAS_CCA_"><code class="docutils literal notranslate"><span class="pre">WAS_CCA_</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-wass2s.was_machine_learning">wass2s.was_machine_learning module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_machine_learning.WAS_LogisticRegression_Model"><code class="docutils literal notranslate"><span class="pre">WAS_LogisticRegression_Model</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_machine_learning.WAS_MLP"><code class="docutils literal notranslate"><span class="pre">WAS_MLP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_machine_learning.WAS_PoissonRegression"><code class="docutils literal notranslate"><span class="pre">WAS_PoissonRegression</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_machine_learning.WAS_PolynomialRegression"><code class="docutils literal notranslate"><span class="pre">WAS_PolynomialRegression</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_machine_learning.WAS_RandomForest_XGBoost_ML_Stacking"><code class="docutils literal notranslate"><span class="pre">WAS_RandomForest_XGBoost_ML_Stacking</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_machine_learning.WAS_RandomForest_XGBoost_Stacking_MLP"><code class="docutils literal notranslate"><span class="pre">WAS_RandomForest_XGBoost_Stacking_MLP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_machine_learning.WAS_SVR"><code class="docutils literal notranslate"><span class="pre">WAS_SVR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_machine_learning.WAS_Stacking_Ridge"><code class="docutils literal notranslate"><span class="pre">WAS_Stacking_Ridge</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-wass2s.was_analog">wass2s.was_analog module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_analog.WAS_Analog"><code class="docutils literal notranslate"><span class="pre">WAS_Analog</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-wass2s.was_mme">wass2s.was_mme module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_mme.BMA"><code class="docutils literal notranslate"><span class="pre">BMA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_mme.NonHomogeneousGaussianRegression"><code class="docutils literal notranslate"><span class="pre">NonHomogeneousGaussianRegression</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_mme.WAS_Min2009_ProbWeighted"><code class="docutils literal notranslate"><span class="pre">WAS_Min2009_ProbWeighted</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_mme.WAS_mme_AdaBoost"><code class="docutils literal notranslate"><span class="pre">WAS_mme_AdaBoost</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_mme.WAS_mme_BMA"><code class="docutils literal notranslate"><span class="pre">WAS_mme_BMA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_mme.WAS_mme_ELM"><code class="docutils literal notranslate"><span class="pre">WAS_mme_ELM</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_mme.WAS_mme_ELR"><code class="docutils literal notranslate"><span class="pre">WAS_mme_ELR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_mme.WAS_mme_GA"><code class="docutils literal notranslate"><span class="pre">WAS_mme_GA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_mme.WAS_mme_GradientBoosting"><code class="docutils literal notranslate"><span class="pre">WAS_mme_GradientBoosting</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_mme.WAS_mme_LGBM_Boosting"><code class="docutils literal notranslate"><span class="pre">WAS_mme_LGBM_Boosting</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_mme.WAS_mme_MLP"><code class="docutils literal notranslate"><span class="pre">WAS_mme_MLP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_mme.WAS_mme_StackXGboost_Ml"><code class="docutils literal notranslate"><span class="pre">WAS_mme_StackXGboost_Ml</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_mme.WAS_mme_Stack_KNN_Tree_SVR"><code class="docutils literal notranslate"><span class="pre">WAS_mme_Stack_KNN_Tree_SVR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_mme.WAS_mme_Stack_Lasso_RF_MLP"><code class="docutils literal notranslate"><span class="pre">WAS_mme_Stack_Lasso_RF_MLP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_mme.WAS_mme_Stack_MLP_Ada_Ridge"><code class="docutils literal notranslate"><span class="pre">WAS_mme_Stack_MLP_Ada_Ridge</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_mme.WAS_mme_Stack_MLP_RF"><code class="docutils literal notranslate"><span class="pre">WAS_mme_Stack_MLP_RF</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_mme.WAS_mme_Stack_RF_GB_Ridge"><code class="docutils literal notranslate"><span class="pre">WAS_mme_Stack_RF_GB_Ridge</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_mme.WAS_mme_Weighted"><code class="docutils literal notranslate"><span class="pre">WAS_mme_Weighted</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_mme.WAS_mme_XGBoosting"><code class="docutils literal notranslate"><span class="pre">WAS_mme_XGBoosting</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_mme.myfill"><code class="docutils literal notranslate"><span class="pre">myfill()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_mme.process_datasets_for_mme"><code class="docutils literal notranslate"><span class="pre">process_datasets_for_mme()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_mme.process_datasets_for_mme_"><code class="docutils literal notranslate"><span class="pre">process_datasets_for_mme_()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-wass2s.was_verification">wass2s.was_verification module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.was_verification.WAS_Verification"><code class="docutils literal notranslate"><span class="pre">WAS_Verification</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-wass2s.utils">wass2s.utils module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.anomalize_timeseries"><code class="docutils literal notranslate"><span class="pre">anomalize_timeseries()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.build_iridl_url_ersst"><code class="docutils literal notranslate"><span class="pre">build_iridl_url_ersst()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.compute_other_indices"><code class="docutils literal notranslate"><span class="pre">compute_other_indices()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.compute_sst_indices"><code class="docutils literal notranslate"><span class="pre">compute_sst_indices()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.decode_cf"><code class="docutils literal notranslate"><span class="pre">decode_cf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.download_file"><code class="docutils literal notranslate"><span class="pre">download_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.find_best_distribution_grid"><code class="docutils literal notranslate"><span class="pre">find_best_distribution_grid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.fix_time_coord"><code class="docutils literal notranslate"><span class="pre">fix_time_coord()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.get_best_models"><code class="docutils literal notranslate"><span class="pre">get_best_models()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.load_gridded_predictor"><code class="docutils literal notranslate"><span class="pre">load_gridded_predictor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.parse_variable"><code class="docutils literal notranslate"><span class="pre">parse_variable()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.plot_date"><code class="docutils literal notranslate"><span class="pre">plot_date()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.plot_map"><code class="docutils literal notranslate"><span class="pre">plot_map()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.plot_prob_forecasts"><code class="docutils literal notranslate"><span class="pre">plot_prob_forecasts()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.plot_prob_forecasts_"><code class="docutils literal notranslate"><span class="pre">plot_prob_forecasts_()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.plot_tercile"><code class="docutils literal notranslate"><span class="pre">plot_tercile()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.predictant_mask"><code class="docutils literal notranslate"><span class="pre">predictant_mask()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.prepare_predictand"><code class="docutils literal notranslate"><span class="pre">prepare_predictand()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.process_model_for_other_params"><code class="docutils literal notranslate"><span class="pre">process_model_for_other_params()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.retrieve_several_zones_for_PCR"><code class="docutils literal notranslate"><span class="pre">retrieve_several_zones_for_PCR()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.retrieve_single_zone_for_PCR"><code class="docutils literal notranslate"><span class="pre">retrieve_single_zone_for_PCR()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.reverse_standardize"><code class="docutils literal notranslate"><span class="pre">reverse_standardize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.save_hindcast_and_forecasts"><code class="docutils literal notranslate"><span class="pre">save_hindcast_and_forecasts()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.save_validation_score"><code class="docutils literal notranslate"><span class="pre">save_validation_score()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.standardize_timeseries"><code class="docutils literal notranslate"><span class="pre">standardize_timeseries()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.to_iridl_lat"><code class="docutils literal notranslate"><span class="pre">to_iridl_lat()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.to_iridl_lon"><code class="docutils literal notranslate"><span class="pre">to_iridl_lon()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.trend_data"><code class="docutils literal notranslate"><span class="pre">trend_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#wass2s.utils.verify_station_network"><code class="docutils literal notranslate"><span class="pre">verify_station_network()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Mandela C. M. HOUNGNIBO.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
