@@ -9,10 +9,11 @@ build:
   os: ubuntu-22.04
   tools:
     python: "3.12"
-    - method: pip                           # second install step
-      path: "somoclu==1.7.6"
-      extra_requirements: []
-      args: ["--no-build-isolation"]
+
+    # You can also specify other tool versions:
+    # nodejs: "20"
+    # rust: "1.70"
+    # golang: "1.20"
 
 # Build documentation in the "docs/" directory with Sphinx
 sphinx:
@@ -32,4 +33,11 @@ formats:
 # See https://docs.readthedocs.io/en/stable/guides/reproducible-builds.html
 python:
   install:
-    - requirements: docs/requirements.txt
+    - requirements: docs/requirements.txt   # installs numpy first
+    - method: pip                           # second install step
+      path: "somoclu==1.7.6"
+      extra_requirements: []
+      args: ["--no-build-isolation"]
+# python:
+#   install:
+#     - requirements: docs/requirements.txt
