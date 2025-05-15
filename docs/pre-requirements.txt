@@ -73,13 +73,11 @@ pyproj==3.6.1
 pyqt5==5.15.10          # large wheels; Conda recommended
 pyshp==2.3.1
 pysocks==1.7.1
-python-dateutil==2.9.0.post0
-python-tzdata==2024.1
+python-dateutil==2.9.0.0
 pytz==2024.1
 pyyaml==6.0.1
 pyzmq==26.0.3
 requests==2.32.3
-scikit-learn==1.5.1
 scipy==1.11.3
 setuptools==70.1.1
 shapely==2.0.4
@@ -100,8 +98,6 @@ typing_extensions==4.12.2
 urllib3==2.2.2
 wcwidth==0.2.13
 wheel==0.43.0
-xarray==2024.6.0
-xgboost==2.1.2
 xhistogram==0.3.2
 xskillscore==0.0.26
 xyzservices==2024.6.0
