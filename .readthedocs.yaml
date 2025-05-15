@@ -39,7 +39,3 @@ conda:
 #  install:
 #    - requirements: docs/requirements.txt
 
-python:
-  install:
-    # No additional pip installs; everything is in the conda env
-    - method: setuptools
