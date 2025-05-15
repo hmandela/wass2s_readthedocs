@@ -1,4 +1,4 @@
 sphinx>=4.0
 sphinx-rtd-theme>=1.0
-numpy==1.26.4
+numpy
 wass2s>=0.1.10
