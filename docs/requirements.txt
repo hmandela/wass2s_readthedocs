@@ -1,7 +1,6 @@
 sphinx>=4.0
 sphinx-rtd-theme>=1.0
 black==24.4.2
-blosc==1.21.6
 bokeh==3.4.2
 bottleneck==1.4.0
 branca==0.7.2
