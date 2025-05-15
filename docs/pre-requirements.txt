@@ -64,7 +64,6 @@ platformdirs==4.2.2
 ply==3.11        # wheel scarce; better via Conda; needed by pdf-plots only
 properscoring==0.1
 psutil==6.0.0
-py-xgboost==2.1.2
 pyarrow==16.1.0
 pycparser==2.22
 pygments==2.18.0
