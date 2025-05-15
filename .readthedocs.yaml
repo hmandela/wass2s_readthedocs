@@ -33,11 +33,4 @@ formats:
 # See https://docs.readthedocs.io/en/stable/guides/reproducible-builds.html
 python:
   install:
-    - requirements: docs/requirements.txt   # installs numpy first
-    - method: pip                           # second install step
-      path: "somoclu==1.7.6"
-      extra_requirements: []
-      args: ["--no-build-isolation"]
-# python:
-#   install:
-#     - requirements: docs/requirements.txt
+    - requirements: docs/requirements.txt
