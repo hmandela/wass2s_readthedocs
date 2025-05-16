@@ -1,8 +1,8 @@
-wass2s api
+References
 ==============
 
-Submodules
-----------
+wass2s submodules
+-----------------
 
 wass2s.was\_download module
 ---------------------------
