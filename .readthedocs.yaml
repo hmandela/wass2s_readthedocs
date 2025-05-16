@@ -20,8 +20,7 @@ build:
         pdflatex -interaction=nonstopmode *.tex &&
         mkdir -p $READTHEDOCS_OUTPUT/pdf &&
         mv *.pdf $READTHEDOCS_OUTPUT/pdf/ &&
-        cd ../.. &&
-        python -m sphinx -b epub -d _build/doctrees docs/source $READTHEDOCS_OUTPUT/epub
+        cd ../..
       "
 
 sphinx:
