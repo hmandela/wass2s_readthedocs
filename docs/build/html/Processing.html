@@ -62,8 +62,7 @@
 <li class="toctree-l3"><a class="reference internal" href="Verification.html#tercile-probability-computation">Tercile Probability Computation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Verification.html#gcm-validation">GCM Validation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Verification.html#annual-year-validation">Annual Year Validation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mme.html">wass2s api</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api.html">wass2s api</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mme.html">Multi-Model Ensemble (MME) Techniques</a></li>
 </ul>
 </li>
 </ul>
@@ -108,8 +107,8 @@
 <ul class="simple">
 <li><p><strong>Dask</strong>: Required for parallel processing in gridded data computations.</p></li>
 <li><p><strong>Data Formats</strong>: Gridded data should be in xarray DataArray format with coordinates (T, Y, X). Station data should be in CDT format for daily data or CPT format for seasonal aggregation before merging.</p></li>
-<li><p><strong>Climate Data Tools (CDT)</strong>: Format for daily data.</p></li>
 </ul>
+<p><strong>Climate Data Tools (CDT)</strong>: Format for daily data.</p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>ID</p></th>
@@ -176,60 +175,19 @@
 </tr>
 </tbody>
 </table>
-<ul class="simple">
-<li><p><strong>Climate Prediction Tools (CPT)</strong>: Format for seasonal aggregation (used in climate prediction tools) before merging.</p></li>
-</ul>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>STATION</p></th>
-<th class="head"><p>ABEO</p></th>
-<th class="head"><p>ABUJ</p></th>
-<th class="head"><p>ADEK</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>LAT</p></td>
-<td><p>7.2</p></td>
-<td><p>7.6</p></td>
-<td><p>9.0</p></td>
-</tr>
-<tr class="row-odd"><td><p>LON</p></td>
-<td><p>3.3</p></td>
-<td><p>5.2</p></td>
-<td><p>7.2</p></td>
-</tr>
-<tr class="row-even"><td><p>1991</p></td>
-<td><p>514.9</p></td>
-<td><p>715.1</p></td>
-<td><p>934.3</p></td>
-</tr>
-<tr class="row-odd"><td><p>1992</p></td>
-<td><p>503.6</p></td>
-<td><p>736.4</p></td>
-<td><p>714.6</p></td>
-</tr>
-<tr class="row-even"><td><p>1993</p></td>
-<td><p>414.6</p></td>
-<td><p>891.0</p></td>
-<td><p>709.6</p></td>
-</tr>
-<tr class="row-odd"><td><p>1994</p></td>
-<td><p>345.6</p></td>
-<td><p>1034.7</p></td>
-<td><p>491.7</p></td>
-</tr>
-<tr class="row-even"><td><p>1995</p></td>
-<td><p>492.2</p></td>
-<td><p>837.6</p></td>
-<td><p>938.8</p></td>
-</tr>
-<tr class="row-odd"><td><p>…</p></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<p><strong>Climate Prediction Tools (CPT)</strong>: Format for seasonal aggregation (used in climate prediction tools) before merging.
+======= ===== ====== =====
+STATION ABEO  ABUJ   ADEK
+======= ===== ====== =====
+LAT     7.2   7.6    9.0
+LON     3.3   5.2    7.2
+1991    514.9 715.1  934.3
+1992    503.6 736.4  714.6
+1993    414.6 891.0  709.6
+1994    345.6 1034.7 491.7
+1995    492.2 837.6  938.8
+…
+======= ===== ====== =====</p>
 <section id="computing-predictands">
 <h2>Computing Predictands<a class="headerlink" href="#computing-predictands" title="Link to this heading"></a></h2>
 <p>This section includes classes for computing various climate indices:</p>

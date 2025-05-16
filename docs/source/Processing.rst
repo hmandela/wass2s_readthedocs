@@ -13,7 +13,7 @@ These modules are divided into two main parts:
 * **Dask**: Required for parallel processing in gridded data computations.
 * **Data Formats**: Gridded data should be in xarray DataArray format with coordinates (T, Y, X). Station data should be in CDT format for daily data or CPT format for seasonal aggregation before merging.
 
-* **Climate Data Tools (CDT)**: Format for daily data.
+**Climate Data Tools (CDT)**: Format for daily data.
 
 ============ ======== ========== 
 ID           ALLADA   APLAHOUE   
@@ -36,7 +36,7 @@ DAILY/ELEV   92.0     153.0
 
 
 
-* **Climate Prediction Tools (CPT)**: Format for seasonal aggregation (used in climate prediction tools) before merging.
+**Climate Prediction Tools (CPT)**: Format for seasonal aggregation (used in climate prediction tools) before merging.
 ======= ===== ====== =====
 STATION ABEO  ABUJ   ADEK 
 ======= ===== ====== =====
