@@ -7,7 +7,7 @@ build:
   commands:
     - wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
     - bash miniconda.sh -b -p $HOME/miniconda
-    - bash -c "export PATH=$HOME/miniconda/bin:$PATH && source $HOME/miniconda/etc/profile.d/conda.sh && conda env create -f docs/WAS_S2S_linux.yml && conda activate WASS2S && pip install -r docs/requirements.txt && python -m sphinx -b html -d _build/doctrees docs/source $READTHEDOCS_OUTPUT/html"
+    - bash -c "export PATH=$HOME/miniconda/bin:$PATH && source $HOME/miniconda/etc/profile.d/conda.sh && conda env create -f docs/WAS_S2S_linux.yml && conda activate WASS2S && pip install -r docs/requirements.txt && python -m sphinx -b html -d _build/doctrees docs/source $READTHEDOCS_OUTPUT/html && python -m sphinx -b pdf -d _build/doctrees docs/source $READTHEDOCS_OUTPUT/pdf && python -m sphinx -b epub -d _build/doctrees docs/source $READTHEDOCS_OUTPUT/epub"
 
 sphinx:
   configuration: docs/source/conf.py
