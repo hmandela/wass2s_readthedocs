@@ -65,8 +65,7 @@
 <li class="toctree-l3"><a class="reference internal" href="Verification.html#tercile-probability-computation">Tercile Probability Computation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Verification.html#gcm-validation">GCM Validation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Verification.html#annual-year-validation">Annual Year Validation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mme.html">wass2s api</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api.html">wass2s api</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mme.html">Multi-Model Ensemble (MME) Techniques</a></li>
 </ul>
 </li>
 </ul>
@@ -104,48 +103,6 @@
 <p>The Models modules provide a comprehensive suite of statistical and machine learning models for climate prediction, including linear models, EOF-based models, canonical correlation analysis (CCA), analog methods, and multi-model ensemble (MME) techniques.
 These models are designed to handle both deterministic and probabilistic forecasts, with support for hyperparameter tuning.
 Models are evaluated using cross-validation schemes. Let’s get started with cross-validation class before going dive into the models.</p>
-<p>Cross-validation schemes are used to assess model performance and to quantify uncertainty.</p>
-<figure class="align-default" id="id1">
-<a class="reference internal image-reference" href="_images/cv.png"><img alt="Cross-validation scheme used in wass2s" src="_images/cv.png" style="width: 693.0px; height: 303.09999999999997px;" />
-</a>
-<figcaption>
-<p><span class="caption-text">Figure 1: Cross-validation scheme used in wass2s</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
-</figcaption>
-</figure>
-<p>The cross-validation module provides a custom cross-validator for time series data:</p>
-<ul class="simple">
-<li><p><cite>CustomTimeSeriesSplit</cite>: A custom splitter for time series data that accounts for temporal dependencies.</p></li>
-<li><p><cite>WAS_Cross_Validator</cite>: A wrapper class that uses the custom splitter to perform cross-validation with various models.</p></li>
-</ul>
-<p><strong>CustomTimeSeriesSplit</strong></p>
-<p><strong>Initialization</strong></p>
-<ul class="simple">
-<li><p><cite>n_splits</cite>: Number of splits for cross-validation.</p></li>
-</ul>
-<p><strong>Methods</strong></p>
-<ul class="simple">
-<li><p><cite>split</cite>: Generates indices for training and test sets, omitting a specified number of samples after the test index.</p></li>
-<li><p><cite>get_n_splits</cite>: Returns the number of splits.</p></li>
-</ul>
-<p><strong>WAS_Cross_Validator</strong></p>
-<p><strong>Initialization</strong></p>
-<ul class="simple">
-<li><p><cite>n_splits</cite>: Number of splits for cross-validation.</p></li>
-<li><p><cite>nb_omit</cite>: Number of samples to omit from training after the test index.</p></li>
-</ul>
-<p><strong>Methods</strong></p>
-<ul class="simple">
-<li><p><cite>get_model_params</cite>: Retrieves parameters for the model’s <cite>compute_model</cite> method.</p></li>
-<li><p><cite>cross_validate</cite>: Performs cross-validation and computes deterministic hindcast and tercile probabilities.</p></li>
-</ul>
-<p><strong>Example Usage</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s.was_cross_validate</span> <span class="kn">import</span> <span class="n">WAS_Cross_Validator</span>
-
-<span class="c1"># Initialize the cross-validator</span>
-<span class="n">cv</span> <span class="o">=</span> <span class="n">WAS_Cross_Validator</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">nb_omit</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>A better example will be provided in the next sections.</p>
 <p>The models modules are organized into several classes, each implementing a specific type of model:</p>
 <ol class="arabic simple">
 <li><p><strong>Linear Models</strong>: This includes linear models such as linear regression and regularized models like ridge, lasso, elastic net.</p></li>

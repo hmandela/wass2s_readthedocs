@@ -53,6 +53,8 @@ A wrapper class that uses the custom splitter to perform cross-validation with v
     # Initialize the cross-validator   
     cv = WAS_Cross_Validator(n_splits=30, nb_omit=4)
 
+A better example will be provided in the next sections.
+
 ==============================================
 Estimating Prediction Uncertainty
 ==============================================

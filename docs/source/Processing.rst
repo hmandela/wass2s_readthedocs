@@ -34,18 +34,7 @@ DAILY/ELEV   92.0     153.0
 ...      
 ============ ======== ==========
 
-======= ===== ====== =====
-ID      ABEO  ABUJ   ADEK 
-======= ===== ====== =====
-LON     7.2   7.6    9.0  
-LAT     3.3   5.2    7.2  
-DAILY/ELEV 92.9 71.1  34.3
-1992    503.6 736.4  714.6
-1993    414.6 891.0  709.6
-1994    345.6 1034.7 491.7
-1995    492.2 837.6  938.8
-...
-======= ===== ====== =====
+
 
 * **Climate Prediction Tools (CPT)**: Format for seasonal aggregation (used in climate prediction tools) before merging.
 ======= ===== ====== =====
