@@ -8,9 +8,11 @@ build:
     - wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
     - bash miniconda.sh -b -p $HOME/miniconda
     - export PATH="$HOME/miniconda/bin:$PATH"
-    - conda activate
-    - conda install -c conda-forge -c hallkjc01 xcast 
-    - pip install -r docs/pre-requirements.txt  # Or your documentation requirements file
+    - hash -r
+    - conda env create -f docs/WAS_S2S_linux.yml
+    - conda activate WASS2S
+#    - conda install -c conda-forge -c hallkjc01 xcast 
+#    - pip install -r docs/pre-requirements.txt  # Or your documentation requirements file
     - pip install -r docs/requirements.txt  # Or your documentation requirements file
     - python -m sphinx -b html -d _build/doctrees docs _build/html
 
