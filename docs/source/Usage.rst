@@ -17,8 +17,6 @@ or download the zip file:
    wget https://github.com/hmandela/WASS2S_notebooks/archive/refs/heads/main.zip -O WASS2S_notebooks.zip
 
 
-Modules
--------
 
 .. toctree::
    :maxdepth: 1
