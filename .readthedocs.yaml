@@ -39,3 +39,9 @@ python:
     - requirements: docs/pre-requirements.txt
     - requirements: docs/requirements.txt
 
+conda:
+  channels:
+    - conda-forge
+    - hallkjc01
+  dependencies:
+    - xcast
