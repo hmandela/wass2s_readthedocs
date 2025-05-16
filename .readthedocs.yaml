@@ -8,7 +8,9 @@ build:
     - wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
     - bash miniconda.sh -b -p $HOME/miniconda
     - export PATH="$HOME/miniconda/bin:$PATH"
-    - hash -r
+    - source $HOME/miniconda/bin/activate  # Initialize Conda
+    - conda init bash # Recommended for proper shell integration
+    - source $HOME/miniconda/bin/activate # Activate base after init
     - conda env create -f docs/WAS_S2S_linux.yml
     - conda activate WASS2S
 #    - conda install -c conda-forge -c hallkjc01 xcast 
