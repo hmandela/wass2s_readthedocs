@@ -3,20 +3,26 @@ version: 2
 build:
   os: ubuntu-22.04
   tools:
-    python: "3.11"  # Or your desired Python version
+    python: "3.11"  # Specify Python version (though overridden by Miniconda)
   commands:
+    # Download Miniconda installer
     - wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
+    # Install Miniconda in batch mode to $HOME/miniconda
     - bash miniconda.sh -b -p $HOME/miniconda
+    # Update PATH to include Miniconda binaries
     - export PATH="$HOME/miniconda/bin:$PATH"
-    - . $HOME/miniconda/etc/profile.d/conda.sh # Initialize Conda
-    - conda init bash # Recommended for proper shell integration
+    # Source Conda script to initialize the environment (instead of conda init)
+    - source $HOME/miniconda/etc/profile.d/conda.sh
+    # Verify Conda is installed (optional, for debugging)
+    - conda --version
+    # Create the Conda environment from the YAML file
     - conda env create -f docs/WAS_S2S_linux.yml
+    # Activate the environment
     - conda activate WASS2S
-#    - conda install -c conda-forge -c hallkjc01 xcast 
-#    - pip install -r docs/pre-requirements.txt  # Or your documentation requirements file
-    - pip install -r docs/requirements.txt  # Or your documentation requirements file
+    # Install additional dependencies via pip
+    - pip install -r docs/requirements.txt
+    # Build Sphinx documentation
     - python -m sphinx -b html -d _build/doctrees docs _build/html
-
 
 formats:
   - pdf
