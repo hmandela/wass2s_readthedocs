@@ -7,29 +7,43 @@ build:
   commands:
     - wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
     - bash miniconda.sh -b -p $HOME/miniconda
-    # Group all subsequent Conda operations within a single bash shell invocation
+    # Execute all Conda-related operations within a single bash shell instance.
+    # The 'bash -ec |' command tells YAML to treat the following indented block
+    # as a literal multi-line string argument for 'bash -e -c'.
     # -e: exit immediately if a command exits with a non-zero status.
-    # -c: read commands from the string.
-    - bash -ec ' \
-        echo "Setting PATH and sourcing conda.sh..."; \
-        export PATH="$HOME/miniconda/bin:$PATH"; \
-        source "$HOME/miniconda/etc/profile.d/conda.sh"; \
-        \
-        echo "Running conda init bash..."; \
-        conda init bash; \
-        \
-        echo "Creating conda environment: WASS2S..."; \
-        conda env create -f docs/WAS_S2S_linux.yml; \
-        \
-        echo "Activating conda environment: WASS2S..."; \
-        conda activate WASS2S; \
-        \
-        echo "Installing pip requirements..."; \
-        pip install -r docs/requirements.txt; \
-        \
-        echo "Building Sphinx documentation..."; \
-        python -m sphinx -b html -d _build/doctrees docs _build/html \
-      '
+    # -x: print each command before it is executed (useful for debugging).
+    - bash -ec |
+        set -e
+        set -x
+
+        echo "Setting PATH for the current bash script"
+        export PATH="$HOME/miniconda/bin:$PATH"
+
+        echo "Sourcing conda.sh within bash to initialize Conda for this session"
+        # 'source' is a bash command to execute commands from a file in the current shell.
+        source "$HOME/miniconda/etc/profile.d/conda.sh"
+
+        echo "Running conda init bash (configures .bashrc for future shells and initializes current)"
+        conda init bash
+
+        echo "Creating conda environment: WASS2S from docs/WAS_S2S_linux.yml"
+        conda env create -f docs/WAS_S2S_linux.yml
+
+        echo "Activating conda environment: WASS2S"
+        # 'conda activate' is a shell function defined by sourcing conda.sh.
+        # It modifies the current shell's environment.
+        conda activate WASS2S
+
+        echo "Verifying Python and pip versions after activation"
+        which python
+        python --version
+        pip --version
+
+        echo "Installing pip requirements into the WASS2S environment"
+        pip install -r docs/requirements.txt
+
+        echo "Running Sphinx build using Python from the WASS2S environment"
+        python -m sphinx -b html -d _build/doctrees docs _build/html
 
 formats:
   - pdf
