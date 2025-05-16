@@ -1,11 +1,8 @@
-References
-==============
-
 wass2s submodules
 -----------------
 
 wass2s.was\_download module
----------------------------
+==========================                            
 
 .. automodule:: wass2s.was_download
    :members:
@@ -13,7 +10,7 @@ wass2s.was\_download module
    :undoc-members:
 
 wass2s.was\_compute\_predictand module
---------------------------------------
+======================================
 
 .. automodule:: wass2s.was_compute_predictand
    :members:
@@ -21,7 +18,7 @@ wass2s.was\_compute\_predictand module
    :undoc-members:
 
 wass2s.was\_merge\_predictand module
-------------------------------------
+====================================
 
 .. automodule:: wass2s.was_merge_predictand
    :members:
@@ -29,7 +26,7 @@ wass2s.was\_merge\_predictand module
    :undoc-members:
 
 wass2s.was\_cross\_validate module
-----------------------------------
+====================================
 
 .. automodule:: wass2s.was_cross_validate
    :members:
@@ -37,7 +34,7 @@ wass2s.was\_cross\_validate module
    :undoc-members:
 
 wass2s.was\_linear\_models module
----------------------------------
+====================================
 
 .. automodule:: wass2s.was_linear_models
    :members:
@@ -46,7 +43,7 @@ wass2s.was\_linear\_models module
 
 
 wass2s.was\_eof module
-----------------------
+====================================
 
 .. automodule:: wass2s.was_eof
    :members:
@@ -54,7 +51,7 @@ wass2s.was\_eof module
    :undoc-members:
 
 wass2s.was\_pcr module
-----------------------
+====================================
 
 .. automodule:: wass2s.was_pcr
    :members:
@@ -63,7 +60,7 @@ wass2s.was\_pcr module
 
 
 wass2s.was\_cca module
-----------------------
+====================================
 
 .. automodule:: wass2s.was_cca
    :members:
@@ -71,7 +68,7 @@ wass2s.was\_cca module
    :undoc-members:
 
 wass2s.was\_machine\_learning module
-------------------------------------
+====================================
 
 .. automodule:: wass2s.was_machine_learning
    :members:
@@ -80,7 +77,7 @@ wass2s.was\_machine\_learning module
 
 
 wass2s.was\_analog module
--------------------------
+==========================
 
 .. automodule:: wass2s.was_analog
    :members:
@@ -88,8 +85,16 @@ wass2s.was\_analog module
    :undoc-members:
 
 
+wass2s.was\_verification module
+===============================
+
+.. automodule:: wass2s.was_verification
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 wass2s.was\_mme module
-----------------------
+==========================
 
 .. automodule:: wass2s.was_mme
    :members:
@@ -97,17 +102,8 @@ wass2s.was\_mme module
    :undoc-members:
 
 
-wass2s.was\_verification module
--------------------------------
-
-.. automodule:: wass2s.was_verification
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
-
 wass2s.utils module
--------------------
+===================
 
 .. automodule:: wass2s.utils
    :members:
