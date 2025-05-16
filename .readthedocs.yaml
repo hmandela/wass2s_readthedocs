@@ -9,6 +9,9 @@ build:
     - bash miniconda.sh -b -p $HOME/miniconda
     - bash -c "export PATH=$HOME/miniconda/bin:$PATH && source $HOME/miniconda/etc/profile.d/conda.sh && conda env create -f docs/WAS_S2S_linux.yml && conda activate WASS2S && pip install -r docs/requirements.txt && python -m sphinx -b html -d _build/doctrees docs _build/html"
 
+sphinx:
+  configuration: docs/source/conf.py
+
 formats:
   - pdf
   - epub
