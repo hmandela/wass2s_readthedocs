@@ -19,6 +19,7 @@ build:
         pdflatex -interaction=nonstopmode *.tex &&
         pdflatex -interaction=nonstopmode *.tex &&
         mkdir -p $READTHEDOCS_OUTPUT/pdf &&
+        rm -rf $READTHEDOCS_OUTPUT/pdf/* &&
         mv *.pdf $READTHEDOCS_OUTPUT/pdf/ &&
         cd ../..
       "
