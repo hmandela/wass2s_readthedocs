@@ -12,7 +12,15 @@ build:
         source $HOME/miniconda/etc/profile.d/conda.sh &&
         conda env create -f docs/WAS_S2S_linux.yml &&
         conda activate WASS2S &&
-        pip install -r docs/requirements.txt
+        pip install -r docs/requirements.txt &&
+        python -m sphinx -b html -d _build/doctrees docs/source $READTHEDOCS_OUTPUT/html &&
+        python -m sphinx -b latex -d _build/doctrees docs/source _build/latex &&
+        cd _build/latex &&
+        pdflatex -interaction=nonstopmode *.tex &&
+        pdflatex -interaction=nonstopmode *.tex &&
+        mkdir -p $READTHEDOCS_OUTPUT/pdf &&
+        mv *.pdf $READTHEDOCS_OUTPUT/pdf/ &&
+        cd ../..
       "
 
 sphinx:
