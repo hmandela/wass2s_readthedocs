@@ -16,12 +16,18 @@ The models modules are organized into several classes, each implementing a speci
 4. **Analog Methods**: For finding historical analogs to current conditions.
 5. **Multi-Model Ensemble (MME) Techniques**: For combining predictions from multiple models.
 
-**Prerequisites**
+==============================================
+Linear Models
+==============================================
 
-- **xeofs**: For EOF and CCA analysis.
-- **scikit-learn** and **Xcast**: For machine learning models and utilities.
-- **xarray**: For handling multi-dimensional data arrays.
-- **dask**: For parallel computing.
+- `WAS_LinearRegression_Model`: Standard linear regression.
+- `WAS_Ridge_Model`: Ridge regression with L2 regularization.
+- `WAS_Lasso_Model`: Lasso regression with L1 regularization.
+- `WAS_LassoLars_Model`: Lasso regression using the LARS algorithm.
+- `WAS_ElasticNet_Model`: Elastic net regression combining L1 and L2 regularization.
+- `WAS_LogisticRegression_Model`: Logistic regression for classification.
+
+
 
 ==============================================
 Machine Learning Models

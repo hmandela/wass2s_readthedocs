@@ -37,6 +37,7 @@ DAILY/ELEV   92.0     153.0
 
 
 **Climate Prediction Tools (CPT)**: Format for seasonal aggregation (used in climate prediction tools) before merging.
+
 ======= ===== ====== =====
 STATION ABEO  ABUJ   ADEK 
 ======= ===== ====== =====

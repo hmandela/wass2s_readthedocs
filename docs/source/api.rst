@@ -111,10 +111,3 @@ wass2s.utils module
    :undoc-members:
 
 
-.. Module contents
-.. ---------------
-
-.. .. automodule:: wass2s
-   :members:
-   :show-inheritance:
-   :undoc-members:
