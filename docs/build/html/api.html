@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>References &mdash; wass2s 0.1.0 documentation</title>
+  <title>wass2s submodules &mdash; wass2s 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
@@ -45,9 +45,8 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Usage.html">Usage</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">References</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#wass2s-submodules">wass2s submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-wass2s.was_download">wass2s.was_download module</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">wass2s submodules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#wass2s-was-download-module">wass2s.was_download module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#wass2s.was_download.WAS_Download"><code class="docutils literal notranslate"><span class="pre">WAS_Download</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_download.WAS_Download.AgroObsName"><code class="docutils literal notranslate"><span class="pre">WAS_Download.AgroObsName()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_download.WAS_Download.ModelsName"><code class="docutils literal notranslate"><span class="pre">WAS_Download.ModelsName()</span></code></a></li>
@@ -483,6 +482,51 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#module-wass2s.was_verification">wass2s.was_verification module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification"><code class="docutils literal notranslate"><span class="pre">WAS_Verification</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.calculate_groc"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.calculate_groc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.calculate_rpss"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.calculate_rpss()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.calculate_rpss_"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.calculate_rpss_()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.calculate_tercile_probabilities()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_gamma"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.calculate_tercile_probabilities_gamma()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_lognormal"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.calculate_tercile_probabilities_lognormal()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_nonparametric"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.calculate_tercile_probabilities_nonparametric()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_normal"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.calculate_tercile_probabilities_normal()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_weibull_min"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.calculate_tercile_probabilities_weibull_min()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.classify"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.classify()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.classify_data_into_terciles"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.classify_data_into_terciles()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.classify_percent"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.classify_percent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.compute_class"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.compute_class()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.compute_crps"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.compute_crps()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.compute_deterministic_score"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.compute_deterministic_score()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.compute_one_year_rpss"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.compute_one_year_rpss()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.compute_probabilistic_score"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.compute_probabilistic_score()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.gcm_compute_prob"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.gcm_compute_prob()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.gcm_compute_prob_ensemble_method"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.gcm_compute_prob_ensemble_method()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.gcm_validation_compute"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.gcm_validation_compute()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.gcm_validation_compute_"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.gcm_validation_compute_()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.get_scores_metadata"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.get_scores_metadata()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.ignorance_score"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.ignorance_score()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.index_of_agreement"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.index_of_agreement()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.kling_gupta_efficiency"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.kling_gupta_efficiency()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.mean_absolute_error"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.mean_absolute_error()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.nash_sutcliffe_efficiency"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.nash_sutcliffe_efficiency()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.pearson_corr"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.pearson_corr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.plot_model_score"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.plot_model_score()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.plot_models_score"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.plot_models_score()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.plot_roc_curves"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.plot_roc_curves()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.ratio_to_average"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.ratio_to_average()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.reliability_diagram"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.reliability_diagram()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.reliability_score_grid"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.reliability_score_grid()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.resolution_and_reliability_over_all_grid"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.resolution_and_reliability_over_all_grid()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.resolution_score_grid"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.resolution_score_grid()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.root_mean_square_error"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.root_mean_square_error()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.taylor_diagram"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.taylor_diagram()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.weighted_gcm_forecasts"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.weighted_gcm_forecasts()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#module-wass2s.was_mme">wass2s.was_mme module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#wass2s.was_mme.BMA"><code class="docutils literal notranslate"><span class="pre">BMA</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_mme.BMA.compute_error_based_prior"><code class="docutils literal notranslate"><span class="pre">BMA.compute_error_based_prior()</span></code></a></li>
@@ -690,51 +734,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#wass2s.was_mme.process_datasets_for_mme_"><code class="docutils literal notranslate"><span class="pre">process_datasets_for_mme_()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-wass2s.was_verification">wass2s.was_verification module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification"><code class="docutils literal notranslate"><span class="pre">WAS_Verification</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.calculate_groc"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.calculate_groc()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.calculate_rpss"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.calculate_rpss()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.calculate_rpss_"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.calculate_rpss_()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.calculate_tercile_probabilities()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_gamma"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.calculate_tercile_probabilities_gamma()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_lognormal"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.calculate_tercile_probabilities_lognormal()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_nonparametric"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.calculate_tercile_probabilities_nonparametric()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_normal"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.calculate_tercile_probabilities_normal()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_weibull_min"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.calculate_tercile_probabilities_weibull_min()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.classify"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.classify()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.classify_data_into_terciles"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.classify_data_into_terciles()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.classify_percent"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.classify_percent()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.compute_class"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.compute_class()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.compute_crps"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.compute_crps()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.compute_deterministic_score"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.compute_deterministic_score()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.compute_one_year_rpss"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.compute_one_year_rpss()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.compute_probabilistic_score"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.compute_probabilistic_score()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.gcm_compute_prob"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.gcm_compute_prob()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.gcm_compute_prob_ensemble_method"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.gcm_compute_prob_ensemble_method()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.gcm_validation_compute"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.gcm_validation_compute()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.gcm_validation_compute_"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.gcm_validation_compute_()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.get_scores_metadata"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.get_scores_metadata()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.ignorance_score"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.ignorance_score()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.index_of_agreement"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.index_of_agreement()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.kling_gupta_efficiency"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.kling_gupta_efficiency()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.mean_absolute_error"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.mean_absolute_error()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.nash_sutcliffe_efficiency"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.nash_sutcliffe_efficiency()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.pearson_corr"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.pearson_corr()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.plot_model_score"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.plot_model_score()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.plot_models_score"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.plot_models_score()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.plot_roc_curves"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.plot_roc_curves()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.ratio_to_average"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.ratio_to_average()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.reliability_diagram"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.reliability_diagram()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.reliability_score_grid"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.reliability_score_grid()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.resolution_and_reliability_over_all_grid"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.resolution_and_reliability_over_all_grid()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.resolution_score_grid"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.resolution_score_grid()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.root_mean_square_error"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.root_mean_square_error()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.taylor_diagram"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.taylor_diagram()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_verification.WAS_Verification.weighted_gcm_forecasts"><code class="docutils literal notranslate"><span class="pre">WAS_Verification.weighted_gcm_forecasts()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="#module-wass2s.utils">wass2s.utils module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#wass2s.utils.anomalize_timeseries"><code class="docutils literal notranslate"><span class="pre">anomalize_timeseries()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#wass2s.utils.build_iridl_url_ersst"><code class="docutils literal notranslate"><span class="pre">build_iridl_url_ersst()</span></code></a></li>
@@ -785,7 +784,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">References</li>
+      <li class="breadcrumb-item active">wass2s submodules</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -795,14 +794,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="references">
-<h1>References<a class="headerlink" href="#references" title="Link to this heading"></a></h1>
-<section id="wass2s-submodules">
-<h2>wass2s submodules<a class="headerlink" href="#wass2s-submodules" title="Link to this heading"></a></h2>
-</section>
-<section id="module-wass2s.was_download">
-<span id="wass2s-was-download-module"></span><h2>wass2s.was_download module<a class="headerlink" href="#module-wass2s.was_download" title="Link to this heading"></a></h2>
-<dl class="py class">
+  <section id="wass2s-submodules">
+<h1>wass2s submodules<a class="headerlink" href="#wass2s-submodules" title="Link to this heading"></a></h1>
+<section id="wass2s-was-download-module">
+<h2>wass2s.was_download module<a class="headerlink" href="#wass2s-was-download-module" title="Link to this heading"></a></h2>
+<dl class="py class" id="module-wass2s.was_download">
 <dt class="sig sig-object py" id="wass2s.was_download.WAS_Download">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wass2s.was_download.</span></span><span class="sig-name descname"><span class="pre">WAS_Download</span></span><a class="headerlink" href="#wass2s.was_download.WAS_Download" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
@@ -5527,6 +5523,974 @@ handling both NOAA ERSST and ERA5 datasets.</p>
 </dd></dl>
 
 </section>
+<section id="module-wass2s.was_verification">
+<span id="wass2s-was-verification-module"></span><h2>wass2s.was_verification module<a class="headerlink" href="#module-wass2s.was_verification" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wass2s.was_verification.</span></span><span class="sig-name descname"><span class="pre">WAS_Verification</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dist_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gamma'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Verification class for evaluating weather and climate forecasts.</p>
+<p>Provides methods to compute deterministic, probabilistic, and ensemble-based metrics,
+as well as visualization tools for model performance assessment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dist_method</strong> (<em>str</em><em>, </em><em>optional</em>) – Distribution method for tercile probability calculations
+(‘t’, ‘gamma’, ‘nonparam’, ‘normal’, ‘lognormal’, ‘weibull_min’). Default is ‘gamma’.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.calculate_groc">
+<span class="sig-name descname"><span class="pre">calculate_groc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_probs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_classes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.calculate_groc" title="Link to this definition"></a></dt>
+<dd><p>Compute Generalized Receiver Operating Characteristic (GROC) score.</p>
+<p>Averages the Area Under the Curve (AUC) for each tercile category.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_true</strong> (<em>array-like</em>) – Observed values.</p></li>
+<li><p><strong>y_probs</strong> (<em>array-like</em>) – Forecast probabilities with shape (n_classes, n_samples).</p></li>
+<li><p><strong>index_start</strong> (<em>int</em>) – Start index of the climatology period.</p></li>
+<li><p><strong>index_end</strong> (<em>int</em>) – End index of the climatology period.</p></li>
+<li><p><strong>n_classes</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of classes (default is 3 for terciles).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>GROC score, ranging from 0 to 1. Returns np.nan if insufficient valid data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.calculate_rpss">
+<span class="sig-name descname"><span class="pre">calculate_rpss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_probs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_end</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.calculate_rpss" title="Link to this definition"></a></dt>
+<dd><p>Compute Ranked Probability Skill Score (RPSS).</p>
+<p>Compares the Ranked Probability Score (RPS) of the forecast to a climatological reference.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_true</strong> (<em>array-like</em>) – Observed values.</p></li>
+<li><p><strong>y_probs</strong> (<em>array-like</em>) – Forecast probabilities with shape (n_classes, n_samples).</p></li>
+<li><p><strong>index_start</strong> (<em>int</em>) – Start index of the climatology period.</p></li>
+<li><p><strong>index_end</strong> (<em>int</em>) – End index of the climatology period.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>RPSS score, ranging from -Inf to 1. Returns np.nan if insufficient valid data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.calculate_rpss_">
+<span class="sig-name descname"><span class="pre">calculate_rpss_</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_probs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.calculate_rpss_" title="Link to this definition"></a></dt>
+<dd><p>Compute Ranked Probability Skill Score (RPSS) for a single grid point or sample.</p>
+<p>Compares the Ranked Probability Score (RPS) of the forecast to a climatological
+reference with uniform probabilities (1/3 for each tercile).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_true</strong> (<em>array-like</em><em> of </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em>) – True class labels, already classified into terciles (0: below-normal, 1: near-normal, 2: above-normal).</p></li>
+<li><p><strong>y_probs</strong> (<em>array-like</em><em> of </em><em>shape</em><em> (</em><em>3</em><em>, </em><em>n_samples</em><em>)</em>) – Forecast probabilities for each tercile category.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>RPSS score, ranging from -Inf to 1 (1 indicates perfect forecast skill).
+Returns np.nan if insufficient valid data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calculate_tercile_probabilities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">best_guess</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_variance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_tercile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">second_tercile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dof</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities" title="Link to this definition"></a></dt>
+<dd><p>Calculate tercile probabilities using Student’s t-distribution.</p>
+<p>Computes probabilities for below-normal, normal, and above-normal categories.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>best_guess</strong> (<em>array-like</em>) – Forecast or best-guess values.</p></li>
+<li><p><strong>error_variance</strong> (<em>array-like</em>) – Variance of forecast errors.</p></li>
+<li><p><strong>first_tercile</strong> (<em>array-like</em>) – First tercile threshold values.</p></li>
+<li><p><strong>second_tercile</strong> (<em>array-like</em>) – Second tercile threshold values.</p></li>
+<li><p><strong>dof</strong> (<em>int</em>) – Degrees of freedom for the t-distribution.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>pred_prob</strong> – Array of shape (3, n_time) with probabilities for below, normal, and above categories.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_gamma">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calculate_tercile_probabilities_gamma</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">best_guess</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_variance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_gamma" title="Link to this definition"></a></dt>
+<dd><p>Calculate tercile probabilities using Gamma distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>best_guess</strong> (<em>array-like</em>) – Forecast or best-guess values.</p></li>
+<li><p><strong>error_variance</strong> (<em>array-like</em>) – Variance of forecast errors.</p></li>
+<li><p><strong>T1</strong> (<em>array-like</em>) – First tercile threshold values.</p></li>
+<li><p><strong>T2</strong> (<em>array-like</em>) – Second tercile threshold values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>pred_prob</strong> – Array of shape (3, n_time) with probabilities for below, normal, and above categories.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_lognormal">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calculate_tercile_probabilities_lognormal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">best_guess</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_variance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_tercile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">second_tercile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_lognormal" title="Link to this definition"></a></dt>
+<dd><p>Calculate tercile probabilities using Lognormal distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>best_guess</strong> (<em>array-like</em>) – Forecast or best-guess values.</p></li>
+<li><p><strong>error_variance</strong> (<em>array-like</em>) – Variance of forecast errors.</p></li>
+<li><p><strong>first_tercile</strong> (<em>array-like</em>) – First tercile threshold values.</p></li>
+<li><p><strong>second_tercile</strong> (<em>array-like</em>) – Second tercile threshold values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>pred_prob</strong> – Array of shape (3, n_time) with probabilities for below, normal, and above categories.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_nonparametric">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calculate_tercile_probabilities_nonparametric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">best_guess</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_tercile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">second_tercile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_nonparametric" title="Link to this definition"></a></dt>
+<dd><p>Calculate tercile probabilities using a non-parametric method.</p>
+<p>Uses historical error samples to estimate probabilities empirically.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>best_guess</strong> (<em>array-like</em>) – Forecast or best-guess values.</p></li>
+<li><p><strong>error_samples</strong> (<em>array-like</em>) – Historical error samples.</p></li>
+<li><p><strong>first_tercile</strong> (<em>array-like</em>) – First tercile threshold values.</p></li>
+<li><p><strong>second_tercile</strong> (<em>array-like</em>) – Second tercile threshold values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>pred_prob</strong> – Array of shape (3, n_time) with probabilities for below, normal, and above categories.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_normal">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calculate_tercile_probabilities_normal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">best_guess</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_variance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_tercile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">second_tercile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_normal" title="Link to this definition"></a></dt>
+<dd><p>Calculate tercile probabilities using Normal distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>best_guess</strong> (<em>array-like</em>) – Forecast or best-guess values.</p></li>
+<li><p><strong>error_variance</strong> (<em>array-like</em>) – Variance of forecast errors.</p></li>
+<li><p><strong>first_tercile</strong> (<em>array-like</em>) – First tercile threshold values.</p></li>
+<li><p><strong>second_tercile</strong> (<em>array-like</em>) – Second tercile threshold values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>pred_prob</strong> – Array of shape (3, n_time) with probabilities for below, normal, and above categories.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_weibull_min">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calculate_tercile_probabilities_weibull_min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">best_guess</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_variance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_tercile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">second_tercile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dof</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_weibull_min" title="Link to this definition"></a></dt>
+<dd><p>Calculate tercile probabilities using Weibull minimum distribution.</p>
+<p>Assumes <cite>best_guess</cite> as the location, <cite>error_std</cite> as the scale, and <cite>dof</cite> as the shape parameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>best_guess</strong> (<em>array-like</em>) – Forecast or best-guess values.</p></li>
+<li><p><strong>error_variance</strong> (<em>array-like</em>) – Variance of forecast errors.</p></li>
+<li><p><strong>first_tercile</strong> (<em>array-like</em>) – First tercile threshold values.</p></li>
+<li><p><strong>second_tercile</strong> (<em>array-like</em>) – Second tercile threshold values.</p></li>
+<li><p><strong>dof</strong> (<em>float</em><em> or </em><em>array-like</em>) – Shape parameter for the Weibull minimum distribution.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>pred_prob</strong> – Array of shape (3, n_time) with probabilities for below, normal, and above categories.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.classify">
+<span class="sig-name descname"><span class="pre">classify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_end</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.classify" title="Link to this definition"></a></dt>
+<dd><p>Classify data into terciles based on climatological thresholds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y</strong> (<em>array-like</em>) – Input data to classify.</p></li>
+<li><p><strong>index_start</strong> (<em>int</em>) – Start index of the climatology period.</p></li>
+<li><p><strong>index_end</strong> (<em>int</em>) – End index of the climatology period.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><dl class="simple">
+<dt>y_class<span class="classifier">array-like</span></dt><dd><p>Classified data (0: below-normal, 1: near-normal, 2: above-normal).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>tercile_33<span class="classifier">float</span></dt><dd><p>33rd percentile threshold.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>tercile_67<span class="classifier">float</span></dt><dd><p>67th percentile threshold.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.classify_data_into_terciles">
+<span class="sig-name descname"><span class="pre">classify_data_into_terciles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.classify_data_into_terciles" title="Link to this definition"></a></dt>
+<dd><p>Classify data into terciles based on given thresholds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y</strong> (<em>array-like</em>) – Input data to classify.</p></li>
+<li><p><strong>T1</strong> (<em>float</em>) – First tercile threshold (33rd percentile).</p></li>
+<li><p><strong>T2</strong> (<em>float</em>) – Second tercile threshold (67th percentile).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Classified data (0: below-normal, 1: near-normal, 2: above-normal).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array-like</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.classify_percent">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">classify_percent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.classify_percent" title="Link to this definition"></a></dt>
+<dd><p>Classify a percentage value into predefined categories based on thresholds.</p>
+<p>Maps a percentage ratio to one of five categories representing deviation from average.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>p</strong> (<em>float</em><em> or </em><em>array-like</em>) – Percentage value(s) to classify, typically representing a ratio to normal (%).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Category code:
+- 1: Well Above Average (&gt;= 150%)
+- 2: Above Average (&gt;= 110%)
+- 3: Near Average (&gt;= 90%)
+- 4: Below Average (&gt;= 50%)
+- 5: Well Below Average (&lt; 50%)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int or array-like</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.compute_class">
+<span class="sig-name descname"><span class="pre">compute_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.compute_class" title="Link to this definition"></a></dt>
+<dd><p>Compute tercile class labels for observed data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Predictant</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X).</p></li>
+<li><p><strong>clim_year_start</strong> (<em>int</em><em> or </em><em>str</em>) – Start year of the climatology period.</p></li>
+<li><p><strong>clim_year_end</strong> (<em>int</em><em> or </em><em>str</em>) – End year of the climatology period.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Classified data with dimensions (T, Y, X), where values are
+0 (below-normal), 1 (near-normal), or 2 (above-normal).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>xarray.DataArray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.compute_crps">
+<span class="sig-name descname"><span class="pre">compute_crps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">member_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'number'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'T'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.compute_crps" title="Link to this definition"></a></dt>
+<dd><p>Compute Continuous Ranked Probability Score (CRPS) for ensemble forecasts.</p>
+<p>Measures the difference between the forecast ensemble distribution and observations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_true</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X).</p></li>
+<li><p><strong>y_pred</strong> (<em>xarray.DataArray</em>) – Ensemble forecast data with dimensions (T, number, Y, X).</p></li>
+<li><p><strong>member_dim</strong> (<em>str</em><em>, </em><em>optional</em>) – Dimension name for ensemble members. Default is ‘number’.</p></li>
+<li><p><strong>dim</strong> (<em>str</em><em>, </em><em>optional</em>) – Dimension to compute CRPS over (typically time). Default is ‘T’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>CRPS values with dimensions (Y, X).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>xarray.DataArray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.compute_deterministic_score">
+<span class="sig-name descname"><span class="pre">compute_deterministic_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">score_func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pred</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.compute_deterministic_score" title="Link to this definition"></a></dt>
+<dd><p>Apply a deterministic scoring function over xarray DataArrays.</p>
+<p>Computes the specified metric across the time dimension for each grid point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>score_func</strong> (<em>callable</em>) – Scoring function to apply (e.g., pearson_corr, kling_gupta_efficiency).</p></li>
+<li><p><strong>obs</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X).</p></li>
+<li><p><strong>pred</strong> (<em>xarray.DataArray</em>) – Predicted data with dimensions (T, Y, X).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Score values with dimensions (Y, X).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>xarray.DataArray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.compute_one_year_rpss">
+<span class="sig-name descname"><span class="pre">compute_one_year_rpss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prob_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.compute_one_year_rpss" title="Link to this definition"></a></dt>
+<dd><p>Compute and visualize the Ranked Probability Skill Score (RPSS) for a specific year.</p>
+<p>Applies the RPSS calculation across a gridded dataset for a single year, using
+tercile classifications based on a climatology period, and plots the results on a map.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obs</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X), where T is time, Y is latitude, and X is longitude.</p></li>
+<li><p><strong>prob_pred</strong> (<em>xarray.DataArray</em>) – Forecast probabilities with dimensions (probability, T, Y, X), where probability includes
+[‘PB’, ‘PN’, ‘PA’] (below-normal, near-normal, above-normal).</p></li>
+<li><p><strong>clim_year_start</strong> (<em>int</em><em> or </em><em>str</em>) – Start year of the climatology period for tercile classification.</p></li>
+<li><p><strong>clim_year_end</strong> (<em>int</em><em> or </em><em>str</em>) – End year of the climatology period for tercile classification.</p></li>
+<li><p><strong>year</strong> (<em>int</em><em> or </em><em>str</em>) – Specific year to compute the RPSS for.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Displays a geographical plot of the RPSS values with a colorbar.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.compute_probabilistic_score">
+<span class="sig-name descname"><span class="pre">compute_probabilistic_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">score_func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prob_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.compute_probabilistic_score" title="Link to this definition"></a></dt>
+<dd><p>Apply a probabilistic scoring function over xarray DataArrays.</p>
+<p>Computes the specified probabilistic metric across the time dimension for each grid point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>score_func</strong> (<em>callable</em>) – Probabilistic scoring function to apply (e.g., calculate_rpss, calculate_groc).</p></li>
+<li><p><strong>obs</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X).</p></li>
+<li><p><strong>prob_pred</strong> (<em>xarray.DataArray</em>) – Forecast probabilities with dimensions (probability, T, Y, X).</p></li>
+<li><p><strong>clim_year_start</strong> (<em>int</em><em> or </em><em>str</em>) – Start year of the climatology period.</p></li>
+<li><p><strong>clim_year_end</strong> (<em>int</em><em> or </em><em>str</em>) – End year of the climatology period.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Score values with dimensions (Y, X).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>xarray.DataArray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.gcm_compute_prob">
+<span class="sig-name descname"><span class="pre">gcm_compute_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.gcm_compute_prob" title="Link to this definition"></a></dt>
+<dd><p>Compute tercile probabilities for GCM hindcasts.</p>
+<p>Supports multiple distribution methods for calculating probabilities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Predictant</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X).</p></li>
+<li><p><strong>clim_year_start</strong> (<em>int</em><em> or </em><em>str</em>) – Start year of the climatology period.</p></li>
+<li><p><strong>clim_year_end</strong> (<em>int</em><em> or </em><em>str</em>) – End year of the climatology period.</p></li>
+<li><p><strong>hindcast_det</strong> (<em>xarray.DataArray</em>) – Deterministic hindcast data with dimensions (T, Y, X).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tercile probabilities with dimensions (probability, T, Y, X), where
+‘probability’ includes [‘PB’, ‘PN’, ‘PA’] (below-normal, normal, above-normal).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>xarray.DataArray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.gcm_compute_prob_ensemble_method">
+<span class="sig-name descname"><span class="pre">gcm_compute_prob_ensemble_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Obs_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ensemble</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.gcm_compute_prob_ensemble_method" title="Link to this definition"></a></dt>
+<dd><p>Compute probabilistic forecasts for GCM ensemble data.</p>
+<p>Uses the specified ensemble statistic to derive best-guess forecasts and computes
+tercile probabilities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Obs_data</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X).</p></li>
+<li><p><strong>clim_year_start</strong> (<em>int</em><em> or </em><em>str</em>) – Start year of the climatology period.</p></li>
+<li><p><strong>clim_year_end</strong> (<em>int</em><em> or </em><em>str</em>) – End year of the climatology period.</p></li>
+<li><p><strong>model_data</strong> (<em>xarray.DataArray</em>) – Model ensemble data with dimensions (T, number, Y, X).</p></li>
+<li><p><strong>ensemble</strong> (<em>str</em><em>, </em><em>optional</em>) – Ensemble statistic to use (‘mean’ or other supported methods). Default is ‘mean’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tercile probabilities with dimensions (probability, T, Y, X).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>xarray.DataArray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.gcm_validation_compute">
+<span class="sig-name descname"><span class="pre">gcm_validation_compute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">models_files_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">score</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month_of_initialization</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir_to_save_roc_reliability</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lead_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ensemble_mean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gridded</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.gcm_validation_compute" title="Link to this definition"></a></dt>
+<dd><p>Validate multiple General Circulation Model (GCM) forecasts using specified metrics.</p>
+<p>Computes deterministic, probabilistic, or ensemble-based scores for GCM hindcasts
+by processing model data from provided file paths and comparing against observations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>models_files_path</strong> (<em>dict</em>) – Dictionary mapping model identifiers (e.g., model names) to file paths of hindcast NetCDF files.</p></li>
+<li><p><strong>Obs</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X), where T is time, Y is latitude, and X is longitude.</p></li>
+<li><p><strong>score</strong> (<em>str</em>) – Score to compute, must be a key in self.scores (e.g., ‘Pearson’, ‘RPSS’, ‘ROC_CURVE’, ‘RELIABILITY_DIAGRAM’).</p></li>
+<li><p><strong>month_of_initialization</strong> (<em>int</em>) – Month of forecast initialization (1-12).</p></li>
+<li><p><strong>clim_year_start</strong> (<em>int</em><em> or </em><em>str</em>) – Start year of the climatology period for computing tercile thresholds.</p></li>
+<li><p><strong>clim_year_end</strong> (<em>int</em><em> or </em><em>str</em>) – End year of the climatology period for computing tercile thresholds.</p></li>
+<li><p><strong>dir_to_save_roc_reliability</strong> (<em>str</em><em> or </em><em>Path</em>) – Directory to save ROC curves and reliability diagram plots.</p></li>
+<li><p><strong>lead_time</strong> (<em>list</em><em> of </em><em>int</em><em>, </em><em>optional</em>) – Lead times in months to define the forecast season (e.g., [1, 2, 3] for a 3-month season).
+If None, no season is specified.</p></li>
+<li><p><strong>ensemble_mean</strong> (<em>str</em><em>, </em><em>optional</em>) – Ensemble statistic to use for deterministic or probabilistic scores (e.g., ‘mean’).
+If None, ensemble mean is computed automatically when required.</p></li>
+<li><p><strong>gridded</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to perform gridded validation (True) or non-gridded (not implemented). Default is True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>If score_type is ‘det_score’, ‘prob_score’, or ‘ensemble_score’:</dt><dd><p>Dictionary with model identifiers as keys and xarray.DataArray of scores (dimensions Y, X) as values.</p>
+</dd>
+<dt>If score_type is ‘all_grid_prob_score’ (e.g., ROC_CURVE, RELIABILITY_DIAGRAM):</dt><dd><p>None, as results are saved as plots.</p>
+</dd>
+<dt>If score_type is ‘all_grid_det_score’:</dt><dd><p>None (not implemented).</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict or None</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the score is not recognized or if non-gridded validation is attempted (not implemented).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.gcm_validation_compute_">
+<span class="sig-name descname"><span class="pre">gcm_validation_compute_</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">center_variable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month_of_initialization</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lead_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">score</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir_to_save_roc_reliability</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ensemble_mean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gridded</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.gcm_validation_compute_" title="Link to this definition"></a></dt>
+<dd><p>Validate GCM forecasts using specified metrics.</p>
+<p>Computes deterministic, probabilistic, or ensemble scores for GCM hindcasts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>center_variable</strong> (<em>list</em><em> of </em><em>str</em>) – List of model identifiers (e.g., ‘center.variable’).</p></li>
+<li><p><strong>month_of_initialization</strong> (<em>int</em>) – Month of forecast initialization (1-12).</p></li>
+<li><p><strong>lead_time</strong> (<em>list</em><em> of </em><em>int</em>) – Lead times in months for the forecast season.</p></li>
+<li><p><strong>dir_model</strong> (<em>str</em><em> or </em><em>Path</em>) – Directory containing model hindcast files.</p></li>
+<li><p><strong>Obs</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X).</p></li>
+<li><p><strong>year_start</strong> (<em>int</em>) – Start year of the validation period.</p></li>
+<li><p><strong>year_end</strong> (<em>int</em>) – End year of the validation period.</p></li>
+<li><p><strong>clim_year_start</strong> (<em>int</em>) – Start year of the climatology period.</p></li>
+<li><p><strong>clim_year_end</strong> (<em>int</em>) – End year of the climatology period.</p></li>
+<li><p><strong>area</strong> (<em>str</em>) – Geographical area for validation (not used in current implementation).</p></li>
+<li><p><strong>score</strong> (<em>str</em>) – Score to compute (e.g., ‘Pearson’, ‘RPSS’, ‘ROC_CURVE’).</p></li>
+<li><p><strong>dir_to_save_roc_reliability</strong> (<em>str</em><em> or </em><em>Path</em>) – Directory to save ROC and reliability plots.</p></li>
+<li><p><strong>ensemble_mean</strong> (<em>str</em><em>, </em><em>optional</em>) – Ensemble statistic to use if needed (e.g., ‘mean’). Default is None.</p></li>
+<li><p><strong>gridded</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to perform gridded validation. Default is True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary of model scores with keys as model identifiers and values as xarray.DataArray,
+or None for plotting scores (e.g., ROC_CURVE, RELIABILITY_DIAGRAM).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.get_scores_metadata">
+<span class="sig-name descname"><span class="pre">get_scores_metadata</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.get_scores_metadata" title="Link to this definition"></a></dt>
+<dd><p>Retrieve metadata for all available scoring metrics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary containing score names as keys and tuples of metadata
+(description, min_value, max_value, score_type, colormap, function) as values.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.ignorance_score">
+<span class="sig-name descname"><span class="pre">ignorance_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_probs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_end</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.ignorance_score" title="Link to this definition"></a></dt>
+<dd><p>Compute Ignorance Score based on Weijs (2010).</p>
+<p>Measures the logarithmic loss of forecast probabilities for the true category.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_true</strong> (<em>array-like</em>) – Observed values.</p></li>
+<li><p><strong>y_probs</strong> (<em>array-like</em>) – Forecast probabilities with shape (n_classes, n_samples).</p></li>
+<li><p><strong>index_start</strong> (<em>int</em>) – Start index of the climatology period.</p></li>
+<li><p><strong>index_end</strong> (<em>int</em>) – End index of the climatology period.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Ignorance score, non-negative. Returns np.nan if insufficient valid data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.index_of_agreement">
+<span class="sig-name descname"><span class="pre">index_of_agreement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.index_of_agreement" title="Link to this definition"></a></dt>
+<dd><p>Compute Index of Agreement (IOA).</p>
+<p>Measures the degree of model prediction accuracy relative to observed variability.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_true</strong> (<em>array-like</em>) – Observed values.</p></li>
+<li><p><strong>y_pred</strong> (<em>array-like</em>) – Predicted values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>IOA score, ranging from 0 to 1 (1 is perfect). Returns np.nan if insufficient valid data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.kling_gupta_efficiency">
+<span class="sig-name descname"><span class="pre">kling_gupta_efficiency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.kling_gupta_efficiency" title="Link to this definition"></a></dt>
+<dd><p>Compute Kling-Gupta Efficiency (KGE) metric.</p>
+<p>KGE combines correlation, bias, and variability ratios to assess model performance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_true</strong> (<em>array-like</em>) – Observed values.</p></li>
+<li><p><strong>y_pred</strong> (<em>array-like</em>) – Predicted values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>KGE score, ranging from -Inf to 1 (1 is perfect). Returns np.nan if insufficient valid data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.mean_absolute_error">
+<span class="sig-name descname"><span class="pre">mean_absolute_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.mean_absolute_error" title="Link to this definition"></a></dt>
+<dd><p>Compute Mean Absolute Error (MAE).</p>
+<p>Measures the average magnitude of errors in predictions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_true</strong> (<em>array-like</em>) – Observed values.</p></li>
+<li><p><strong>y_pred</strong> (<em>array-like</em>) – Predicted values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>MAE value, non-negative. Returns np.nan if insufficient valid data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.nash_sutcliffe_efficiency">
+<span class="sig-name descname"><span class="pre">nash_sutcliffe_efficiency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.nash_sutcliffe_efficiency" title="Link to this definition"></a></dt>
+<dd><p>Compute Nash-Sutcliffe Efficiency (NSE).</p>
+<p>Measures the predictive skill of the model compared to the mean of observations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_true</strong> (<em>array-like</em>) – Observed values.</p></li>
+<li><p><strong>y_pred</strong> (<em>array-like</em>) – Predicted values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>NSE score, ranging from -Inf to 1 (1 is perfect). Returns np.nan if insufficient valid data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.pearson_corr">
+<span class="sig-name descname"><span class="pre">pearson_corr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.pearson_corr" title="Link to this definition"></a></dt>
+<dd><p>Compute Pearson Correlation Coefficient.</p>
+<p>Measures the linear correlation between observed and predicted values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_true</strong> (<em>array-like</em>) – Observed values.</p></li>
+<li><p><strong>y_pred</strong> (<em>array-like</em>) – Predicted values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Pearson correlation coefficient, ranging from -1 to 1. Returns np.nan if insufficient valid data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.plot_model_score">
+<span class="sig-name descname"><span class="pre">plot_model_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_metric</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">score</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir_save_score</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figure_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'WAS_MLR'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.plot_model_score" title="Link to this definition"></a></dt>
+<dd><p>Plot a deterministic score on a map.</p>
+<p>Creates a geographical plot of the specified metric for a single model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_metric</strong> (<em>xarray.DataArray</em>) – Score values with dimensions (Y, X).</p></li>
+<li><p><strong>score</strong> (<em>str</em>) – Name of the score to plot (e.g., ‘Pearson’, ‘MAE’).</p></li>
+<li><p><strong>dir_save_score</strong> (<em>str</em><em> or </em><em>Path</em>) – Directory to save the plot.</p></li>
+<li><p><strong>figure_name</strong> (<em>str</em><em>, </em><em>optional</em>) – Prefix for the figure filename. Default is ‘WAS_MLR’.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.plot_models_score">
+<span class="sig-name descname"><span class="pre">plot_models_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_metrics</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">score</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir_save_score</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.plot_models_score" title="Link to this definition"></a></dt>
+<dd><p>Plot multiple model scores on a grid of maps.</p>
+<p>Creates a subplot grid with geographical plots for each model’s score.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_metrics</strong> (<em>dict</em>) – Dictionary of model names and their corresponding score DataArrays (Y, X).</p></li>
+<li><p><strong>score</strong> (<em>str</em>) – Name of the score to plot (e.g., ‘Pearson’, ‘MAE’).</p></li>
+<li><p><strong>dir_save_score</strong> (<em>str</em><em> or </em><em>Path</em>) – Directory to save the plot.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.plot_roc_curves">
+<span class="sig-name descname"><span class="pre">plot_roc_curves</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modelname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir_to_save_score</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_probs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_bootstraps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ci</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.95</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.plot_roc_curves" title="Link to this definition"></a></dt>
+<dd><p>Plot ROC Curves with Confidence Intervals for probabilistic forecasts.</p>
+<p>Visualizes the Receiver Operating Characteristic for each tercile category.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>modelname</strong> (<em>str</em>) – Name of the model for labeling the plot.</p></li>
+<li><p><strong>dir_to_save_score</strong> (<em>str</em><em> or </em><em>Path</em>) – Directory to save the plot.</p></li>
+<li><p><strong>y_true</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X).</p></li>
+<li><p><strong>y_probs</strong> (<em>xarray.DataArray</em>) – Forecast probabilities with dimensions (probability, T, Y, X).</p></li>
+<li><p><strong>clim_year_start</strong> (<em>int</em><em> or </em><em>str</em>) – Start year of the climatology period.</p></li>
+<li><p><strong>clim_year_end</strong> (<em>int</em><em> or </em><em>str</em>) – End year of the climatology period.</p></li>
+<li><p><strong>n_bootstraps</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of bootstrap samples for confidence intervals. Default is 200.</p></li>
+<li><p><strong>ci</strong> (<em>float</em><em>, </em><em>optional</em>) – Confidence interval level (e.g., 0.95 for 95%). Default is 0.95.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.ratio_to_average">
+<span class="sig-name descname"><span class="pre">ratio_to_average</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.ratio_to_average" title="Link to this definition"></a></dt>
+<dd><p>Compute and visualize the ratio of a specific year’s data to the climatological mean.</p>
+<p>Calculates the percentage ratio of the predictand for a given year relative to
+the mean over a climatology period, classifies it into categories, and plots the
+result on a geographical map.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predictant</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X), where T is time, Y is latitude, and X is longitude.</p></li>
+<li><p><strong>clim_year_start</strong> (<em>int</em><em> or </em><em>str</em>) – Start year of the climatology period.</p></li>
+<li><p><strong>clim_year_end</strong> (<em>int</em><em> or </em><em>str</em>) – End year of the climatology period.</p></li>
+<li><p><strong>year</strong> (<em>int</em><em> or </em><em>str</em>) – Specific year to compute the ratio for.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Displays a geographical plot of the classified ratios with a custom colormap and legend.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.reliability_diagram">
+<span class="sig-name descname"><span class="pre">reliability_diagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modelname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir_to_save_score</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_probs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([0.1,</span> <span class="pre">0.15,</span> <span class="pre">0.2,</span> <span class="pre">0.25,</span> <span class="pre">0.3,</span> <span class="pre">0.35,</span> <span class="pre">0.4,</span> <span class="pre">0.45,</span> <span class="pre">0.5,</span> <span class="pre">0.55,</span> <span class="pre">0.6,</span> <span class="pre">0.65,</span> <span class="pre">0.7])</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.reliability_diagram" title="Link to this definition"></a></dt>
+<dd><p>Plot Reliability Diagrams for probabilistic forecasts.</p>
+<p>Visualizes the calibration of forecast probabilities against observed frequencies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>modelname</strong> (<em>str</em>) – Name of the model for labeling the plot.</p></li>
+<li><p><strong>dir_to_save_score</strong> (<em>str</em><em> or </em><em>Path</em>) – Directory to save the plot.</p></li>
+<li><p><strong>y_true</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X).</p></li>
+<li><p><strong>y_probs</strong> (<em>xarray.DataArray</em>) – Forecast probabilities with dimensions (probability, T, Y, X).</p></li>
+<li><p><strong>clim_year_start</strong> (<em>int</em><em> or </em><em>str</em>) – Start year of the climatology period.</p></li>
+<li><p><strong>clim_year_end</strong> (<em>int</em><em> or </em><em>str</em>) – End year of the climatology period.</p></li>
+<li><p><strong>bins</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Probability bins for discretizing forecast probabilities.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.reliability_score_grid">
+<span class="sig-name descname"><span class="pre">reliability_score_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_probs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([0.,</span> <span class="pre">0.025,</span> <span class="pre">0.05,</span> <span class="pre">0.1,</span> <span class="pre">0.15,</span> <span class="pre">0.2,</span> <span class="pre">0.25,</span> <span class="pre">0.3,</span> <span class="pre">0.35,</span> <span class="pre">0.4,</span> <span class="pre">0.45,</span> <span class="pre">0.5,</span> <span class="pre">0.55,</span> <span class="pre">0.6,</span> <span class="pre">0.65,</span> <span class="pre">0.7,</span> <span class="pre">0.75,</span> <span class="pre">0.8,</span> <span class="pre">0.85,</span> <span class="pre">0.9,</span> <span class="pre">0.95,</span> <span class="pre">0.975,</span> <span class="pre">1.])</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.reliability_score_grid" title="Link to this definition"></a></dt>
+<dd><p>Compute Reliability Score on a grid based on Weijs (2010).</p>
+<p>Measures the calibration of forecast probabilities against observed frequencies.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_true</strong> (<em>array-like</em>) – Observed values.</p></li>
+<li><p><strong>y_probs</strong> (<em>array-like</em>) – Forecast probabilities with shape (n_classes, n_samples).</p></li>
+<li><p><strong>index_start</strong> (<em>int</em>) – Start index of the climatology period.</p></li>
+<li><p><strong>index_end</strong> (<em>int</em>) – End index of the climatology period.</p></li>
+<li><p><strong>bins</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Probability bins for discretizing forecast probabilities.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Reliability score. Returns np.nan if insufficient valid data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.resolution_and_reliability_over_all_grid">
+<span class="sig-name descname"><span class="pre">resolution_and_reliability_over_all_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_to_save_score</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_probs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([0.,</span> <span class="pre">0.025,</span> <span class="pre">0.05,</span> <span class="pre">0.1,</span> <span class="pre">0.15,</span> <span class="pre">0.2,</span> <span class="pre">0.25,</span> <span class="pre">0.3,</span> <span class="pre">0.35,</span> <span class="pre">0.4,</span> <span class="pre">0.45,</span> <span class="pre">0.5,</span> <span class="pre">0.55,</span> <span class="pre">0.6,</span> <span class="pre">0.65,</span> <span class="pre">0.7,</span> <span class="pre">0.75,</span> <span class="pre">0.8,</span> <span class="pre">0.85,</span> <span class="pre">0.9,</span> <span class="pre">0.95,</span> <span class="pre">0.975,</span> <span class="pre">1.])</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.resolution_and_reliability_over_all_grid" title="Link to this definition"></a></dt>
+<dd><p>Compute Resolution and Reliability scores over all grid points.</p>
+<p>Based on Weijs (2010), computes scores by aggregating across all grid points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dir_to_save_score</strong> (<em>str</em><em> or </em><em>Path</em>) – Directory to save score outputs.</p></li>
+<li><p><strong>y_true</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X).</p></li>
+<li><p><strong>y_probs</strong> (<em>xarray.DataArray</em>) – Forecast probabilities with dimensions (probability, T, Y, X).</p></li>
+<li><p><strong>clim_year_start</strong> (<em>int</em><em> or </em><em>str</em>) – Start year of the climatology period.</p></li>
+<li><p><strong>clim_year_end</strong> (<em>int</em><em> or </em><em>str</em>) – End year of the climatology period.</p></li>
+<li><p><strong>bins</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Probability bins for discretizing forecast probabilities.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><dl class="simple">
+<dt>resolution_sum<span class="classifier">float</span></dt><dd><p>Aggregated resolution score.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>reliability_sum<span class="classifier">float</span></dt><dd><p>Aggregated reliability score.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.resolution_score_grid">
+<span class="sig-name descname"><span class="pre">resolution_score_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_probs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([0.,</span> <span class="pre">0.025,</span> <span class="pre">0.05,</span> <span class="pre">0.1,</span> <span class="pre">0.15,</span> <span class="pre">0.2,</span> <span class="pre">0.25,</span> <span class="pre">0.3,</span> <span class="pre">0.35,</span> <span class="pre">0.4,</span> <span class="pre">0.45,</span> <span class="pre">0.5,</span> <span class="pre">0.55,</span> <span class="pre">0.6,</span> <span class="pre">0.65,</span> <span class="pre">0.7,</span> <span class="pre">0.75,</span> <span class="pre">0.8,</span> <span class="pre">0.85,</span> <span class="pre">0.9,</span> <span class="pre">0.95,</span> <span class="pre">0.975,</span> <span class="pre">1.])</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.resolution_score_grid" title="Link to this definition"></a></dt>
+<dd><p>Compute Resolution Score on a grid based on Weijs (2010).</p>
+<p>Measures the ability of the forecast to distinguish between different outcomes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_true</strong> (<em>array-like</em>) – Observed values.</p></li>
+<li><p><strong>y_probs</strong> (<em>array-like</em>) – Forecast probabilities with shape (n_classes, n_samples).</p></li>
+<li><p><strong>index_start</strong> (<em>int</em>) – Start index of the climatology period.</p></li>
+<li><p><strong>index_end</strong> (<em>int</em>) – End index of the climatology period.</p></li>
+<li><p><strong>bins</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Probability bins for discretizing forecast probabilities.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Resolution score, non-negative. Returns np.nan if insufficient valid data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.root_mean_square_error">
+<span class="sig-name descname"><span class="pre">root_mean_square_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.root_mean_square_error" title="Link to this definition"></a></dt>
+<dd><p>Compute Root Mean Square Error (RMSE).</p>
+<p>Measures the square root of the average squared errors in predictions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_true</strong> (<em>array-like</em>) – Observed values.</p></li>
+<li><p><strong>y_pred</strong> (<em>array-like</em>) – Predicted values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>RMSE value, non-negative. Returns np.nan if insufficient valid data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.taylor_diagram">
+<span class="sig-name descname"><span class="pre">taylor_diagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.taylor_diagram" title="Link to this definition"></a></dt>
+<dd><p>Placeholder for Taylor Diagram visualization.</p>
+<p>Visualizes model performance in terms of correlation, standard deviation, and RMSE.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_true</strong> (<em>array-like</em>) – Observed values.</p></li>
+<li><p><strong>y_pred</strong> (<em>array-like</em>) – Predicted values.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Implementation pending.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.weighted_gcm_forecasts">
+<span class="sig-name descname"><span class="pre">weighted_gcm_forecasts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">best_models</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scores</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lead_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'PRCP'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.weighted_gcm_forecasts" title="Link to this definition"></a></dt>
+<dd><p>Generate weighted ensemble forecasts from selected GCMs based on their performance scores.</p>
+<p>Combines hindcasts and forecasts from multiple models using weights derived from
+the GROC score, scales the results to match observed climatology, and computes
+tercile probabilities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Obs</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X), used for scaling and probability calculations.</p></li>
+<li><p><strong>best_models</strong> (<em>dict</em>) – Dictionary of model identifiers (keys) to be included in the ensemble.</p></li>
+<li><p><strong>scores</strong> (<em>dict</em>) – Dictionary containing scores (e.g., GROC) for each model, with model identifiers as keys.</p></li>
+<li><p><strong>lead_time</strong> (<em>list</em><em> of </em><em>int</em>) – Lead times in months for the forecast season (e.g., [1, 2, 3] for a 3-month season).</p></li>
+<li><p><strong>model_dir</strong> (<em>str</em><em> or </em><em>Path</em>) – Directory containing hindcast and forecast NetCDF files.</p></li>
+<li><p><strong>clim_year_start</strong> (<em>int</em><em> or </em><em>str</em>) – Start year of the climatology period for computing tercile thresholds.</p></li>
+<li><p><strong>clim_year_end</strong> (<em>int</em><em> or </em><em>str</em>) – End year of the climatology period for computing tercile thresholds.</p></li>
+<li><p><strong>variable</strong> (<em>str</em><em>, </em><em>optional</em>) – Variable name in the NetCDF files (e.g., ‘PRCP’ for precipitation). Default is ‘PRCP’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><dl class="simple">
+<dt>hindcast_det<span class="classifier">xarray.DataArray</span></dt><dd><p>Weighted deterministic hindcast with dimensions (T, Y, X).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>hindcast_prob<span class="classifier">xarray.DataArray</span></dt><dd><p>Tercile probabilities for hindcasts with dimensions (probability, T, Y, X).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>forecast_prob<span class="classifier">xarray.DataArray</span></dt><dd><p>Tercile probabilities for forecasts with dimensions (probability, Y, X).</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Model files are expected to follow a naming convention like
+‘hindcast_{center}_{variable}_{init_month}_{season}_{lead}.nc’.</p></li>
+<li><p>The GROC score is used as the weighting metric.</p></li>
+<li><p>A scaling factor is applied based on the ratio of observed to hindcast mean.</p></li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</section>
 <section id="module-wass2s.was_mme">
 <span id="wass2s-was-mme-module"></span><h2>wass2s.was_mme module<a class="headerlink" href="#module-wass2s.was_mme" title="Link to this heading"></a></h2>
 <dl class="py class">
@@ -7856,974 +8820,6 @@ metrics and configurations for probabilistic or deterministic outputs.</p>
 <dt class="sig sig-object py" id="wass2s.was_mme.process_datasets_for_mme_">
 <span class="sig-prename descclassname"><span class="pre">wass2s.was_mme.</span></span><span class="sig-name descname"><span class="pre">process_datasets_for_mme_</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rainfall</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hdcsted</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fcsted</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">agroparam</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ELM_ELR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir_to_save_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">best_models</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year_end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month_of_initialization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lead_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year_forecast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_mme.process_datasets_for_mme_" title="Link to this definition"></a></dt>
 <dd></dd></dl>
-
-</section>
-<section id="module-wass2s.was_verification">
-<span id="wass2s-was-verification-module"></span><h2>wass2s.was_verification module<a class="headerlink" href="#module-wass2s.was_verification" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wass2s.was_verification.</span></span><span class="sig-name descname"><span class="pre">WAS_Verification</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dist_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gamma'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Verification class for evaluating weather and climate forecasts.</p>
-<p>Provides methods to compute deterministic, probabilistic, and ensemble-based metrics,
-as well as visualization tools for model performance assessment.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>dist_method</strong> (<em>str</em><em>, </em><em>optional</em>) – Distribution method for tercile probability calculations
-(‘t’, ‘gamma’, ‘nonparam’, ‘normal’, ‘lognormal’, ‘weibull_min’). Default is ‘gamma’.</p>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.calculate_groc">
-<span class="sig-name descname"><span class="pre">calculate_groc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_probs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_classes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.calculate_groc" title="Link to this definition"></a></dt>
-<dd><p>Compute Generalized Receiver Operating Characteristic (GROC) score.</p>
-<p>Averages the Area Under the Curve (AUC) for each tercile category.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>y_true</strong> (<em>array-like</em>) – Observed values.</p></li>
-<li><p><strong>y_probs</strong> (<em>array-like</em>) – Forecast probabilities with shape (n_classes, n_samples).</p></li>
-<li><p><strong>index_start</strong> (<em>int</em>) – Start index of the climatology period.</p></li>
-<li><p><strong>index_end</strong> (<em>int</em>) – End index of the climatology period.</p></li>
-<li><p><strong>n_classes</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of classes (default is 3 for terciles).</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>GROC score, ranging from 0 to 1. Returns np.nan if insufficient valid data.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.calculate_rpss">
-<span class="sig-name descname"><span class="pre">calculate_rpss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_probs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_end</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.calculate_rpss" title="Link to this definition"></a></dt>
-<dd><p>Compute Ranked Probability Skill Score (RPSS).</p>
-<p>Compares the Ranked Probability Score (RPS) of the forecast to a climatological reference.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>y_true</strong> (<em>array-like</em>) – Observed values.</p></li>
-<li><p><strong>y_probs</strong> (<em>array-like</em>) – Forecast probabilities with shape (n_classes, n_samples).</p></li>
-<li><p><strong>index_start</strong> (<em>int</em>) – Start index of the climatology period.</p></li>
-<li><p><strong>index_end</strong> (<em>int</em>) – End index of the climatology period.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>RPSS score, ranging from -Inf to 1. Returns np.nan if insufficient valid data.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.calculate_rpss_">
-<span class="sig-name descname"><span class="pre">calculate_rpss_</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_probs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.calculate_rpss_" title="Link to this definition"></a></dt>
-<dd><p>Compute Ranked Probability Skill Score (RPSS) for a single grid point or sample.</p>
-<p>Compares the Ranked Probability Score (RPS) of the forecast to a climatological
-reference with uniform probabilities (1/3 for each tercile).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>y_true</strong> (<em>array-like</em><em> of </em><em>shape</em><em> (</em><em>n_samples</em><em>,</em><em>)</em>) – True class labels, already classified into terciles (0: below-normal, 1: near-normal, 2: above-normal).</p></li>
-<li><p><strong>y_probs</strong> (<em>array-like</em><em> of </em><em>shape</em><em> (</em><em>3</em><em>, </em><em>n_samples</em><em>)</em>) – Forecast probabilities for each tercile category.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>RPSS score, ranging from -Inf to 1 (1 indicates perfect forecast skill).
-Returns np.nan if insufficient valid data.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calculate_tercile_probabilities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">best_guess</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_variance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_tercile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">second_tercile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dof</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities" title="Link to this definition"></a></dt>
-<dd><p>Calculate tercile probabilities using Student’s t-distribution.</p>
-<p>Computes probabilities for below-normal, normal, and above-normal categories.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>best_guess</strong> (<em>array-like</em>) – Forecast or best-guess values.</p></li>
-<li><p><strong>error_variance</strong> (<em>array-like</em>) – Variance of forecast errors.</p></li>
-<li><p><strong>first_tercile</strong> (<em>array-like</em>) – First tercile threshold values.</p></li>
-<li><p><strong>second_tercile</strong> (<em>array-like</em>) – Second tercile threshold values.</p></li>
-<li><p><strong>dof</strong> (<em>int</em>) – Degrees of freedom for the t-distribution.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>pred_prob</strong> – Array of shape (3, n_time) with probabilities for below, normal, and above categories.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_gamma">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calculate_tercile_probabilities_gamma</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">best_guess</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_variance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_gamma" title="Link to this definition"></a></dt>
-<dd><p>Calculate tercile probabilities using Gamma distribution.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>best_guess</strong> (<em>array-like</em>) – Forecast or best-guess values.</p></li>
-<li><p><strong>error_variance</strong> (<em>array-like</em>) – Variance of forecast errors.</p></li>
-<li><p><strong>T1</strong> (<em>array-like</em>) – First tercile threshold values.</p></li>
-<li><p><strong>T2</strong> (<em>array-like</em>) – Second tercile threshold values.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>pred_prob</strong> – Array of shape (3, n_time) with probabilities for below, normal, and above categories.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_lognormal">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calculate_tercile_probabilities_lognormal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">best_guess</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_variance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_tercile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">second_tercile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_lognormal" title="Link to this definition"></a></dt>
-<dd><p>Calculate tercile probabilities using Lognormal distribution.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>best_guess</strong> (<em>array-like</em>) – Forecast or best-guess values.</p></li>
-<li><p><strong>error_variance</strong> (<em>array-like</em>) – Variance of forecast errors.</p></li>
-<li><p><strong>first_tercile</strong> (<em>array-like</em>) – First tercile threshold values.</p></li>
-<li><p><strong>second_tercile</strong> (<em>array-like</em>) – Second tercile threshold values.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>pred_prob</strong> – Array of shape (3, n_time) with probabilities for below, normal, and above categories.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_nonparametric">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calculate_tercile_probabilities_nonparametric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">best_guess</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_tercile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">second_tercile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_nonparametric" title="Link to this definition"></a></dt>
-<dd><p>Calculate tercile probabilities using a non-parametric method.</p>
-<p>Uses historical error samples to estimate probabilities empirically.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>best_guess</strong> (<em>array-like</em>) – Forecast or best-guess values.</p></li>
-<li><p><strong>error_samples</strong> (<em>array-like</em>) – Historical error samples.</p></li>
-<li><p><strong>first_tercile</strong> (<em>array-like</em>) – First tercile threshold values.</p></li>
-<li><p><strong>second_tercile</strong> (<em>array-like</em>) – Second tercile threshold values.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>pred_prob</strong> – Array of shape (3, n_time) with probabilities for below, normal, and above categories.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_normal">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calculate_tercile_probabilities_normal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">best_guess</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_variance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_tercile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">second_tercile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_normal" title="Link to this definition"></a></dt>
-<dd><p>Calculate tercile probabilities using Normal distribution.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>best_guess</strong> (<em>array-like</em>) – Forecast or best-guess values.</p></li>
-<li><p><strong>error_variance</strong> (<em>array-like</em>) – Variance of forecast errors.</p></li>
-<li><p><strong>first_tercile</strong> (<em>array-like</em>) – First tercile threshold values.</p></li>
-<li><p><strong>second_tercile</strong> (<em>array-like</em>) – Second tercile threshold values.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>pred_prob</strong> – Array of shape (3, n_time) with probabilities for below, normal, and above categories.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_weibull_min">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calculate_tercile_probabilities_weibull_min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">best_guess</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_variance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_tercile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">second_tercile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dof</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.calculate_tercile_probabilities_weibull_min" title="Link to this definition"></a></dt>
-<dd><p>Calculate tercile probabilities using Weibull minimum distribution.</p>
-<p>Assumes <cite>best_guess</cite> as the location, <cite>error_std</cite> as the scale, and <cite>dof</cite> as the shape parameter.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>best_guess</strong> (<em>array-like</em>) – Forecast or best-guess values.</p></li>
-<li><p><strong>error_variance</strong> (<em>array-like</em>) – Variance of forecast errors.</p></li>
-<li><p><strong>first_tercile</strong> (<em>array-like</em>) – First tercile threshold values.</p></li>
-<li><p><strong>second_tercile</strong> (<em>array-like</em>) – Second tercile threshold values.</p></li>
-<li><p><strong>dof</strong> (<em>float</em><em> or </em><em>array-like</em>) – Shape parameter for the Weibull minimum distribution.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>pred_prob</strong> – Array of shape (3, n_time) with probabilities for below, normal, and above categories.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.classify">
-<span class="sig-name descname"><span class="pre">classify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_end</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.classify" title="Link to this definition"></a></dt>
-<dd><p>Classify data into terciles based on climatological thresholds.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>y</strong> (<em>array-like</em>) – Input data to classify.</p></li>
-<li><p><strong>index_start</strong> (<em>int</em>) – Start index of the climatology period.</p></li>
-<li><p><strong>index_end</strong> (<em>int</em>) – End index of the climatology period.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ul class="simple">
-<li><dl class="simple">
-<dt>y_class<span class="classifier">array-like</span></dt><dd><p>Classified data (0: below-normal, 1: near-normal, 2: above-normal).</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>tercile_33<span class="classifier">float</span></dt><dd><p>33rd percentile threshold.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>tercile_67<span class="classifier">float</span></dt><dd><p>67th percentile threshold.</p>
-</dd>
-</dl>
-</li>
-</ul>
-</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>tuple</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.classify_data_into_terciles">
-<span class="sig-name descname"><span class="pre">classify_data_into_terciles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.classify_data_into_terciles" title="Link to this definition"></a></dt>
-<dd><p>Classify data into terciles based on given thresholds.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>y</strong> (<em>array-like</em>) – Input data to classify.</p></li>
-<li><p><strong>T1</strong> (<em>float</em>) – First tercile threshold (33rd percentile).</p></li>
-<li><p><strong>T2</strong> (<em>float</em>) – Second tercile threshold (67th percentile).</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Classified data (0: below-normal, 1: near-normal, 2: above-normal).</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>array-like</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.classify_percent">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">classify_percent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.classify_percent" title="Link to this definition"></a></dt>
-<dd><p>Classify a percentage value into predefined categories based on thresholds.</p>
-<p>Maps a percentage ratio to one of five categories representing deviation from average.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>p</strong> (<em>float</em><em> or </em><em>array-like</em>) – Percentage value(s) to classify, typically representing a ratio to normal (%).</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Category code:
-- 1: Well Above Average (&gt;= 150%)
-- 2: Above Average (&gt;= 110%)
-- 3: Near Average (&gt;= 90%)
-- 4: Below Average (&gt;= 50%)
-- 5: Well Below Average (&lt; 50%)</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int or array-like</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.compute_class">
-<span class="sig-name descname"><span class="pre">compute_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.compute_class" title="Link to this definition"></a></dt>
-<dd><p>Compute tercile class labels for observed data.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>Predictant</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X).</p></li>
-<li><p><strong>clim_year_start</strong> (<em>int</em><em> or </em><em>str</em>) – Start year of the climatology period.</p></li>
-<li><p><strong>clim_year_end</strong> (<em>int</em><em> or </em><em>str</em>) – End year of the climatology period.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Classified data with dimensions (T, Y, X), where values are
-0 (below-normal), 1 (near-normal), or 2 (above-normal).</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>xarray.DataArray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.compute_crps">
-<span class="sig-name descname"><span class="pre">compute_crps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">member_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'number'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'T'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.compute_crps" title="Link to this definition"></a></dt>
-<dd><p>Compute Continuous Ranked Probability Score (CRPS) for ensemble forecasts.</p>
-<p>Measures the difference between the forecast ensemble distribution and observations.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>y_true</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X).</p></li>
-<li><p><strong>y_pred</strong> (<em>xarray.DataArray</em>) – Ensemble forecast data with dimensions (T, number, Y, X).</p></li>
-<li><p><strong>member_dim</strong> (<em>str</em><em>, </em><em>optional</em>) – Dimension name for ensemble members. Default is ‘number’.</p></li>
-<li><p><strong>dim</strong> (<em>str</em><em>, </em><em>optional</em>) – Dimension to compute CRPS over (typically time). Default is ‘T’.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>CRPS values with dimensions (Y, X).</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>xarray.DataArray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.compute_deterministic_score">
-<span class="sig-name descname"><span class="pre">compute_deterministic_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">score_func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pred</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.compute_deterministic_score" title="Link to this definition"></a></dt>
-<dd><p>Apply a deterministic scoring function over xarray DataArrays.</p>
-<p>Computes the specified metric across the time dimension for each grid point.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>score_func</strong> (<em>callable</em>) – Scoring function to apply (e.g., pearson_corr, kling_gupta_efficiency).</p></li>
-<li><p><strong>obs</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X).</p></li>
-<li><p><strong>pred</strong> (<em>xarray.DataArray</em>) – Predicted data with dimensions (T, Y, X).</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Score values with dimensions (Y, X).</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>xarray.DataArray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.compute_one_year_rpss">
-<span class="sig-name descname"><span class="pre">compute_one_year_rpss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prob_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.compute_one_year_rpss" title="Link to this definition"></a></dt>
-<dd><p>Compute and visualize the Ranked Probability Skill Score (RPSS) for a specific year.</p>
-<p>Applies the RPSS calculation across a gridded dataset for a single year, using
-tercile classifications based on a climatology period, and plots the results on a map.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>obs</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X), where T is time, Y is latitude, and X is longitude.</p></li>
-<li><p><strong>prob_pred</strong> (<em>xarray.DataArray</em>) – Forecast probabilities with dimensions (probability, T, Y, X), where probability includes
-[‘PB’, ‘PN’, ‘PA’] (below-normal, near-normal, above-normal).</p></li>
-<li><p><strong>clim_year_start</strong> (<em>int</em><em> or </em><em>str</em>) – Start year of the climatology period for tercile classification.</p></li>
-<li><p><strong>clim_year_end</strong> (<em>int</em><em> or </em><em>str</em>) – End year of the climatology period for tercile classification.</p></li>
-<li><p><strong>year</strong> (<em>int</em><em> or </em><em>str</em>) – Specific year to compute the RPSS for.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Displays a geographical plot of the RPSS values with a colorbar.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.compute_probabilistic_score">
-<span class="sig-name descname"><span class="pre">compute_probabilistic_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">score_func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prob_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.compute_probabilistic_score" title="Link to this definition"></a></dt>
-<dd><p>Apply a probabilistic scoring function over xarray DataArrays.</p>
-<p>Computes the specified probabilistic metric across the time dimension for each grid point.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>score_func</strong> (<em>callable</em>) – Probabilistic scoring function to apply (e.g., calculate_rpss, calculate_groc).</p></li>
-<li><p><strong>obs</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X).</p></li>
-<li><p><strong>prob_pred</strong> (<em>xarray.DataArray</em>) – Forecast probabilities with dimensions (probability, T, Y, X).</p></li>
-<li><p><strong>clim_year_start</strong> (<em>int</em><em> or </em><em>str</em>) – Start year of the climatology period.</p></li>
-<li><p><strong>clim_year_end</strong> (<em>int</em><em> or </em><em>str</em>) – End year of the climatology period.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Score values with dimensions (Y, X).</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>xarray.DataArray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.gcm_compute_prob">
-<span class="sig-name descname"><span class="pre">gcm_compute_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.gcm_compute_prob" title="Link to this definition"></a></dt>
-<dd><p>Compute tercile probabilities for GCM hindcasts.</p>
-<p>Supports multiple distribution methods for calculating probabilities.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>Predictant</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X).</p></li>
-<li><p><strong>clim_year_start</strong> (<em>int</em><em> or </em><em>str</em>) – Start year of the climatology period.</p></li>
-<li><p><strong>clim_year_end</strong> (<em>int</em><em> or </em><em>str</em>) – End year of the climatology period.</p></li>
-<li><p><strong>hindcast_det</strong> (<em>xarray.DataArray</em>) – Deterministic hindcast data with dimensions (T, Y, X).</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Tercile probabilities with dimensions (probability, T, Y, X), where
-‘probability’ includes [‘PB’, ‘PN’, ‘PA’] (below-normal, normal, above-normal).</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>xarray.DataArray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.gcm_compute_prob_ensemble_method">
-<span class="sig-name descname"><span class="pre">gcm_compute_prob_ensemble_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Obs_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ensemble</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.gcm_compute_prob_ensemble_method" title="Link to this definition"></a></dt>
-<dd><p>Compute probabilistic forecasts for GCM ensemble data.</p>
-<p>Uses the specified ensemble statistic to derive best-guess forecasts and computes
-tercile probabilities.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>Obs_data</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X).</p></li>
-<li><p><strong>clim_year_start</strong> (<em>int</em><em> or </em><em>str</em>) – Start year of the climatology period.</p></li>
-<li><p><strong>clim_year_end</strong> (<em>int</em><em> or </em><em>str</em>) – End year of the climatology period.</p></li>
-<li><p><strong>model_data</strong> (<em>xarray.DataArray</em>) – Model ensemble data with dimensions (T, number, Y, X).</p></li>
-<li><p><strong>ensemble</strong> (<em>str</em><em>, </em><em>optional</em>) – Ensemble statistic to use (‘mean’ or other supported methods). Default is ‘mean’.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Tercile probabilities with dimensions (probability, T, Y, X).</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>xarray.DataArray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.gcm_validation_compute">
-<span class="sig-name descname"><span class="pre">gcm_validation_compute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">models_files_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">score</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month_of_initialization</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir_to_save_roc_reliability</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lead_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ensemble_mean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gridded</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.gcm_validation_compute" title="Link to this definition"></a></dt>
-<dd><p>Validate multiple General Circulation Model (GCM) forecasts using specified metrics.</p>
-<p>Computes deterministic, probabilistic, or ensemble-based scores for GCM hindcasts
-by processing model data from provided file paths and comparing against observations.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>models_files_path</strong> (<em>dict</em>) – Dictionary mapping model identifiers (e.g., model names) to file paths of hindcast NetCDF files.</p></li>
-<li><p><strong>Obs</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X), where T is time, Y is latitude, and X is longitude.</p></li>
-<li><p><strong>score</strong> (<em>str</em>) – Score to compute, must be a key in self.scores (e.g., ‘Pearson’, ‘RPSS’, ‘ROC_CURVE’, ‘RELIABILITY_DIAGRAM’).</p></li>
-<li><p><strong>month_of_initialization</strong> (<em>int</em>) – Month of forecast initialization (1-12).</p></li>
-<li><p><strong>clim_year_start</strong> (<em>int</em><em> or </em><em>str</em>) – Start year of the climatology period for computing tercile thresholds.</p></li>
-<li><p><strong>clim_year_end</strong> (<em>int</em><em> or </em><em>str</em>) – End year of the climatology period for computing tercile thresholds.</p></li>
-<li><p><strong>dir_to_save_roc_reliability</strong> (<em>str</em><em> or </em><em>Path</em>) – Directory to save ROC curves and reliability diagram plots.</p></li>
-<li><p><strong>lead_time</strong> (<em>list</em><em> of </em><em>int</em><em>, </em><em>optional</em>) – Lead times in months to define the forecast season (e.g., [1, 2, 3] for a 3-month season).
-If None, no season is specified.</p></li>
-<li><p><strong>ensemble_mean</strong> (<em>str</em><em>, </em><em>optional</em>) – Ensemble statistic to use for deterministic or probabilistic scores (e.g., ‘mean’).
-If None, ensemble mean is computed automatically when required.</p></li>
-<li><p><strong>gridded</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to perform gridded validation (True) or non-gridded (not implemented). Default is True.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><dl class="simple">
-<dt>If score_type is ‘det_score’, ‘prob_score’, or ‘ensemble_score’:</dt><dd><p>Dictionary with model identifiers as keys and xarray.DataArray of scores (dimensions Y, X) as values.</p>
-</dd>
-<dt>If score_type is ‘all_grid_prob_score’ (e.g., ROC_CURVE, RELIABILITY_DIAGRAM):</dt><dd><p>None, as results are saved as plots.</p>
-</dd>
-<dt>If score_type is ‘all_grid_det_score’:</dt><dd><p>None (not implemented).</p>
-</dd>
-</dl>
-</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>dict or None</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>ValueError</strong> – If the score is not recognized or if non-gridded validation is attempted (not implemented).</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.gcm_validation_compute_">
-<span class="sig-name descname"><span class="pre">gcm_validation_compute_</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">center_variable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month_of_initialization</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lead_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">score</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir_to_save_roc_reliability</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ensemble_mean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gridded</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.gcm_validation_compute_" title="Link to this definition"></a></dt>
-<dd><p>Validate GCM forecasts using specified metrics.</p>
-<p>Computes deterministic, probabilistic, or ensemble scores for GCM hindcasts.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>center_variable</strong> (<em>list</em><em> of </em><em>str</em>) – List of model identifiers (e.g., ‘center.variable’).</p></li>
-<li><p><strong>month_of_initialization</strong> (<em>int</em>) – Month of forecast initialization (1-12).</p></li>
-<li><p><strong>lead_time</strong> (<em>list</em><em> of </em><em>int</em>) – Lead times in months for the forecast season.</p></li>
-<li><p><strong>dir_model</strong> (<em>str</em><em> or </em><em>Path</em>) – Directory containing model hindcast files.</p></li>
-<li><p><strong>Obs</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X).</p></li>
-<li><p><strong>year_start</strong> (<em>int</em>) – Start year of the validation period.</p></li>
-<li><p><strong>year_end</strong> (<em>int</em>) – End year of the validation period.</p></li>
-<li><p><strong>clim_year_start</strong> (<em>int</em>) – Start year of the climatology period.</p></li>
-<li><p><strong>clim_year_end</strong> (<em>int</em>) – End year of the climatology period.</p></li>
-<li><p><strong>area</strong> (<em>str</em>) – Geographical area for validation (not used in current implementation).</p></li>
-<li><p><strong>score</strong> (<em>str</em>) – Score to compute (e.g., ‘Pearson’, ‘RPSS’, ‘ROC_CURVE’).</p></li>
-<li><p><strong>dir_to_save_roc_reliability</strong> (<em>str</em><em> or </em><em>Path</em>) – Directory to save ROC and reliability plots.</p></li>
-<li><p><strong>ensemble_mean</strong> (<em>str</em><em>, </em><em>optional</em>) – Ensemble statistic to use if needed (e.g., ‘mean’). Default is None.</p></li>
-<li><p><strong>gridded</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to perform gridded validation. Default is True.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Dictionary of model scores with keys as model identifiers and values as xarray.DataArray,
-or None for plotting scores (e.g., ROC_CURVE, RELIABILITY_DIAGRAM).</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>dict or None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.get_scores_metadata">
-<span class="sig-name descname"><span class="pre">get_scores_metadata</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.get_scores_metadata" title="Link to this definition"></a></dt>
-<dd><p>Retrieve metadata for all available scoring metrics.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Dictionary containing score names as keys and tuples of metadata
-(description, min_value, max_value, score_type, colormap, function) as values.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.ignorance_score">
-<span class="sig-name descname"><span class="pre">ignorance_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_probs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_end</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.ignorance_score" title="Link to this definition"></a></dt>
-<dd><p>Compute Ignorance Score based on Weijs (2010).</p>
-<p>Measures the logarithmic loss of forecast probabilities for the true category.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>y_true</strong> (<em>array-like</em>) – Observed values.</p></li>
-<li><p><strong>y_probs</strong> (<em>array-like</em>) – Forecast probabilities with shape (n_classes, n_samples).</p></li>
-<li><p><strong>index_start</strong> (<em>int</em>) – Start index of the climatology period.</p></li>
-<li><p><strong>index_end</strong> (<em>int</em>) – End index of the climatology period.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Ignorance score, non-negative. Returns np.nan if insufficient valid data.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.index_of_agreement">
-<span class="sig-name descname"><span class="pre">index_of_agreement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.index_of_agreement" title="Link to this definition"></a></dt>
-<dd><p>Compute Index of Agreement (IOA).</p>
-<p>Measures the degree of model prediction accuracy relative to observed variability.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>y_true</strong> (<em>array-like</em>) – Observed values.</p></li>
-<li><p><strong>y_pred</strong> (<em>array-like</em>) – Predicted values.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>IOA score, ranging from 0 to 1 (1 is perfect). Returns np.nan if insufficient valid data.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.kling_gupta_efficiency">
-<span class="sig-name descname"><span class="pre">kling_gupta_efficiency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.kling_gupta_efficiency" title="Link to this definition"></a></dt>
-<dd><p>Compute Kling-Gupta Efficiency (KGE) metric.</p>
-<p>KGE combines correlation, bias, and variability ratios to assess model performance.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>y_true</strong> (<em>array-like</em>) – Observed values.</p></li>
-<li><p><strong>y_pred</strong> (<em>array-like</em>) – Predicted values.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>KGE score, ranging from -Inf to 1 (1 is perfect). Returns np.nan if insufficient valid data.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.mean_absolute_error">
-<span class="sig-name descname"><span class="pre">mean_absolute_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.mean_absolute_error" title="Link to this definition"></a></dt>
-<dd><p>Compute Mean Absolute Error (MAE).</p>
-<p>Measures the average magnitude of errors in predictions.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>y_true</strong> (<em>array-like</em>) – Observed values.</p></li>
-<li><p><strong>y_pred</strong> (<em>array-like</em>) – Predicted values.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>MAE value, non-negative. Returns np.nan if insufficient valid data.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.nash_sutcliffe_efficiency">
-<span class="sig-name descname"><span class="pre">nash_sutcliffe_efficiency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.nash_sutcliffe_efficiency" title="Link to this definition"></a></dt>
-<dd><p>Compute Nash-Sutcliffe Efficiency (NSE).</p>
-<p>Measures the predictive skill of the model compared to the mean of observations.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>y_true</strong> (<em>array-like</em>) – Observed values.</p></li>
-<li><p><strong>y_pred</strong> (<em>array-like</em>) – Predicted values.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>NSE score, ranging from -Inf to 1 (1 is perfect). Returns np.nan if insufficient valid data.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.pearson_corr">
-<span class="sig-name descname"><span class="pre">pearson_corr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.pearson_corr" title="Link to this definition"></a></dt>
-<dd><p>Compute Pearson Correlation Coefficient.</p>
-<p>Measures the linear correlation between observed and predicted values.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>y_true</strong> (<em>array-like</em>) – Observed values.</p></li>
-<li><p><strong>y_pred</strong> (<em>array-like</em>) – Predicted values.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Pearson correlation coefficient, ranging from -1 to 1. Returns np.nan if insufficient valid data.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.plot_model_score">
-<span class="sig-name descname"><span class="pre">plot_model_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_metric</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">score</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir_save_score</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figure_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'WAS_MLR'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.plot_model_score" title="Link to this definition"></a></dt>
-<dd><p>Plot a deterministic score on a map.</p>
-<p>Creates a geographical plot of the specified metric for a single model.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>model_metric</strong> (<em>xarray.DataArray</em>) – Score values with dimensions (Y, X).</p></li>
-<li><p><strong>score</strong> (<em>str</em>) – Name of the score to plot (e.g., ‘Pearson’, ‘MAE’).</p></li>
-<li><p><strong>dir_save_score</strong> (<em>str</em><em> or </em><em>Path</em>) – Directory to save the plot.</p></li>
-<li><p><strong>figure_name</strong> (<em>str</em><em>, </em><em>optional</em>) – Prefix for the figure filename. Default is ‘WAS_MLR’.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.plot_models_score">
-<span class="sig-name descname"><span class="pre">plot_models_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_metrics</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">score</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir_save_score</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.plot_models_score" title="Link to this definition"></a></dt>
-<dd><p>Plot multiple model scores on a grid of maps.</p>
-<p>Creates a subplot grid with geographical plots for each model’s score.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>model_metrics</strong> (<em>dict</em>) – Dictionary of model names and their corresponding score DataArrays (Y, X).</p></li>
-<li><p><strong>score</strong> (<em>str</em>) – Name of the score to plot (e.g., ‘Pearson’, ‘MAE’).</p></li>
-<li><p><strong>dir_save_score</strong> (<em>str</em><em> or </em><em>Path</em>) – Directory to save the plot.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.plot_roc_curves">
-<span class="sig-name descname"><span class="pre">plot_roc_curves</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modelname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir_to_save_score</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_probs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_bootstraps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ci</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.95</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.plot_roc_curves" title="Link to this definition"></a></dt>
-<dd><p>Plot ROC Curves with Confidence Intervals for probabilistic forecasts.</p>
-<p>Visualizes the Receiver Operating Characteristic for each tercile category.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>modelname</strong> (<em>str</em>) – Name of the model for labeling the plot.</p></li>
-<li><p><strong>dir_to_save_score</strong> (<em>str</em><em> or </em><em>Path</em>) – Directory to save the plot.</p></li>
-<li><p><strong>y_true</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X).</p></li>
-<li><p><strong>y_probs</strong> (<em>xarray.DataArray</em>) – Forecast probabilities with dimensions (probability, T, Y, X).</p></li>
-<li><p><strong>clim_year_start</strong> (<em>int</em><em> or </em><em>str</em>) – Start year of the climatology period.</p></li>
-<li><p><strong>clim_year_end</strong> (<em>int</em><em> or </em><em>str</em>) – End year of the climatology period.</p></li>
-<li><p><strong>n_bootstraps</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of bootstrap samples for confidence intervals. Default is 200.</p></li>
-<li><p><strong>ci</strong> (<em>float</em><em>, </em><em>optional</em>) – Confidence interval level (e.g., 0.95 for 95%). Default is 0.95.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.ratio_to_average">
-<span class="sig-name descname"><span class="pre">ratio_to_average</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.ratio_to_average" title="Link to this definition"></a></dt>
-<dd><p>Compute and visualize the ratio of a specific year’s data to the climatological mean.</p>
-<p>Calculates the percentage ratio of the predictand for a given year relative to
-the mean over a climatology period, classifies it into categories, and plots the
-result on a geographical map.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>predictant</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X), where T is time, Y is latitude, and X is longitude.</p></li>
-<li><p><strong>clim_year_start</strong> (<em>int</em><em> or </em><em>str</em>) – Start year of the climatology period.</p></li>
-<li><p><strong>clim_year_end</strong> (<em>int</em><em> or </em><em>str</em>) – End year of the climatology period.</p></li>
-<li><p><strong>year</strong> (<em>int</em><em> or </em><em>str</em>) – Specific year to compute the ratio for.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Displays a geographical plot of the classified ratios with a custom colormap and legend.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.reliability_diagram">
-<span class="sig-name descname"><span class="pre">reliability_diagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modelname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir_to_save_score</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_probs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([0.1,</span> <span class="pre">0.15,</span> <span class="pre">0.2,</span> <span class="pre">0.25,</span> <span class="pre">0.3,</span> <span class="pre">0.35,</span> <span class="pre">0.4,</span> <span class="pre">0.45,</span> <span class="pre">0.5,</span> <span class="pre">0.55,</span> <span class="pre">0.6,</span> <span class="pre">0.65,</span> <span class="pre">0.7])</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.reliability_diagram" title="Link to this definition"></a></dt>
-<dd><p>Plot Reliability Diagrams for probabilistic forecasts.</p>
-<p>Visualizes the calibration of forecast probabilities against observed frequencies.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>modelname</strong> (<em>str</em>) – Name of the model for labeling the plot.</p></li>
-<li><p><strong>dir_to_save_score</strong> (<em>str</em><em> or </em><em>Path</em>) – Directory to save the plot.</p></li>
-<li><p><strong>y_true</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X).</p></li>
-<li><p><strong>y_probs</strong> (<em>xarray.DataArray</em>) – Forecast probabilities with dimensions (probability, T, Y, X).</p></li>
-<li><p><strong>clim_year_start</strong> (<em>int</em><em> or </em><em>str</em>) – Start year of the climatology period.</p></li>
-<li><p><strong>clim_year_end</strong> (<em>int</em><em> or </em><em>str</em>) – End year of the climatology period.</p></li>
-<li><p><strong>bins</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Probability bins for discretizing forecast probabilities.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.reliability_score_grid">
-<span class="sig-name descname"><span class="pre">reliability_score_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_probs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([0.,</span> <span class="pre">0.025,</span> <span class="pre">0.05,</span> <span class="pre">0.1,</span> <span class="pre">0.15,</span> <span class="pre">0.2,</span> <span class="pre">0.25,</span> <span class="pre">0.3,</span> <span class="pre">0.35,</span> <span class="pre">0.4,</span> <span class="pre">0.45,</span> <span class="pre">0.5,</span> <span class="pre">0.55,</span> <span class="pre">0.6,</span> <span class="pre">0.65,</span> <span class="pre">0.7,</span> <span class="pre">0.75,</span> <span class="pre">0.8,</span> <span class="pre">0.85,</span> <span class="pre">0.9,</span> <span class="pre">0.95,</span> <span class="pre">0.975,</span> <span class="pre">1.])</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.reliability_score_grid" title="Link to this definition"></a></dt>
-<dd><p>Compute Reliability Score on a grid based on Weijs (2010).</p>
-<p>Measures the calibration of forecast probabilities against observed frequencies.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>y_true</strong> (<em>array-like</em>) – Observed values.</p></li>
-<li><p><strong>y_probs</strong> (<em>array-like</em>) – Forecast probabilities with shape (n_classes, n_samples).</p></li>
-<li><p><strong>index_start</strong> (<em>int</em>) – Start index of the climatology period.</p></li>
-<li><p><strong>index_end</strong> (<em>int</em>) – End index of the climatology period.</p></li>
-<li><p><strong>bins</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Probability bins for discretizing forecast probabilities.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Reliability score. Returns np.nan if insufficient valid data.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.resolution_and_reliability_over_all_grid">
-<span class="sig-name descname"><span class="pre">resolution_and_reliability_over_all_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_to_save_score</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_probs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([0.,</span> <span class="pre">0.025,</span> <span class="pre">0.05,</span> <span class="pre">0.1,</span> <span class="pre">0.15,</span> <span class="pre">0.2,</span> <span class="pre">0.25,</span> <span class="pre">0.3,</span> <span class="pre">0.35,</span> <span class="pre">0.4,</span> <span class="pre">0.45,</span> <span class="pre">0.5,</span> <span class="pre">0.55,</span> <span class="pre">0.6,</span> <span class="pre">0.65,</span> <span class="pre">0.7,</span> <span class="pre">0.75,</span> <span class="pre">0.8,</span> <span class="pre">0.85,</span> <span class="pre">0.9,</span> <span class="pre">0.95,</span> <span class="pre">0.975,</span> <span class="pre">1.])</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.resolution_and_reliability_over_all_grid" title="Link to this definition"></a></dt>
-<dd><p>Compute Resolution and Reliability scores over all grid points.</p>
-<p>Based on Weijs (2010), computes scores by aggregating across all grid points.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>dir_to_save_score</strong> (<em>str</em><em> or </em><em>Path</em>) – Directory to save score outputs.</p></li>
-<li><p><strong>y_true</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X).</p></li>
-<li><p><strong>y_probs</strong> (<em>xarray.DataArray</em>) – Forecast probabilities with dimensions (probability, T, Y, X).</p></li>
-<li><p><strong>clim_year_start</strong> (<em>int</em><em> or </em><em>str</em>) – Start year of the climatology period.</p></li>
-<li><p><strong>clim_year_end</strong> (<em>int</em><em> or </em><em>str</em>) – End year of the climatology period.</p></li>
-<li><p><strong>bins</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Probability bins for discretizing forecast probabilities.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ul class="simple">
-<li><dl class="simple">
-<dt>resolution_sum<span class="classifier">float</span></dt><dd><p>Aggregated resolution score.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>reliability_sum<span class="classifier">float</span></dt><dd><p>Aggregated reliability score.</p>
-</dd>
-</dl>
-</li>
-</ul>
-</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>tuple</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.resolution_score_grid">
-<span class="sig-name descname"><span class="pre">resolution_score_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_probs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([0.,</span> <span class="pre">0.025,</span> <span class="pre">0.05,</span> <span class="pre">0.1,</span> <span class="pre">0.15,</span> <span class="pre">0.2,</span> <span class="pre">0.25,</span> <span class="pre">0.3,</span> <span class="pre">0.35,</span> <span class="pre">0.4,</span> <span class="pre">0.45,</span> <span class="pre">0.5,</span> <span class="pre">0.55,</span> <span class="pre">0.6,</span> <span class="pre">0.65,</span> <span class="pre">0.7,</span> <span class="pre">0.75,</span> <span class="pre">0.8,</span> <span class="pre">0.85,</span> <span class="pre">0.9,</span> <span class="pre">0.95,</span> <span class="pre">0.975,</span> <span class="pre">1.])</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.resolution_score_grid" title="Link to this definition"></a></dt>
-<dd><p>Compute Resolution Score on a grid based on Weijs (2010).</p>
-<p>Measures the ability of the forecast to distinguish between different outcomes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>y_true</strong> (<em>array-like</em>) – Observed values.</p></li>
-<li><p><strong>y_probs</strong> (<em>array-like</em>) – Forecast probabilities with shape (n_classes, n_samples).</p></li>
-<li><p><strong>index_start</strong> (<em>int</em>) – Start index of the climatology period.</p></li>
-<li><p><strong>index_end</strong> (<em>int</em>) – End index of the climatology period.</p></li>
-<li><p><strong>bins</strong> (<em>array-like</em><em>, </em><em>optional</em>) – Probability bins for discretizing forecast probabilities.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Resolution score, non-negative. Returns np.nan if insufficient valid data.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.root_mean_square_error">
-<span class="sig-name descname"><span class="pre">root_mean_square_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.root_mean_square_error" title="Link to this definition"></a></dt>
-<dd><p>Compute Root Mean Square Error (RMSE).</p>
-<p>Measures the square root of the average squared errors in predictions.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>y_true</strong> (<em>array-like</em>) – Observed values.</p></li>
-<li><p><strong>y_pred</strong> (<em>array-like</em>) – Predicted values.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>RMSE value, non-negative. Returns np.nan if insufficient valid data.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.taylor_diagram">
-<span class="sig-name descname"><span class="pre">taylor_diagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.taylor_diagram" title="Link to this definition"></a></dt>
-<dd><p>Placeholder for Taylor Diagram visualization.</p>
-<p>Visualizes model performance in terms of correlation, standard deviation, and RMSE.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>y_true</strong> (<em>array-like</em>) – Observed values.</p></li>
-<li><p><strong>y_pred</strong> (<em>array-like</em>) – Predicted values.</p></li>
-</ul>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>Implementation pending.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="wass2s.was_verification.WAS_Verification.weighted_gcm_forecasts">
-<span class="sig-name descname"><span class="pre">weighted_gcm_forecasts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">best_models</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scores</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lead_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'PRCP'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_verification.WAS_Verification.weighted_gcm_forecasts" title="Link to this definition"></a></dt>
-<dd><p>Generate weighted ensemble forecasts from selected GCMs based on their performance scores.</p>
-<p>Combines hindcasts and forecasts from multiple models using weights derived from
-the GROC score, scales the results to match observed climatology, and computes
-tercile probabilities.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>Obs</strong> (<em>xarray.DataArray</em>) – Observed data with dimensions (T, Y, X), used for scaling and probability calculations.</p></li>
-<li><p><strong>best_models</strong> (<em>dict</em>) – Dictionary of model identifiers (keys) to be included in the ensemble.</p></li>
-<li><p><strong>scores</strong> (<em>dict</em>) – Dictionary containing scores (e.g., GROC) for each model, with model identifiers as keys.</p></li>
-<li><p><strong>lead_time</strong> (<em>list</em><em> of </em><em>int</em>) – Lead times in months for the forecast season (e.g., [1, 2, 3] for a 3-month season).</p></li>
-<li><p><strong>model_dir</strong> (<em>str</em><em> or </em><em>Path</em>) – Directory containing hindcast and forecast NetCDF files.</p></li>
-<li><p><strong>clim_year_start</strong> (<em>int</em><em> or </em><em>str</em>) – Start year of the climatology period for computing tercile thresholds.</p></li>
-<li><p><strong>clim_year_end</strong> (<em>int</em><em> or </em><em>str</em>) – End year of the climatology period for computing tercile thresholds.</p></li>
-<li><p><strong>variable</strong> (<em>str</em><em>, </em><em>optional</em>) – Variable name in the NetCDF files (e.g., ‘PRCP’ for precipitation). Default is ‘PRCP’.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ul class="simple">
-<li><dl class="simple">
-<dt>hindcast_det<span class="classifier">xarray.DataArray</span></dt><dd><p>Weighted deterministic hindcast with dimensions (T, Y, X).</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>hindcast_prob<span class="classifier">xarray.DataArray</span></dt><dd><p>Tercile probabilities for hindcasts with dimensions (probability, T, Y, X).</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>forecast_prob<span class="classifier">xarray.DataArray</span></dt><dd><p>Tercile probabilities for forecasts with dimensions (probability, Y, X).</p>
-</dd>
-</dl>
-</li>
-</ul>
-</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>tuple</p>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<ul class="simple">
-<li><p>Model files are expected to follow a naming convention like
-‘hindcast_{center}_{variable}_{init_month}_{season}_{lead}.nc’.</p></li>
-<li><p>The GROC score is used as the weighting metric.</p></li>
-<li><p>A scaling factor is applied based on the ratio of observed to hindcast mean.</p></li>
-</ul>
-</dd></dl>
-
-</dd></dl>
 
 </section>
 <section id="module-wass2s.utils">

@@ -33,7 +33,7 @@ The ``WAS_Download_Models`` method allows downloading seasonal forecast model da
 
 **Available centers and variables:**
 
-- **Centers:** ECMWF_51, UKMO_604, UKMO_603, METEOFRANCE_8, DWD_21, DWD_22, CMCC_35, NCEP_2, JMA_3, ECCC_4, ECCC_5, CFSV2_1, CMC1_1, CMC2_1, GFDL_1, NASA_1, NCAR_CCSM4_1, NMME_1
+- **Centers:** BOM_2, ECMWF_51, UKMO_604, UKMO_603, METEOFRANCE_8, METEOFRANCE_9, DWD_21, DWD_22, CMCC_35, NCEP_2, JMA_3, ECCC_4, ECCC_5, CFSV2_1, CMC1_1, CMC2_1, GFDL_1, NASA_1, NCAR_CCSM4_1, NMME_1
 - **Variables:** PRCP, TEMP, TMAX, TMIN, UGRD10, VGRD10, SST, SLP, DSWR, DLWR, HUSS_1000, HUSS_925, HUSS_850, UGRD_1000, UGRD_925, UGRD_850, VGRD_1000, VGRD_925, VGRD_850
 
 **Note:** Some models are part of the NMME (North American Multi-Model Ensemble) project. For more information, see the `NMME documentation <https://www.cpc.ncep.noaa.gov/products/NMME/>`_. 
