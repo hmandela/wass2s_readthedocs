@@ -8,7 +8,7 @@ Three types of data can be downloaded with wass2s:
 - Reanalysis data
 - Observational data (satellite data, products combining satellite and observational data)
 
-For some data, for instance `C3S <https://cds.climate.copernicus.eu/>`_, it requires creating an account, accepting the terms of use, and configuring an API key (`CDS API key<>`_). 
+For some data, for instance `C3S <https://cds.climate.copernicus.eu/>`_, it requires creating an account, accepting the terms of use, and configuring an API key (`CDS API key<https://hmandela.github.io/WAS_S2S_Training/s2s_data.html>`_). 
 Please refer also to the `CDS documentation <https://cds.climate.copernicus.eu/api-how-to>`_ for more instructions on how to set up the API key. 
 For more information on C3S seasonal data, browse the `MetaData <https://confluence.ecmwf.int/display/CKB/Description+of+the+C3S+seasonal+multi-system>`_.
 

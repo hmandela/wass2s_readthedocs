@@ -35,7 +35,6 @@ DAILY/ELEV   92.0     153.0
 ============ ======== ==========
 
 
-
 **Climate Prediction Tools (CPT)**: Format for seasonal aggregation (used in climate prediction tools) before merging.
 
 ======= ===== ====== =====
@@ -50,7 +49,6 @@ LON     3.3   5.2    7.2
 1995    492.2 837.6  938.8
 ...
 ======= ===== ====== =====
-
 
 ==============================================
 Computing Predictands
@@ -148,7 +146,7 @@ The criteria dictionary defines parameters for onset computation:
 The ``WAS_compute_cessation`` class computes the cessation of the rainy season based on soil moisture balance criteria.
 
 * Similar initialization and methods as ``WAS_compute_onset`` with criteria including:
-  * ``date_dry_soil``: Date when soil is assumed dry (e.g., "01*01").
+  * ``date_dry_soil``: Date when soil is assumed dry (e.g., "01-01").
   * ``ETP``: Evapotranspiration rate (mm/day).
   * ``Cap_ret_maxi``: Maximum soil water retention capacity (mm).
 

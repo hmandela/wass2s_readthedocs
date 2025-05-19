@@ -1,23 +1,11 @@
-**Verification Module**
+-------------------
+Verification Module
+-------------------
 
 The Verification module provides tools for evaluating the performance of climate forecasts using a variety of deterministic, probabilistic, and ensemble-based metrics. It is implemented in the `was_verification.py` module and leverages the `WAS_Verification` class to compute metrics such as Kling-Gupta Efficiency (KGE), Pearson Correlation, Ranked Probability Skill Score (RPSS), and Continuous Ranked Probability Score (CRPS). The module also includes visualization utilities for plotting scores, reliability diagrams, and ROC curves.
 
 This module is designed to work with gridded climate data, typically stored in `xarray` DataArrays, and supports parallel computation using `dask` for efficiency with large datasets.
 
-**Prerequisites**
-
-- **xarray**: For handling multi-dimensional data arrays.
-- **numpy**: For numerical computations.
-- **scipy**: For statistical functions.
-- **scikit-learn**: For metrics and utilities like ROC curves and one-hot encoding.
-- **xskillscore**: For ensemble-based metrics like CRPS.
-- **matplotlib** and **cartopy**: For plotting maps and diagrams.
-- **properscoring**: For scoring probabilistic forecasts.
-- **dask**: For parallel computing.
-
-==============================================
-WAS_Verification Class
-==============================================
 
 The `WAS_Verification` class is the core of the Verification module, providing methods to compute and visualize various performance metrics for climate forecasts.
 
