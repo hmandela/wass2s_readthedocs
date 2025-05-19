@@ -1,0 +1,4718 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.5.19)  19 MAY 2025 11:59
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**wass2s.tex
+(./wass2s.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-04-29>
+(./sphinxmanual.cls
+Document Class: sphinxmanual 2019/12/01 v2.3.0 Document class (Sphinx manual)
+(/home/user/.TinyTeX/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2024/06/29 v1.4n Standard LaTeX document class
+(/home/user/.TinyTeX/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count272
+\c@chapter=\count273
+\c@section=\count274
+\c@subsection=\count275
+\c@subsubsection=\count276
+\c@paragraph=\count277
+\c@subparagraph=\count278
+\c@figure=\count279
+\c@table=\count280
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen146
+)
+LaTeX Info: Redefining \and on input line 35.
+) (/home/user/.TinyTeX/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks17
+\inpenc@posthook=\toks18
+)
+   defining Unicode char U+00A0 (decimal 160)
+   defining Unicode char U+2500 (decimal 9472)
+   defining Unicode char U+2502 (decimal 9474)
+   defining Unicode char U+2514 (decimal 9492)
+   defining Unicode char U+251C (decimal 9500)
+   defining Unicode char U+2572 (decimal 9586)
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/cmap/cmap.sty
+Package: cmap 2021/02/06 v1.0j CMap support: searchable PDF
+) (/home/user/.TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+<<t1.cmap>>) (/home/user/.TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2024/11/05 v2.17t AMS math features
+\@mathmargin=\skip51
+
+For additional information on amsmath, use the `?' option.
+(/home/user/.TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks19
+\ex@=\dimen147
+)) (/home/user/.TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen148
+) (/home/user/.TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count281
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count282
+\leftroot@=\count283
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count284
+\DOTSCASE@=\count285
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box53
+\strutbox@=\box54
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen149
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count286
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count287
+\dotsspace@=\muskip17
+\c@parentequation=\count288
+\dspbrk@lvl=\count289
+\tag@help=\toks20
+\row@=\count290
+\column@=\count291
+\maxfields@=\count292
+\andhelp@=\toks21
+\eqnshift@=\dimen150
+\alignsep@=\dimen151
+\tagshift@=\dimen152
+\tagwidth@=\dimen153
+\totwidth@=\dimen154
+\lineht@=\dimen155
+\@envbody=\toks22
+\multlinegap=\skip52
+\multlinetaggap=\skip53
+\mathdisplay@stack=\toks23
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+) (/home/user/.TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (/home/user/.TinyTeX/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2025/05/14 v25.9 The multilingual framework for pdfLaTeX, LuaLaTeX and XeLaTeX
+\babel@savecnt=\count293
+\U@D=\dimen156
+\l@unhyphenated=\language5
+ (/home/user/.TinyTeX/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count294
+ (/home/user/.TinyTeX/texmf-dist/tex/generic/babel-english/english.ldf
+Language: english 2017/06/06 v3.3r English support from the babel system
+ (/home/user/.TinyTeX/texmf-dist/tex/generic/babel/locale/en/babel-english.tex
+Package babel Info: Importing font and identification data for english
+(babel)             from babel-en.ini. Reported on input line 11.
+)
+Package babel Info: Hyphen rules for 'canadian' set to \l@english
+(babel)             (\language0). Reported on input line 102.
+Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
+(babel)             (\language3). Reported on input line 105.
+Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
+(babel)             (\language3). Reported on input line 108.
+)) (/home/user/.TinyTeX/texmf-dist/tex/latex/tex-gyre/tgtermes.sty
+Package: tgtermes 2009/09/27 v1.2 TeX Gyre Termes as default roman family
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks24
+) (/home/user/.TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+) (/home/user/.TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+))) (/home/user/.TinyTeX/texmf-dist/tex/latex/tex-gyre/tgheros.sty
+Package: tgheros 2009/09/27 v1.2 TeX Gyre Heros as default sans serif family
+) (/home/user/.TinyTeX/texmf-dist/tex/latex/fncychap/fncychap.sty
+Package: fncychap 2007/07/30 v1.34 LaTeX package (Revised chapters)
+\RW=\skip54
+\mylen=\skip55
+\myhi=\skip56
+\px=\skip57
+\py=\skip58
+\pyy=\skip59
+\pxx=\skip60
+\c@AlphaCnt=\count295
+\c@AlphaDecCnt=\count296
+) (./sphinx.sty
+Package: sphinx 2024/11/23 v8.2.0 Sphinx LaTeX package (sphinx-doc)
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
+) (/home/user/.TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+) (./sphinxoptionshyperref.sty
+Package: sphinxoptionshyperref 2021/01/27 hyperref
+) (./sphinxoptionsgeometry.sty
+Package: sphinxoptionsgeometry 2021/01/27 geometry
+) (/home/user/.TinyTeX/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
+) (/home/user/.TinyTeX/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count297
+\float@exts=\toks25
+\float@box=\box55
+\@float@everytoks=\toks26
+\@floatcapt=\box56
+) (/home/user/.TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen157
+\WF@size=\dimen158
+\c@WF@wrappedlines=\count298
+\WF@box=\box57
+\WF@everypar=\toks27
+Package: wrapfig 2003/01/31  v 3.6
+) (/home/user/.TinyTeX/texmf-dist/tex/latex/capt-of/capt-of.sty
+Package: capt-of 2009/12/29 v0.2 standard captions outside of floats
+) (/home/user/.TinyTeX/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2024/09/14 v1.9i multicolumn formatting (FMi)
+\c@tracingmulticols=\count299
+\mult@box=\box58
+\multicol@leftmargin=\dimen159
+\c@unbalance=\count300
+\c@collectmore=\count301
+\doublecol@number=\count302
+\multicoltolerance=\count303
+\multicolpretolerance=\count304
+\full@width=\dimen160
+\page@free=\dimen161
+\premulticols=\dimen162
+\postmulticols=\dimen163
+\multicolsep=\skip61
+\multicolbaselineskip=\skip62
+\partial@page=\box59
+\last@line=\box60
+\mc@boxedresult=\box61
+\maxbalancingoverflow=\dimen164
+\mult@rightbox=\box62
+\mult@grightbox=\box63
+\mult@firstbox=\box64
+\mult@gfirstbox=\box65
+\@tempa=\box66
+\@tempa=\box67
+\@tempa=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\@tempa=\box98
+\@tempa=\box99
+\@tempa=\box100
+\@tempa=\box101
+\c@minrows=\count305
+\c@columnbadness=\count306
+\c@finalcolumnbadness=\count307
+\last@try=\dimen165
+\multicolovershoot=\dimen166
+\multicolundershoot=\dimen167
+\mult@nat@firstbox=\box102
+\colbreak@box=\box103
+\mc@col@check@num=\count308
+) (/home/user/.TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+) (/home/user/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+)
+\Gin@req@height=\dimen168
+\Gin@req@width=\dimen169
+) (./sphinxlatexgraphics.sty
+Package: sphinxlatexgraphics 2024/08/13 v8.1.0 graphics
+\spx@image@maxheight=\dimen170
+\spx@image@box=\box104
+) (./sphinxpackageboxes.sty
+Package: sphinxpackageboxes 2024/07/01 v7.4.0 advanced colored boxes
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/pict2e/pict2e.sty
+Package: pict2e 2020/09/30 v0.4b Improved picture commands (HjG,RN,JT)
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/pict2e/pict2e.cfg
+File: pict2e.cfg 2016/02/05 v0.1u pict2e configuration for teTeX/TeXLive
+)
+Package pict2e Info: Driver file: pdftex.def on input line 112.
+Package pict2e Info: Driver file for pict2e: p2e-pdftex.def on input line 114.
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/pict2e/p2e-pdftex.def
+File: p2e-pdftex.def 2016/02/05 v0.1u Driver-dependant file (RN,HjG,JT)
+)
+\pIIe@GRAPH=\toks28
+\@arclen=\dimen171
+\@arcrad=\dimen172
+\pIIe@tempdima=\dimen173
+\pIIe@tempdimb=\dimen174
+\pIIe@tempdimc=\dimen175
+\pIIe@tempdimd=\dimen176
+\pIIe@tempdime=\dimen177
+\pIIe@tempdimf=\dimen178
+) (/home/user/.TinyTeX/texmf-dist/tex/latex/ellipse/ellipse.sty
+Package: ellipse 2004/11/05 v1.0 .dtx ellipse file
+)
+\@tempdimd=\dimen179
+\spx@tempboxa=\box105
+\spx@tempboxb=\box106
+\spx@boxes@border@top=\dimen180
+\spx@boxes@border@right=\dimen181
+\spx@boxes@border@bottom=\dimen182
+\spx@boxes@border@left=\dimen183
+\spx@boxes@padding@top=\dimen184
+\spx@boxes@padding@right=\dimen185
+\spx@boxes@padding@bottom=\dimen186
+\spx@boxes@padding@left=\dimen187
+\spx@boxes@shadow@xoffset=\dimen188
+\spx@boxes@shadow@yoffset=\dimen189
+\spx@boxes@radius@topleft@x=\dimen190
+\spx@boxes@radius@topright@x=\dimen191
+\spx@boxes@radius@bottomright@x=\dimen192
+\spx@boxes@radius@bottomleft@x=\dimen193
+\spx@boxes@radius@topleft@y=\dimen194
+\spx@boxes@radius@topright@y=\dimen195
+\spx@boxes@radius@bottomright@y=\dimen196
+\spx@boxes@radius@bottomleft@y=\dimen197
+) (./sphinxlatexadmonitions.sty
+Package: sphinxlatexadmonitions 2024/10/11 v8.1.1 admonitions
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip63
+\fb@frw=\dimen198
+\fb@frh=\dimen199
+\FrameRule=\dimen256
+\FrameSep=\dimen257
+) (./sphinxpackagefootnote.sty
+Package: sphinxpackagefootnote 2024/05/17 v7.3.x Sphinx custom footnotehyper package (Sphinx team)
+\FNH@notes=\box107
+\FNH@toks=\toks29
+\FNH@width=\dimen258
+\c@sphinxfootnotemark=\count309
+)
+\spx@notice@border=\dimen259
+\c@sphinxtodo=\count310
+) (./sphinxlatexliterals.sty
+Package: sphinxlatexliterals 2024/07/01 v7.4.0 code-blocks and parsed literals
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2024/01/20 4.5c verbatim text (tvz,hv)
+\FV@CodeLineNo=\count311
+\FV@InFile=\read3
+\FV@TabBox=\box108
+\c@FancyVerbLine=\count312
+\FV@StepNumber=\count313
+\FV@OutFile=\write3
+) (/home/user/.TinyTeX/texmf-dist/tex/latex/base/alltt.sty
+Package: alltt 2024/07/07 v2.0g defines alltt environment
+) (/home/user/.TinyTeX/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
+) (/home/user/.TinyTeX/texmf-dist/tex/latex/needspace/needspace.sty
+Package: needspace 2025/03/13 v1.3e reserve vertical space
+)
+\sphinxcontinuationbox=\box109
+\sphinxvisiblespacebox=\box110
+\sphinxVerbatim@TitleBox=\box111
+\sphinxVerbatim@ContentsBox=\box112
+) (./sphinxlatexshadowbox.sty
+Package: sphinxlatexshadowbox 2024/07/28 v8.1.0 sphinxShadowBox
+) (./sphinxlatexcontainers.sty
+Package: sphinxlatexcontainers 2021/05/03 containers
+) (./sphinxhighlight.sty
+Package: sphinxhighlight 2022/06/30 stylesheet for highlighting with pygments
+) (./sphinxlatextables.sty
+Package: sphinxlatextables 2024/07/01 v7.4.0 tables
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/tabulary/tabulary.sty
+Package: tabulary 2024/06/04 v0.11 tabulary package (DPC)
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/tools/array.sty
+Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
+\col@sep=\dimen260
+\ar@mcellbox=\box113
+\extrarowheight=\dimen261
+\NC@list=\toks30
+\extratabsurround=\skip64
+\backup@length=\skip65
+\ar@cellbox=\box114
+)
+\TY@count=\count314
+\TY@linewidth=\dimen262
+\tymin=\dimen263
+\tymax=\dimen264
+\TY@tablewidth=\dimen265
+) (/home/user/.TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2024-10-27 v4.22 Multi-page Table package (DPC)
+\LTleft=\skip66
+\LTright=\skip67
+\LTpre=\skip68
+\LTpost=\skip69
+\LTchunksize=\count315
+\LTcapwidth=\dimen266
+\LT@head=\box115
+\LT@firsthead=\box116
+\LT@foot=\box117
+\LT@lastfoot=\box118
+\LT@gbox=\box119
+\LT@cols=\count316
+\LT@rows=\count317
+\c@LT@tables=\count318
+\c@LT@chunks=\count319
+\LT@p@ftn=\toks31
+) (/home/user/.TinyTeX/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box120
+\sift@deathcycles=\count320
+\@vwid@loff=\dimen267
+\@vwid@roff=\dimen268
+)
+\sphinx@TY@tablewidth=\dimen269
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2024/07/06 v1.0i Color table columns (DPC)
+\everycr=\toks32
+\minrowclearance=\skip70
+\rownum=\count321
+) (/home/user/.TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen270
+\lightrulewidth=\dimen271
+\cmidrulewidth=\dimen272
+\belowrulesep=\dimen273
+\belowbottomsep=\dimen274
+\aboverulesep=\dimen275
+\abovetopsep=\dimen276
+\cmidrulesep=\dimen277
+\cmidrulekern=\dimen278
+\defaultaddspace=\dimen279
+\@cmidla=\count322
+\@cmidlb=\count323
+\@aboverulesep=\dimen280
+\@belowrulesep=\dimen281
+\@thisruleclass=\count324
+\@lastruleclass=\count325
+\@thisrulewidth=\dimen282
+)) (./sphinxlatexnumfig.sty
+Package: sphinxlatexnumfig 2024/07/31 v8.1.0 numbering
+) (./sphinxlatexlists.sty
+Package: sphinxlatexlists 2021/12/20 lists
+\spx@lineitemlabel=\toks33
+)
+\c@sphinxscope=\count326
+ (./sphinxlatexindbibtoc.sty
+Package: sphinxlatexindbibtoc 2021/01/27 index, bib., toc
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/base/makeidx.sty
+Package: makeidx 2021/10/04 v1.0m Standard LaTeX package
+)) (./sphinxlatexstylepage.sty
+Package: sphinxlatexstylepage 2021/01/27 page styling
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/parskip/parskip.sty
+Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2025/02/11 v2.5l e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count327
+)) (/home/user/.TinyTeX/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
+\f@nch@headwidth=\skip71
+\f@nch@offset@elh=\skip72
+\f@nch@offset@erh=\skip73
+\f@nch@offset@olh=\skip74
+\f@nch@offset@orh=\skip75
+\f@nch@offset@elf=\skip76
+\f@nch@offset@erf=\skip77
+\f@nch@offset@olf=\skip78
+\f@nch@offset@orf=\skip79
+\f@nch@height=\skip80
+\f@nch@footalignment=\skip81
+\f@nch@widthL=\skip82
+\f@nch@widthC=\skip83
+\f@nch@widthR=\skip84
+\@temptokenb=\toks34
+)) (./sphinxlatexstyleheadings.sty
+Package: sphinxlatexstyleheadings 2023/02/11 headings
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2025/01/04 v2.17 Sectioning titles
+\ttl@box=\box121
+\beforetitleunit=\skip85
+\aftertitleunit=\skip86
+\ttl@plus=\dimen283
+\ttl@minus=\dimen284
+\ttl@toksa=\toks35
+\titlewidth=\dimen285
+\titlewidthlast=\dimen286
+\titlewidthfirst=\dimen287
+)) (./sphinxlatexstyletext.sty
+Package: sphinxlatexstyletext 2024/07/28 v8.1.0 text styling
+) (./sphinxlatexobjects.sty
+Package: sphinxlatexobjects 2025/02/11 documentation environments
+\sphinxsignaturesep=\skip87
+\sphinxsignaturelistskip=\skip88
+\py@argswidth=\skip89
+\lineblockindentation=\skip90
+\DUlineblockindent=\skip91
+)) (/home/user/.TinyTeX/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (/home/user/.TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ (/home/user/.TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+))
+\Gm@cnth=\count328
+\Gm@cntv=\count329
+\c@Gm@tempcnt=\count330
+\Gm@bindingoffset=\dimen288
+\Gm@wd@mp=\dimen289
+\Gm@odd@mp=\dimen290
+\Gm@even@mp=\dimen291
+\Gm@layoutwidth=\dimen292
+\Gm@layoutheight=\dimen293
+\Gm@layouthoffset=\dimen294
+\Gm@layoutvoffset=\dimen295
+\Gm@dimlist=\toks36
+) (/home/user/.TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2024-11-05 v7.01l Hypertext links for LaTeX
+ (/home/user/.TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (/home/user/.TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+ (/home/user/.TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (/home/user/.TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)) (/home/user/.TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (/home/user/.TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (/home/user/.TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count331
+) (/home/user/.TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
+)
+\@linkdim=\dimen296
+\Hy@linkcounter=\count332
+\Hy@pagecounter=\count333
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2024-11-05 v7.01l Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+) (/home/user/.TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count334
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2024-11-05 v7.01l Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Option `unicode' set `true' on input line 4040.
+Package hyperref Info: Option `colorlinks' set `true' on input line 4040.
+Package hyperref Info: Option `breaklinks' set `true' on input line 4040.
+Package hyperref Info: Hyper figures OFF on input line 4157.
+Package hyperref Info: Link nesting OFF on input line 4162.
+Package hyperref Info: Hyper index ON on input line 4165.
+Package hyperref Info: Plain pages OFF on input line 4172.
+Package hyperref Info: Backreferencing OFF on input line 4177.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4424.
+\c@Hy@tempcnt=\count335
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip18
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4763.
+\XeTeXLinkMargin=\dimen297
+ (/home/user/.TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+ (/home/user/.TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count336
+\Field@Width=\dimen298
+\Fld@charsize=\dimen299
+Package hyperref Info: Hyper figures OFF on input line 6042.
+Package hyperref Info: Link nesting OFF on input line 6047.
+Package hyperref Info: Hyper index ON on input line 6050.
+Package hyperref Info: backreferencing OFF on input line 6057.
+Package hyperref Info: Link coloring ON on input line 6060.
+Package hyperref Info: Link coloring with OCG OFF on input line 6067.
+Package hyperref Info: PDF/A mode OFF on input line 6072.
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count337
+\c@Item=\count338
+\c@Hfootnote=\count339
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2024-11-05 v7.01l Hyperref driver for pdfTeX
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
+with kernel methods
+)
+\Fld@listcount=\count340
+\c@bookmark@seq@number=\count341
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+ (/home/user/.TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
+)
+\Hy@SectionHShift=\skip92
+) (/home/user/.TinyTeX/texmf-dist/tex/latex/hypcap/hypcap.sty
+Package: hypcap 2024-07-26 v1.13 Adjusting the anchors of captions (HO)
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)) (./sphinxmessages.sty
+Package: sphinxmessages 2019/01/04 v2.0 Localized LaTeX macros (Sphinx team)
+) (/home/user/.TinyTeX/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2025/02/06 v3.11 Customized lists
+\labelindent=\skip93
+\enit@outerparindent=\dimen300
+\enit@toks=\toks37
+\enit@inbox=\box122
+\enit@count@id=\count342
+\enitdp@description=\count343
+)
+\@indexfile=\write4
+\openout4 = `wass2s.idx'.
+
+
+Writing index file wass2s.idx
+LaTeX Font Info:    Trying to load font information for T1+qtm on input line 76.
+(/home/user/.TinyTeX/texmf-dist/tex/latex/tex-gyre/t1qtm.fd
+File: t1qtm.fd 2009/09/25 v1.2 font definition file for T1/qtm
+) (/home/user/.TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2025-04-14 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count344
+) (./wass2s.aux)
+\openout1 = `wass2s.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+ (/home/user/.TinyTeX/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count345
+\scratchdimen=\dimen301
+\scratchbox=\box123
+\nofMPsegments=\count346
+\nofMParguments=\count347
+\everyMPshowfont=\toks38
+\MPscratchCnt=\count348
+\MPscratchDim=\dimen302
+\MPnumerator=\count349
+\makeMPintoPDFobject=\count350
+\everyMPtoPDFconversion=\toks39
+) (/home/user/.TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+\c@literalblock=\count351
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: letterpaper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=36.135pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package hyperref Info: Link coloring ON on input line 76.
+(./wass2s.out) (./wass2s.out)
+\@outlinefile=\write5
+\openout5 = `wass2s.out'.
+
+Package hyperref Info: Option `pageanchor' set `false' on input line 84.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\spacefactor' on input line 84.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@m' on input line 84.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\spacefactor' on input line 84.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@m' on input line 84.
+
+LaTeX Font Info:    Trying to load font information for T1+qhv on input line 84.
+(/home/user/.TinyTeX/texmf-dist/tex/latex/tex-gyre/t1qhv.fd
+File: t1qhv.fd 2009/09/25 v1.2 font definition file for T1/qhv
+)<<ot1.cmap>>
+LaTeX Font Info:    Trying to load font information for U+msa on input line 84.
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 84.
+ (/home/user/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+
+[1
+
+{/home/user/.TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/home/user/.TinyTeX/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc}]
+
+[2
+
+
+] (./wass2s.toc)
+\tf@toc=\write6
+\openout6 = `wass2s.toc'.
+
+
+
+[1
+
+]
+
+[2
+
+]
+
+[1]
+
+[2
+
+]
+Chapter 1.
+LaTeX Font Info:    Trying to load font information for TS1+qtm on input line 101.
+(/home/user/.TinyTeX/texmf-dist/tex/latex/tex-gyre/ts1qtm.fd
+File: ts1qtm.fd 2009/09/25 v1.2 font definition file for TS1/qtm
+)
+LaTeX Font Info:    Trying to load font information for T1+txtt on input line 137.
+LaTeX Font Info:    No file T1txtt.fd. on input line 137.
+
+
+LaTeX Font Warning: Font shape `T1/txtt/m/n' undefined
+(Font)              using `T1/cmr/m/n' instead on input line 137.
+
+
+
+[3{/home/user/.TinyTeX/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
+
+LaTeX Font Warning: Font shape `T1/txtt/b/n' undefined
+(Font)              using `T1/txtt/m/n' instead on input line 299.
+
+
+
+[4]
+Overfull \vbox (1.87964pt too high) detected at line 401
+ []
+
+
+
+[5]
+
+[6]
+
+[7]
+
+LaTeX Font Warning: Font shape `T1/txtt/m/it' undefined
+(Font)              using `T1/txtt/m/n' instead on input line 688.
+
+
+
+[8]
+
+[9]
+
+[10]
+LaTeX Font Info:    Trying to load font information for TS1+txtt on input line 1167.
+LaTeX Font Info:    No file TS1txtt.fd. on input line 1167.
+
+
+LaTeX Font Warning: Font shape `TS1/txtt/m/n' undefined
+(Font)              using `TS1/cmr/m/n' instead
+(Font)              for symbol `textquotesingle' on input line 1167.
+
+
+
+[11]
+Underfull \hbox (badness 5203) in paragraph at lines 1224--1227
+[]\T1/qtm/m/n/10 The \T1/txtt/m/it/10 WAS_r95_99p \T1/qtm/m/n/10 class com-putes R95p and R99p in-dices. Ini-tial-iza-tion with a base pe-riod (e.g.,
+ []
+
+
+LaTeX Font Warning: Font shape `TS1/txtt/m/it' undefined
+(Font)              using `TS1/txtt/m/n' instead
+(Font)              for symbol `textquotesingle' on input line 1305.
+
+
+
+[12]
+<cvv.png, id=318, 496.85625pt x 217.31187pt>
+File: cvv.png Graphic file (type png)
+<use cvv.png>
+Package pdftex.def Info: cvv.png  used on input line 1328.
+(pdftex.def)             Requested size: 347.797pt x 152.11726pt.
+
+
+[13 <./cvv.png>]
+<generation_proba.png, id=327, 472.76625pt x 347.04657pt>
+File: generation_proba.png Graphic file (type png)
+<use generation_proba.png>
+Package pdftex.def Info: generation_proba.png  used on input line 1437.
+(pdftex.def)             Requested size: 330.93411pt x 242.93094pt.
+
+
+[14]
+
+[15 <./generation_proba.png>]
+Overfull \vbox (1.07965pt too high) detected at line 1718
+ []
+
+
+
+[16]
+Underfull \vbox (badness 1226) detected at line 1776
+ []
+
+
+
+[17]
+Underfull \vbox (badness 10000) detected at line 1776
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1776
+ []
+
+
+
+[18]
+
+[19]
+
+[20]
+
+[21]
+
+[22]
+
+[23]
+
+[24]
+
+[25]
+
+[26]
+
+[27]
+
+[28]
+
+[29]
+
+[30]
+
+[31]
+
+[32]
+
+[33]
+
+[34]
+
+LaTeX Font Warning: Font shape `TS1/txtt/b/n' undefined
+(Font)              using `TS1/txtt/m/n' instead
+(Font)              for symbol `textquotesingle' on input line 1.
+
+
+
+[35]
+
+[36]
+
+[37]
+
+[38]
+
+[39]
+
+[40]
+
+[41]
+
+[42]
+
+[43]
+
+[44]
+
+[45]
+
+[46]
+
+[47]
+
+[48]
+
+[49]
+Underfull \hbox (badness 10000) in paragraph at lines 5816--5820
+\T1/qtm/m/n/10 [str] Dis-tri-bu-tion method for ter-cile prob-a-bil-ity cal-cu-la-tions (e.g.
+ []
+
+
+
+[50]
+
+[51]
+
+[52]
+
+[53]
+
+[54]
+Underfull \hbox (badness 10000) in paragraph at lines 6617--6621
+\T1/qtm/m/n/10 [str] Dis-tri-bu-tion method for ter-cile prob-a-bil-ity cal-cu-la-tions: one of
+ []
+
+
+
+[55]
+
+[56]
+Underfull \hbox (badness 10000) in paragraph at lines 7001--7005
+\T1/qtm/m/n/10 Dis-tri-bu-tion method for ter-cile prob-a-bil-ity cal-cu-la-tions. One of
+ []
+
+
+
+[57]
+
+[58]
+
+[59]
+
+[60]
+
+[61]
+
+[62]
+
+[63]
+
+[64]
+
+[65]
+
+[66]
+
+[67]
+Underfull \hbox (badness 10000) in paragraph at lines 8968--8970
+[]\T1/txtt/m/it/10 hl_array \T1/qtm/m/n/10 (\T1/txtt/m/it/10 xarray.DataArray\T1/qtm/m/n/10 ) ^^U Lo-cal best hy-per-pa-ram-e-ters from com-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8972--8974
+[]\T1/txtt/m/it/10 act_array \T1/qtm/m/n/10 (\T1/txtt/m/it/10 xarray.DataArray\T1/qtm/m/n/10 ) ^^U Lo-cal best hy-per-pa-ram-e-ters from com-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8976--8978
+[]\T1/txtt/m/it/10 lr_array \T1/qtm/m/n/10 (\T1/txtt/m/it/10 xarray.DataArray\T1/qtm/m/n/10 ) ^^U Lo-cal best hy-per-pa-ram-e-ters from com-
+ []
+
+
+
+[68]
+
+[69]
+
+[70]
+
+[71]
+
+[72]
+
+[73]
+
+[74]
+Underfull \hbox (badness 10000) in paragraph at lines 10198--10200
+[]\T1/txtt/m/it/10 best_param_da \T1/qtm/m/n/10 (\T1/txtt/m/it/10 xarray.DataArray\T1/qtm/m/n/10 ) ^^U The per-grid best_params from com-
+ []
+
+
+
+[75]
+Underfull \hbox (badness 10000) in paragraph at lines 10291--10293
+[]\T1/txtt/m/it/10 best_params_str \T1/qtm/m/n/10 (\T1/txtt/m/it/10 str\T1/qtm/m/n/10 ) ^^U String of best_params (e.g. ^^P{`es-ti-ma-
+ []
+
+
+
+[76]
+Underfull \hbox (badness 6775) in paragraph at lines 10349--10351
+[]\T1/txtt/m/it/10 best_param_da \T1/qtm/m/n/10 (\T1/txtt/m/it/10 xarray.DataArray\T1/qtm/m/n/10 ) ^^U Grid-based hy-per-pa-ram-e-ters from com-
+ []
+
+
+Overfull \hbox (2.52034pt too wide) in paragraph at lines 10384--10384
+\T1/qtm/m/it/10 dist_method=\TS1/qtm/m/it/10 '\T1/qtm/m/it/10 gamma\TS1/qtm/m/it/10 '\T1/qtm/m/n/10 , 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10431--10436
+[]\T1/qtm/m/n/10 When ref-er-enc-ing pa-ram-e-ters in-side stack-ing es-ti-ma-tors, scikit-learn uses ^^Pes-ti-ma-
+ []
+
+
+
+[77]
+
+[78]
+
+[79]
+
+[80]
+
+[81]
+
+[82]
+
+[83]
+
+[84]
+Underfull \hbox (badness 10000) in paragraph at lines 11753--11755
+[]\T1/txtt/m/it/10 best_param_da \T1/qtm/m/n/10 (\T1/txtt/m/it/10 xarray.DataArray\T1/qtm/m/n/10 ) ^^U Lo-cal best hy-per-params from com-
+ []
+
+
+
+[85]
+
+[86]
+
+[87]
+
+[88]
+
+[89]
+
+[90]
+
+[91]
+
+[92]
+
+[93]
+
+[94]
+
+[95]
+Underfull \hbox (badness 10000) in paragraph at lines 13177--13179
+[]\T1/txtt/m/it/10 score_func \T1/qtm/m/n/10 (\T1/txtt/m/it/10 callable\T1/qtm/m/n/10 ) ^^U Scor-ing func-tion to ap-ply (e.g., pear-son_corr,
+ []
+
+
+
+[96]
+
+[97]
+
+[98]
+
+[99]
+
+[100]
+
+[101]
+
+[102]
+
+[103]
+
+[104]
+Underfull \hbox (badness 10000) in paragraph at lines 14418--14421
+[]\T1/qtm/m/n/10 Model files are ex-pected to fol-low a nam-ing con-ven-tion like `hind-
+ []
+
+
+
+[105]
+
+[106]
+
+[107]
+
+[108]
+
+[109]
+
+[110]
+
+[111]
+
+[112]
+
+[113]
+
+[114]
+
+[115]
+
+[116]
+
+[117]
+
+[118]
+
+[119]
+
+[120]
+
+[121]
+
+[122]
+
+[123]
+
+[124]
+
+[125]
+
+[126]
+
+[127]
+
+[128]
+
+[129]
+
+[130]
+
+[131]
+
+[132]
+
+[133]
+
+[134]
+
+[135]
+
+[136]
+
+[137]
+
+[138]
+
+[139]
+
+[140]
+
+
+
+[141
+
+
+
+] (./wass2s.ind
+
+[142
+
+
+]
+Overfull \hbox (96.60138pt too wide) in paragraph at lines 8--10
+[]\T1/txtt/m/it/10 adjust_duplicates() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_cessation
+ []
+
+
+Overfull \hbox (139.12138pt too wide) in paragraph at lines 10--12
+[]\T1/txtt/m/it/10 adjust_duplicates() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_cessation_dry_spell
+ []
+
+
+Overfull \hbox (80.34138pt too wide) in paragraph at lines 12--14
+[]\T1/txtt/m/it/10 adjust_duplicates() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_onset
+ []
+
+
+Overfull \hbox (122.86139pt too wide) in paragraph at lines 14--16
+[]\T1/txtt/m/it/10 adjust_duplicates() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_onset_dry_spell
+ []
+
+
+Overfull \hbox (89.28137pt too wide) in paragraph at lines 16--18
+[]\T1/txtt/m/it/10 adjust_duplicates() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_count_dry_spells
+ []
+
+
+Overfull \hbox (45.50136pt too wide) in paragraph at lines 18--20
+[]\T1/txtt/m/it/10 adjust_duplicates() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_merge_predictand.WAS_Merging
+ []
+
+
+Overfull \hbox (4.96498pt too wide) in paragraph at lines 20--22
+[]\T1/txtt/m/it/10 AgroObsName() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_download.WAS_Download
+ []
+
+
+Overfull \hbox (18.63225pt too wide) in paragraph at lines 22--24
+[]\T1/txtt/m/it/10 alpha_range \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_Ridge_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--27
+[]\T1/txtt/m/it/10 auto_select_kriging_parameters()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--27
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_merge_predictand.WAS_Merging
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--38
+[]\T1/txtt/m/it/10 calc_index() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_analog.WAS_Analog
+ []
+
+
+Overfull \hbox (16.64255pt too wide) in paragraph at lines 38--40
+[]\T1/txtt/m/it/10 calculate_groc() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Overfull \hbox (15.36508pt too wide) in paragraph at lines 40--42
+[]\T1/txtt/m/it/10 calculate_rpss() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Overfull \hbox (23.14096pt too wide) in paragraph at lines 42--44
+[]\T1/txtt/m/it/10 calculate_rpss_() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--46
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--46
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_analog.WAS_Analog static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--48
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 48--50
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--52
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Overfull \hbox (19.63248pt too wide) in paragraph at lines 50--52
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_ElasticNet_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--54
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Overfull \hbox (1.8525pt too wide) in paragraph at lines 52--54
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_Lasso_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--56
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Overfull \hbox (20.0425pt too wide) in paragraph at lines 54--56
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_LassoLars_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 56--58
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Overfull \hbox (20.0425pt too wide) in paragraph at lines 56--58
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_LassoLars_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 58--60
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Overfull \hbox (48.97249pt too wide) in paragraph at lines 58--60
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_LinearRegression_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--62
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Overfull \hbox (1.39249pt too wide) in paragraph at lines 60--62
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_Ridge_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--64
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--64
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_MLP
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--66
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Overfull \hbox (38.12247pt too wide) in paragraph at lines 64--66
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_PoissonRegression
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--68
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Overfull \hbox (120.49243pt too wide) in paragraph at lines 66--68
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_RandomForest_XGBoost_ML_Stacking
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--70
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Overfull \hbox (126.60243pt too wide) in paragraph at lines 68--70
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_RandomForest_XGBoost_Stacking_MLP
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--72
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Overfull \hbox (25.23245pt too wide) in paragraph at lines 70--72
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_Stacking_Ridge
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 72--74
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 72--74
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_SVR
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--76
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--76
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_AdaBoost
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--78
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--78
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_BMA static
+ []
+
+
+
+[143
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 78--80
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--80
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_ELM static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--82
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--82
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_GA static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--84
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Overfull \hbox (4.8225pt too wide) in paragraph at lines 82--84
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_GradientBoosting
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--86
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Overfull \hbox (1.28249pt too wide) in paragraph at lines 84--86
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_LGBM_Boosting
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--88
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--88
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_MLP static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--90
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Overfull \hbox (24.12245pt too wide) in paragraph at lines 88--90
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_KNN_Tree_SVR
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 90--92
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Overfull \hbox (25.27249pt too wide) in paragraph at lines 90--92
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_Lasso_RF_MLP
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--94
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Overfull \hbox (28.70248pt too wide) in paragraph at lines 92--94
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_MLP_Ada_Ridge
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--96
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--96
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_MLP_RF
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 96--98
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Overfull \hbox (18.14249pt too wide) in paragraph at lines 96--98
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_RF_GB_Ridge
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--100
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Overfull \hbox (5.72249pt too wide) in paragraph at lines 98--100
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_StackXGboost_Ml
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--102
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Underfull \hbox (badness 8075) in paragraph at lines 100--102
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Weighted static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--104
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--104
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_XGBoosting
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--106
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--106
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 106--108
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 106--108
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_analog.WAS_Analog static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--110
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--112
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 112--114
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Overfull \hbox (19.63248pt too wide) in paragraph at lines 112--114
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_ElasticNet_Model
+ []
+
+
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 114--116
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Overfull \hbox (1.8525pt too wide) in paragraph at lines 114--116
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_Lasso_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--118
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Overfull \hbox (20.0425pt too wide) in paragraph at lines 116--118
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_LassoLars_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 118--120
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Overfull \hbox (48.97249pt too wide) in paragraph at lines 118--120
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_LinearRegression_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--122
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Overfull \hbox (1.39249pt too wide) in paragraph at lines 120--122
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_Ridge_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 122--124
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 122--124
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_MLP
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 124--126
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Overfull \hbox (38.12247pt too wide) in paragraph at lines 124--126
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_PoissonRegression
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 126--128
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Overfull \hbox (52.56247pt too wide) in paragraph at lines 126--128
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_PolynomialRegression
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--130
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Overfull \hbox (120.49243pt too wide) in paragraph at lines 128--130
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_RandomForest_XGBoost_ML_Stacking
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 130--132
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Overfull \hbox (126.60243pt too wide) in paragraph at lines 130--132
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_RandomForest_XGBoost_Stacking_MLP
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 132--134
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Overfull \hbox (25.23245pt too wide) in paragraph at lines 132--134
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_Stacking_Ridge
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--136
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--136
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_SVR
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 136--138
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 136--138
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_AdaBoost
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 138--140
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 138--140
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_BMA static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--142
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--142
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_ELM static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--144
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--144
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_GA static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 144--146
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Overfull \hbox (4.8225pt too wide) in paragraph at lines 144--146
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_GradientBoosting
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 146--148
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Overfull \hbox (1.28249pt too wide) in paragraph at lines 146--148
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_LGBM_Boosting
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 148--150
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 148--150
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_MLP static
+ []
+
+
+
+[144]
+Underfull \hbox (badness 10000) in paragraph at lines 150--152
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Overfull \hbox (24.12245pt too wide) in paragraph at lines 150--152
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_KNN_Tree_SVR
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 152--154
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Overfull \hbox (25.27249pt too wide) in paragraph at lines 152--154
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_Lasso_RF_MLP
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 154--156
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Overfull \hbox (28.70248pt too wide) in paragraph at lines 154--156
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_MLP_Ada_Ridge
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 156--158
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 156--158
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_MLP_RF
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 158--160
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Overfull \hbox (18.14249pt too wide) in paragraph at lines 158--160
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_RF_GB_Ridge
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 160--162
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Overfull \hbox (5.72249pt too wide) in paragraph at lines 160--162
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_StackXGboost_Ml
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--164
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Underfull \hbox (badness 8075) in paragraph at lines 162--164
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Weighted static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--166
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--166
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_XGBoosting
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 166--168
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_gamma()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 166--168
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 168--170
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 168--170
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_analog.WAS_Analog static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--172
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 172--174
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Overfull \hbox (19.63248pt too wide) in paragraph at lines 172--174
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_ElasticNet_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 174--176
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Overfull \hbox (1.8525pt too wide) in paragraph at lines 174--176
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_Lasso_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 176--178
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Overfull \hbox (20.0425pt too wide) in paragraph at lines 176--178
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_LassoLars_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--180
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Overfull \hbox (48.97249pt too wide) in paragraph at lines 178--180
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_LinearRegression_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--182
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Overfull \hbox (1.39249pt too wide) in paragraph at lines 180--182
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_Ridge_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--184
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--184
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_MLP
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 184--186
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Overfull \hbox (38.12247pt too wide) in paragraph at lines 184--186
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_PoissonRegression
+ []
+
+
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 186--188
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Overfull \hbox (52.56247pt too wide) in paragraph at lines 186--188
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_PolynomialRegression
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 188--190
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Overfull \hbox (120.49243pt too wide) in paragraph at lines 188--190
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_RandomForest_XGBoost_ML_Stacking
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--192
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Overfull \hbox (126.60243pt too wide) in paragraph at lines 190--192
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_RandomForest_XGBoost_Stacking_MLP
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 192--194
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Overfull \hbox (25.23245pt too wide) in paragraph at lines 192--194
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_Stacking_Ridge
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 194--196
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 194--196
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_SVR
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 196--198
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 196--198
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_AdaBoost
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 198--200
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 198--200
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_BMA static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 200--202
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 200--202
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_ELM static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 202--204
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 202--204
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_GA static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 204--206
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Overfull \hbox (4.8225pt too wide) in paragraph at lines 204--206
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_GradientBoosting
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 206--208
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Overfull \hbox (1.28249pt too wide) in paragraph at lines 206--208
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_LGBM_Boosting
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 208--210
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 208--210
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_MLP static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 210--212
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Overfull \hbox (24.12245pt too wide) in paragraph at lines 210--212
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_KNN_Tree_SVR
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 212--214
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Overfull \hbox (25.27249pt too wide) in paragraph at lines 212--214
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_Lasso_RF_MLP
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 214--216
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Overfull \hbox (28.70248pt too wide) in paragraph at lines 214--216
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_MLP_Ada_Ridge
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 216--218
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 216--218
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_MLP_RF
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--220
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Overfull \hbox (18.14249pt too wide) in paragraph at lines 218--220
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_RF_GB_Ridge
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 220--222
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Overfull \hbox (5.72249pt too wide) in paragraph at lines 220--222
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_StackXGboost_Ml
+ []
+
+
+
+[145]
+Underfull \hbox (badness 10000) in paragraph at lines 222--224
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Underfull \hbox (badness 8075) in paragraph at lines 222--224
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Weighted static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 224--226
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 224--226
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_XGBoosting
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 226--228
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_lognormal()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 226--228
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 228--230
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 228--230
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_analog.WAS_Analog static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 230--232
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 232--234
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Overfull \hbox (19.63248pt too wide) in paragraph at lines 232--234
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_ElasticNet_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 234--236
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Overfull \hbox (1.8525pt too wide) in paragraph at lines 234--236
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_Lasso_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 236--238
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Overfull \hbox (20.0425pt too wide) in paragraph at lines 236--238
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_LassoLars_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 238--240
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Overfull \hbox (48.97249pt too wide) in paragraph at lines 238--240
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_LinearRegression_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 240--242
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Overfull \hbox (1.39249pt too wide) in paragraph at lines 240--242
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_Ridge_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 242--244
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 242--244
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_MLP
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 244--246
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Overfull \hbox (38.12247pt too wide) in paragraph at lines 244--246
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_PoissonRegression
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--248
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Overfull \hbox (52.56247pt too wide) in paragraph at lines 246--248
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_PolynomialRegression
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--250
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Overfull \hbox (120.49243pt too wide) in paragraph at lines 248--250
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_RandomForest_XGBoost_ML_Stacking
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 250--252
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Overfull \hbox (126.60243pt too wide) in paragraph at lines 250--252
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_RandomForest_XGBoost_Stacking_MLP
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--254
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Overfull \hbox (25.23245pt too wide) in paragraph at lines 252--254
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_Stacking_Ridge
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--256
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--256
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_SVR
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--258
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 258--260
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 258--260
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_BMA static
+ []
+
+
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 260--262
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 260--262
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_ELM static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 262--264
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 262--264
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_GA static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 264--266
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Overfull \hbox (4.8225pt too wide) in paragraph at lines 264--266
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_GradientBoosting
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 266--268
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Overfull \hbox (1.28249pt too wide) in paragraph at lines 266--268
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_LGBM_Boosting
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 268--270
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 268--270
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_MLP static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 270--272
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Overfull \hbox (24.12245pt too wide) in paragraph at lines 270--272
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_KNN_Tree_SVR
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 272--274
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Overfull \hbox (25.27249pt too wide) in paragraph at lines 272--274
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_Lasso_RF_MLP
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--276
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Overfull \hbox (28.70248pt too wide) in paragraph at lines 274--276
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_MLP_Ada_Ridge
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 276--278
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 276--278
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_MLP_RF
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 278--280
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Overfull \hbox (18.14249pt too wide) in paragraph at lines 278--280
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_RF_GB_Ridge
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 280--282
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Overfull \hbox (5.72249pt too wide) in paragraph at lines 280--282
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_StackXGboost_Ml
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 282--284
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Underfull \hbox (badness 8075) in paragraph at lines 282--284
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Weighted static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 284--286
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 284--286
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_XGBoosting
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 286--288
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_nonparametric()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 286--288
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 288--290
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 288--290
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_analog.WAS_Analog static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 290--292
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 292--294
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Overfull \hbox (19.63248pt too wide) in paragraph at lines 292--294
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_ElasticNet_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 294--296
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Overfull \hbox (1.8525pt too wide) in paragraph at lines 294--296
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_Lasso_Model
+ []
+
+
+
+[146]
+Underfull \hbox (badness 10000) in paragraph at lines 296--298
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Overfull \hbox (20.0425pt too wide) in paragraph at lines 296--298
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_LassoLars_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 298--300
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Overfull \hbox (48.97249pt too wide) in paragraph at lines 298--300
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_LinearRegression_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 300--302
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Overfull \hbox (1.39249pt too wide) in paragraph at lines 300--302
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_Ridge_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 302--304
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 302--304
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_MLP
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 304--306
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Overfull \hbox (38.12247pt too wide) in paragraph at lines 304--306
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_PoissonRegression
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 306--308
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Overfull \hbox (52.56247pt too wide) in paragraph at lines 306--308
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_PolynomialRegression
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 308--310
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Overfull \hbox (120.49243pt too wide) in paragraph at lines 308--310
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_RandomForest_XGBoost_ML_Stacking
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 310--312
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Overfull \hbox (126.60243pt too wide) in paragraph at lines 310--312
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_RandomForest_XGBoost_Stacking_MLP
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 312--314
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Overfull \hbox (25.23245pt too wide) in paragraph at lines 312--314
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_Stacking_Ridge
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 314--316
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 314--316
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_SVR
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 316--318
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 316--318
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_AdaBoost
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 318--320
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 318--320
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_BMA static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 320--322
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 320--322
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_ELM static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 322--324
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 322--324
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_GA static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 324--326
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Overfull \hbox (4.8225pt too wide) in paragraph at lines 324--326
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_GradientBoosting
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 326--328
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Overfull \hbox (1.28249pt too wide) in paragraph at lines 326--328
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_LGBM_Boosting
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 328--330
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 328--330
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_MLP static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 330--332
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Overfull \hbox (24.12245pt too wide) in paragraph at lines 330--332
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_KNN_Tree_SVR
+ []
+
+
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 332--334
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Overfull \hbox (25.27249pt too wide) in paragraph at lines 332--334
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_Lasso_RF_MLP
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 334--336
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Overfull \hbox (28.70248pt too wide) in paragraph at lines 334--336
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_MLP_Ada_Ridge
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 336--338
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 336--338
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_MLP_RF
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 338--340
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Overfull \hbox (18.14249pt too wide) in paragraph at lines 338--340
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_RF_GB_Ridge
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 340--342
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Overfull \hbox (5.72249pt too wide) in paragraph at lines 340--342
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_StackXGboost_Ml
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 342--344
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Underfull \hbox (badness 8075) in paragraph at lines 342--344
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Weighted static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 344--346
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 344--346
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_XGBoosting
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 346--348
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_normal()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 346--348
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 348--350
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_t()
+ []
+
+
+Overfull \hbox (52.56247pt too wide) in paragraph at lines 348--350
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_PolynomialRegression
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 350--352
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_weibull_min()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 352--354
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_weibull_min()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 352--354
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_BMA static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 354--356
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_weibull_min()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 354--356
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_ELM static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 356--358
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_weibull_min()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 356--358
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_GA static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 358--360
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_weibull_min()
+ []
+
+
+Overfull \hbox (4.8225pt too wide) in paragraph at lines 358--360
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_GradientBoosting
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 360--362
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_weibull_min()
+ []
+
+
+Overfull \hbox (1.28249pt too wide) in paragraph at lines 360--362
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_LGBM_Boosting
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 362--364
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_weibull_min()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 362--364
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_MLP static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 364--366
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_weibull_min()
+ []
+
+
+Overfull \hbox (24.12245pt too wide) in paragraph at lines 364--366
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_KNN_Tree_SVR
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 366--368
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_weibull_min()
+ []
+
+
+Overfull \hbox (25.27249pt too wide) in paragraph at lines 366--368
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_Lasso_RF_MLP
+ []
+
+
+
+[147]
+Underfull \hbox (badness 10000) in paragraph at lines 368--370
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_weibull_min()
+ []
+
+
+Overfull \hbox (28.70248pt too wide) in paragraph at lines 368--370
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_MLP_Ada_Ridge
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 370--372
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_weibull_min()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 370--372
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_MLP_RF
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 372--374
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_weibull_min()
+ []
+
+
+Overfull \hbox (18.14249pt too wide) in paragraph at lines 372--374
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_RF_GB_Ridge
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 374--376
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_weibull_min()
+ []
+
+
+Overfull \hbox (5.72249pt too wide) in paragraph at lines 374--376
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_StackXGboost_Ml
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 376--378
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_weibull_min()
+ []
+
+
+Underfull \hbox (badness 8075) in paragraph at lines 376--378
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Weighted static
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 378--380
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_weibull_min()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 378--380
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_XGBoosting
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 380--382
+[]\T1/txtt/m/it/10 calculate_tercile_probabilities_weibull_min()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 380--382
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Overfull \hbox (90.77573pt too wide) in paragraph at lines 382--384
+[]\T1/txtt/m/it/10 calculate_TXin90() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_HWSDI
+ []
+
+
+Overfull \hbox (127.89572pt too wide) in paragraph at lines 384--386
+[]\T1/txtt/m/it/10 calculate_TXin90() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_HWSDI_monthly
+ []
+
+
+Overfull \hbox (131.88573pt too wide) in paragraph at lines 386--388
+[]\T1/txtt/m/it/10 calculate_TXin90() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_HWSDI_Seasonal
+ []
+
+
+Overfull \hbox (100.48932pt too wide) in paragraph at lines 388--390
+[]\T1/txtt/m/it/10 cessation_function() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_cessation
+ []
+
+
+Overfull \hbox (70.49294pt too wide) in paragraph at lines 390--392
+[]\T1/txtt/m/it/10 classify() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_LogisticRegression_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 392--394
+[]\T1/txtt/m/it/10 classify() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 394--396
+[]\T1/txtt/m/it/10 classify_data_into_terciles()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 394--396
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Overfull \hbox (23.14096pt too wide) in paragraph at lines 396--398
+[]\T1/txtt/m/it/10 classify_percent() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 398--400
+[]\T1/txtt/m/it/10 composite_plot() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_analog.WAS_Analog
+ []
+
+
+Overfull \hbox (55.11151pt too wide) in paragraph at lines 400--402
+[]\T1/txtt/m/it/10 compute() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_cessation
+ []
+
+
+Overfull \hbox (97.63152pt too wide) in paragraph at lines 402--404
+[]\T1/txtt/m/it/10 compute() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_cessation_dry_spell
+ []
+
+
+Overfull \hbox (48.84152pt too wide) in paragraph at lines 404--406
+[]\T1/txtt/m/it/10 compute() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_HWSDI
+ []
+
+
+Overfull \hbox (85.96152pt too wide) in paragraph at lines 406--408
+[]\T1/txtt/m/it/10 compute() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_HWSDI_monthly
+ []
+
+
+Overfull \hbox (89.95152pt too wide) in paragraph at lines 408--410
+[]\T1/txtt/m/it/10 compute() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_HWSDI_Seasonal
+ []
+
+
+Overfull \hbox (38.85152pt too wide) in paragraph at lines 410--412
+[]\T1/txtt/m/it/10 compute() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_onset
+ []
+
+
+Overfull \hbox (81.37152pt too wide) in paragraph at lines 412--414
+[]\T1/txtt/m/it/10 compute() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_onset_dry_spell
+ []
+
+
+
+
+Overfull \hbox (47.7915pt too wide) in paragraph at lines 414--416
+[]\T1/txtt/m/it/10 compute() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_count_dry_spells
+ []
+
+
+Overfull \hbox (50.3715pt too wide) in paragraph at lines 416--418
+[]\T1/txtt/m/it/10 compute() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_count_rainy_days
+ []
+
+
+Overfull \hbox (47.60149pt too wide) in paragraph at lines 418--420
+[]\T1/txtt/m/it/10 compute() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_count_wet_spells
+ []
+
+
+Overfull \hbox (14.16151pt too wide) in paragraph at lines 420--422
+[]\T1/txtt/m/it/10 compute() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_Min2009_ProbWeighted
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 423--424
+[]\T1/txtt/m/it/10 compute() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Weighted
+ []
+
+
+Overfull \hbox (104.37355pt too wide) in paragraph at lines 424--426
+[]\T1/txtt/m/it/10 compute_class() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_LogisticRegression_Model
+ []
+
+
+Overfull \hbox (17.00357pt too wide) in paragraph at lines 426--428
+[]\T1/txtt/m/it/10 compute_class() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Overfull \hbox (14.75412pt too wide) in paragraph at lines 428--430
+[]\T1/txtt/m/it/10 compute_crps() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 430--432
+[]\T1/txtt/m/it/10 compute_deterministic_score()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 430--432
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 432--434
+[]\T1/txtt/m/it/10 compute_error_based_prior()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 434--436
+[]\T1/txtt/m/it/10 compute_hyperparameters()
+ []
+
+
+Overfull \hbox (19.63248pt too wide) in paragraph at lines 434--436
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_ElasticNet_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 436--438
+[]\T1/txtt/m/it/10 compute_hyperparameters()
+ []
+
+
+Overfull \hbox (1.8525pt too wide) in paragraph at lines 436--438
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_Lasso_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 438--440
+[]\T1/txtt/m/it/10 compute_hyperparameters()
+ []
+
+
+Overfull \hbox (20.0425pt too wide) in paragraph at lines 438--440
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_LassoLars_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 440--442
+[]\T1/txtt/m/it/10 compute_hyperparameters()
+ []
+
+
+Overfull \hbox (1.39249pt too wide) in paragraph at lines 440--442
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_Ridge_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 442--444
+[]\T1/txtt/m/it/10 compute_hyperparameters()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 442--444
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_MLP
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 444--446
+[]\T1/txtt/m/it/10 compute_hyperparameters()
+ []
+
+
+Overfull \hbox (120.49243pt too wide) in paragraph at lines 444--446
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_RandomForest_XGBoost_ML_Stacking
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 446--448
+[]\T1/txtt/m/it/10 compute_hyperparameters()
+ []
+
+
+Overfull \hbox (126.60243pt too wide) in paragraph at lines 446--448
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_RandomForest_XGBoost_Stacking_MLP
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 448--450
+[]\T1/txtt/m/it/10 compute_hyperparameters()
+ []
+
+
+Overfull \hbox (25.23245pt too wide) in paragraph at lines 448--450
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_Stacking_Ridge
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 450--452
+[]\T1/txtt/m/it/10 compute_hyperparameters()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 450--452
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_SVR
+ []
+
+
+Overfull \hbox (87.38141pt too wide) in paragraph at lines 452--454
+[]\T1/txtt/m/it/10 compute_insitu() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_cessation
+ []
+
+
+Overfull \hbox (129.90141pt too wide) in paragraph at lines 454--456
+[]\T1/txtt/m/it/10 compute_insitu() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_cessation_dry_spell
+ []
+
+
+
+[148]
+Overfull \hbox (71.12141pt too wide) in paragraph at lines 456--458
+[]\T1/txtt/m/it/10 compute_insitu() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_onset
+ []
+
+
+Overfull \hbox (113.64142pt too wide) in paragraph at lines 458--460
+[]\T1/txtt/m/it/10 compute_insitu() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_onset_dry_spell
+ []
+
+
+Overfull \hbox (80.0614pt too wide) in paragraph at lines 460--462
+[]\T1/txtt/m/it/10 compute_insitu() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_count_dry_spells
+ []
+
+
+Overfull \hbox (82.6414pt too wide) in paragraph at lines 462--464
+[]\T1/txtt/m/it/10 compute_insitu() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_count_rainy_days
+ []
+
+
+Overfull \hbox (79.87138pt too wide) in paragraph at lines 464--466
+[]\T1/txtt/m/it/10 compute_insitu() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_count_wet_spells
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 466--468
+[]\T1/txtt/m/it/10 compute_insitu_r95p()
+ []
+
+
+Overfull \hbox (6.39249pt too wide) in paragraph at lines 466--468
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_r95_99p
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 468--470
+[]\T1/txtt/m/it/10 compute_insitu_r99p()
+ []
+
+
+Overfull \hbox (6.39249pt too wide) in paragraph at lines 468--470
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_r95_99p
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 470--471
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_analog.WAS_Analog
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 471--472
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_cca.WAS_CCA
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 472--473
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_cca.WAS_CCA_
+ []
+
+
+Overfull \hbox (60.44981pt too wide) in paragraph at lines 473--475
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_ElasticNet_Model
+ []
+
+
+Overfull \hbox (42.66983pt too wide) in paragraph at lines 475--477
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_Lasso_Model
+ []
+
+
+Overfull \hbox (60.85983pt too wide) in paragraph at lines 477--479
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_LassoLars_Model
+ []
+
+
+Overfull \hbox (89.78983pt too wide) in paragraph at lines 479--481
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_LinearRegression_Model
+ []
+
+
+Overfull \hbox (42.20982pt too wide) in paragraph at lines 481--483
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_Ridge_Model
+ []
+
+
+Overfull \hbox (110.6498pt too wide) in paragraph at lines 483--485
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_LogisticRegression_Model
+ []
+
+
+Overfull \hbox (24.17981pt too wide) in paragraph at lines 485--487
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_MLP
+ []
+
+
+Overfull \hbox (78.9398pt too wide) in paragraph at lines 487--489
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_PoissonRegression
+ []
+
+
+Overfull \hbox (93.3798pt too wide) in paragraph at lines 489--491
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_PolynomialRegression
+ []
+
+
+Overfull \hbox (161.30977pt too wide) in paragraph at lines 491--493
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_RandomForest_XGBoost_ML_Stacking
+ []
+
+
+Overfull \hbox (167.41977pt too wide) in paragraph at lines 493--495
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_RandomForest_XGBoost_Stacking_MLP
+ []
+
+
+Overfull \hbox (66.04979pt too wide) in paragraph at lines 495--497
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_Stacking_Ridge
+ []
+
+
+Overfull \hbox (21.39981pt too wide) in paragraph at lines 497--499
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_SVR
+ []
+
+
+Overfull \hbox (13.10983pt too wide) in paragraph at lines 499--501
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_AdaBoost
+ []
+
+
+Underfull \hbox (badness 5832) in paragraph at lines 501--502
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_ELM
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 502--503
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_ELR
+ []
+
+
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 503--504
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_GA
+ []
+
+
+Overfull \hbox (45.63983pt too wide) in paragraph at lines 504--506
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_GradientBoosting
+ []
+
+
+Overfull \hbox (42.09982pt too wide) in paragraph at lines 506--508
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_LGBM_Boosting
+ []
+
+
+Underfull \hbox (badness 5832) in paragraph at lines 508--509
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_MLP
+ []
+
+
+Overfull \hbox (64.93979pt too wide) in paragraph at lines 509--511
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_KNN_Tree_SVR
+ []
+
+
+Overfull \hbox (66.08983pt too wide) in paragraph at lines 511--513
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_Lasso_RF_MLP
+ []
+
+
+Overfull \hbox (69.51982pt too wide) in paragraph at lines 513--515
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_MLP_Ada_Ridge
+ []
+
+
+Overfull \hbox (37.74983pt too wide) in paragraph at lines 515--517
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_MLP_RF
+ []
+
+
+Overfull \hbox (58.95982pt too wide) in paragraph at lines 517--519
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_RF_GB_Ridge
+ []
+
+
+Overfull \hbox (46.53983pt too wide) in paragraph at lines 519--521
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_StackXGboost_Ml
+ []
+
+
+Overfull \hbox (23.10983pt too wide) in paragraph at lines 521--523
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_XGBoosting
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 523--524
+[]\T1/txtt/m/it/10 compute_model() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_pcr.WAS_PCR
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 524--526
+[]\T1/txtt/m/it/10 compute_model_posterior_probs()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 526--528
+[]\T1/txtt/m/it/10 compute_one_year_rpss()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 526--528
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 529--530
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_analog.WAS_Analog
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 531--532
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_cca.WAS_CCA_
+ []
+
+
+Overfull \hbox (54.09026pt too wide) in paragraph at lines 532--534
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_ElasticNet_Model
+ []
+
+
+Overfull \hbox (36.31027pt too wide) in paragraph at lines 534--536
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_Lasso_Model
+ []
+
+
+Overfull \hbox (54.50027pt too wide) in paragraph at lines 536--538
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_LassoLars_Model
+ []
+
+
+Overfull \hbox (83.43027pt too wide) in paragraph at lines 538--540
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_LinearRegression_Model
+ []
+
+
+Overfull \hbox (35.85027pt too wide) in paragraph at lines 540--542
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_Ridge_Model
+ []
+
+
+Overfull \hbox (17.82025pt too wide) in paragraph at lines 542--544
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_MLP
+ []
+
+
+Overfull \hbox (72.58025pt too wide) in paragraph at lines 544--546
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_PoissonRegression
+ []
+
+
+Overfull \hbox (87.02025pt too wide) in paragraph at lines 546--548
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_PolynomialRegression
+ []
+
+
+Overfull \hbox (154.95021pt too wide) in paragraph at lines 548--550
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_RandomForest_XGBoost_ML_Stacking
+ []
+
+
+
+[149]
+Overfull \hbox (161.06021pt too wide) in paragraph at lines 550--552
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_RandomForest_XGBoost_Stacking_MLP
+ []
+
+
+Overfull \hbox (59.69023pt too wide) in paragraph at lines 552--554
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_Stacking_Ridge
+ []
+
+
+Overfull \hbox (15.04025pt too wide) in paragraph at lines 554--556
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_SVR
+ []
+
+
+Overfull \hbox (6.75027pt too wide) in paragraph at lines 556--558
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_AdaBoost
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 558--559
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_BMA
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 559--560
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_ELM
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 560--561
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_GA
+ []
+
+
+Overfull \hbox (39.28027pt too wide) in paragraph at lines 561--563
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_GradientBoosting
+ []
+
+
+Overfull \hbox (35.74026pt too wide) in paragraph at lines 563--565
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_LGBM_Boosting
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 565--566
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_MLP
+ []
+
+
+Overfull \hbox (58.58023pt too wide) in paragraph at lines 566--568
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_KNN_Tree_SVR
+ []
+
+
+Overfull \hbox (59.73027pt too wide) in paragraph at lines 568--570
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_Lasso_RF_MLP
+ []
+
+
+Overfull \hbox (63.16026pt too wide) in paragraph at lines 570--572
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_MLP_Ada_Ridge
+ []
+
+
+Overfull \hbox (31.39027pt too wide) in paragraph at lines 572--574
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_MLP_RF
+ []
+
+
+Overfull \hbox (52.60027pt too wide) in paragraph at lines 574--576
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_RF_GB_Ridge
+ []
+
+
+Overfull \hbox (40.18027pt too wide) in paragraph at lines 576--578
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_StackXGboost_Ml
+ []
+
+
+Overfull \hbox (4.98029pt too wide) in paragraph at lines 578--580
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Weighted
+ []
+
+
+Overfull \hbox (16.75027pt too wide) in paragraph at lines 580--582
+[]\T1/txtt/m/it/10 compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_XGBoosting
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 583--585
+[]\T1/txtt/m/it/10 compute_probabilistic_score()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 583--585
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Overfull \hbox (40.29485pt too wide) in paragraph at lines 585--587
+[]\T1/txtt/m/it/10 compute_r95p() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_r95_99p
+ []
+
+
+Overfull \hbox (40.29485pt too wide) in paragraph at lines 587--589
+[]\T1/txtt/m/it/10 compute_r99p() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_r95_99p
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 590--591
+[]\T1/txtt/m/it/10 Corr_Based() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_analog.WAS_Analog
+ []
+
+
+Overfull \hbox (88.75372pt too wide) in paragraph at lines 591--593
+[]\T1/txtt/m/it/10 count_dry_spells() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_count_dry_spells
+ []
+
+
+Overfull \hbox (85.27707pt too wide) in paragraph at lines 593--595
+[]\T1/txtt/m/it/10 count_hot_days() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_HWSDI
+ []
+
+
+Overfull \hbox (122.39706pt too wide) in paragraph at lines 595--597
+[]\T1/txtt/m/it/10 count_hot_days() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_HWSDI_monthly
+ []
+
+
+
+
+Overfull \hbox (126.38707pt too wide) in paragraph at lines 597--599
+[]\T1/txtt/m/it/10 count_hot_days() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_HWSDI_Seasonal
+ []
+
+
+Overfull \hbox (94.6107pt too wide) in paragraph at lines 599--601
+[]\T1/txtt/m/it/10 count_rainy_days() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_count_rainy_days
+ []
+
+
+Overfull \hbox (89.09135pt too wide) in paragraph at lines 601--603
+[]\T1/txtt/m/it/10 count_wet_spells() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_count_wet_spells
+ []
+
+
+Overfull \hbox (46.72737pt too wide) in paragraph at lines 603--605
+[]\T1/txtt/m/it/10 cross_validate() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_cross_validate.WAS_Cross_Validator
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 605--607
+[]\T1/txtt/m/it/10 CustomTimeSeriesSplit \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Overfull \hbox (75.41211pt too wide) in paragraph at lines 610--612
+[]\T1/txtt/m/it/10 day_of_year() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_cessation
+ []
+
+
+Overfull \hbox (117.93211pt too wide) in paragraph at lines 612--614
+[]\T1/txtt/m/it/10 day_of_year() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_cessation_dry_spell
+ []
+
+
+Overfull \hbox (59.15211pt too wide) in paragraph at lines 614--616
+[]\T1/txtt/m/it/10 day_of_year() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_onset
+ []
+
+
+Overfull \hbox (101.67212pt too wide) in paragraph at lines 616--618
+[]\T1/txtt/m/it/10 day_of_year() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_onset_dry_spell
+ []
+
+
+Overfull \hbox (12.43538pt too wide) in paragraph at lines 618--620
+[]\T1/txtt/m/it/10 days_in_month() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_download.WAS_Download
+ []
+
+
+Overfull \hbox (79.32782pt too wide) in paragraph at lines 621--623
+[]\T1/txtt/m/it/10 default_criteria \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_cessation
+ []
+
+
+Overfull \hbox (121.84782pt too wide) in paragraph at lines 623--625
+[]\T1/txtt/m/it/10 default_criteria \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_cessation_dry_spell
+ []
+
+
+Overfull \hbox (63.06783pt too wide) in paragraph at lines 625--627
+[]\T1/txtt/m/it/10 default_criteria \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_onset
+ []
+
+
+Overfull \hbox (105.58783pt too wide) in paragraph at lines 627--629
+[]\T1/txtt/m/it/10 default_criteria \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_onset_dry_spell
+ []
+
+
+Overfull \hbox (42.03123pt too wide) in paragraph at lines 629--631
+[]\T1/txtt/m/it/10 degree \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_PolynomialRegression
+ []
+
+
+Overfull \hbox (1.73795pt too wide) in paragraph at lines 631--633
+[]\T1/txtt/m/it/10 degree_range \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_SVR
+ []
+
+
+Overfull \hbox (67.62857pt too wide) in paragraph at lines 633--635
+[]\T1/txtt/m/it/10 dist_method \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_LinearRegression_Model
+ []
+
+
+Overfull \hbox (20.04857pt too wide) in paragraph at lines 635--637
+[]\T1/txtt/m/it/10 dist_method \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_Ridge_Model
+ []
+
+
+Overfull \hbox (56.77855pt too wide) in paragraph at lines 637--639
+[]\T1/txtt/m/it/10 dist_method \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_PoissonRegression
+ []
+
+
+Overfull \hbox (71.21855pt too wide) in paragraph at lines 639--641
+[]\T1/txtt/m/it/10 dist_method \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_PolynomialRegression
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 643--645
+[]\T1/txtt/m/it/10 download_and_process()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 648--650
+[]\T1/txtt/m/it/10 download_nmme_txt_with_progress()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 648--650
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_download.WAS_Download
+ []
+
+
+
+[150]
+Underfull \hbox (badness 10000) in paragraph at lines 650--652
+[]\T1/txtt/m/it/10 download_sst_reanalysis()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 652--654
+[]\T1/txtt/m/it/10 dry_spell_cessation_function()
+ []
+
+
+Overfull \hbox (90.9725pt too wide) in paragraph at lines 652--654
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_cessation_dry_spell
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 654--656
+[]\T1/txtt/m/it/10 dry_spell_onset_function()
+ []
+
+
+Overfull \hbox (74.71251pt too wide) in paragraph at lines 654--656
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_onset_dry_spell
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 656--658
+[]\T1/txtt/m/it/10 dry_spell_onset_function_()
+ []
+
+
+Overfull \hbox (74.71251pt too wide) in paragraph at lines 656--658
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_onset_dry_spell
+ []
+
+
+Overfull \hbox (3.9874pt too wide) in paragraph at lines 662--664
+[]\T1/txtt/m/it/10 epsilon_range \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_SVR
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 667--669
+[]\T1/txtt/m/it/10 find_best_distribution_grid() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 in mod-ule
+ []
+
+
+Overfull \hbox (36.87224pt too wide) in paragraph at lines 673--675
+[]\T1/txtt/m/it/10 fit_predict() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_ElasticNet_Model
+ []
+
+
+Overfull \hbox (19.09225pt too wide) in paragraph at lines 675--677
+[]\T1/txtt/m/it/10 fit_predict() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_Lasso_Model
+ []
+
+
+Overfull \hbox (37.28226pt too wide) in paragraph at lines 677--679
+[]\T1/txtt/m/it/10 fit_predict() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_LassoLars_Model
+ []
+
+
+Overfull \hbox (66.21225pt too wide) in paragraph at lines 679--681
+[]\T1/txtt/m/it/10 fit_predict() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_LinearRegression_Model
+ []
+
+
+Overfull \hbox (18.63225pt too wide) in paragraph at lines 681--683
+[]\T1/txtt/m/it/10 fit_predict() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_Ridge_Model
+ []
+
+
+Overfull \hbox (87.07222pt too wide) in paragraph at lines 683--685
+[]\T1/txtt/m/it/10 fit_predict() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_LogisticRegression_Model
+ []
+
+
+Overfull \hbox (0.60223pt too wide) in paragraph at lines 685--687
+[]\T1/txtt/m/it/10 fit_predict() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_MLP
+ []
+
+
+Overfull \hbox (55.36223pt too wide) in paragraph at lines 687--689
+[]\T1/txtt/m/it/10 fit_predict() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_PoissonRegression
+ []
+
+
+Overfull \hbox (69.80223pt too wide) in paragraph at lines 689--691
+[]\T1/txtt/m/it/10 fit_predict() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_PolynomialRegression
+ []
+
+
+Overfull \hbox (137.7322pt too wide) in paragraph at lines 691--693
+[]\T1/txtt/m/it/10 fit_predict() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_RandomForest_XGBoost_ML_Stacking
+ []
+
+
+Overfull \hbox (143.8422pt too wide) in paragraph at lines 693--695
+[]\T1/txtt/m/it/10 fit_predict() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_RandomForest_XGBoost_Stacking_MLP
+ []
+
+
+Overfull \hbox (42.47221pt too wide) in paragraph at lines 695--697
+[]\T1/txtt/m/it/10 fit_predict() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_Stacking_Ridge
+ []
+
+
+
+
+Overfull \hbox (22.76457pt too wide) in paragraph at lines 703--705
+[]\T1/txtt/m/it/10 forecast() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_ElasticNet_Model
+ []
+
+
+Overfull \hbox (4.98459pt too wide) in paragraph at lines 705--707
+[]\T1/txtt/m/it/10 forecast() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_Lasso_Model
+ []
+
+
+Overfull \hbox (23.17459pt too wide) in paragraph at lines 707--709
+[]\T1/txtt/m/it/10 forecast() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_LassoLars_Model
+ []
+
+
+Overfull \hbox (52.10458pt too wide) in paragraph at lines 709--711
+[]\T1/txtt/m/it/10 forecast() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_LinearRegression_Model
+ []
+
+
+Overfull \hbox (4.52458pt too wide) in paragraph at lines 711--713
+[]\T1/txtt/m/it/10 forecast() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_Ridge_Model
+ []
+
+
+Overfull \hbox (72.96455pt too wide) in paragraph at lines 713--715
+[]\T1/txtt/m/it/10 forecast() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_LogisticRegression_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 715--717
+[]\T1/txtt/m/it/10 forecast() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_MLP
+ []
+
+
+Overfull \hbox (41.25456pt too wide) in paragraph at lines 717--719
+[]\T1/txtt/m/it/10 forecast() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_PoissonRegression
+ []
+
+
+Overfull \hbox (55.69456pt too wide) in paragraph at lines 719--721
+[]\T1/txtt/m/it/10 forecast() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_PolynomialRegression
+ []
+
+
+Overfull \hbox (123.62453pt too wide) in paragraph at lines 721--723
+[]\T1/txtt/m/it/10 forecast() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_RandomForest_XGBoost_ML_Stacking
+ []
+
+
+Overfull \hbox (129.73453pt too wide) in paragraph at lines 723--725
+[]\T1/txtt/m/it/10 forecast() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_RandomForest_XGBoost_Stacking_MLP
+ []
+
+
+Overfull \hbox (28.36455pt too wide) in paragraph at lines 725--727
+[]\T1/txtt/m/it/10 forecast() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_Stacking_Ridge
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 727--729
+[]\T1/txtt/m/it/10 forecast() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_SVR
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 729--730
+[]\T1/txtt/m/it/10 forecast() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_AdaBoost
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 733--734
+[]\T1/txtt/m/it/10 forecast() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_GA method\T1/qtm/m/n/10 ),
+ []
+
+
+Overfull \hbox (7.95459pt too wide) in paragraph at lines 734--736
+[]\T1/txtt/m/it/10 forecast() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_GradientBoosting
+ []
+
+
+Overfull \hbox (4.41458pt too wide) in paragraph at lines 736--738
+[]\T1/txtt/m/it/10 forecast() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_LGBM_Boosting
+ []
+
+
+Overfull \hbox (27.25455pt too wide) in paragraph at lines 739--741
+[]\T1/txtt/m/it/10 forecast() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_KNN_Tree_SVR
+ []
+
+
+Overfull \hbox (28.40459pt too wide) in paragraph at lines 741--743
+[]\T1/txtt/m/it/10 forecast() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_Lasso_RF_MLP
+ []
+
+
+Overfull \hbox (31.83458pt too wide) in paragraph at lines 743--745
+[]\T1/txtt/m/it/10 forecast() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_MLP_Ada_Ridge
+ []
+
+
+Overfull \hbox (21.27458pt too wide) in paragraph at lines 747--749
+[]\T1/txtt/m/it/10 forecast() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Stack_RF_GB_Ridge
+ []
+
+
+Overfull \hbox (8.85458pt too wide) in paragraph at lines 749--751
+[]\T1/txtt/m/it/10 forecast() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_StackXGboost_Ml
+ []
+
+
+
+[151]
+Underfull \hbox (badness 10000) in paragraph at lines 751--752
+[]\T1/txtt/m/it/10 forecast() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Weighted
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 752--754
+[]\T1/txtt/m/it/10 forecast() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_XGBoosting
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 758--759
+[]\T1/txtt/m/it/10 gamma \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_SVR
+ []
+
+
+Overfull \hbox (42.46957pt too wide) in paragraph at lines 759--761
+[]\T1/txtt/m/it/10 gcm_compute_prob() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 761--763
+[]\T1/txtt/m/it/10 gcm_compute_prob_ensemble_method()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 761--763
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 763--765
+[]\T1/txtt/m/it/10 gcm_validation_compute()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 763--765
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 765--767
+[]\T1/txtt/m/it/10 gcm_validation_compute_()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 765--767
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Overfull \hbox (70.55489pt too wide) in paragraph at lines 768--770
+[]\T1/txtt/m/it/10 get_model_params() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_cross_validate.WAS_Cross_Validator
+ []
+
+
+Overfull \hbox (44.2877pt too wide) in paragraph at lines 770--772
+[]\T1/txtt/m/it/10 get_n_splits() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_cross_validate.CustomTimeSeriesSplit
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 772--774
+[]\T1/txtt/m/it/10 get_scores_metadata()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 772--774
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Overfull \hbox (23.11319pt too wide) in paragraph at lines 777--779
+[]\T1/txtt/m/it/10 ignorance_score() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 779--781
+[]\T1/txtt/m/it/10 index_of_agreement()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 779--781
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 781--782
+[]\T1/txtt/m/it/10 inverse_transform() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_eof.WAS_EOF
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 785--787
+[]\T1/txtt/m/it/10 kernel \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_SVR at-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 787--789
+[]\T1/txtt/m/it/10 kling_gupta_efficiency()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 787--789
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Underfull \hbox (badness 5388) in paragraph at lines 792--793
+[]\T1/txtt/m/it/10 load_gridded_predictor() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 in mod-ule wass2s.utils\T1/qtm/m/n/10 ),
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 796--798
+[]\T1/txtt/m/it/10 mean_absolute_error()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 796--798
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+
+
+Overfull \hbox (51.55544pt too wide) in paragraph at lines 814--816
+[]\T1/txtt/m/it/10 multiplicative_bias() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_merge_predictand.WAS_Merging
+ []
+
+
+Overfull \hbox (9.3012pt too wide) in paragraph at lines 820--822
+[]\T1/txtt/m/it/10 n_clusters \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_Ridge_Model
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 822--824
+[]\T1/txtt/m/it/10 n_clusters \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_SVR
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 824--826
+[]\T1/txtt/m/it/10 nash_sutcliffe_efficiency()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 824--826
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Overfull \hbox (50.99374pt too wide) in paragraph at lines 826--828
+[]\T1/txtt/m/it/10 nb_cores \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_LinearRegression_Model
+ []
+
+
+Overfull \hbox (3.41374pt too wide) in paragraph at lines 828--830
+[]\T1/txtt/m/it/10 nb_cores \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_linear_models.WAS_Ridge_Model
+ []
+
+
+Overfull \hbox (40.14372pt too wide) in paragraph at lines 830--832
+[]\T1/txtt/m/it/10 nb_cores \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_PoissonRegression
+ []
+
+
+Overfull \hbox (54.58372pt too wide) in paragraph at lines 832--834
+[]\T1/txtt/m/it/10 nb_cores \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_machine_learning.WAS_PolynomialRegression
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 836--838
+[]\T1/txtt/m/it/10 neural_network_kriging()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 836--838
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_merge_predictand.WAS_Merging
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 838--840
+[]\T1/txtt/m/it/10 neural_network_kriging_()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 838--840
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_merge_predictand.WAS_Merging
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 840--842
+[]\T1/txtt/m/it/10 NonHomogeneousGaussianRegression \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Overfull \hbox (68.0666pt too wide) in paragraph at lines 845--847
+[]\T1/txtt/m/it/10 onset_function() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_onset
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 850--852
+[]\T1/txtt/m/it/10 parse_cpt_data_optimized()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 850--852
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_download.WAS_Download
+ []
+
+
+
+[152]
+Underfull \hbox (badness 10000) in paragraph at lines 853--854
+[]\T1/txtt/m/it/10 Pca_Based() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_analog.WAS_Analog
+ []
+
+
+Overfull \hbox (10.64401pt too wide) in paragraph at lines 854--856
+[]\T1/txtt/m/it/10 pearson_corr() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 856--857
+[]\T1/txtt/m/it/10 plot_cca_results() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_cca.WAS_CCA
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 857--858
+[]\T1/txtt/m/it/10 plot_cca_results() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_cca.WAS_CCA_
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 860--861
+[]\T1/txtt/m/it/10 plot_indices() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_analog.WAS_Analog
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 863--865
+[]\T1/txtt/m/it/10 plot_merging_comparaison()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 863--865
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_merge_predictand.WAS_Merging
+ []
+
+
+Overfull \hbox (32.80527pt too wide) in paragraph at lines 865--867
+[]\T1/txtt/m/it/10 plot_model_score() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Overfull \hbox (36.74875pt too wide) in paragraph at lines 867--869
+[]\T1/txtt/m/it/10 plot_models_score() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Overfull \hbox (25.61258pt too wide) in paragraph at lines 871--873
+[]\T1/txtt/m/it/10 plot_roc_curves() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 878--879
+[]\T1/txtt/m/it/10 preprocess_data() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_cca.WAS_CCA
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 879--880
+[]\T1/txtt/m/it/10 preprocess_data() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_cca.WAS_CCA_
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 880--882
+[]\T1/txtt/m/it/10 preprocess_test_data() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_cca.WAS_CCA
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 884--886
+[]\T1/txtt/m/it/10 process_datasets_for_mme() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 in mod-ule
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 886--888
+[]\T1/txtt/m/it/10 process_datasets_for_mme_() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 in mod-ule
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 888--890
+[]\T1/txtt/m/it/10 process_model_for_other_params() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 in mod-ule
+ []
+
+
+Overfull \hbox (65.41455pt too wide) in paragraph at lines 893--895
+[]\T1/txtt/m/it/10 rainf_zone() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_cessation
+ []
+
+
+Overfull \hbox (107.93456pt too wide) in paragraph at lines 895--897
+[]\T1/txtt/m/it/10 rainf_zone() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_cessation_dry_spell
+ []
+
+
+
+
+Overfull \hbox (49.15456pt too wide) in paragraph at lines 897--899
+[]\T1/txtt/m/it/10 rainf_zone() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_onset
+ []
+
+
+Overfull \hbox (91.67456pt too wide) in paragraph at lines 899--901
+[]\T1/txtt/m/it/10 rainf_zone() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_onset_dry_spell
+ []
+
+
+Overfull \hbox (29.44498pt too wide) in paragraph at lines 901--903
+[]\T1/txtt/m/it/10 ratio_to_average() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Overfull \hbox (12.35207pt too wide) in paragraph at lines 903--905
+[]\T1/txtt/m/it/10 ReanalysisName() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_download.WAS_Download
+ []
+
+
+Overfull \hbox (47.80635pt too wide) in paragraph at lines 906--908
+[]\T1/txtt/m/it/10 regression_kriging() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_merge_predictand.WAS_Merging
+ []
+
+
+Overfull \hbox (36.94315pt too wide) in paragraph at lines 908--910
+[]\T1/txtt/m/it/10 reliability_diagram() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 910--912
+[]\T1/txtt/m/it/10 reliability_score_grid()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 910--912
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 912--914
+[]\T1/txtt/m/it/10 resolution_and_reliability_over_all_grid()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 912--914
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 914--916
+[]\T1/txtt/m/it/10 resolution_score_grid()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 914--916
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 916--918
+[]\T1/txtt/m/it/10 retrieve_several_zones_for_PCR() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 in mod-ule
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 918--920
+[]\T1/txtt/m/it/10 retrieve_single_zone_for_PCR() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 in mod-ule
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 921--923
+[]\T1/txtt/m/it/10 root_mean_square_error()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 921--923
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 926--928
+[]\T1/txtt/m/it/10 save_hindcast_and_forecasts() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 in mod-ule
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 929--931
+[]\T1/txtt/m/it/10 simple_bias_adjustment()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 929--931
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_merge_predictand.WAS_Merging
+ []
+
+
+Overfull \hbox (5.90819pt too wide) in paragraph at lines 932--934
+[]\T1/txtt/m/it/10 split() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_cross_validate.CustomTimeSeriesSplit
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 935--937
+[]\T1/txtt/m/it/10 standardize_timeseries()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 938--939
+[]\T1/txtt/m/it/10 summary() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_BMA
+ []
+
+
+Overfull \hbox (20.83597pt too wide) in paragraph at lines 942--944
+[]\T1/txtt/m/it/10 taylor_diagram() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+
+[153]
+Overfull \hbox (82.16046pt too wide) in paragraph at lines 947--949
+[]\T1/txtt/m/it/10 transform_cdt() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_cessation
+ []
+
+
+Overfull \hbox (124.68047pt too wide) in paragraph at lines 949--951
+[]\T1/txtt/m/it/10 transform_cdt() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_cessation_dry_spell
+ []
+
+
+Overfull \hbox (65.90047pt too wide) in paragraph at lines 951--953
+[]\T1/txtt/m/it/10 transform_cdt() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_onset
+ []
+
+
+Overfull \hbox (108.42047pt too wide) in paragraph at lines 953--955
+[]\T1/txtt/m/it/10 transform_cdt() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_compute_onset_dry_spell
+ []
+
+
+Overfull \hbox (74.84045pt too wide) in paragraph at lines 955--957
+[]\T1/txtt/m/it/10 transform_cdt() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_count_dry_spells
+ []
+
+
+Overfull \hbox (77.42046pt too wide) in paragraph at lines 957--959
+[]\T1/txtt/m/it/10 transform_cdt() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_count_rainy_days
+ []
+
+
+Overfull \hbox (74.65044pt too wide) in paragraph at lines 959--961
+[]\T1/txtt/m/it/10 transform_cdt() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_count_wet_spells
+ []
+
+
+Overfull \hbox (40.10045pt too wide) in paragraph at lines 961--963
+[]\T1/txtt/m/it/10 transform_cdt() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_r95_99p
+ []
+
+
+Overfull \hbox (31.06044pt too wide) in paragraph at lines 963--965
+[]\T1/txtt/m/it/10 transform_cdt() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_merge_predictand.WAS_Merging
+ []
+
+
+Overfull \hbox (74.84045pt too wide) in paragraph at lines 965--967
+[]\T1/txtt/m/it/10 transform_cpt() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_compute_predictand.WAS_count_dry_spells
+ []
+
+
+Overfull \hbox (31.06044pt too wide) in paragraph at lines 967--969
+[]\T1/txtt/m/it/10 transform_cpt() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_merge_predictand.WAS_Merging
+ []
+
+
+Overfull \hbox (12.08966pt too wide) in paragraph at lines 969--971
+[]\T1/txtt/m/it/10 transform_score() \T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_mme.WAS_mme_Weighted
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 982--984
+[]\T1/txtt/m/it/10 WAS_compute_cessation \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 984--986
+[]\T1/txtt/m/it/10 WAS_compute_cessation_dry_spell \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 986--988
+[]\T1/txtt/m/it/10 WAS_compute_HWSDI \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 988--990
+[]\T1/txtt/m/it/10 WAS_compute_HWSDI_monthly \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 990--992
+[]\T1/txtt/m/it/10 WAS_compute_HWSDI_Seasonal \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 992--994
+[]\T1/txtt/m/it/10 WAS_compute_onset \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 994--996
+[]\T1/txtt/m/it/10 WAS_compute_onset_dry_spell \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 996--998
+[]\T1/txtt/m/it/10 WAS_count_dry_spells \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 998--1000
+[]\T1/txtt/m/it/10 WAS_count_rainy_days \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1000--1002
+[]\T1/txtt/m/it/10 WAS_count_wet_spells \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1002--1004
+[]\T1/txtt/m/it/10 WAS_Cross_Validator \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1005--1007
+[]\T1/txtt/m/it/10 WAS_Download_AgroIndicators()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1005--1007
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_download.WAS_Download
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1007--1009
+[]\T1/txtt/m/it/10 WAS_Download_AgroIndicators_()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1007--1009
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_download.WAS_Download
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1009--1011
+[]\T1/txtt/m/it/10 WAS_Download_AgroIndicators_daily()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1009--1011
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_download.WAS_Download
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1011--1013
+[]\T1/txtt/m/it/10 WAS_Download_CHIRPSv3()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1011--1013
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_download.WAS_Download
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1013--1015
+[]\T1/txtt/m/it/10 WAS_Download_Models()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1013--1015
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_download.WAS_Download
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1015--1017
+[]\T1/txtt/m/it/10 WAS_Download_Models_Daily()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1015--1017
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_download.WAS_Download
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1017--1019
+[]\T1/txtt/m/it/10 WAS_Download_Reanalysis()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1017--1019
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_download.WAS_Download
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1019--1021
+[]\T1/txtt/m/it/10 WAS_Download_Reanalysis_()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1019--1021
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_download.WAS_Download
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1021--1023
+[]\T1/txtt/m/it/10 WAS_ElasticNet_Model \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1024--1025
+[]\T1/txtt/m/it/10 WAS_Lasso_Model \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1025--1027
+[]\T1/txtt/m/it/10 WAS_LassoLars_Model \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1027--1029
+[]\T1/txtt/m/it/10 WAS_LinearRegression_Model \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1029--1031
+[]\T1/txtt/m/it/10 WAS_LogisticRegression_Model \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1031--1032
+[]\T1/txtt/m/it/10 WAS_Merging \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1032--1033
+[]\T1/txtt/m/it/10 WAS_Min2009_ProbWeighted \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1039--1040
+[]\T1/txtt/m/it/10 WAS_mme_GradientBoosting \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1040--1041
+[]\T1/txtt/m/it/10 WAS_mme_LGBM_Boosting \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+
+[154]
+Underfull \hbox (badness 10000) in paragraph at lines 1042--1044
+[]\T1/txtt/m/it/10 WAS_mme_Stack_KNN_Tree_SVR \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1044--1046
+[]\T1/txtt/m/it/10 WAS_mme_Stack_Lasso_RF_MLP \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1046--1048
+[]\T1/txtt/m/it/10 WAS_mme_Stack_MLP_Ada_Ridge \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1048--1049
+[]\T1/txtt/m/it/10 WAS_mme_Stack_MLP_RF \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1049--1051
+[]\T1/txtt/m/it/10 WAS_mme_Stack_RF_GB_Ridge \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1051--1052
+[]\T1/txtt/m/it/10 WAS_mme_StackXGboost_Ml \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1055--1057
+[]\T1/txtt/m/it/10 WAS_PoissonRegression \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1057--1059
+[]\T1/txtt/m/it/10 WAS_PolynomialRegression \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1059--1060
+[]\T1/txtt/m/it/10 WAS_r95_99p \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1060--1062
+[]\T1/txtt/m/it/10 WAS_RandomForest_XGBoost_ML_Stacking
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1062--1064
+[]\T1/txtt/m/it/10 WAS_RandomForest_XGBoost_Stacking_MLP
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1064--1065
+[]\T1/txtt/m/it/10 WAS_Ridge_Model \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1065--1067
+[]\T1/txtt/m/it/10 WAS_Stacking_Ridge \T1/qtm/m/n/10 (\T1/qtm/m/it/10 class in
+ []
+
+
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1095--1097
+[]\T1/txtt/m/it/10 weighted_gcm_forecasts()
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1095--1097
+\T1/qtm/m/n/10 (\T1/qtm/m/it/10 wass2s.was_verification.WAS_Verification
+ []
+
+
+
+[155]) (./wass2s.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-04-29>
+ ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+Package rerunfilecheck Info: File `wass2s.out' has not changed.
+(rerunfilecheck)             Checksum: E559017D4E87834815AA268239BD8F69;9173.
+ ) 
+Here is how much of TeX's memory you used:
+ 18904 strings out of 471528
+ 344146 string characters out of 5519642
+ 806506 words of memory out of 5000000
+ 44329 multiletter control sequences out of 15000+600000
+ 681481 words of font info for 82 fonts, out of 8000000 for 9000
+ 37 hyphenation exceptions out of 8191
+ 72i,12n,82p,12069b,1046s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </home/user/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk> </home/user/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk></home/user/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></home/user/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/user/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></home/user/.TinyTeX/texmf-dist/fonts/type1/public/tex-gyre/qhvb.pfb></home/user/.TinyTeX/texmf-dist/fonts/type1/public/tex-gyre/qhvbi.pfb></home/user/.TinyTeX/texmf-dist/fonts/type1/public/tex-gyre/qhvr.pfb></home/user/.TinyTeX/texmf-dist/fonts/type1/public/tex-gyre/qtmb.pfb></home/user/.TinyTeX/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></home/user/.TinyTeX/texmf-dist/fonts/type1/public/tex-gyre/qtmri.pfb>
+Output written on wass2s.pdf (159 pages, 669783 bytes).
+PDF statistics:
+ 2455 PDF objects out of 2487 (max. 8388607)
+ 2166 compressed objects within 22 object streams
+ 814 named destinations out of 1000 (max. 500000)
+ 443 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -1,0 +1,54 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}Features}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Installation}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Usage}{3}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Download module}{4}{subsection.1.2.1}%
+\contentsline {subsubsection}{Download GCM data}{4}{subsubsection*.3}%
+\contentsline {subsubsection}{Download daily GCM data}{5}{subsubsection*.4}%
+\contentsline {subsubsection}{Download reanalysis data}{6}{subsubsection*.5}%
+\contentsline {subsubsection}{Download observational data}{6}{subsubsection*.6}%
+\contentsline {paragraph}{Agro\sphinxhyphen {}meteorological indicators}{7}{paragraph*.7}%
+\contentsline {paragraph}{Download daily agro\sphinxhyphen {}meteorological indicators}{7}{paragraph*.8}%
+\contentsline {paragraph}{CHIRPS precipitation data}{8}{paragraph*.9}%
+\contentsline {subsection}{\numberline {1.2.2}Processing Modules}{9}{subsection.1.2.2}%
+\contentsline {subsubsection}{Computing Predictands}{10}{subsubsection*.10}%
+\contentsline {subsubsection}{Merging and Adjusting Data}{12}{subsubsection*.11}%
+\contentsline {subsection}{\numberline {1.2.3}Quantifying uncertainty via cross\sphinxhyphen {}validation}{13}{subsection.1.2.3}%
+\contentsline {subsubsection}{Estimating Prediction Uncertainty}{14}{subsubsection*.12}%
+\contentsline {subsection}{\numberline {1.2.4}Models Modules}{14}{subsection.1.2.4}%
+\contentsline {subsubsection}{Machine Learning Models}{15}{subsubsection*.13}%
+\contentsline {subsubsection}{EOF and PCR Models}{16}{subsubsection*.14}%
+\contentsline {subsubsection}{CCA Models}{20}{subsubsection*.15}%
+\contentsline {subsubsection}{Analog Forecasting Methods}{20}{subsubsection*.16}%
+\contentsline {subsection}{\numberline {1.2.5}Verification Module}{22}{subsection.1.2.5}%
+\contentsline {subsubsection}{Deterministic Metrics}{23}{subsubsection*.17}%
+\contentsline {subsubsection}{Probabilistic Metrics}{24}{subsubsection*.18}%
+\contentsline {subsubsection}{Ensemble Metrics}{25}{subsubsection*.19}%
+\contentsline {subsubsection}{Tercile Probability Computation}{25}{subsubsection*.20}%
+\contentsline {subsubsection}{GCM Validation}{26}{subsubsection*.21}%
+\contentsline {subsubsection}{Annual Year Validation}{26}{subsubsection*.22}%
+\contentsline {subsection}{\numberline {1.2.6}Multi\sphinxhyphen {}Model Ensemble (MME) Techniques}{27}{subsection.1.2.6}%
+\contentsline {section}{\numberline {1.3}wass2s submodules}{28}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}wass2s.was\_download module}{28}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}wass2s.was\_compute\_predictand module}{32}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}wass2s.was\_merge\_predictand module}{45}{subsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.3.4}wass2s.was\_cross\_validate module}{47}{subsection.1.3.4}%
+\contentsline {subsection}{\numberline {1.3.5}wass2s.was\_linear\_models module}{50}{subsection.1.3.5}%
+\contentsline {subsubsection}{Attributes:}{50}{subsubsection*.130}%
+\contentsline {subsubsection}{Methods:}{50}{subsubsection*.131}%
+\contentsline {subsubsection}{Attributes:}{55}{subsubsection*.160}%
+\contentsline {subsubsection}{Methods:}{55}{subsubsection*.161}%
+\contentsline {subsection}{\numberline {1.3.6}wass2s.was\_eof module}{62}{subsection.1.3.6}%
+\contentsline {subsection}{\numberline {1.3.7}wass2s.was\_pcr module}{62}{subsection.1.3.7}%
+\contentsline {subsection}{\numberline {1.3.8}wass2s.was\_cca module}{63}{subsection.1.3.8}%
+\contentsline {subsection}{\numberline {1.3.9}wass2s.was\_machine\_learning module}{65}{subsection.1.3.9}%
+\contentsline {subsection}{\numberline {1.3.10}wass2s.was\_analog module}{85}{subsection.1.3.10}%
+\contentsline {subsubsection}{Parameters:}{86}{subsubsection*.350}%
+\contentsline {subsubsection}{Methods:}{87}{subsubsection*.351}%
+\contentsline {paragraph}{Parameters:}{89}{paragraph*.364}%
+\contentsline {paragraph}{Returns:}{90}{paragraph*.365}%
+\contentsline {subsection}{\numberline {1.3.11}wass2s.was\_verification module}{91}{subsection.1.3.11}%
+\contentsline {subsection}{\numberline {1.3.12}wass2s.was\_mme module}{105}{subsection.1.3.12}%
+\contentsline {subsection}{\numberline {1.3.13}wass2s.utils module}{138}{subsection.1.3.13}%
+\contentsline {chapter}{Python Module Index}{141}{section*.609}%
+\contentsline {chapter}{Index}{143}{section*.610}%
