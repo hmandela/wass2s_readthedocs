@@ -20,8 +20,8 @@ build:
         pdflatex -interaction=nonstopmode *.tex &&
         mkdir -p $READTHEDOCS_OUTPUT/pdf &&
         mv *.pdf $READTHEDOCS_OUTPUT/pdf/ &&
-        cd ../..
-		    rm -rf _build
+        cd ../.. &&
+        rm -rf _build
       "
 
 sphinx:
