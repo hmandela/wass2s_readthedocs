@@ -38,9 +38,8 @@ latex_elements = {
     \usepackage{enumitem}
     \setlistdepth{8}
     ''',
-    'inputenc': r'\usepackage[utf8]{inputenc}',
-    'fontenc': r'\usepackage[T1]{fontenc}',
-    'babel': r'\usepackage[english]{babel}',
+    'inputenc': '',
+    'fontenc': '',
+    'babel': '',
 }
 
-latex_engine = 'xelatex'
