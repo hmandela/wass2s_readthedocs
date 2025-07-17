@@ -9,6 +9,15 @@ wass2s.was\_download module
    :show-inheritance:
    :undoc-members:
 
+wass2s.was\_transformdata module
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. automodule:: wass2s.was_transformdata
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+
 wass2s.was\_compute\_predictand module
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -18,7 +27,7 @@ wass2s.was\_compute\_predictand module
    :undoc-members:
 
 wass2s.was\_merge\_predictand module
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. automodule:: wass2s.was_merge_predictand
    :members:

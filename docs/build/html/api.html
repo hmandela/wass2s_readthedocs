@@ -67,6 +67,33 @@
 <li class="toctree-l3"><a class="reference internal" href="#wass2s.was_download.plot_map"><code class="docutils literal notranslate"><span class="pre">plot_map()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#module-wass2s.was_transformdata">wass2s.was_transformdata module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#wass2s.was_transformdata.WAS_TransformData"><code class="docutils literal notranslate"><span class="pre">WAS_TransformData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_transformdata.WAS_TransformData.data"><code class="docutils literal notranslate"><span class="pre">WAS_TransformData.data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_transformdata.WAS_TransformData.distribution_map"><code class="docutils literal notranslate"><span class="pre">WAS_TransformData.distribution_map</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_transformdata.WAS_TransformData.n_clusters"><code class="docutils literal notranslate"><span class="pre">WAS_TransformData.n_clusters</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_transformdata.WAS_TransformData.transformed_data"><code class="docutils literal notranslate"><span class="pre">WAS_TransformData.transformed_data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_transformdata.WAS_TransformData.transform_methods"><code class="docutils literal notranslate"><span class="pre">WAS_TransformData.transform_methods</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_transformdata.WAS_TransformData.transform_params"><code class="docutils literal notranslate"><span class="pre">WAS_TransformData.transform_params</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_transformdata.WAS_TransformData.skewness_ds"><code class="docutils literal notranslate"><span class="pre">WAS_TransformData.skewness_ds</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_transformdata.WAS_TransformData.handle_ds"><code class="docutils literal notranslate"><span class="pre">WAS_TransformData.handle_ds</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_transformdata.WAS_TransformData.detect_skewness"><code class="docutils literal notranslate"><span class="pre">WAS_TransformData.detect_skewness()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_transformdata.WAS_TransformData.handle_skewness"><code class="docutils literal notranslate"><span class="pre">WAS_TransformData.handle_skewness()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_transformdata.WAS_TransformData.apply_transformation"><code class="docutils literal notranslate"><span class="pre">WAS_TransformData.apply_transformation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_transformdata.WAS_TransformData.inverse_transform"><code class="docutils literal notranslate"><span class="pre">WAS_TransformData.inverse_transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_transformdata.WAS_TransformData.find_best_distribution_grid"><code class="docutils literal notranslate"><span class="pre">WAS_TransformData.find_best_distribution_grid()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#wass2s.was_transformdata.WAS_TransformData.plot_best_fit_map"><code class="docutils literal notranslate"><span class="pre">WAS_TransformData.plot_best_fit_map()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">WAS_TransformData.apply_transformation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">WAS_TransformData.detect_skewness()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">WAS_TransformData.find_best_distribution_grid()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">WAS_TransformData.handle_skewness()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">WAS_TransformData.inverse_transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">WAS_TransformData.plot_best_fit_map()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#wass2s.was_transformdata.inv_boxcox"><code class="docutils literal notranslate"><span class="pre">inv_boxcox()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#module-wass2s.was_compute_predictand">wass2s.was_compute_predictand module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#wass2s.was_compute_predictand.WAS_compute_HWSDI"><code class="docutils literal notranslate"><span class="pre">WAS_compute_HWSDI</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_compute_predictand.WAS_compute_HWSDI.calculate_TXin90"><code class="docutils literal notranslate"><span class="pre">WAS_compute_HWSDI.calculate_TXin90()</span></code></a></li>
@@ -214,16 +241,16 @@
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_linear_models.WAS_LassoLars_Model.calculate_tercile_probabilities"><code class="docutils literal notranslate"><span class="pre">WAS_LassoLars_Model.calculate_tercile_probabilities()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_linear_models.WAS_LassoLars_Model.compute_prob"><code class="docutils literal notranslate"><span class="pre">WAS_LassoLars_Model.compute_prob()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_linear_models.WAS_LassoLars_Model.forecast"><code class="docutils literal notranslate"><span class="pre">WAS_LassoLars_Model.forecast()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">WAS_LassoLars_Model.calculate_tercile_probabilities()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7"><code class="docutils literal notranslate"><span class="pre">WAS_LassoLars_Model.calculate_tercile_probabilities()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_linear_models.WAS_LassoLars_Model.calculate_tercile_probabilities_gamma"><code class="docutils literal notranslate"><span class="pre">WAS_LassoLars_Model.calculate_tercile_probabilities_gamma()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_linear_models.WAS_LassoLars_Model.calculate_tercile_probabilities_lognormal"><code class="docutils literal notranslate"><span class="pre">WAS_LassoLars_Model.calculate_tercile_probabilities_lognormal()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_linear_models.WAS_LassoLars_Model.calculate_tercile_probabilities_nonparametric"><code class="docutils literal notranslate"><span class="pre">WAS_LassoLars_Model.calculate_tercile_probabilities_nonparametric()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_linear_models.WAS_LassoLars_Model.calculate_tercile_probabilities_normal"><code class="docutils literal notranslate"><span class="pre">WAS_LassoLars_Model.calculate_tercile_probabilities_normal()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">WAS_LassoLars_Model.compute_hyperparameters()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">WAS_LassoLars_Model.compute_model()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">WAS_LassoLars_Model.compute_prob()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">WAS_LassoLars_Model.fit_predict()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">WAS_LassoLars_Model.forecast()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8"><code class="docutils literal notranslate"><span class="pre">WAS_LassoLars_Model.compute_hyperparameters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9"><code class="docutils literal notranslate"><span class="pre">WAS_LassoLars_Model.compute_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10"><code class="docutils literal notranslate"><span class="pre">WAS_LassoLars_Model.compute_prob()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11"><code class="docutils literal notranslate"><span class="pre">WAS_LassoLars_Model.fit_predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12"><code class="docutils literal notranslate"><span class="pre">WAS_LassoLars_Model.forecast()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#wass2s.was_linear_models.WAS_Lasso_Model"><code class="docutils literal notranslate"><span class="pre">WAS_Lasso_Model</span></code></a><ul>
@@ -251,10 +278,10 @@
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_linear_models.WAS_LinearRegression_Model.calculate_tercile_probabilities_lognormal"><code class="docutils literal notranslate"><span class="pre">WAS_LinearRegression_Model.calculate_tercile_probabilities_lognormal()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_linear_models.WAS_LinearRegression_Model.calculate_tercile_probabilities_nonparametric"><code class="docutils literal notranslate"><span class="pre">WAS_LinearRegression_Model.calculate_tercile_probabilities_nonparametric()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_linear_models.WAS_LinearRegression_Model.calculate_tercile_probabilities_normal"><code class="docutils literal notranslate"><span class="pre">WAS_LinearRegression_Model.calculate_tercile_probabilities_normal()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id9"><code class="docutils literal notranslate"><span class="pre">WAS_LinearRegression_Model.compute_model()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id10"><code class="docutils literal notranslate"><span class="pre">WAS_LinearRegression_Model.compute_prob()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id11"><code class="docutils literal notranslate"><span class="pre">WAS_LinearRegression_Model.fit_predict()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id12"><code class="docutils literal notranslate"><span class="pre">WAS_LinearRegression_Model.forecast()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15"><code class="docutils literal notranslate"><span class="pre">WAS_LinearRegression_Model.compute_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16"><code class="docutils literal notranslate"><span class="pre">WAS_LinearRegression_Model.compute_prob()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17"><code class="docutils literal notranslate"><span class="pre">WAS_LinearRegression_Model.fit_predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18"><code class="docutils literal notranslate"><span class="pre">WAS_LinearRegression_Model.forecast()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#wass2s.was_linear_models.WAS_Ridge_Model"><code class="docutils literal notranslate"><span class="pre">WAS_Ridge_Model</span></code></a><ul>
@@ -272,11 +299,11 @@
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_linear_models.WAS_Ridge_Model.calculate_tercile_probabilities_lognormal"><code class="docutils literal notranslate"><span class="pre">WAS_Ridge_Model.calculate_tercile_probabilities_lognormal()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_linear_models.WAS_Ridge_Model.calculate_tercile_probabilities_nonparametric"><code class="docutils literal notranslate"><span class="pre">WAS_Ridge_Model.calculate_tercile_probabilities_nonparametric()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_linear_models.WAS_Ridge_Model.calculate_tercile_probabilities_normal"><code class="docutils literal notranslate"><span class="pre">WAS_Ridge_Model.calculate_tercile_probabilities_normal()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id13"><code class="docutils literal notranslate"><span class="pre">WAS_Ridge_Model.compute_hyperparameters()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id14"><code class="docutils literal notranslate"><span class="pre">WAS_Ridge_Model.compute_model()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id15"><code class="docutils literal notranslate"><span class="pre">WAS_Ridge_Model.compute_prob()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id16"><code class="docutils literal notranslate"><span class="pre">WAS_Ridge_Model.fit_predict()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id17"><code class="docutils literal notranslate"><span class="pre">WAS_Ridge_Model.forecast()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id19"><code class="docutils literal notranslate"><span class="pre">WAS_Ridge_Model.compute_hyperparameters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id20"><code class="docutils literal notranslate"><span class="pre">WAS_Ridge_Model.compute_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id21"><code class="docutils literal notranslate"><span class="pre">WAS_Ridge_Model.compute_prob()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id22"><code class="docutils literal notranslate"><span class="pre">WAS_Ridge_Model.fit_predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id23"><code class="docutils literal notranslate"><span class="pre">WAS_Ridge_Model.forecast()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -363,10 +390,10 @@
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_machine_learning.WAS_MARS_Model.calculate_tercile_probabilities_lognormal"><code class="docutils literal notranslate"><span class="pre">WAS_MARS_Model.calculate_tercile_probabilities_lognormal()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_machine_learning.WAS_MARS_Model.calculate_tercile_probabilities_nonparametric"><code class="docutils literal notranslate"><span class="pre">WAS_MARS_Model.calculate_tercile_probabilities_nonparametric()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_machine_learning.WAS_MARS_Model.calculate_tercile_probabilities_normal"><code class="docutils literal notranslate"><span class="pre">WAS_MARS_Model.calculate_tercile_probabilities_normal()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id18"><code class="docutils literal notranslate"><span class="pre">WAS_MARS_Model.compute_model()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id19"><code class="docutils literal notranslate"><span class="pre">WAS_MARS_Model.compute_prob()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id20"><code class="docutils literal notranslate"><span class="pre">WAS_MARS_Model.fit_predict()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id21"><code class="docutils literal notranslate"><span class="pre">WAS_MARS_Model.forecast()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id24"><code class="docutils literal notranslate"><span class="pre">WAS_MARS_Model.compute_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id25"><code class="docutils literal notranslate"><span class="pre">WAS_MARS_Model.compute_prob()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id26"><code class="docutils literal notranslate"><span class="pre">WAS_MARS_Model.fit_predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id27"><code class="docutils literal notranslate"><span class="pre">WAS_MARS_Model.forecast()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#wass2s.was_machine_learning.WAS_MLP"><code class="docutils literal notranslate"><span class="pre">WAS_MLP</span></code></a><ul>
@@ -393,9 +420,9 @@
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_machine_learning.WAS_PoissonRegression.calculate_tercile_probabilities_lognormal"><code class="docutils literal notranslate"><span class="pre">WAS_PoissonRegression.calculate_tercile_probabilities_lognormal()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_machine_learning.WAS_PoissonRegression.calculate_tercile_probabilities_nonparametric"><code class="docutils literal notranslate"><span class="pre">WAS_PoissonRegression.calculate_tercile_probabilities_nonparametric()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_machine_learning.WAS_PoissonRegression.calculate_tercile_probabilities_normal"><code class="docutils literal notranslate"><span class="pre">WAS_PoissonRegression.calculate_tercile_probabilities_normal()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id22"><code class="docutils literal notranslate"><span class="pre">WAS_PoissonRegression.compute_model()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id23"><code class="docutils literal notranslate"><span class="pre">WAS_PoissonRegression.compute_prob()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id24"><code class="docutils literal notranslate"><span class="pre">WAS_PoissonRegression.fit_predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id28"><code class="docutils literal notranslate"><span class="pre">WAS_PoissonRegression.compute_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id29"><code class="docutils literal notranslate"><span class="pre">WAS_PoissonRegression.compute_prob()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id30"><code class="docutils literal notranslate"><span class="pre">WAS_PoissonRegression.fit_predict()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_machine_learning.WAS_PoissonRegression.forecast"><code class="docutils literal notranslate"><span class="pre">WAS_PoissonRegression.forecast()</span></code></a></li>
 </ul>
 </li>
@@ -412,10 +439,10 @@
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_machine_learning.WAS_PolynomialRegression.calculate_tercile_probabilities_nonparametric"><code class="docutils literal notranslate"><span class="pre">WAS_PolynomialRegression.calculate_tercile_probabilities_nonparametric()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_machine_learning.WAS_PolynomialRegression.calculate_tercile_probabilities_normal"><code class="docutils literal notranslate"><span class="pre">WAS_PolynomialRegression.calculate_tercile_probabilities_normal()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_machine_learning.WAS_PolynomialRegression.calculate_tercile_probabilities_t"><code class="docutils literal notranslate"><span class="pre">WAS_PolynomialRegression.calculate_tercile_probabilities_t()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id25"><code class="docutils literal notranslate"><span class="pre">WAS_PolynomialRegression.compute_model()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id26"><code class="docutils literal notranslate"><span class="pre">WAS_PolynomialRegression.compute_prob()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id27"><code class="docutils literal notranslate"><span class="pre">WAS_PolynomialRegression.fit_predict()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id28"><code class="docutils literal notranslate"><span class="pre">WAS_PolynomialRegression.forecast()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id31"><code class="docutils literal notranslate"><span class="pre">WAS_PolynomialRegression.compute_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id32"><code class="docutils literal notranslate"><span class="pre">WAS_PolynomialRegression.compute_prob()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id33"><code class="docutils literal notranslate"><span class="pre">WAS_PolynomialRegression.fit_predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id34"><code class="docutils literal notranslate"><span class="pre">WAS_PolynomialRegression.forecast()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#wass2s.was_machine_learning.WAS_RandomForest_XGBoost_ML_Stacking"><code class="docutils literal notranslate"><span class="pre">WAS_RandomForest_XGBoost_ML_Stacking</span></code></a><ul>
@@ -476,11 +503,11 @@
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_machine_learning.WAS_Stacking_Ridge.calculate_tercile_probabilities_lognormal"><code class="docutils literal notranslate"><span class="pre">WAS_Stacking_Ridge.calculate_tercile_probabilities_lognormal()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_machine_learning.WAS_Stacking_Ridge.calculate_tercile_probabilities_nonparametric"><code class="docutils literal notranslate"><span class="pre">WAS_Stacking_Ridge.calculate_tercile_probabilities_nonparametric()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#wass2s.was_machine_learning.WAS_Stacking_Ridge.calculate_tercile_probabilities_normal"><code class="docutils literal notranslate"><span class="pre">WAS_Stacking_Ridge.calculate_tercile_probabilities_normal()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id29"><code class="docutils literal notranslate"><span class="pre">WAS_Stacking_Ridge.compute_hyperparameters()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id30"><code class="docutils literal notranslate"><span class="pre">WAS_Stacking_Ridge.compute_model()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id31"><code class="docutils literal notranslate"><span class="pre">WAS_Stacking_Ridge.compute_prob()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id32"><code class="docutils literal notranslate"><span class="pre">WAS_Stacking_Ridge.fit_predict()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id33"><code class="docutils literal notranslate"><span class="pre">WAS_Stacking_Ridge.forecast()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id35"><code class="docutils literal notranslate"><span class="pre">WAS_Stacking_Ridge.compute_hyperparameters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id36"><code class="docutils literal notranslate"><span class="pre">WAS_Stacking_Ridge.compute_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id37"><code class="docutils literal notranslate"><span class="pre">WAS_Stacking_Ridge.compute_prob()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id38"><code class="docutils literal notranslate"><span class="pre">WAS_Stacking_Ridge.fit_predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id39"><code class="docutils literal notranslate"><span class="pre">WAS_Stacking_Ridge.forecast()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#wass2s.was_machine_learning.evaluate_basis"><code class="docutils literal notranslate"><span class="pre">evaluate_basis()</span></code></a></li>
@@ -1256,6 +1283,323 @@ If False, retain individual daily files. Defaults to True.</p></li>
 <p>Parameters:
 - extent: list of float, specifying [west, east, south, north]
 - title: str, title of the map</p>
+</dd></dl>
+
+</section>
+<section id="module-wass2s.was_transformdata">
+<span id="wass2s-was-transformdata-module"></span><h2>wass2s.was_transformdata module<a class="headerlink" href="#module-wass2s.was_transformdata" title="Link to this heading"></a></h2>
+<p>WAS_TransformData: Skewness Analysis and Transformation for Geospatial Time-Series</p>
+<p>This module provides the <cite>WAS_TransformData</cite> class to analyze skewness, apply
+transformations, fit distributions, and visualize geospatial time-series data with
+dimensions (T, Y, X) representing time, latitude, and longitude, respectively.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="wass2s.was_transformdata.WAS_TransformData">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">wass2s.was_transformdata.</span></span><span class="sig-name descname"><span class="pre">WAS_TransformData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distribution_map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_clusters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_transformdata.WAS_TransformData" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Manage skewness analysis, data transformation, distribution fitting, and visualization
+for geospatial time-series data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>xarray.DataArray</em>) – Input data with dimensions (T, Y, X) for time, latitude, and longitude.</p></li>
+<li><p><strong>distribution_map</strong> (<em>dict</em><em>, </em><em>optional</em>) – Mapping of distribution names to numeric codes. Default is:
+{‘norm’: 1, ‘lognorm’: 2, ‘expon’: 3, ‘gamma’: 4, ‘weibull_min’: 5}.</p></li>
+<li><p><strong>n_clusters</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of clusters for KMeans in distribution fitting. Default is 5.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wass2s.was_transformdata.WAS_TransformData.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#wass2s.was_transformdata.WAS_TransformData.data" title="Link to this definition"></a></dt>
+<dd><p>Input geospatial time-series data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>xarray.DataArray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wass2s.was_transformdata.WAS_TransformData.distribution_map">
+<span class="sig-name descname"><span class="pre">distribution_map</span></span><a class="headerlink" href="#wass2s.was_transformdata.WAS_TransformData.distribution_map" title="Link to this definition"></a></dt>
+<dd><p>Mapping of distribution names to codes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wass2s.was_transformdata.WAS_TransformData.n_clusters">
+<span class="sig-name descname"><span class="pre">n_clusters</span></span><a class="headerlink" href="#wass2s.was_transformdata.WAS_TransformData.n_clusters" title="Link to this definition"></a></dt>
+<dd><p>Number of clusters for KMeans.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wass2s.was_transformdata.WAS_TransformData.transformed_data">
+<span class="sig-name descname"><span class="pre">transformed_data</span></span><a class="headerlink" href="#wass2s.was_transformdata.WAS_TransformData.transformed_data" title="Link to this definition"></a></dt>
+<dd><p>Transformed data after applying transformations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>xarray.DataArray or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wass2s.was_transformdata.WAS_TransformData.transform_methods">
+<span class="sig-name descname"><span class="pre">transform_methods</span></span><a class="headerlink" href="#wass2s.was_transformdata.WAS_TransformData.transform_methods" title="Link to this definition"></a></dt>
+<dd><p>Transformation methods applied per grid cell.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>xarray.DataArray or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wass2s.was_transformdata.WAS_TransformData.transform_params">
+<span class="sig-name descname"><span class="pre">transform_params</span></span><a class="headerlink" href="#wass2s.was_transformdata.WAS_TransformData.transform_params" title="Link to this definition"></a></dt>
+<dd><p>Parameters for parametric transformations (e.g., Box-Cox lambda).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>xarray.DataArray or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wass2s.was_transformdata.WAS_TransformData.skewness_ds">
+<span class="sig-name descname"><span class="pre">skewness_ds</span></span><a class="headerlink" href="#wass2s.was_transformdata.WAS_TransformData.skewness_ds" title="Link to this definition"></a></dt>
+<dd><p>Skewness analysis results.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>xarray.Dataset or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="wass2s.was_transformdata.WAS_TransformData.handle_ds">
+<span class="sig-name descname"><span class="pre">handle_ds</span></span><a class="headerlink" href="#wass2s.was_transformdata.WAS_TransformData.handle_ds" title="Link to this definition"></a></dt>
+<dd><p>Skewness handling recommendations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>xarray.Dataset or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_transformdata.WAS_TransformData.detect_skewness">
+<span class="sig-name descname"><span class="pre">detect_skewness</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_transformdata.WAS_TransformData.detect_skewness" title="Link to this definition"></a></dt>
+<dd><p>Compute and classify skewness per grid cell.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_transformdata.WAS_TransformData.handle_skewness">
+<span class="sig-name descname"><span class="pre">handle_skewness</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_transformdata.WAS_TransformData.handle_skewness" title="Link to this definition"></a></dt>
+<dd><p>Recommend transformations based on skewness.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_transformdata.WAS_TransformData.apply_transformation">
+<span class="sig-name descname"><span class="pre">apply_transformation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_transformdata.WAS_TransformData.apply_transformation" title="Link to this definition"></a></dt>
+<dd><p>Apply transformations to data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_transformdata.WAS_TransformData.inverse_transform">
+<span class="sig-name descname"><span class="pre">inverse_transform</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_transformdata.WAS_TransformData.inverse_transform" title="Link to this definition"></a></dt>
+<dd><p>Reverse transformations to recover original data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_transformdata.WAS_TransformData.find_best_distribution_grid">
+<span class="sig-name descname"><span class="pre">find_best_distribution_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_transformed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_transformdata.WAS_TransformData.find_best_distribution_grid" title="Link to this definition"></a></dt>
+<dd><p>Fit distributions to data using KMeans clustering.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="wass2s.was_transformdata.WAS_TransformData.plot_best_fit_map">
+<span class="sig-name descname"><span class="pre">plot_best_fit_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_file='map.png'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">...</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_transformdata.WAS_TransformData.plot_best_fit_map" title="Link to this definition"></a></dt>
+<dd><p>Plot categorical map of distributions or skewness classes.</p>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If <cite>data</cite> is not an xarray.DataArray or lacks required dimensions.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">apply_transformation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd><p>Apply transformations to reduce skewness in the data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>method</strong> (<em>str</em><em> or </em><em>xarray.DataArray</em><em>, </em><em>optional</em>) – Transformation method to apply. Options:
+- None: Use first recommended method per grid cell from <cite>handle_skewness</cite>.
+- str: Apply the same method to all grid cells (e.g., ‘log’, ‘box_cox’).
+- xarray.DataArray: Specify method per grid cell with dimensions (Y, X).
+Default is None.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>transformed_data</strong> – Transformed data with same shape as input.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>xarray.DataArray</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <cite>method</cite> is None and <cite>handle_skewness</cite> has not been called.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Supported methods: ‘log’, ‘square_root’, ‘box_cox’, ‘yeo_johnson’,
+‘reflect_log’, ‘reflect_square_root’, ‘reflect_yeo_johnson’, ‘clipping’, ‘binning’.
+Transformations are skipped for invalid data or methods, with warnings printed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">detect_skewness</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id2" title="Link to this definition"></a></dt>
+<dd><p>Compute and classify skewness for each grid cell.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>skewness_ds</strong> (<em>xarray.Dataset</em>) – Dataset with variables ‘skewness’ (float) and ‘skewness_class’ (str).
+Skewness classes: ‘symmetric’, ‘moderate_positive’, ‘moderate_negative’,
+‘high_positive’, ‘high_negative’, ‘invalid’.</p></li>
+<li><p><strong>summary</strong> (<em>dict</em>) – Dictionary with ‘class_counts’ mapping skewness classes to grid cell counts.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Skewness is computed using <cite>scipy.stats.skew</cite> with <cite>nan_policy=’omit’</cite>.
+Classification thresholds:
+- Symmetric: -0.5 ≤ skewness ≤ 0.5
+- Moderate positive: 0.5 &lt; skewness ≤ 1
+- Moderate negative: -1 ≤ skewness &lt; -0.5
+- High positive: skewness &gt; 1
+- High negative: skewness &lt; -1
+- Invalid: insufficient data (&lt; 3 non-NaN values).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">find_best_distribution_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_transformed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id3" title="Link to this definition"></a></dt>
+<dd><p>Fit distributions to data using KMeans clustering.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>use_transformed</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, use transformed data; otherwise, use original data. Default is False.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>dist_codes</strong> – Numeric codes for best-fitting distributions per grid cell.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>xarray.DataArray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Uses <cite>fitter.Fitter</cite> to fit distributions (e.g., normal, lognormal) to clustered data.
+Clusters are determined by mean values using KMeans.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">handle_skewness</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id4" title="Link to this definition"></a></dt>
+<dd><p>Recommend transformations based on skewness and data properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>handle_ds</strong> (<em>xarray.Dataset</em>) – Dataset with variables ‘skewness’, ‘skewness_class’, and ‘recommended_methods’
+(semicolon-separated string of transformation methods).</p></li>
+<li><p><strong>summary</strong> (<em>dict</em>) – Dictionary with ‘general_recommendations’ mapping skewness classes to advice.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If <cite>detect_skewness</cite> has not been called.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Recommendations consider data properties (e.g., zeros, negatives) and skewness class.
+Example methods: ‘log’, ‘square_root’, ‘box_cox’, ‘yeo_johnson’, ‘clipping’, ‘binning’.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">inverse_transform</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id5" title="Link to this definition"></a></dt>
+<dd><p>Reverse transformations to recover original data scale.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>inverse_data</strong> – Data in original scale with same shape as input.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>xarray.DataArray</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If no transformation has been applied or required parameters are missing.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Non-invertible methods (‘clipping’, ‘binning’) return unchanged data with a warning.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id6">
+<span class="sig-name descname"><span class="pre">plot_best_fit_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'map.png'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Categorical</span> <span class="pre">Map'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(10,</span> <span class="pre">6)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id6" title="Link to this definition"></a></dt>
+<dd><p>Plot a categorical map of distributions or skewness classes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_array</strong> (<em>xarray.DataArray</em>) – Data to plot (e.g., distribution codes or skewness classes) with dimensions (Y, X).</p></li>
+<li><p><strong>map_dict</strong> (<em>dict</em>) – Mapping of category names to numeric codes (e.g., distribution_map).</p></li>
+<li><p><strong>output_file</strong> (<em>str</em><em>, </em><em>optional</em>) – Path to save the plot. Default is ‘map.png’.</p></li>
+<li><p><strong>title</strong> (<em>str</em><em>, </em><em>optional</em>) – Plot title. Default is ‘Categorical Map’.</p></li>
+<li><p><strong>colors</strong> (<em>list</em><em>, </em><em>optional</em>) – Colors for each code. Default is [‘blue’, ‘green’, ‘red’, ‘purple’, ‘orange’].</p></li>
+<li><p><strong>figsize</strong> (<em>tuple</em><em>, </em><em>optional</em>) – Figure size (width, height) in inches. Default is (10, 6).</p></li>
+<li><p><strong>extent</strong> (<em>tuple</em><em>, </em><em>optional</em>) – Map extent (lon_min, lon_max, lat_min, lat_max). Default is data bounds.</p></li>
+<li><p><strong>show_plot</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, display the plot interactively. Default is False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If insufficient colors are provided for the number of categories.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Uses <cite>cartopy</cite> for geospatial visualization with PlateCarree projection.
+Saves the plot as a PNG file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="wass2s.was_transformdata.inv_boxcox">
+<span class="sig-prename descclassname"><span class="pre">wass2s.was_transformdata.</span></span><span class="sig-name descname"><span class="pre">inv_boxcox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmbda</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#wass2s.was_transformdata.inv_boxcox" title="Link to this definition"></a></dt>
+<dd><p>Inverse Box-Cox transformation for SciPy 1.11.3 compatibility.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y</strong> (<em>array_like</em>) – Transformed data.</p></li>
+<li><p><strong>lmbda</strong> (<em>float</em>) – Box-Cox lambda parameter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>x</strong> – Original data before Box-Cox transformation.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Implements the inverse of the Box-Cox transformation manually</p>
 </dd></dl>
 
 </section>
@@ -2786,8 +3130,8 @@ One of {‘gamma’,’t’,’normal’,’lognormal’,’nonparam’}.</p></l
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id0">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calculate_tercile_probabilities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">best_guess</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_variance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_tercile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">second_tercile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dof</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id7">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calculate_tercile_probabilities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">best_guess</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_variance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_tercile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">second_tercile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dof</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id7" title="Link to this definition"></a></dt>
 <dd><p>Student’s t-based method</p>
 </dd></dl>
 
@@ -2816,8 +3160,8 @@ One of {‘gamma’,’t’,’normal’,’lognormal’,’nonparam’}.</p></l
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id2">
-<span class="sig-name descname"><span class="pre">compute_hyperparameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictand</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id2" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id8">
+<span class="sig-name descname"><span class="pre">compute_hyperparameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictand</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id8" title="Link to this definition"></a></dt>
 <dd><p>Computes cluster-wise optimal alpha values for LassoLars using cross-validation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2837,8 +3181,8 @@ One of {‘gamma’,’t’,’normal’,’lognormal’,’nonparam’}.</p></l
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id3">
-<span class="sig-name descname"><span class="pre">compute_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id3" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id9">
+<span class="sig-name descname"><span class="pre">compute_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id9" title="Link to this definition"></a></dt>
 <dd><p>Fits and predicts the LassoLars model using Dask for parallel execution.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2860,8 +3204,8 @@ One of {‘gamma’,’t’,’normal’,’lognormal’,’nonparam’}.</p></l
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id4">
-<span class="sig-name descname"><span class="pre">compute_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id4" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id10">
+<span class="sig-name descname"><span class="pre">compute_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id10" title="Link to this definition"></a></dt>
 <dd><p>Compute tercile probabilities using self.dist_method.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2882,8 +3226,8 @@ One of {‘gamma’,’t’,’normal’,’lognormal’,’nonparam’}.</p></l
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id5">
-<span class="sig-name descname"><span class="pre">fit_predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id5" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id11">
+<span class="sig-name descname"><span class="pre">fit_predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id11" title="Link to this definition"></a></dt>
 <dd><p>Fits the LassoLars model to the training data and predicts values for the test data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2905,8 +3249,8 @@ One of {‘gamma’,’t’,’normal’,’lognormal’,’nonparam’}.</p></l
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id6">
-<span class="sig-name descname"><span class="pre">forecast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Predictor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Predictor_for_year</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id6" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id12">
+<span class="sig-name descname"><span class="pre">forecast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Predictor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Predictor_for_year</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id12" title="Link to this definition"></a></dt>
 <dd><p>Generates a forecast for a single time step using LassoLars with alpha,
 then computes tercile probabilities based on the chosen distribution method.</p>
 <dl class="field-list simple">
@@ -2941,8 +3285,8 @@ For a true forecast scenario, the error is typically NaN.</p></li>
 <p>WAS_Lasso_Model is a class that implements Lasso regression with hyperparameter tuning,
 clustering-based regional optimization, and calculation of tercile probabilities for
 climate prediction.</p>
-<section id="id7">
-<h3>Attributes:<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<section id="id13">
+<h3>Attributes:<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>alpha_range<span class="classifier">numpy.array</span></dt><dd><p>Range of alpha values for Lasso regularization parameter.</p>
 </dd>
@@ -2955,8 +3299,8 @@ one of {‘gamma’,’t’,’normal’,’lognormal’,’nonparam’}.</p>
 </dd>
 </dl>
 </section>
-<section id="id8">
-<h3>Methods:<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<section id="id14">
+<h3>Methods:<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
 <dl>
 <dt>fit_predict(x, y, x_test, y_test, alpha):</dt><dd><p>Fits the Lasso model to the provided training data and predicts values
 for the test set. Returns [error, prediction].</p>
@@ -3203,8 +3547,8 @@ for climate terciles.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id9">
-<span class="sig-name descname"><span class="pre">compute_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id9" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id15">
+<span class="sig-name descname"><span class="pre">compute_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id15" title="Link to this definition"></a></dt>
 <dd><p>Applies linear regression across a spatiotemporal dataset in parallel.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -3225,8 +3569,8 @@ for climate terciles.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id10">
-<span class="sig-name descname"><span class="pre">compute_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id10" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id16">
+<span class="sig-name descname"><span class="pre">compute_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id16" title="Link to this definition"></a></dt>
 <dd><p>Compute tercile probabilities using self.dist_method.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -3247,8 +3591,8 @@ for climate terciles.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id11">
-<span class="sig-name descname"><span class="pre">fit_predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id11" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id17">
+<span class="sig-name descname"><span class="pre">fit_predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id17" title="Link to this definition"></a></dt>
 <dd><p>Fits a linear regression model to the provided training data, makes predictions
 on the test data, and calculates the prediction error (if y_test is provided).</p>
 <dl class="field-list simple">
@@ -3271,8 +3615,8 @@ If y_test is None, returns [prediction].</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id12">
-<span class="sig-name descname"><span class="pre">forecast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Predictor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Predictor_for_year</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id12" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id18">
+<span class="sig-name descname"><span class="pre">forecast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Predictor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Predictor_for_year</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id18" title="Link to this definition"></a></dt>
 <dd><p>Generates a single-year forecast using linear regression, then computes
 tercile probabilities using self.dist_method.</p>
 <dl class="field-list simple">
@@ -3412,8 +3756,8 @@ distribution method.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id13">
-<span class="sig-name descname"><span class="pre">compute_hyperparameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictand</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id13" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id19">
+<span class="sig-name descname"><span class="pre">compute_hyperparameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictand</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id19" title="Link to this definition"></a></dt>
 <dd><p>Compute optimal hyperparameters (alpha) for ridge regression for different clusters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -3433,8 +3777,8 @@ distribution method.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id14">
-<span class="sig-name descname"><span class="pre">compute_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id14" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id20">
+<span class="sig-name descname"><span class="pre">compute_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id20" title="Link to this definition"></a></dt>
 <dd><p>Fit and predict ridge regression model for spatiotemporal data using Dask for parallel computation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -3456,8 +3800,8 @@ distribution method.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id15">
-<span class="sig-name descname"><span class="pre">compute_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id15" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id21">
+<span class="sig-name descname"><span class="pre">compute_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id21" title="Link to this definition"></a></dt>
 <dd><p>Compute tercile probabilities using either ‘t’, ‘gamma’, ‘normal’, ‘lognormal’, or ‘nonparam’.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -3479,8 +3823,8 @@ where output=[error, prediction].</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id16">
-<span class="sig-name descname"><span class="pre">fit_predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id16" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id22">
+<span class="sig-name descname"><span class="pre">fit_predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id22" title="Link to this definition"></a></dt>
 <dd><p>Fit a ridge regression model and make predictions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -3502,8 +3846,8 @@ where output=[error, prediction].</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id17">
-<span class="sig-name descname"><span class="pre">forecast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Predictor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Predictor_for_year</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id17" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id23">
+<span class="sig-name descname"><span class="pre">forecast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Predictor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Predictor_for_year</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id23" title="Link to this definition"></a></dt>
 <dd><p>Generates a ridge-based forecast for a single future time (year)
 using alpha values and returns both forecast + tercile probabilities.</p>
 <dl class="field-list simple">
@@ -4122,8 +4466,8 @@ for climate terciles.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id18">
-<span class="sig-name descname"><span class="pre">compute_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id18" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id24">
+<span class="sig-name descname"><span class="pre">compute_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id24" title="Link to this definition"></a></dt>
 <dd><p>Applies MARS regression across a spatiotemporal dataset in parallel.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -4144,8 +4488,8 @@ for climate terciles.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id19">
-<span class="sig-name descname"><span class="pre">compute_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id19" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id25">
+<span class="sig-name descname"><span class="pre">compute_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id25" title="Link to this definition"></a></dt>
 <dd><p>Compute tercile probabilities using self.dist_method.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -4166,8 +4510,8 @@ for climate terciles.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id20">
-<span class="sig-name descname"><span class="pre">fit_predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id20" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id26">
+<span class="sig-name descname"><span class="pre">fit_predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id26" title="Link to this definition"></a></dt>
 <dd><p>Fits a MARS model to the provided training data, makes predictions
 on the test data, and calculates the prediction error (if y_test is provided).</p>
 <dl class="field-list simple">
@@ -4190,8 +4534,8 @@ If y_test is None, returns [prediction].</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id21">
-<span class="sig-name descname"><span class="pre">forecast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Predictor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Predictor_for_year</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id21" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id27">
+<span class="sig-name descname"><span class="pre">forecast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Predictor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Predictor_for_year</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id27" title="Link to this definition"></a></dt>
 <dd><p>Generates a single-year forecast using MARS, then computes
 tercile probabilities using self.dist_method.</p>
 <dl class="field-list simple">
@@ -4490,8 +4834,8 @@ over specified climatological years, using the chosen <cite>dist_method</cite>.<
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id22">
-<span class="sig-name descname"><span class="pre">compute_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id22" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id28">
+<span class="sig-name descname"><span class="pre">compute_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id28" title="Link to this definition"></a></dt>
 <dd><p>Computes predictions for spatiotemporal data using Poisson Regression with parallel processing.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -4512,8 +4856,8 @@ over specified climatological years, using the chosen <cite>dist_method</cite>.<
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id23">
-<span class="sig-name descname"><span class="pre">compute_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id23" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id29">
+<span class="sig-name descname"><span class="pre">compute_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id29" title="Link to this definition"></a></dt>
 <dd><p>Compute tercile probabilities using self.dist_method.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -4534,8 +4878,8 @@ over specified climatological years, using the chosen <cite>dist_method</cite>.<
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id24">
-<span class="sig-name descname"><span class="pre">fit_predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id24" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id30">
+<span class="sig-name descname"><span class="pre">fit_predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id30" title="Link to this definition"></a></dt>
 <dd><p>Fits a Poisson regression model to the provided training data, makes predictions
 on the test data, and calculates the prediction error.</p>
 <dl class="field-list simple">
@@ -4573,11 +4917,11 @@ tercile probabilities based on the chosen distribution method.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><a href="#id34"><span class="problematic" id="id35">result_</span></a>  : xarray.DataArray or numpy array with the forecast’s [error, prediction].
+<dd class="field-even"><p><a href="#id40"><span class="problematic" id="id41">result_</span></a>  : xarray.DataArray or numpy array with the forecast’s [error, prediction].
 hindcast_prob : xarray.DataArray of shape (probability=3, Y, X) with PB, PN, and PA.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>tuple (<a href="#id36"><span class="problematic" id="id37">result_</span></a>, hindcast_prob)</p>
+<dd class="field-odd"><p>tuple (<a href="#id42"><span class="problematic" id="id43">result_</span></a>, hindcast_prob)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -4703,8 +5047,8 @@ using the chosen distribution method.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id25">
-<span class="sig-name descname"><span class="pre">compute_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id25" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id31">
+<span class="sig-name descname"><span class="pre">compute_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id31" title="Link to this definition"></a></dt>
 <dd><p>Computes predictions for spatiotemporal data using Polynomial Regression with parallel processing.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -4728,8 +5072,8 @@ is error and the second is the prediction.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id26">
-<span class="sig-name descname"><span class="pre">compute_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id26" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id32">
+<span class="sig-name descname"><span class="pre">compute_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id32" title="Link to this definition"></a></dt>
 <dd><p>Compute tercile probabilities using self.dist_method.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -4750,8 +5094,8 @@ is error and the second is the prediction.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id27">
-<span class="sig-name descname"><span class="pre">fit_predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id27" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id33">
+<span class="sig-name descname"><span class="pre">fit_predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id33" title="Link to this definition"></a></dt>
 <dd><p>Fits a Polynomial Regression model to the provided training data, makes predictions
 on the test data, and calculates the prediction error.</p>
 <dl class="field-list simple">
@@ -4773,8 +5117,8 @@ on the test data, and calculates the prediction error.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id28">
-<span class="sig-name descname"><span class="pre">forecast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Predictor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Predictor_for_year</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id28" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id34">
+<span class="sig-name descname"><span class="pre">forecast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Predictor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Predictor_for_year</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id34" title="Link to this definition"></a></dt>
 <dd><p>Generate forecasts for a single time (e.g., future year) and compute
 tercile probabilities based on the chosen distribution method.</p>
 <dl class="field-list simple">
@@ -4789,11 +5133,11 @@ tercile probabilities based on the chosen distribution method.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><a href="#id38"><span class="problematic" id="id39">result_</span></a>  : xarray.DataArray or numpy array with the forecast’s [error, prediction].
+<dd class="field-even"><p><a href="#id44"><span class="problematic" id="id45">result_</span></a>  : xarray.DataArray or numpy array with the forecast’s [error, prediction].
 hindcast_prob : xarray.DataArray of shape (probability=3, Y, X) with PB, PN, and PA.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>tuple (<a href="#id40"><span class="problematic" id="id41">result_</span></a>, hindcast_prob)</p>
+<dd class="field-odd"><p>tuple (<a href="#id46"><span class="problematic" id="id47">result_</span></a>, hindcast_prob)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -5557,8 +5901,8 @@ One of {‘gamma’, ‘t’, ‘normal’, ‘lognormal’, ‘nonparam’}.</p
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id29">
-<span class="sig-name descname"><span class="pre">compute_hyperparameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictand</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id29" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id35">
+<span class="sig-name descname"><span class="pre">compute_hyperparameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">predictand</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id35" title="Link to this definition"></a></dt>
 <dd><p>Runs KMeans clustering on the mean of <cite>predictand</cite> (over time).
 Then, for each cluster, runs a cross-validation GridSearch over a stacking model with:</p>
 <blockquote>
@@ -5585,16 +5929,16 @@ Then, for each cluster, runs a cross-validation GridSearch over a stacking model
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id30">
-<span class="sig-name descname"><span class="pre">compute_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">best_param_da</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id30" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id36">
+<span class="sig-name descname"><span class="pre">compute_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">best_param_da</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id36" title="Link to this definition"></a></dt>
 <dd><p>Parallel training + prediction across all spatial grid points.
 Uses local best hyperparams from best_param_da for each pixel.</p>
 <p>Returns an xarray.DataArray with dim (‘output’,’Y’,’X’) =&gt; [error, prediction].</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id31">
-<span class="sig-name descname"><span class="pre">compute_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id31" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id37">
+<span class="sig-name descname"><span class="pre">compute_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id37" title="Link to this definition"></a></dt>
 <dd><p>Compute tercile probabilities using self.dist_method.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -5615,16 +5959,16 @@ Uses local best hyperparams from best_param_da for each pixel.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id32">
-<span class="sig-name descname"><span class="pre">fit_predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">best_params_str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id32" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id38">
+<span class="sig-name descname"><span class="pre">fit_predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">best_params_str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id38" title="Link to this definition"></a></dt>
 <dd><p>For a single grid cell, parse the best params, instantiate the stacking regressor,
 fit to local data, and predict.</p>
 <p>Returns [error, prediction].</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="id33">
-<span class="sig-name descname"><span class="pre">forecast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Predictor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Predictor_for_year</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">best_param_da</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id33" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id39">
+<span class="sig-name descname"><span class="pre">forecast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Predictant</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clim_year_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Predictor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hindcast_det</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Predictor_for_year</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">best_param_da</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id39" title="Link to this definition"></a></dt>
 <dd><p>Forecast for a single future year (or time) and compute tercile probabilities.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

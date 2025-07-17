@@ -2,6 +2,6 @@ wass2s
 ======
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 5
 
-   wass2s
+
