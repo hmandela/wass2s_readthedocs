@@ -19,8 +19,8 @@ build:
         rm -rf _build/latex/ &&
         python -m sphinx -b latex -d _build/doctrees docs/source _build/latex &&
         cd _build/latex &&
-        pdflatex -interaction=nonstopmode *.tex &&
-        pdflatex -interaction=nonstopmode *.tex &&
+        xelatex -interaction=nonstopmode *.tex &&
+        xelatex -interaction=nonstopmode *.tex &&
         mkdir -p $READTHEDOCS_OUTPUT/pdf &&
         rm -rf $READTHEDOCS_OUTPUT/pdf/*.pdf &&
         mv *.pdf $READTHEDOCS_OUTPUT/pdf/ &&
@@ -30,5 +30,5 @@ build:
 sphinx:
   configuration: docs/source/conf.py
 
-formats: 
+formats:
   - pdf
