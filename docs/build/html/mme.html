@@ -1,0 +1,172 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multi-Model Ensemble (MME) Techniques &mdash; wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel. 0.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=a58bc63e"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="wass2s submodules" href="api.html" />
+    <link rel="prev" title="Verification Module" href="Verification.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel.
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="Usage.html">Usage</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Download.html">Download module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Processing.html">Processing Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cv.html">Quantifying uncertainty via cross-validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html">Models Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Verification.html">Verification Module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Multi-Model Ensemble (MME) Techniques</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">wass2s submodules</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel.</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="Usage.html">Usage</a></li>
+      <li class="breadcrumb-item active">Multi-Model Ensemble (MME) Techniques</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/mme.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="multi-model-ensemble-mme-techniques">
+<h1>Multi-Model Ensemble (MME) Techniques<a class="headerlink" href="#multi-model-ensemble-mme-techniques" title="Link to this heading"></a></h1>
+<p>The <cite>was_mme.py</cite> module provides classes for combining predictions from multiple models, including:</p>
+<ul class="simple">
+<li><p><cite>WAS_mme_ELM</cite>: Extreme Learning Machine for MME.</p></li>
+<li><p><cite>WAS_mme_EPOELM</cite>: Enhanced Parallel Online Extreme Learning Machine.</p></li>
+<li><p><cite>WAS_mme_MLP</cite>: Multi-Layer Perceptron for MME.</p></li>
+<li><p><cite>WAS_mme_GradientBoosting</cite>: Gradient Boosting for MME.</p></li>
+<li><p><cite>WAS_mme_XGBoosting</cite>: XGBoost for MME.</p></li>
+<li><p><cite>WAS_mme_AdaBoost</cite>: AdaBoost for MME.</p></li>
+<li><p><cite>WAS_mme_LGBM_Boosting</cite>: LightGBM Boosting for MME.</p></li>
+<li><p><cite>WAS_mme_Stack_MLP_RF</cite>: Stacking model with MLP and Random Forest.</p></li>
+<li><p><cite>WAS_mme_Stack_Lasso_RF_MLP</cite>: Stacking model with Lasso, Random Forest, and MLP.</p></li>
+<li><p><cite>WAS_mme_Stack_MLP_Ada_Ridge</cite>: Stacking model with MLP, AdaBoost, and Ridge.</p></li>
+<li><p><cite>WAS_mme_Stack_RF_GB_Ridge</cite>: Stacking model with Random Forest, Gradient Boosting, and Ridge.</p></li>
+<li><p><cite>WAS_mme_Stack_KNN_Tree_SVR</cite>: Stacking model with KNN, Decision Tree, and SVR.</p></li>
+<li><p><cite>WAS_mme_GA</cite>: Genetic Algorithm for MME.</p></li>
+</ul>
+<p>Each MME class includes methods for computing the ensemble model and, where applicable, computing probabilities.</p>
+<p><strong>Example Usage with WAS_mme_ELM</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s.was_mme</span> <span class="kn">import</span> <span class="n">WAS_mme_ELM</span>
+
+<span class="c1"># Define ELM parameters</span>
+<span class="n">elm_kwargs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;regularization&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s1">&#39;hidden_layer_size&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="s1">&#39;lin&#39;</span><span class="p">,</span>  <span class="c1"># Options: &#39;sigm&#39;, &#39;tanh&#39;, &#39;lin&#39;, &#39;relu&#39;</span>
+    <span class="s1">&#39;preprocessing&#39;</span><span class="p">:</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span>  <span class="c1"># Options: &#39;minmax&#39;, &#39;std&#39;, &#39;none&#39;</span>
+    <span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># Initialize the MME ELM model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">WAS_mme_ELM</span><span class="p">(</span><span class="n">elm_kwargs</span><span class="o">=</span><span class="n">elm_kwargs</span><span class="p">,</span> <span class="n">dist_method</span><span class="o">=</span><span class="s2">&quot;euclidean&quot;</span><span class="p">)</span>
+
+<span class="c1"># Process datasets for MME (user-defined function)</span>
+<span class="n">all_model_hdcst</span><span class="p">,</span> <span class="n">all_model_fcst</span><span class="p">,</span> <span class="n">obs</span><span class="p">,</span> <span class="n">best_score</span> <span class="o">=</span> <span class="n">process_datasets_for_mme</span><span class="p">(</span>
+    <span class="n">rainfall</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">year_start</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">year_end</span><span class="p">))),</span>
+    <span class="n">gcm</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ELM_ELR</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dir_to_save_model</span><span class="o">=</span><span class="s2">&quot;./models&quot;</span><span class="p">,</span>
+    <span class="n">best_models</span><span class="o">=</span><span class="p">[],</span> <span class="n">scores</span><span class="o">=</span><span class="p">[],</span> <span class="n">year_start</span><span class="o">=</span><span class="mi">1990</span><span class="p">,</span> <span class="n">year_end</span><span class="o">=</span><span class="mi">2020</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">month_of_initialization</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">lead_time</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">year_forecast</span><span class="o">=</span><span class="mi">2021</span>
+<span class="p">)</span>
+
+<span class="c1"># Initialize cross-validator</span>
+<span class="n">was_mme_gcm</span> <span class="o">=</span> <span class="n">WAS_Cross_Validator</span><span class="p">(</span>
+    <span class="n">n_splits</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">rainfall</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">year_start</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">year_end</span><span class="p">)))</span><span class="o">.</span><span class="n">get_index</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)),</span>
+    <span class="n">nb_omit</span><span class="o">=</span><span class="mi">2</span>
+<span class="p">)</span>
+
+<span class="c1"># Perform cross-validation</span>
+<span class="n">hindcast_det_gcm</span><span class="p">,</span> <span class="n">hindcast_prob_gcm</span> <span class="o">=</span> <span class="n">was_mme_gcm</span><span class="o">.</span><span class="n">cross_validate</span><span class="p">(</span>
+    <span class="n">model</span><span class="p">,</span> <span class="n">obs</span><span class="p">,</span> <span class="n">all_model_hdcst</span><span class="p">,</span> <span class="n">clim_year_start</span><span class="p">,</span> <span class="n">clim_year_end</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Verification.html" class="btn btn-neutral float-left" title="Verification Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api.html" class="btn btn-neutral float-right" title="wass2s submodules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Mandela C. M. HOUNGNIBO.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

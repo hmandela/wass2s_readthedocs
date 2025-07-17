@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Download module &mdash; wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel. 0.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=a58bc63e"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Processing Modules" href="Processing.html" />
+    <link rel="prev" title="Usage" href="Usage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel.
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="Usage.html">Usage</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Download module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#download-gcm-data">Download GCM data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#download-daily-gcm-data">Download daily GCM data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#download-reanalysis-data">Download reanalysis data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#download-observational-data">Download observational data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#agro-meteorological-indicators">Agro-meteorological indicators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#download-daily-agro-meteorological-indicators">Download daily agro-meteorological indicators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#chirps-precipitation-data">CHIRPS precipitation data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Processing.html">Processing Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cv.html">Quantifying uncertainty via cross-validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html">Models Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Verification.html">Verification Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mme.html">Multi-Model Ensemble (MME) Techniques</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">wass2s submodules</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel.</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="Usage.html">Usage</a></li>
+      <li class="breadcrumb-item active">Download module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Download.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="download-module">
+<h1>Download module<a class="headerlink" href="#download-module" title="Link to this heading"></a></h1>
+<p>Three types of data can be downloaded with wass2s:</p>
+<ul class="simple">
+<li><p>GCM data on seasonal time scales</p></li>
+<li><p>Reanalysis data</p></li>
+<li><p>Observational data (satellite data, products combining satellite and observational data)</p></li>
+</ul>
+<p>For some data, for instance <a class="reference external" href="https://cds.climate.copernicus.eu/">C3S</a>, it requires creating an account, accepting the terms of use, and configuring an API key (<a class="reference external" href="https://hmandela.github.io/WAS_S2S_Training/s2s_data.html">CDS API key</a>).
+Please refer also to the <a class="reference external" href="https://cds.climate.copernicus.eu/api-how-to">CDS documentation</a> for more instructions on how to set up the API key.
+For more information on C3S seasonal data, browse the <a class="reference external" href="https://confluence.ecmwf.int/display/CKB/Description+of+the+C3S+seasonal+multi-system">MetaData</a>.</p>
+<section id="download-gcm-data">
+<h2>Download GCM data<a class="headerlink" href="#download-gcm-data" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">WAS_Download_Models</span></code> method allows downloading seasonal forecast model data from various centers for specified variables, initialization months, lead times, and years.</p>
+<p><strong>Parameters:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dir_to_save</span></code> (str): Directory to save the downloaded files.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">center_variable</span></code> (list): List of center-variable identifiers, e.g., [“ECMWF_51.PRCP”, “UKMO_604.TEMP”].</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">month_of_initialization</span></code> (int): Initialization month as an integer (1-12).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lead_time</span></code> (list): List of lead times in months.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">year_start_hindcast</span></code> (int): Start year for hindcast data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">year_end_hindcast</span></code> (int): End year for hindcast data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">area</span></code> (list): Bounding box as [North, West, South, East] for clipping.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">year_forecast</span></code> (int, optional): Forecast year if downloading forecast data. Defaults to None.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ensemble_mean</span></code> (str, optional): Can be “median”, “mean”, or None. Defaults to None.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">force_download</span></code> (bool): If True, forces download even if file exists.</p></li>
+</ul>
+<p><strong>Available centers and variables:</strong></p>
+<ul class="simple">
+<li><p><strong>Centers:</strong> BOM_2, ECMWF_51, UKMO_604, UKMO_603, METEOFRANCE_8, METEOFRANCE_9, DWD_21, DWD_22, CMCC_35, NCEP_2, JMA_3, ECCC_4, ECCC_5, CFSV2_1, CMC1_1, CMC2_1, GFDL_1, NASA_1, NCAR_CCSM4_1, NMME_1</p></li>
+<li><p><strong>Variables:</strong> PRCP, TEMP, TMAX, TMIN, UGRD10, VGRD10, SST, SLP, DSWR, DLWR, HUSS_1000, HUSS_925, HUSS_850, UGRD_1000, UGRD_925, UGRD_850, VGRD_1000, VGRD_925, VGRD_850</p></li>
+</ul>
+<p><strong>Note:</strong> Some models are part of the NMME (North American Multi-Model Ensemble) project. For more information, see the <a class="reference external" href="https://www.cpc.ncep.noaa.gov/products/NMME/">NMME documentation</a>.
+If <code class="docutils literal notranslate"><span class="pre">year_forecast</span></code> is not specified, hindcast data is downloaded; otherwise, forecast data for the specified year is retrieved.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">downloader</span> <span class="o">=</span> <span class="n">WAS_Download</span><span class="p">()</span>
+
+<span class="n">downloader</span><span class="o">.</span><span class="n">WAS_Download_Models</span><span class="p">(</span>
+    <span class="n">dir_to_save</span><span class="o">=</span><span class="s2">&quot;/path/to/save&quot;</span><span class="p">,</span>
+    <span class="n">center_variable</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ECMWF_51.PRCP&quot;</span><span class="p">],</span>
+    <span class="n">month_of_initialization</span><span class="o">=</span><span class="s2">&quot;03&quot;</span><span class="p">,</span>
+    <span class="n">lead_time</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;01&quot;</span><span class="p">,</span> <span class="s2">&quot;02&quot;</span><span class="p">,</span> <span class="s2">&quot;03&quot;</span><span class="p">],</span>
+    <span class="n">year_start_hindcast</span><span class="o">=</span><span class="mi">1993</span><span class="p">,</span>
+    <span class="n">year_end_hindcast</span><span class="o">=</span><span class="mi">2016</span><span class="p">,</span>
+    <span class="n">area</span><span class="o">=</span><span class="p">[</span><span class="mi">60</span><span class="p">,</span> <span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">60</span><span class="p">,</span> <span class="mi">180</span><span class="p">],</span>
+    <span class="n">force_download</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="download-daily-gcm-data">
+<h2>Download daily GCM data<a class="headerlink" href="#download-daily-gcm-data" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">WAS_Download_Models_Daily</span></code> method allows downloading daily or sub-daily seasonal forecast model data from various centers for specified variables, initialization dates, lead times, and years.</p>
+<p><strong>Parameters:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dir_to_save</span></code> (str): Directory to save the downloaded files.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">center_variable</span></code> (list): List of center-variable identifiers, e.g., [“ECMWF_51.PRCP”, “UKMO_604.TEMP”].</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">month_of_initialization</span></code> (int): Initialization month as an integer (1-12).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">day_of_initialization</span></code> (int): Initialization day as an integer (1-31).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">leadtime_hour</span></code> (list): List of lead times in hours, e.g., [“24”, “48”, …, “5160”].</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">year_start_hindcast</span></code> (int): Start year for hindcast data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">year_end_hindcast</span></code> (int): End year for hindcast data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">area</span></code> (list): Bounding box as [North, West, South, East] for clipping.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">year_forecast</span></code> (int, optional): Forecast year if downloading forecast data. Defaults to None.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ensemble_mean</span></code> (str, optional): Can be “mean”, “median”, or None. Defaults to None.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">force_download</span></code> (bool): If True, forces download even if file exists.</p></li>
+</ul>
+<p><strong>Available centers and variables:</strong></p>
+<ul class="simple">
+<li><p><strong>Centers:</strong> ECMWF_51, UKMO_604, UKMO_603, METEOFRANCE_8, DWD_21, DWD_22, CMCC_35, NCEP_2, JMA_3, ECCC_4, ECCC_5</p></li>
+<li><p><strong>Variables:</strong> PRCP, TEMP, TMAX, TMIN, UGRD10, VGRD10, SST, SLP, DSWR, DLWR, HUSS_1000, HUSS_925, HUSS_850, UGRD_1000, UGRD_925, UGRD_850, VGRD_1000, VGRD_925, VGRD_850</p></li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">downloader</span> <span class="o">=</span> <span class="n">WAS_Download</span><span class="p">()</span>
+<span class="n">downloader</span><span class="o">.</span><span class="n">WAS_Download_Models_Daily</span><span class="p">(</span>
+    <span class="n">dir_to_save</span><span class="o">=</span><span class="s2">&quot;/path/to/save&quot;</span><span class="p">,</span>
+    <span class="n">center_variable</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ECMWF_51.PRCP&quot;</span><span class="p">],</span>
+    <span class="n">month_of_initialization</span><span class="o">=</span><span class="s2">&quot;01&quot;</span><span class="p">,</span>
+    <span class="n">day_of_initialization</span><span class="o">=</span><span class="s2">&quot;01&quot;</span><span class="p">,</span>
+    <span class="n">leadtime_hour</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;24&quot;</span><span class="p">,</span> <span class="s2">&quot;48&quot;</span><span class="p">,</span> <span class="s2">&quot;72&quot;</span><span class="p">],</span>
+    <span class="n">year_start_hindcast</span><span class="o">=</span><span class="mi">1993</span><span class="p">,</span>
+    <span class="n">year_end_hindcast</span><span class="o">=</span><span class="mi">2016</span><span class="p">,</span>
+    <span class="n">area</span><span class="o">=</span><span class="p">[</span><span class="mi">60</span><span class="p">,</span> <span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">60</span><span class="p">,</span> <span class="mi">180</span><span class="p">],</span>
+    <span class="n">force_download</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="download-reanalysis-data">
+<h2>Download reanalysis data<a class="headerlink" href="#download-reanalysis-data" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">WAS_Download_Reanalysis</span></code> method downloads reanalysis data for specified center-variable combinations, years, and months, handling cross-year seasons.</p>
+<p><strong>Parameters:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dir_to_save</span></code> (str): Directory to save the downloaded files.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">center_variable</span></code> (list): List of center-variable identifiers, e.g., [“ERA5.PRCP”, “MERRA2.TEMP”].</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">year_start</span></code> (int): Start year for the data to download.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">year_end</span></code> (int): End year for the data to download.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">area</span></code> (list): Bounding box as [North, West, South, East] for clipping.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seas</span></code> (list): List of month strings representing the season, e.g., [“11”, “12”, “01”] for NDJ.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">force_download</span></code> (bool): If True, forces download even if file exists.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">run_avg</span></code> (int): Number of months for running average (default=3).</p></li>
+</ul>
+<p><strong>Available centers and variables:</strong></p>
+<ul class="simple">
+<li><p><strong>Centers:</strong> ERA5, MERRA2, NOAA (for SST)</p></li>
+<li><p><strong>Variables:</strong> PRCP, TEMP, TMAX, TMIN, UGRD10, VGRD10, SST, SLP, DSWR, DLWR, HUSS_1000, HUSS_925, HUSS_850, UGRD_1000, UGRD_925, UGRD_850, VGRD_1000, VGRD_925, VGRD_850</p></li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">downloader</span> <span class="o">=</span> <span class="n">WAS_Download</span><span class="p">()</span>
+<span class="n">downloader</span><span class="o">.</span><span class="n">WAS_Download_Reanalysis</span><span class="p">(</span>
+    <span class="n">dir_to_save</span><span class="o">=</span><span class="s2">&quot;/path/to/save&quot;</span><span class="p">,</span>
+    <span class="n">center_variable</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ERA5.PRCP&quot;</span><span class="p">],</span>
+    <span class="n">year_start</span><span class="o">=</span><span class="mi">1993</span><span class="p">,</span>
+    <span class="n">year_end</span><span class="o">=</span><span class="mi">2016</span><span class="p">,</span>
+    <span class="n">area</span><span class="o">=</span><span class="p">[</span><span class="mi">60</span><span class="p">,</span> <span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">60</span><span class="p">,</span> <span class="mi">180</span><span class="p">],</span>
+    <span class="n">seas</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;11&quot;</span><span class="p">,</span> <span class="s2">&quot;12&quot;</span><span class="p">,</span> <span class="s2">&quot;01&quot;</span><span class="p">],</span>
+    <span class="n">force_download</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="download-observational-data">
+<h2>Download observational data<a class="headerlink" href="#download-observational-data" title="Link to this heading"></a></h2>
+<p>Observational data includes agro-meteorological indicators and satellite-based precipitation data like CHIRPS.</p>
+<section id="agro-meteorological-indicators">
+<h3>Agro-meteorological indicators<a class="headerlink" href="#agro-meteorological-indicators" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">WAS_Download_AgroIndicators</span></code> method downloads agro-meteorological indicators for specified variables, years, and months, handling cross-year seasons.</p>
+<p><strong>Parameters:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dir_to_save</span></code> (str): Directory to save the downloaded files.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">variables</span></code> (list): List of shorthand variables, e.g., [“AGRO.PRCP”, “AGRO.TMAX”].</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">year_start</span></code> (int): Start year for the data to download.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">year_end</span></code> (int): End year for the data to download.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">area</span></code> (list): Bounding box as [North, West, South, East] for clipping.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seas</span></code> (list): List of month strings representing the season, e.g., [“11”, “12”, “01”] for NDJ.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">force_download</span></code> (bool): If True, forces download even if file exists.</p></li>
+</ul>
+<p><strong>Available variables:</strong></p>
+<ul class="simple">
+<li><p>AGRO.PRCP: precipitation_flux</p></li>
+<li><p>AGRO.TMAX: 2m_temperature (24_hour_maximum)</p></li>
+<li><p>AGRO.TEMP: 2m_temperature (24_hour_mean)</p></li>
+<li><p>AGRO.TMIN: 2m_temperature (24_hour_minimum)</p></li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">downloader</span> <span class="o">=</span> <span class="n">WAS_Download</span><span class="p">()</span>
+<span class="n">downloader</span><span class="o">.</span><span class="n">WAS_Download_AgroIndicators</span><span class="p">(</span>
+    <span class="n">dir_to_save</span><span class="o">=</span><span class="s2">&quot;/path/to/save&quot;</span><span class="p">,</span>
+    <span class="n">variables</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;AGRO.PRCP&quot;</span><span class="p">],</span>
+    <span class="n">year_start</span><span class="o">=</span><span class="mi">1993</span><span class="p">,</span>
+    <span class="n">year_end</span><span class="o">=</span><span class="mi">2016</span><span class="p">,</span>
+    <span class="n">area</span><span class="o">=</span><span class="p">[</span><span class="mi">60</span><span class="p">,</span> <span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">60</span><span class="p">,</span> <span class="mi">180</span><span class="p">],</span>
+    <span class="n">seas</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;11&quot;</span><span class="p">,</span> <span class="s2">&quot;12&quot;</span><span class="p">,</span> <span class="s2">&quot;01&quot;</span><span class="p">],</span>
+    <span class="n">force_download</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="download-daily-agro-meteorological-indicators">
+<h3>Download daily agro-meteorological indicators<a class="headerlink" href="#download-daily-agro-meteorological-indicators" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">WAS_Download_AgroIndicators_daily</span></code> method downloads daily agro-meteorological indicators for specified variables and years.</p>
+<p><strong>Parameters:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dir_to_save</span></code> (str): Directory to save the downloaded files.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">variables</span></code> (list): List of shorthand variables, e.g., [“AGRO.PRCP”, “AGRO.TMAX”].</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">year_start</span></code> (int): Start year for the data to download.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">year_end</span></code> (int): End year for the data to download.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">area</span></code> (list): Bounding box as [North, West, South, East] for clipping.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">force_download</span></code> (bool): If True, forces download even if file exists.</p></li>
+</ul>
+<p><strong>Available variables:</strong></p>
+<ul class="simple">
+<li><p>AGRO.PRCP: precipitation_flux</p></li>
+<li><p>AGRO.TMAX: 2m_temperature (24_hour_maximum)</p></li>
+<li><p>AGRO.TEMP: 2m_temperature (24_hour_mean)</p></li>
+<li><p>AGRO.TMIN: 2m_temperature (24_hour_minimum)</p></li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">downloader</span> <span class="o">=</span> <span class="n">WAS_Download</span><span class="p">()</span>
+<span class="n">downloader</span><span class="o">.</span><span class="n">WAS_Download_AgroIndicators_daily</span><span class="p">(</span>
+    <span class="n">dir_to_save</span><span class="o">=</span><span class="s2">&quot;/path/to/save&quot;</span><span class="p">,</span>
+    <span class="n">variables</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;AGRO.PRCP&quot;</span><span class="p">],</span>
+    <span class="n">year_start</span><span class="o">=</span><span class="mi">1993</span><span class="p">,</span>
+    <span class="n">year_end</span><span class="o">=</span><span class="mi">2016</span><span class="p">,</span>
+    <span class="n">area</span><span class="o">=</span><span class="p">[</span><span class="mi">60</span><span class="p">,</span> <span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">60</span><span class="p">,</span> <span class="mi">180</span><span class="p">],</span>
+    <span class="n">force_download</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="chirps-precipitation-data">
+<h3>CHIRPS precipitation data<a class="headerlink" href="#chirps-precipitation-data" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">WAS_Download_CHIRPSv3</span></code> method downloads CHIRPS v3.0 monthly precipitation data for a specified cross-year season.</p>
+<p><strong>Parameters:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dir_to_save</span></code> (str): Directory to save the downloaded files.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">variables</span></code> (list): List of variables, typically [“PRCP”].</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">year_start</span></code> (int): Start year for the data to download.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">year_end</span></code> (int): End year for the data to download.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">area</span></code> (list, optional): Bounding box as [North, West, South, East] for clipping.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">season_months</span></code> (list): List of month strings representing the season, e.g., [“03”, “04”, “05”] for MAM.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">force_download</span></code> (bool): If True, forces download even if file exists.</p></li>
+</ul>
+<p><strong>Note:</strong> CHIRPS data is available for land areas between 50°S and 50°N.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">downloader</span> <span class="o">=</span> <span class="n">WAS_Download</span><span class="p">()</span>
+<span class="n">downloader</span><span class="o">.</span><span class="n">WAS_Download_CHIRPSv3</span><span class="p">(</span>
+    <span class="n">dir_to_save</span><span class="o">=</span><span class="s2">&quot;/path/to/save&quot;</span><span class="p">,</span>
+    <span class="n">variables</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;PRCP&quot;</span><span class="p">],</span>
+    <span class="n">year_start</span><span class="o">=</span><span class="mi">1993</span><span class="p">,</span>
+    <span class="n">year_end</span><span class="o">=</span><span class="mi">2016</span><span class="p">,</span>
+    <span class="n">area</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>  <span class="c1"># Example for Africa</span>
+    <span class="n">season_months</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;03&quot;</span><span class="p">,</span> <span class="s2">&quot;04&quot;</span><span class="p">,</span> <span class="s2">&quot;05&quot;</span><span class="p">],</span>
+    <span class="n">force_download</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Usage.html" class="btn btn-neutral float-left" title="Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Processing.html" class="btn btn-neutral float-right" title="Processing Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Mandela C. M. HOUNGNIBO.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

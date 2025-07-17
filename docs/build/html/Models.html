@@ -1,0 +1,473 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Models Modules &mdash; wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel. 0.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=a58bc63e"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Verification Module" href="Verification.html" />
+    <link rel="prev" title="Quantifying uncertainty via cross-validation" href="cv.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel.
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="Usage.html">Usage</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Download.html">Download module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Processing.html">Processing Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cv.html">Quantifying uncertainty via cross-validation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Models Modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#machine-learning-models">Machine Learning Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#eof-and-pcr-models">EOF and PCR Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cca-models">CCA Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#analog-forecasting-methods">Analog Forecasting Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Verification.html">Verification Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mme.html">Multi-Model Ensemble (MME) Techniques</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">wass2s submodules</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel.</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="Usage.html">Usage</a></li>
+      <li class="breadcrumb-item active">Models Modules</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Models.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="models-modules">
+<h1>Models Modules<a class="headerlink" href="#models-modules" title="Link to this heading"></a></h1>
+<p>The Models modules provide a comprehensive suite of statistical and machine learning models for climate prediction, including linear models, EOF-based models, canonical correlation analysis (CCA), analog methods, and multi-model ensemble (MME) techniques.
+These models are designed to handle both deterministic and probabilistic forecasts, with support for hyperparameter tuning.
+Models are evaluated using cross-validation schemes.</p>
+<p>The models modules are organized into several classes, each implementing a specific type of model:</p>
+<ol class="arabic simple">
+<li><p><strong>Machine Learning Models</strong>: This includes linear models such as multiple linear regression, logistic regression and regularized models like ridge, lasso, elastic-net. Additionally, more advanced models are available, including support vector regression, random forests, XGBoost, and neural networks.</p></li>
+<li><p><strong>EOF and PCR Models</strong>: For dimensionality reduction and regression using principal components.</p></li>
+<li><p><strong>CCA Models</strong>: For identifying relationships between two multivariate datasets.</p></li>
+<li><p><strong>Analog Methods</strong>: For finding historical analogs to current conditions.</p></li>
+<li><p><strong>Multi-Model Ensemble (MME) Techniques</strong>: For combining predictions from multiple models.</p></li>
+</ol>
+<section id="machine-learning-models">
+<h2>Machine Learning Models<a class="headerlink" href="#machine-learning-models" title="Link to this heading"></a></h2>
+<p>The available models are:</p>
+<ul class="simple">
+<li><p><cite>WAS_LinearRegression_Model</cite>:</p></li>
+</ul>
+<p>Standard Multiple Linear Regression.
+* <cite>WAS_Ridge_Model</cite>: Ridge regression with L2 regularization.
+* <cite>WAS_Lasso_Model</cite>: Lasso regression with L1 regularization.
+* <cite>WAS_LassoLars_Model</cite>: Lasso regression using the LARS algorithm.
+* <cite>WAS_ElasticNet_Model</cite>: Elastic net regression combining L1 and L2 regularization.
+* <cite>WAS_LogisticRegression_Model</cite>: Logistic regression for classification.
+* <cite>WAS_SVR</cite>: Support vector regression.
+* <cite>WAS_PolynomialRegression</cite>: Polynomial regression.
+* <cite>WAS_PoissonRegression</cite>: Poisson regression.
+* <cite>WAS_RandomForest_XGBoost_ML_Stacking</cite>: Random forest and XGBoost regression with stacking.
+* <cite>WAS_MLP</cite>: Multi-Layer Perceptron regression.
+* <cite>WAS_RandomForest_XGBoost_Stacking_MLP</cite>: Random forest, XGBoost, and MLP regression with stacking.
+* <cite>WAS_Stacking_Ridge</cite>: Random forest, XGBoost, MLP, and Ridge regression with stacking.</p>
+<p>Except for <cite>WAS_LogisticRegression_Model</cite>, each model class includes methods for:</p>
+<ul class="simple">
+<li><p><cite>compute_model</cite>: Training the model and making predictions.</p></li>
+<li><p><cite>compute_prob</cite>: Computing tercile probabilities for the predictions.</p></li>
+<li><p><cite>forecast</cite>: Making forecasts for new data.</p></li>
+</ul>
+</section>
+<section id="eof-and-pcr-models">
+<h2>EOF and PCR Models<a class="headerlink" href="#eof-and-pcr-models" title="Link to this heading"></a></h2>
+<p>The <cite>was_eof.py</cite> and <cite>was_pcr.py</cite> modules provide classes for EOF analysis and Principal Component Regression (PCR), with support for multiple EOF zones:</p>
+<ul class="simple">
+<li><p><cite>WAS_EOF</cite>: Performs EOF analysis with options for cosine latitude weighting, standardization, and L2 normalization.</p></li>
+<li><p><cite>WAS_PCR</cite>: Combines EOF analysis with a regression model for prediction, supporting multiple EOF zones.</p></li>
+</ul>
+<p><strong>WAS_EOF</strong></p>
+<p><strong>Initialization</strong></p>
+<ul class="simple">
+<li><p><cite>n_modes</cite>: Number of EOF modes to retain.</p></li>
+<li><p><cite>use_coslat</cite>: Apply cosine latitude weighting (default: True).</p></li>
+<li><p><cite>standardize</cite>: Standardize the input data (default: False).</p></li>
+<li><p><cite>opti_explained_variance</cite>: Target cumulative explained variance to determine modes.</p></li>
+<li><p><cite>L2norm</cite>: Normalize components and scores to have L2 norm (default: True).</p></li>
+</ul>
+<p><strong>Methods</strong></p>
+<ul class="simple">
+<li><p><cite>fit</cite>: Fits the EOF model to the data, supporting multiple zones by applying EOF analysis to the entire dataset.</p></li>
+<li><p><cite>transform</cite>: Projects new data onto the EOF modes.</p></li>
+<li><p><cite>inverse_transform</cite>: Reconstructs data from principal components (PCs).</p></li>
+<li><p><cite>plot_EOF</cite>: Plots the EOF spatial patterns with explained variance.</p></li>
+</ul>
+<p><strong>WAS_PCR</strong></p>
+<p><strong>Initialization</strong></p>
+<ul class="simple">
+<li><p><cite>regression_model</cite>: The regression model (e.g., <cite>WAS_Ridge_Model</cite>) to use with PCs.</p></li>
+<li><p><cite>n_modes</cite>: Number of EOF modes to retain.</p></li>
+<li><p><cite>use_coslat</cite>: Apply cosine latitude weighting (default: True).</p></li>
+<li><p><cite>standardize</cite>: Standardize the input data (default: False).</p></li>
+<li><p><cite>opti_explained_variance</cite>: Target cumulative explained variance.</p></li>
+<li><p><cite>L2norm</cite>: Normalize EOF components and scores (default: True).</p></li>
+</ul>
+<p><strong>Methods</strong></p>
+<ul class="simple">
+<li><p><cite>compute_model</cite>: Fits the EOF model, transforms data to PCs, and applies the regression model.</p></li>
+<li><p><cite>compute_prob</cite>: Computes tercile probabilities using the regression model.</p></li>
+<li><p><cite>forecast</cite>: Makes forecasts using EOF-transformed data.</p></li>
+</ul>
+<p><strong>Example Usage: Seasonal Forecasting Based on Observational Data</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="c1">## Define the directory to save the data</span>
+<span class="n">dir_to_save_reanalysis</span> <span class="o">=</span> <span class="s2">&quot;/path/to/save_reanalysis&quot;</span>
+<span class="n">dir_to_save_agroindicators</span> <span class="o">=</span> <span class="s2">&quot;/path/to/save_agroindicators&quot;</span>
+
+<span class="c1">## Define the climatology  year range and the season</span>
+<span class="n">clim_year_start</span> <span class="o">=</span> <span class="mi">1991</span>
+<span class="n">clim_year_end</span> <span class="o">=</span> <span class="mi">2020</span>
+<span class="n">seas_reanalysis</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;01&quot;</span><span class="p">,</span> <span class="s2">&quot;02&quot;</span><span class="p">,</span> <span class="s2">&quot;03&quot;</span><span class="p">]</span>
+<span class="n">seas_agroindicators</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;05&quot;</span><span class="p">,</span> <span class="s2">&quot;06&quot;</span><span class="p">,</span> <span class="s2">&quot;07&quot;</span><span class="p">]</span>
+
+<span class="c1">## Define the variables to download</span>
+<span class="n">variables</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;AGRO.PRCP&quot;</span><span class="p">]</span>
+
+<span class="c1">## Define the center and the predictor variables</span>
+<span class="n">center_variable</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ERA5.SST&quot;</span><span class="p">]:</span>
+
+<span class="c1">## Define the extent for reanalysis</span>
+<span class="n">extent</span> <span class="o">=</span> <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">45</span><span class="p">,</span> <span class="mi">180</span><span class="p">]</span> <span class="c1"># [North, West, South, East]</span>
+
+<span class="c1">## Define the extent for Observation</span>
+<span class="n">extent_obs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mi">25</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span> <span class="c1"># [North, West, South, East]</span>
+
+<span class="c1">## Download the predictors and the predictand</span>
+<span class="n">downloader</span> <span class="o">=</span> <span class="n">WAS_Download</span><span class="p">()</span>
+
+<span class="c1">## Download the predictors</span>
+<span class="n">downloader</span><span class="o">.</span><span class="n">WAS_Download_Reanalysis</span><span class="p">(</span>
+    <span class="n">dir_to_save</span><span class="o">=</span><span class="n">dir_to_save_reanalysis</span><span class="p">,</span>
+    <span class="n">center_variable</span><span class="o">=</span><span class="n">center_variable</span><span class="p">,</span>
+    <span class="n">year_start</span><span class="o">=</span><span class="mi">1991</span><span class="p">,</span>
+    <span class="n">year_end</span><span class="o">=</span><span class="mi">2025</span><span class="p">,</span>
+    <span class="n">area</span><span class="o">=</span><span class="n">extent</span><span class="p">,</span>
+    <span class="n">seas</span><span class="o">=</span><span class="n">seas_reanalysis</span><span class="p">,</span>
+    <span class="n">force_download</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+
+<span class="c1">## Download the predictand</span>
+<span class="n">downloader</span><span class="o">.</span><span class="n">WAS_Download_AgroIndicators</span><span class="p">(</span>
+    <span class="n">dir_to_save</span><span class="o">=</span><span class="n">dir_to_save_agroindicators</span><span class="p">,</span>
+    <span class="n">variables</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;AGRO.PRCP&quot;</span><span class="p">],</span>
+    <span class="n">year_start</span><span class="o">=</span><span class="mi">1991</span><span class="p">,</span>
+    <span class="n">year_end</span><span class="o">=</span><span class="mi">2024</span><span class="p">,</span>
+    <span class="n">area</span><span class="o">=</span><span class="n">extent_obs</span><span class="p">,</span>
+    <span class="n">seas</span><span class="o">=</span><span class="n">seas_agroindicators</span><span class="p">,</span>
+    <span class="n">force_download</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Case 1: Used SST index as a predictor</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prepare predictand and predictors</span>
+<span class="n">predictand</span> <span class="o">=</span> <span class="n">prepare_predictand</span><span class="p">(</span><span class="n">dir_to_save_agroindicators</span><span class="p">,</span> <span class="n">variables</span><span class="p">,</span> <span class="n">year_start</span><span class="p">,</span> <span class="n">year_end</span><span class="p">,</span> <span class="n">seas_agroindicators</span><span class="p">,</span> <span class="n">ds</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">daily</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Prepare predictors</span>
+<span class="c1">## Print available SST indices</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">sst_indices_name</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+
+<span class="c1">## Choose yours</span>
+<span class="n">sst_index_name</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;NINO34&#39;</span><span class="p">,</span><span class="s1">&#39;TNA&#39;</span><span class="p">,</span> <span class="s1">&#39;TSA&#39;</span><span class="p">,</span> <span class="s1">&#39;DMI&#39;</span><span class="p">]</span>
+
+<span class="c1">## Plot the SST index zone</span>
+<span class="n">plot_map</span><span class="p">([</span><span class="n">extent</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">extent</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="n">extent</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">extent</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">sst_indices</span> <span class="o">=</span> <span class="n">sst_index_name</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Index Zone&quot;</span><span class="p">,</span><span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="c1">## Compute the SST indices</span>
+<span class="n">predictors</span> <span class="o">=</span> <span class="n">compute_sst_indices</span><span class="p">(</span><span class="n">dir_to_save_reanalysis</span><span class="p">,</span> <span class="n">sst_index_name</span><span class="p">,</span> <span class="n">center_variable</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">year_start</span><span class="p">,</span> <span class="n">year_end</span><span class="p">,</span> <span class="n">seas_reanalysis</span><span class="p">)</span>
+
+<span class="c1">## Compute variance inflation factor to see multicolinearity between predictors</span>
+
+<span class="n">vif_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">vif_data</span><span class="p">[</span><span class="s2">&quot;feature&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">predictors</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">vif_data</span><span class="p">[</span><span class="s2">&quot;VIF&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">VIF</span><span class="p">(</span><span class="n">predictors</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(),</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">predictors</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+<span class="c1">## Print VIF values</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vif_data</span><span class="p">)</span>
+
+<span class="c1">## Set a threshold for VIF</span>
+<span class="n">vif_threshold</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="c1"># Remove features with VIF greater than the threshold</span>
+<span class="n">low_vif_predictors</span> <span class="o">=</span> <span class="n">vif_data</span><span class="p">[</span><span class="n">vif_data</span><span class="p">[</span><span class="s2">&quot;VIF&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">vif_threshold</span><span class="p">][</span><span class="s2">&quot;feature&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">filtered_predictors</span> <span class="o">=</span> <span class="n">predictors</span><span class="p">[</span><span class="n">low_vif_predictors</span><span class="p">]</span><span class="o">.</span><span class="n">to_array</span><span class="p">()</span>
+<span class="n">filtered_predictors</span> <span class="o">=</span> <span class="n">filtered_predictors</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s2">&quot;variable&quot;</span><span class="p">:</span> <span class="s2">&quot;features&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;features&#39;</span><span class="p">)</span>
+
+<span class="c1"># Initialize the model class</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">WAS_LinearRegression_Model</span><span class="p">(</span><span class="n">nb_cores</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dist_method</span><span class="o">=</span><span class="s2">&quot;lognormal&quot;</span><span class="p">)</span>
+<span class="c1"># Assuming predictand follows a lognormal distribution. otherwise, normal, student-t or gamma are available. used dist_method=&quot;normal&quot; or dist_method=&quot;t&quot; or dist_method=&quot;gamma&quot;.</span>
+
+<span class="c1"># Perform cross-validation</span>
+<span class="n">was_cv</span> <span class="o">=</span> <span class="n">WAS_Cross_Validator</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">predictand</span><span class="o">.</span><span class="n">get_index</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)),</span> <span class="n">nb_omit</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">hindcast_det</span><span class="p">,</span> <span class="n">hindcast_prob</span> <span class="o">=</span> <span class="n">was_cv</span><span class="o">.</span><span class="n">cross_validate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">predictand</span><span class="p">,</span> <span class="n">filtered_predictorsisel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)),</span> <span class="n">clim_year_start</span><span class="p">,</span> <span class="n">clim_year_end</span><span class="p">)</span>
+<span class="c1"># clim_year_start and clim_year_end are the years used to compute the climatology.</span>
+
+<span class="c1"># Initialize the model class</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">WAS_Ridge_Model</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">alpha_range</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">nb_cores</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Compute alpha parameters</span>
+<span class="n">alpha</span><span class="p">,</span> <span class="n">clusters</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">compute_hyperparameters</span><span class="p">(</span><span class="n">predictand</span><span class="p">,</span> <span class="n">filtered_predictors</span><span class="p">)</span>
+
+<span class="c1"># Perform cross-validation</span>
+<span class="n">was_cv</span> <span class="o">=</span> <span class="n">WAS_Cross_Validator</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">predictand</span><span class="o">.</span><span class="n">get_index</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)),</span> <span class="n">nb_omit</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">hindcast_det_Ridge</span><span class="p">,</span> <span class="n">hindcast_prob_Ridge</span> <span class="o">=</span> <span class="n">was_cv</span><span class="o">.</span><span class="n">cross_validate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">predictand</span><span class="p">,</span> <span class="n">filtered_predictors</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)),</span> <span class="n">clim_year_start</span><span class="p">,</span> <span class="n">clim_year_end</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+
+<span class="c1"># Make a forecast</span>
+<span class="n">forecast_det_Ridge</span><span class="p">,</span> <span class="n">forecast_prob_Ridge</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="n">predictand</span><span class="p">,</span> <span class="n">clim_year_start</span><span class="p">,</span> <span class="n">clim_year_end</span><span class="p">,</span> <span class="n">filtered_predictors</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)),</span> <span class="n">hindcast_det_Ridge</span><span class="p">,</span> <span class="n">filtered_predictors</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">l1_ratio</span><span class="o">=</span><span class="n">l1_ratio</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Case 2: Used PCRs as a predictor</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set your own zones ( zones not available in built-in)</span>
+<span class="c1"># define zone as dict : {&#39;zone_name_key&#39;: (&#39;Explicit_Zone_name&#39;, lon_min, lon_max, lat_min, lat_max)}</span>
+<span class="n">zones_for_PCR</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="o">-</span><span class="mi">45</span><span class="p">,</span> <span class="mi">45</span><span class="p">)}</span>
+
+<span class="c1"># Set number of modes</span>
+<span class="n">n_modes</span> <span class="o">=</span> <span class="mi">6</span>
+
+<span class="c1"># ElasticNet hyperparameters range</span>
+<span class="n">alpha_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">l1_ratio_range</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.9999</span><span class="p">]</span>
+
+<span class="c1"># Initialize the model class</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">WAS_PCR_Model</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">alpha_range</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">nb_cores</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plot_map</span><span class="p">([</span><span class="n">extent</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">extent</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="n">extent</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">extent</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">sst_indices</span> <span class="o">=</span> <span class="n">zones_for_PCR</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Predictors Area&quot;</span><span class="p">,</span><span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Retrieve predictor data for the defined zone</span>
+<span class="n">predictor</span> <span class="o">=</span> <span class="n">retrieve_single_zone_for_PCR</span><span class="p">(</span><span class="n">dir_to_save_Reanalysis</span><span class="p">,</span> <span class="n">zones_for_PCR</span><span class="p">,</span> <span class="n">variables_reanalysis</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">year_start</span><span class="p">,</span> <span class="n">year_end</span><span class="p">,</span> <span class="n">season</span><span class="p">,</span> <span class="n">clim_year_start</span><span class="p">,</span> <span class="n">clim_year_end</span><span class="p">)</span>
+
+<span class="c1"># Load WAS_EOF Class</span>
+<span class="n">eof_model</span> <span class="o">=</span> <span class="n">WAS_EOF</span><span class="p">(</span><span class="n">n_modes</span><span class="o">=</span><span class="n">n_modes</span><span class="p">,</span> <span class="n">use_coslat</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">standardize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Load predictor, compute EOFs and retrieve component, scores and explained variances</span>
+<span class="n">s_eofs</span><span class="p">,</span> <span class="n">s_pcs</span><span class="p">,</span> <span class="n">s_expvar</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">eof_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">predictor</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;T&quot;</span><span class="p">,</span>  <span class="n">clim_year_start</span><span class="o">=</span><span class="n">clim_year_start</span><span class="p">,</span> <span class="n">clim_year_end</span><span class="o">=</span><span class="n">clim_year_end</span><span class="p">)</span>
+
+<span class="c1"># Plot EOFs and explained variances</span>
+<span class="n">eof_model</span><span class="o">.</span><span class="n">plot_EOF</span><span class="p">(</span><span class="n">s_eofs</span><span class="p">,</span> <span class="n">s_expvar</span><span class="p">)</span>
+
+<span class="c1"># Perform Cross-validation with elastic-net</span>
+
+<span class="c1">## Load class for model</span>
+<span class="n">regression_model</span> <span class="o">=</span> <span class="n">WAS_ElasticNet_Model</span><span class="p">(</span><span class="n">alpha_range</span> <span class="o">=</span> <span class="n">alpha_range</span><span class="p">,</span> <span class="n">l1_ratio_range</span> <span class="o">=</span> <span class="n">l1_ratio_range</span><span class="p">,</span> <span class="n">nb_cores</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">dist_method</span><span class="o">=</span><span class="s2">&quot;lognormal&quot;</span><span class="p">)</span>
+<span class="n">pcr_model</span> <span class="o">=</span> <span class="n">WAS_PCR</span><span class="p">(</span><span class="n">regression_model</span><span class="o">=</span><span class="n">regression_model</span><span class="p">,</span> <span class="n">n_modes</span><span class="o">=</span><span class="n">n_modes</span><span class="p">,</span> <span class="n">standardize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1">## Compute alpha parameters</span>
+<span class="n">alpha</span><span class="p">,</span> <span class="n">l1_ratio</span><span class="p">,</span> <span class="n">clusters</span> <span class="o">=</span> <span class="n">regression_model</span><span class="o">.</span><span class="n">compute_hyperparameters</span><span class="p">(</span><span class="n">predictand</span><span class="p">,</span> <span class="n">s_pcs</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;features&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;features&#39;</span><span class="p">))</span>
+<span class="c1">## Perform cross-validation</span>
+<span class="n">was_cv</span> <span class="o">=</span> <span class="n">WAS_Cross_Validator</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">predictand</span><span class="o">.</span><span class="n">get_index</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)),</span> <span class="n">nb_omit</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">hindcast_det</span><span class="p">,</span> <span class="n">hindcast_prob</span> <span class="o">=</span> <span class="n">was_cv</span><span class="o">.</span><span class="n">cross_validate</span><span class="p">(</span><span class="n">pcr_model</span><span class="p">,</span> <span class="n">predictand</span><span class="p">,</span> <span class="n">s_pcs</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;features&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;features&#39;</span><span class="p">),</span> <span class="n">clim_year_start</span><span class="p">,</span> <span class="n">clim_year_end</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">l1_ratio</span><span class="o">=</span><span class="n">l1_ratio</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="cca-models">
+<h2>CCA Models<a class="headerlink" href="#cca-models" title="Link to this heading"></a></h2>
+<p>The <cite>was_cca.py</cite> module provides classes for Canonical Correlation Analysis (CCA):</p>
+<ul class="simple">
+<li><p><cite>WAS_CCA</cite>: Performs CCA to identify relationships between two multivariate datasets.</p></li>
+</ul>
+<p><strong>Initialization</strong></p>
+<ul class="simple">
+<li><p><cite>n_modes</cite>: Number of CCA modes to retain.</p></li>
+<li><p><cite>n_pca_modes</cite>: Number of PCA modes to use for dimensionality reduction.</p></li>
+<li><p><cite>dist_method</cite>: distribution method for probability computations.</p></li>
+</ul>
+<p><strong>Methods</strong></p>
+<ul class="simple">
+<li><p><cite>compute_model</cite>: Fits the CCA model and makes predictions.</p></li>
+<li><p><cite>compute_prob</cite>: Computes tercile probabilities for the predictions.</p></li>
+</ul>
+<p><strong>Example Usage: Recalibrating Seasonal Forecast Outputs from Global Climate Models (GCMs)</strong></p>
+</section>
+<section id="analog-forecasting-methods">
+<h2>Analog Forecasting Methods<a class="headerlink" href="#analog-forecasting-methods" title="Link to this heading"></a></h2>
+<p>The <cite>was_analog.py</cite> module provides the <cite>WAS_Analog</cite> class for analog-based forecasting using various techniques to identify historical analogs to current conditions for prediction, particularly for seasonal rainfall forecasts using sea surface temperature (SST) data.</p>
+<p><strong>Initialization Parameters</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dir_to_save</span></code> (str): Directory path to save downloaded and processed data files.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">year_start</span></code> (int): Starting year for historical data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">year_forecast</span></code> (int): Target forecast year.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reanalysis_name</span></code> (str): Reanalysis dataset name (e.g., “ERA5.SST” or “NOAA.SST”).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">model_name</span></code> (str): Forecast model name (e.g., “ECMWF_51.SST”).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">method_analog</span></code> (str, default=”som”): Analog method to use (“som”, “cor_based”, “pca_based”).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">best_prcp_models</span></code> (list, optional): List of best precipitation models. Default is None.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">month_of_initialization</span></code> (int, optional): Forecast initialization month. Default is None (uses current month).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lead_time</span></code> (list, optional): Lead times in months. Default is None (uses [1, 2, 3, 4, 5]).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ensemble_mean</span></code> (str, default=”mean”): Ensemble mean method (“mean” or “median”).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clim_year_start</span></code> (int, optional): Start year for climatology period.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clim_year_end</span></code> (int, optional): End year for climatology period.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">define_extent</span></code> (tuple, optional): Bounding box as (lon_min, lon_max, lat_min, lat_max) for regional analysis.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">index_compute</span></code> (list, optional): Climate indices to compute (e.g., [“NINO34”, “DMI”]).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">some_grid_size</span></code> (tuple, default=(None, None)): SOM grid dimensions (rows, cols); None uses automatic sizing.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">some_learning_rate</span></code> (float, default=0.5): Learning rate for SOM training.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">some_neighborhood_function</span></code> (str, default=”gaussian”): Neighborhood function for SOM (“gaussian”, etc.).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">some_sigma</span></code> (float, default=1.0): Initial neighborhood radius for SOM.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dist_method</span></code> (str, default=”gamma”): Probability method (“gamma”, “t”, “normal”, “lognormal”, “nonparam”).</p></li>
+</ul>
+<p><strong>Key Methods</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">download_sst_reanalysis()</span></code>: Downloads and processes SST reanalysis data from the specified center for the given years and area.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">download_models()</span></code>: Downloads seasonal forecast model data for the specified model, initialization month, and lead times.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">standardize_timeseries()</span></code>: Standardizes time series data over a specified climatology period.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">calc_index()</span></code>: Computes specified climate indices (e.g., NINO34, DMI) from SST data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compute_model()</span></code>: Identifies historical analogs using the specified method and computes deterministic forecasts.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compute_prob()</span></code>: Calculates tercile probabilities (Below Normal, Near Normal, Above Normal) using the specified distribution method.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">forecast()</span></code>: Generates deterministic and probabilistic forecasts for the target year, returning processed SST data, similar years, deterministic forecast, and probabilistic forecast.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">composite_plot()</span></code>: Creates composite plots of forecast results, optionally including the predictor (SST) visualization.</p></li>
+</ul>
+<p><strong>Example Usage</strong></p>
+<p>Basic analog forecast setup:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s.was_analog</span> <span class="kn">import</span> <span class="n">WAS_Analog</span>
+
+<span class="c1"># Initialize analog model</span>
+<span class="n">analog_model</span> <span class="o">=</span> <span class="n">WAS_Analog</span><span class="p">(</span>
+    <span class="n">dir_to_save</span><span class="o">=</span><span class="s2">&quot;./s2s_data/analog&quot;</span><span class="p">,</span>
+    <span class="n">year_start</span><span class="o">=</span><span class="mi">1990</span><span class="p">,</span>
+    <span class="n">year_forecast</span><span class="o">=</span><span class="mi">2025</span><span class="p">,</span>
+    <span class="n">reanalysis_name</span><span class="o">=</span><span class="s2">&quot;NOAA.SST&quot;</span><span class="p">,</span>
+    <span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;ECMWF_51.SST&quot;</span><span class="p">,</span>
+    <span class="n">method_analog</span><span class="o">=</span><span class="s2">&quot;som&quot;</span><span class="p">,</span>
+    <span class="n">month_of_initialization</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">clim_year_start</span><span class="o">=</span><span class="mi">1991</span><span class="p">,</span>
+    <span class="n">clim_year_end</span><span class="o">=</span><span class="mi">2020</span><span class="p">,</span>
+    <span class="n">define_extent</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">45</span><span class="p">,</span> <span class="mi">45</span><span class="p">),</span>
+    <span class="n">index_compute</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;NINO34&quot;</span><span class="p">,</span> <span class="s2">&quot;DMI&quot;</span><span class="p">],</span>
+    <span class="n">dist_method</span><span class="o">=</span><span class="s2">&quot;gamma&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Download and process data</span>
+<span class="n">sst_hist</span><span class="p">,</span> <span class="n">sst_for</span> <span class="o">=</span> <span class="n">analog_model</span><span class="o">.</span><span class="n">download_and_process</span><span class="p">()</span>
+
+<span class="c1"># Generate forecast</span>
+<span class="n">ddd</span><span class="p">,</span> <span class="n">similar_years</span><span class="p">,</span> <span class="n">forecast_det</span><span class="p">,</span> <span class="n">forecast_prob</span> <span class="o">=</span> <span class="n">analog_model</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span>
+    <span class="n">predictant</span><span class="o">=</span><span class="n">rainfall_data</span><span class="p">,</span>
+    <span class="n">clim_year_start</span><span class="o">=</span><span class="mi">1991</span><span class="p">,</span>
+    <span class="n">clim_year_end</span><span class="o">=</span><span class="mi">2020</span><span class="p">,</span>
+    <span class="n">hindcast_det</span><span class="o">=</span><span class="n">hindcast_data</span><span class="p">,</span>
+    <span class="n">forecast_year</span><span class="o">=</span><span class="mi">2025</span>
+<span class="p">)</span>
+
+<span class="c1"># Create composite plot</span>
+<span class="n">similar_years</span> <span class="o">=</span> <span class="n">analog_model</span><span class="o">.</span><span class="n">composite_plot</span><span class="p">(</span>
+    <span class="n">predictant</span><span class="o">=</span><span class="n">rainfall_data</span><span class="p">,</span>
+    <span class="n">clim_year_start</span><span class="o">=</span><span class="mi">1991</span><span class="p">,</span>
+    <span class="n">clim_year_end</span><span class="o">=</span><span class="mi">2020</span><span class="p">,</span>
+    <span class="n">hindcast_det</span><span class="o">=</span><span class="n">hindcast_data</span><span class="p">,</span>
+    <span class="n">plot_predictor</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Cross-Validation Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s.was_analog</span> <span class="kn">import</span> <span class="n">WAS_Cross_Validator</span>
+
+<span class="c1"># Perform cross-validation</span>
+<span class="n">was_analog_cv</span> <span class="o">=</span> <span class="n">WAS_Cross_Validator</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">rainfall</span><span class="o">.</span><span class="n">get_index</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)),</span> <span class="n">nb_omit</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">hindcast_analog_det</span><span class="p">,</span> <span class="n">hindcast_analog_prob</span> <span class="o">=</span> <span class="n">was_analog_cv</span><span class="o">.</span><span class="n">cross_validate</span><span class="p">(</span>
+    <span class="n">analog_model</span><span class="p">,</span>
+    <span class="n">rainfall</span><span class="p">,</span>
+    <span class="n">clim_year_start</span><span class="o">=</span><span class="mi">1991</span><span class="p">,</span>
+    <span class="n">clim_year_end</span><span class="o">=</span><span class="mi">2020</span>
+<span class="p">)</span>
+
+<span class="c1"># Generate forecast using cross-validated hindcast</span>
+<span class="n">ddd</span><span class="p">,</span> <span class="n">similar_years</span><span class="p">,</span> <span class="n">forecast_det</span><span class="p">,</span> <span class="n">forecast_prob</span> <span class="o">=</span> <span class="n">analog_model</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span>
+    <span class="n">predictant</span><span class="o">=</span><span class="n">rainfall</span><span class="p">,</span>
+    <span class="n">clim_year_start</span><span class="o">=</span><span class="mi">1991</span><span class="p">,</span>
+    <span class="n">clim_year_end</span><span class="o">=</span><span class="mi">2020</span><span class="p">,</span>
+    <span class="n">hindcast_det</span><span class="o">=</span><span class="n">hindcast_analog_det</span><span class="p">,</span>
+    <span class="n">forecast_year</span><span class="o">=</span><span class="mi">2025</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ensure <cite>WAS_Cross_Validator</cite> is correctly imported from the <cite>wass2s.was_analog</cite> module and that the <cite>rainfall</cite> variable is an xarray DataArray with appropriate dimensions (T, Y, X).</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="cv.html" class="btn btn-neutral float-left" title="Quantifying uncertainty via cross-validation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Verification.html" class="btn btn-neutral float-right" title="Verification Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Mandela C. M. HOUNGNIBO.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
