@@ -26,6 +26,15 @@ wass2s.was\_compute\_predictand module
    :show-inheritance:
    :undoc-members:
 
+wass2s.was\_bias\_correction module
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. automodule:: wass2s.was_bias_correction
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+
 wass2s.was\_merge\_predictand module
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
