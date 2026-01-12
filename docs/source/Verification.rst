@@ -17,17 +17,9 @@ The `WAS_Verification` class is the core of the Verification module, providing m
     from wass2s.was_verification import WAS_Verification
 
     # Initialize with a distribution method for probabilistic forecasts
-    verifier = WAS_Verification(dist_method="gamma")
+    verifier = WAS_Verification()
 
-**Parameters**
 
-- `dist_method`: Specifies the distribution method for computing tercile probabilities. Options include:
-  - `"t"`: Student's t-based method.
-  - `"gamma"`: Gamma distribution-based method (default).
-  - `"normal"`: Normal distribution-based method.
-  - `"lognormal"`: Lognormal distribution-based method.
-  - `"weibull_min"`: Weibull minimum distribution-based method.
-  - `"nonparam"`: Non-parametric method using historical errors.
 
 **Available Metrics**
 
@@ -173,63 +165,6 @@ Ensemble metrics evaluate forecasts with multiple members, such as those from GC
 
 - `compute_crps`: Computes CRPS for ensemble forecasts, measuring the difference between predicted and observed distributions.
 
-==============================================
-Tercile Probability Computation
-==============================================
-
-The module provides multiple methods to compute tercile probabilities for probabilistic forecasts, based on different distributional assumptions.
-
-**Key Methods**
-
-- `calculate_tercile_probabilities`: Uses Student's t-distribution.
-- `calculate_tercile_probabilities_gamma`: Uses Gamma distribution.
-- `calculate_tercile_probabilities_normal`: Uses Normal distribution.
-- `calculate_tercile_probabilities_lognormal`: Uses Lognormal distribution.
-- `calculate_tercile_probabilities_weibull_min`: Uses Weibull minimum distribution.
-- `calculate_tercile_probabilities_nonparametric`: Uses historical errors for a non-parametric approach.
-
-**Example Usage**
-
-.. code-block:: python
-
-    # Compute probabilities using Gamma distribution
-    hindcast_prob = verifier.gcm_compute_prob(
-        Predictant=obs_data, clim_year_start=1981, clim_year_end=2010, hindcast_det=model_data
-    )
-
-The `gcm_compute_prob` method selects the appropriate distribution based on the `dist_method` parameter.
-
-==============================================
-GCM Validation
-==============================================
-
-The module includes methods to validate General Circulation Model (GCM) forecasts against observations, supporting both deterministic and probabilistic metrics.
-
-**Key Methods**
-
-- `gcm_validation_compute`: Validates GCM forecasts for multiple models, computing specified metrics.
-- `weighted_gcm_forecasts`: Combines forecasts from multiple models using weights based on a performance metric (e.g., GROC).
-
-**Example Usage**
-
-.. code-block:: python
-
-    # Validate GCM forecasts
-    models_files_path = {
-        "model1": "path/to/model1.nc",
-        "model2": "path/to/model2.nc"
-    }
-    x_metric = verifier.gcm_validation_compute(
-        models_files_path=models_files_path, Obs=obs_data, score="Pearson",
-        month_of_initialization=3, clim_year_start=1981, clim_year_end=2010,
-        dir_to_save_roc_reliability="./scores", lead_time=[1]
-    )
-
-    # Compute weighted GCM forecasts
-    hindcast_det, hindcast_prob, forecast_prob = verifier.weighted_gcm_forecasts(
-        Obs=obs_data, best_models={"model1_MarIc_JFM_1": score1}, scores={"GROC": x_metric},
-        lead_time=[1], model_dir="./models", clim_year_start=1981, clim_year_end=2010, variable="PRCP"
-    )
 
 ==============================================
 Annual Year Validation
@@ -253,15 +188,7 @@ The module provides utilities to validate forecasts for a specific year, includi
     verifier.compute_one_year_rpss(
         obs=obs_data, prob_pred=proba_forecast, clim_year_start=1981, clim_year_end=2010, year=2020
     )
-
-==============================================
-Notes
-
-- **Placeholder Functions**: Some methods (e.g., `taylor_diagram`) are placeholders and require implementation based on specific needs.
-- **Gridded Data**: The module currently supports only gridded data validation. Non-gridded validation is not implemented.
-- **Performance**: The use of `dask` ensures efficient computation for large datasets, but users should ensure proper chunking of `xarray` DataArrays.
-- **Visualization**: Plots are saved to the specified directory and displayed using `matplotlib`. Ensure the output directory exists.
-
-This documentation provides an overview of the Verification module's capabilities, along with example usage for key methods. For detailed information on each method, refer to the source code and docstrings in `was_verification.py`.
+This documentation provides an overview of the Verification module's capabilities, along with example usage for key methods. 
+For detailed information on each method, refer to the source code and docstrings in API.
 
 

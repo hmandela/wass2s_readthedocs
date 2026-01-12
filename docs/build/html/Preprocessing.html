@@ -1,0 +1,1027 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preprocessing Modules &mdash; wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel. 0.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=a58bc63e"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Models and Cross-Validation" href="Models.html" />
+    <link rel="prev" title="Download module" href="Download.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel.
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="Usage.html">Usage</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Download.html">Download module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Preprocessing Modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#computing-predictands">Computing Predictands</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#agro-climatic-seasonality">1. Agro-Climatic Seasonality</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spell-analysis-dry-wet">2. Spell Analysis (Dry/Wet)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#etccdi-temperature-extremes">3. ETCCDI Temperature Extremes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#etccdi-precipitation-extremes">4. ETCCDI Precipitation Extremes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#input-data-formats">Input Data Formats</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#merging-gridded-data-with-observations">Merging Gridded Data with Observations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#prerequisites-data-formats">Prerequisites &amp; Data Formats</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#class-initialization">Class Initialization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#merging-methods">Merging Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#visualization">Visualization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usage-example">Usage Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#bias-correction-modules">Bias Correction Modules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#precipitation-bias-correction-was-qmap">1. Precipitation Bias Correction (WAS_Qmap)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#continuous-bias-correction-was-bias-correction">2. Continuous Bias Correction (WAS_bias_correction)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#data-transformation-skewness-analysis">Data Transformation &amp; Skewness Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#prerequisites-input-data">Prerequisites &amp; Input Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#skewness-detection-and-handling">1. Skewness Detection and Handling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#distribution-fitting-clustering-approach">2. Distribution Fitting (Clustering Approach)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">3. Visualization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html">Models and Cross-Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#quantifying-uncertainty-via-cross-validation">Quantifying uncertainty via cross-validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Verification.html">Verification Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mme.html">Multi-Model Ensemble (MME) Techniques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mme.html#performance-weighted-mme">Performance Weighted MME</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mme.html#min-et-al-2009-probabilistic-mme">Min et al. (2009) Probabilistic MME</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mme.html#stacking-super-ensemble">Stacking (Super-Ensemble)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mme.html#individual-ml-regressors">Individual ML Regressors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mme.html#non-homogeneous-gaussian-regression-ngr">Non-homogeneous Gaussian Regression (NGR)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mme.html#bayesian-model-averaging-bma">Bayesian Model Averaging (BMA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mme.html#extended-logistic-regression-elr">Extended Logistic Regression (ELR)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mme.html#mean-and-variance-adjustment-mva">Mean and Variance Adjustment (MVA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ImplementWASNextGen.html">Implementation of WAS-NextGen Approaches</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">wass2s submodules</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel.</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="Usage.html">Usage</a></li>
+      <li class="breadcrumb-item active">Preprocessing Modules</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Preprocessing.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="preprocessing-modules">
+<h1>Preprocessing Modules<a class="headerlink" href="#preprocessing-modules" title="Link to this heading"></a></h1>
+<p>The Processing modules provide tools for computing various climate indices or predictands from daily data, such as onset and cessation of the rainy season, dry and wet spells, number of rainy days, extreme precipitation indices, and heat wave indices. Additionally, it offers methods for merging or adjusting gridded data with station observations to correct biases.</p>
+<p>These modules are divided into two main parts:</p>
+<ol class="arabic simple">
+<li><p><strong>Computing Predictands</strong>: Classes for calculating different climate indices from daily data.</p></li>
+<li><p><strong>Merging and Adjusting Data</strong>: Classes for combining gridded data with station observations to improve accuracy.</p></li>
+<li><p><strong>Bias correction</strong>:</p></li>
+<li><p><strong>Data Transformation</strong>:</p></li>
+</ol>
+<p><strong>Prerequisites</strong></p>
+<ul class="simple">
+<li><p><strong>Dask</strong>: Required for parallel processing in gridded data computations.</p></li>
+<li><p><strong>Data Formats</strong>: Gridded data should be in xarray DataArray format with coordinates (T, Y, X). Station data should be in CDT format for daily data or CPT format for seasonal aggregation before merging.</p></li>
+</ul>
+<p><strong>Climate Data Tools (CDT)</strong>: Format for daily data.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>ID</p></th>
+<th class="head"><p>ALLADA</p></th>
+<th class="head"><p>APLAHOUE</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>LON</p></td>
+<td><p>2.133333</p></td>
+<td><p>1.666667</p></td>
+</tr>
+<tr class="row-odd"><td><p>LAT</p></td>
+<td><p>6.65</p></td>
+<td><p>6.916667</p></td>
+</tr>
+<tr class="row-even"><td><p>DAILY/ELEV</p></td>
+<td><p>92.0</p></td>
+<td><p>153.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>19810101</p></td>
+<td><p>0.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p>19810102</p></td>
+<td><p>0.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>19810103</p></td>
+<td><p>0.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p>19810104</p></td>
+<td><p>0.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>19810105</p></td>
+<td><p>0.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p>19810106</p></td>
+<td><p>0.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>19810107</p></td>
+<td><p>0.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p>19810108</p></td>
+<td><p>0.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>19810109</p></td>
+<td><p>0.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p>19810110</p></td>
+<td><p>0.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>…</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Climate Prediction Tools (CPT)</strong>: Format for seasonal aggregation (used in climate prediction tools) before merging.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>STATION</p></th>
+<th class="head"><p>ABEO</p></th>
+<th class="head"><p>ABUJ</p></th>
+<th class="head"><p>ADEK</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>LAT</p></td>
+<td><p>7.2</p></td>
+<td><p>7.6</p></td>
+<td><p>9.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>LON</p></td>
+<td><p>3.3</p></td>
+<td><p>5.2</p></td>
+<td><p>7.2</p></td>
+</tr>
+<tr class="row-even"><td><p>1991</p></td>
+<td><p>514.9</p></td>
+<td><p>715.1</p></td>
+<td><p>934.3</p></td>
+</tr>
+<tr class="row-odd"><td><p>1992</p></td>
+<td><p>503.6</p></td>
+<td><p>736.4</p></td>
+<td><p>714.6</p></td>
+</tr>
+<tr class="row-even"><td><p>1993</p></td>
+<td><p>414.6</p></td>
+<td><p>891.0</p></td>
+<td><p>709.6</p></td>
+</tr>
+<tr class="row-odd"><td><p>1994</p></td>
+<td><p>345.6</p></td>
+<td><p>1034.7</p></td>
+<td><p>491.7</p></td>
+</tr>
+<tr class="row-even"><td><p>1995</p></td>
+<td><p>492.2</p></td>
+<td><p>837.6</p></td>
+<td><p>938.8</p></td>
+</tr>
+<tr class="row-odd"><td><p>…</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="computing-predictands">
+<h2>Computing Predictands<a class="headerlink" href="#computing-predictands" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">WAS_compute_predictand</span></code> module provides a suite of tools for calculating climate indices from daily meteorological data. It supports both <strong>Gridded Data</strong> (xarray) and <strong>In-Situ Station Data</strong> (CDT/CPT formats).</p>
+<p>The module is divided into three main categories:</p>
+<ol class="arabic simple">
+<li><p><strong>Agro-Climatology</strong>: Onset, Cessation, and Season Length.</p></li>
+<li><p><strong>Spell Analysis</strong>: Dry and Wet spells relative to the growing season.</p></li>
+<li><p><strong>ETCCDI Extremes</strong>: Temperature percentiles, Heat Waves, and Extreme Precipitation (R95p).</p></li>
+</ol>
+<hr class="docutils" />
+<section id="agro-climatic-seasonality">
+<h3>1. Agro-Climatic Seasonality<a class="headerlink" href="#agro-climatic-seasonality" title="Link to this heading"></a></h3>
+<p>These classes determine the start and end of the rainy season using zone-specific rainfall thresholds and soil moisture balance.</p>
+<section id="onset-computation">
+<h4>Onset Computation<a class="headerlink" href="#onset-computation" title="Link to this heading"></a></h4>
+<p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_compute_onset</span></code></p>
+<p>Calculates the start of the rains based on:
+1.  <strong>Start Search Date</strong>: The earliest allowed date.
+2.  <strong>Cumulative Rainfall</strong>: E.g., 20mm over 3 days.
+3.  <strong>Dry Spell Constraint</strong>: No dry spell &gt; 7 days in the following 30 days.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="n">WAS_compute_onset</span>
+
+<span class="c1"># 1. Define Zone Criteria (or use defaults)</span>
+<span class="c1"># Zones map specific lat/lon regions to rainfall rules</span>
+<span class="n">criteria</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;zone_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Sahel&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;start_search&quot;</span><span class="p">:</span> <span class="s2">&quot;06-01&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cumulative&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="s2">&quot;number_dry_days&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">&quot;thrd_rain_day&quot;</span><span class="p">:</span> <span class="mf">0.85</span><span class="p">,</span>
+        <span class="s2">&quot;end_search&quot;</span><span class="p">:</span> <span class="s2">&quot;08-30&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1"># 2. Initialize</span>
+<span class="n">onset_calc</span> <span class="o">=</span> <span class="n">WAS_compute_onset</span><span class="p">(</span><span class="n">user_criteria</span><span class="o">=</span><span class="n">criteria</span><span class="p">)</span>
+
+<span class="c1"># 3. Compute (Gridded)</span>
+<span class="c1"># daily_rain must be xarray (T, Y, X)</span>
+<span class="n">onset_da</span> <span class="o">=</span> <span class="n">onset_calc</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">daily_data</span><span class="o">=</span><span class="n">daily_rain</span><span class="p">,</span> <span class="n">nb_cores</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="cessation-computation">
+<h4>Cessation Computation<a class="headerlink" href="#cessation-computation" title="Link to this heading"></a></h4>
+<p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_compute_cessation</span></code></p>
+<p>Calculates the end of the season based on a <strong>Soil Water Balance</strong> model. The season ends when the soil water content drops to zero after the rainy period.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="n">WAS_compute_cessation</span>
+
+<span class="c1"># Cessation requires Evapotranspiration (ETP) and Soil Capacity</span>
+<span class="n">criteria_cess</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;zone_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Sahel&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;date_dry_soil&quot;</span><span class="p">:</span> <span class="s2">&quot;01-01&quot;</span><span class="p">,</span> <span class="c1"># Date soil is assumed dry</span>
+        <span class="s2">&quot;start_search&quot;</span><span class="p">:</span> <span class="s2">&quot;09-01&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ETP&quot;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span>               <span class="c1"># mm/day</span>
+        <span class="s2">&quot;Cap_ret_maxi&quot;</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span>       <span class="c1"># Max soil holding capacity (mm)</span>
+        <span class="s2">&quot;end_search&quot;</span><span class="p">:</span> <span class="s2">&quot;10-30&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">cess_calc</span> <span class="o">=</span> <span class="n">WAS_compute_cessation</span><span class="p">(</span><span class="n">user_criteria</span><span class="o">=</span><span class="n">criteria_cess</span><span class="p">)</span>
+<span class="n">cessation_da</span> <span class="o">=</span> <span class="n">cess_calc</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">daily_data</span><span class="o">=</span><span class="n">daily_rain</span><span class="p">,</span> <span class="n">nb_cores</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="spell-analysis-dry-wet">
+<h3>2. Spell Analysis (Dry/Wet)<a class="headerlink" href="#spell-analysis-dry-wet" title="Link to this heading"></a></h3>
+<p>These classes analyze the distribution of rain <em>within</em> the computed season (between Onset and Cessation).</p>
+<section id="post-onset-dry-spell">
+<h4>Post-Onset Dry Spell<a class="headerlink" href="#post-onset-dry-spell" title="Link to this heading"></a></h4>
+<p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_compute_onset_dry_spell</span></code></p>
+<p>Finds the maximum length of a dry spell occurring immediately after the onset date (critical for seedling survival).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="n">WAS_compute_onset_dry_spell</span>
+
+<span class="c1"># &quot;nbjour&quot;: 30 means check for dry spells in the 30 days post-onset</span>
+<span class="n">dry_calc</span> <span class="o">=</span> <span class="n">WAS_compute_onset_dry_spell</span><span class="p">()</span>
+
+<span class="n">max_dry_spell_da</span> <span class="o">=</span> <span class="n">dry_calc</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">daily_data</span><span class="o">=</span><span class="n">daily_rain</span><span class="p">,</span> <span class="n">nb_cores</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="counts-of-spells-rainy-days">
+<h4>Counts of Spells &amp; Rainy Days<a class="headerlink" href="#counts-of-spells-rainy-days" title="Link to this heading"></a></h4>
+<p><strong>Classes</strong>:
+* <code class="docutils literal notranslate"><span class="pre">WAS_count_dry_spells</span></code>
+* <code class="docutils literal notranslate"><span class="pre">WAS_count_wet_spells</span></code>
+* <code class="docutils literal notranslate"><span class="pre">WAS_count_rainy_days</span></code></p>
+<p>These classes require the <strong>Onset</strong> and <strong>Cessation</strong> dates as inputs.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="n">WAS_count_rainy_days</span>
+
+<span class="c1"># Inputs: Rainfall data, Onset Map, Cessation Map</span>
+<span class="n">counter</span> <span class="o">=</span> <span class="n">WAS_count_rainy_days</span><span class="p">()</span>
+
+<span class="c1"># Count days where rain &gt; 1.0mm between Onset and Cessation</span>
+<span class="n">nb_rainy_da</span> <span class="o">=</span> <span class="n">counter</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span>
+    <span class="n">daily_data</span><span class="o">=</span><span class="n">daily_rain</span><span class="p">,</span>
+    <span class="n">onset_date</span><span class="o">=</span><span class="n">onset_da</span><span class="p">,</span>
+    <span class="n">cessation_date</span><span class="o">=</span><span class="n">cessation_da</span><span class="p">,</span>
+    <span class="n">rain_threshold</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">nb_cores</span><span class="o">=</span><span class="mi">4</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="etccdi-temperature-extremes">
+<h3>3. ETCCDI Temperature Extremes<a class="headerlink" href="#etccdi-temperature-extremes" title="Link to this heading"></a></h3>
+<p>This module implements standard indices defined by the <strong>Expert Team on Climate Change Detection and Indices (ETCCDI)</strong>. It uses a 5-day centered window bootstrapping method for robust percentile calculation.</p>
+<section id="factory-classes">
+<h4>Factory Classes<a class="headerlink" href="#factory-classes" title="Link to this heading"></a></h4>
+<p>Helper classes are provided to easily instantiate complex calculations.</p>
+<p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">ETCCDITempIndices</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">hot_days</span></code>: Percentage of days where Tmax &gt; 90th percentile (TX90p).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hot_nights</span></code>: Percentage of days where Tmin &gt; 90th percentile (TN90p).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cold_days</span></code>: Percentage of days where Tmax &lt; 10th percentile (TX10p).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cold_nights</span></code>: Percentage of days where Tmin &lt; 10th percentile (TN10p).</p></li>
+</ul>
+<p><strong>Example: Calculating Hot Days (TX90p)</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="n">ETCCDITempIndices</span>
+
+<span class="c1"># 1. Initialize Calculator</span>
+<span class="c1"># Define the climatological base period</span>
+<span class="n">tx90p_calc</span> <span class="o">=</span> <span class="n">ETCCDITempIndices</span><span class="o">.</span><span class="n">hot_days</span><span class="p">(</span>
+    <span class="n">base_period</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s2">&quot;1981&quot;</span><span class="p">,</span> <span class="s2">&quot;2010&quot;</span><span class="p">),</span>
+    <span class="n">season</span><span class="o">=</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span> <span class="c1"># Optional: JJA season</span>
+<span class="p">)</span>
+
+<span class="c1"># 2. Compute</span>
+<span class="c1"># tmax_da is xarray (T, Y, X)</span>
+<span class="n">tx90p_da</span> <span class="o">=</span> <span class="n">tx90p_calc</span><span class="o">.</span><span class="n">compute_xarray</span><span class="p">(</span><span class="n">tmax_da</span><span class="p">,</span> <span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="heat-wave-indices">
+<h4>Heat Wave Indices<a class="headerlink" href="#heat-wave-indices" title="Link to this heading"></a></h4>
+<p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">ETCCDIHeatWaveIndices</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">wsdi</span></code>: Warm Spell Duration Index (Count of days in heatwaves &gt; 6 days).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">heat_wave_frequency</span></code>: Number of heatwave events.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compound_heat_wave</span></code>: Heatwaves where <strong>both</strong> Tmax and Tmin exceed thresholds.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="n">ETCCDIHeatWaveIndices</span>
+
+<span class="c1"># Compute Warm Spell Duration Index (WSDI)</span>
+<span class="c1"># Definition: Days in spells of at least 6 days where Tmax &gt; 90th percentile</span>
+<span class="n">wsdi_calc</span> <span class="o">=</span> <span class="n">ETCCDIHeatWaveIndices</span><span class="o">.</span><span class="n">wsdi</span><span class="p">(</span><span class="n">base_period</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s2">&quot;1981&quot;</span><span class="p">,</span> <span class="s2">&quot;2010&quot;</span><span class="p">))</span>
+
+<span class="n">wsdi_da</span> <span class="o">=</span> <span class="n">wsdi_calc</span><span class="o">.</span><span class="n">compute_xarray</span><span class="p">(</span><span class="n">tmax_da</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="etccdi-precipitation-extremes">
+<h3>4. ETCCDI Precipitation Extremes<a class="headerlink" href="#etccdi-precipitation-extremes" title="Link to this heading"></a></h3>
+<p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_PrecipIndices</span></code></p>
+<p>Computes indices based on extreme rainfall percentiles (e.g., total rainfall from days &gt; 95th percentile).</p>
+<section id="supported-indices">
+<h4>Supported Indices<a class="headerlink" href="#supported-indices" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><strong>R95p</strong>: Very wet days (Rainfall &gt; 95th percentile).</p></li>
+<li><p><strong>R99p</strong>: Extremely wet days (Rainfall &gt; 99th percentile).</p></li>
+</ul>
+<p><strong>Example: Computing R95p</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="n">WAS_PrecipIndices</span>
+
+<span class="c1"># 1. Initialize</span>
+<span class="c1"># Percentiles are calculated only using &quot;Wet Days&quot; (&gt;= 1mm) in the base period</span>
+<span class="n">r95p_calc</span> <span class="o">=</span> <span class="n">WAS_PrecipIndices</span><span class="p">(</span>
+    <span class="n">base_period</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s2">&quot;1981&quot;</span><span class="p">,</span> <span class="s2">&quot;2010&quot;</span><span class="p">),</span>
+    <span class="n">percentile</span><span class="o">=</span><span class="mi">95</span><span class="p">,</span>
+    <span class="n">wet_day_threshold</span><span class="o">=</span><span class="mf">1.0</span>
+<span class="p">)</span>
+
+<span class="c1"># 2. Compute</span>
+<span class="n">r95p_da</span> <span class="o">=</span> <span class="n">r95p_calc</span><span class="o">.</span><span class="n">compute_xarray</span><span class="p">(</span><span class="n">daily_rain</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="input-data-formats">
+<h3>Input Data Formats<a class="headerlink" href="#input-data-formats" title="Link to this heading"></a></h3>
+<section id="gridded-data-xarray">
+<h4>Gridded Data (xarray)<a class="headerlink" href="#gridded-data-xarray" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><strong>Dimensions</strong>: Must include <code class="docutils literal notranslate"><span class="pre">time</span></code> (or <code class="docutils literal notranslate"><span class="pre">T</span></code>), <code class="docutils literal notranslate"><span class="pre">lat</span></code> (or <code class="docutils literal notranslate"><span class="pre">Y</span></code>), and <code class="docutils literal notranslate"><span class="pre">lon</span></code> (or <code class="docutils literal notranslate"><span class="pre">X</span></code>).</p></li>
+<li><p><strong>Time</strong>: Must be standard datetime objects.</p></li>
+</ul>
+</section>
+<section id="in-situ-data-cdt-format">
+<h4>In-Situ Data (CDT Format)<a class="headerlink" href="#in-situ-data-cdt-format" title="Link to this heading"></a></h4>
+<p>Used for <code class="docutils literal notranslate"><span class="pre">compute_insitu</span></code> methods.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ID           STATION_A  STATION_B
+LON          2.5        3.0
+LAT          10.0       10.5
+ELEV         200        250
+19810101     0.0        0.0
+19810102     10.5       0.0
+...
+</pre></div>
+</div>
+</section>
+<section id="output-data-cpt-format">
+<h4>Output Data (CPT Format)<a class="headerlink" href="#output-data-cpt-format" title="Link to this heading"></a></h4>
+<p>Most <code class="docutils literal notranslate"><span class="pre">compute_insitu</span></code> methods return data in CPT format, ready for Climate Prediction Tools.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>STATION  STATION_A  STATION_B
+LAT      10.0       10.5
+LON      2.5        3.0
+1981     55.2       60.1
+1982     40.0       45.5
+...
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="merging-gridded-data-with-observations">
+<h2>Merging Gridded Data with Observations<a class="headerlink" href="#merging-gridded-data-with-observations" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">WAS_Merging</span></code> module provides advanced methods for blending coarse gridded data (such as satellite estimates or reanalysis) with high-quality local station observations.</p>
+<p>This process, often called “Data Merging” or “Bias Adjustment,” uses spatial interpolation techniques (Kriging) and Machine Learning (Linear Regression, Neural Networks) to correct the gridded field towards the station values while preserving spatial patterns.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="n">WAS_Merging</span>
+</pre></div>
+</div>
+<section id="prerequisites-data-formats">
+<h3>Prerequisites &amp; Data Formats<a class="headerlink" href="#prerequisites-data-formats" title="Link to this heading"></a></h3>
+<p>The merging class requires two specific inputs:</p>
+<ol class="arabic">
+<li><p><strong>Station Data (Pandas DataFrame)</strong>: Must be in <strong>CPT Format</strong> (Climate Prediction Tool).</p>
+<ul class="simple">
+<li><p><strong>Rows 1-2</strong>: Metadata (Latitude, Longitude).</p></li>
+<li><p><strong>Row 3+</strong>: Data (Years in first column, Station values in subsequent columns).</p></li>
+</ul>
+<p><em>Example CPT DataFrame structure:</em></p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>STATION</p></td>
+<td><p>ST_A</p></td>
+<td><p>ST_B</p></td>
+<td><p>ST_C</p></td>
+</tr>
+<tr class="row-even"><td><p>LAT</p></td>
+<td><p>12.5</p></td>
+<td><p>12.8</p></td>
+<td><p>13.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>LON</p></td>
+<td><p>-1.5</p></td>
+<td><p>-1.2</p></td>
+<td><p>-1.0</p></td>
+</tr>
+<tr class="row-even"><td><p>1981</p></td>
+<td><p>100.5</p></td>
+<td><p>90.2</p></td>
+<td><p>110.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>1982</p></td>
+<td><p>105.2</p></td>
+<td><p>95.1</p></td>
+<td><p>112.5</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p><strong>Gridded Data (xarray DataArray)</strong>:</p>
+<ul class="simple">
+<li><p>Must have dimensions <code class="docutils literal notranslate"><span class="pre">(T,</span> <span class="pre">Y,</span> <span class="pre">X)</span></code>.</p></li>
+<li><p>Coordinates must match the station data’s spatial extent.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="class-initialization">
+<h3>Class Initialization<a class="headerlink" href="#class-initialization" title="Link to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="WAS_Merging">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">WAS_Merging</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">da</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_month_day</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'08-01'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#WAS_Merging" title="Link to this definition"></a></dt>
+<dd><p>Initializes the merging object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> – <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> containing station data in CPT format.</p></li>
+<li><p><strong>da</strong> – <code class="docutils literal notranslate"><span class="pre">xr.DataArray</span></code> or <code class="docutils literal notranslate"><span class="pre">xr.Dataset</span></code> containing the gridded estimate.</p></li>
+<li><p><strong>date_month_day</strong> – <code class="docutils literal notranslate"><span class="pre">str</span></code> (Format “MM-DD”). Used to assign a specific day/month to the yearly CPT data for time alignment.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize</span>
+<span class="n">merger</span> <span class="o">=</span> <span class="n">WAS_Merging</span><span class="p">(</span>
+    <span class="n">df</span><span class="o">=</span><span class="n">station_df</span><span class="p">,</span>
+    <span class="n">da</span><span class="o">=</span><span class="n">satellite_da</span><span class="p">,</span>
+    <span class="n">date_month_day</span><span class="o">=</span><span class="s2">&quot;08-01&quot;</span> <span class="c1"># Aligns &#39;1981&#39; in CPT to &#39;1981-08-01&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="merging-methods">
+<h3>Merging Methods<a class="headerlink" href="#merging-methods" title="Link to this heading"></a></h3>
+<section id="simple-bias-adjustment-residual-kriging">
+<h4>1. Simple Bias Adjustment (Residual Kriging)<a class="headerlink" href="#simple-bias-adjustment-residual-kriging" title="Link to this heading"></a></h4>
+<p>Calculates the residuals (<span class="math notranslate nohighlight">\(Station - Grid\)</span>) at station locations, interpolates these residuals onto the full grid using Ordinary Kriging, and adds them back to the original grid.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="simple_bias_adjustment">
+<span class="sig-name descname"><span class="pre">simple_bias_adjustment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">missing_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-999.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_cross_validation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#simple_bias_adjustment" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>missing_value</strong> – Value representing NaNs in the input DataFrame.</p></li>
+<li><p><strong>do_cross_validation</strong> – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, performs Leave-One-Out (LOO) cross-validation to estimate RMSE.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(<code class="docutils literal notranslate"><span class="pre">xr.DataArray</span></code> Corrected Grid, <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> CV Results)</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply Simple Bias Adjustment</span>
+<span class="n">corrected_da</span><span class="p">,</span> <span class="n">cv_results</span> <span class="o">=</span> <span class="n">merger</span><span class="o">.</span><span class="n">simple_bias_adjustment</span><span class="p">(</span>
+    <span class="n">do_cross_validation</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="regression-kriging">
+<h4>2. Regression Kriging<a class="headerlink" href="#regression-kriging" title="Link to this heading"></a></h4>
+<p>Combines a global trend estimation with local residual correction.
+1. Fits a <strong>Linear Regression</strong> between the Grid (predictor) and Stations (predictand).
+2. Kriges the residuals from this regression.
+3. Final = Linear Prediction + Kriged Residuals.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="regression_kriging">
+<span class="sig-name descname"><span class="pre">regression_kriging</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">missing_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-999.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_cross_validation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#regression_kriging" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(<code class="docutils literal notranslate"><span class="pre">xr.DataArray</span></code> Corrected Grid, <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> CV Results)</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply Regression Kriging (Better for strong linear relationships)</span>
+<span class="n">corrected_da</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">merger</span><span class="o">.</span><span class="n">regression_kriging</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="neural-network-kriging">
+<h4>3. Neural Network Kriging<a class="headerlink" href="#neural-network-kriging" title="Link to this heading"></a></h4>
+<p>Uses a Multi-Layer Perceptron (MLP) to capture non-linear relationships between the grid and stations, followed by Kriging of the residuals.</p>
+<ul class="simple">
+<li><p><strong>Features</strong>: Automatically tunes hyperparameters (hidden layers, activation) using <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code>.</p></li>
+<li><p><strong>Use Case</strong>: Complex topography or non-linear biases.</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="neural_network_kriging">
+<span class="sig-name descname"><span class="pre">neural_network_kriging</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">missing_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-999.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_cross_validation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#neural_network_kriging" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(<code class="docutils literal notranslate"><span class="pre">xr.DataArray</span></code> Corrected Grid, <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> CV Results)</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply Neural Network Kriging (Computationally intensive)</span>
+<span class="n">corrected_da</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">merger</span><span class="o">.</span><span class="n">neural_network_kriging</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="multiplicative-bias">
+<h4>4. Multiplicative Bias<a class="headerlink" href="#multiplicative-bias" title="Link to this heading"></a></h4>
+<p>Calculates the ratio (<span class="math notranslate nohighlight">\(Station / Grid\)</span>) instead of the difference. Interpolates the ratio field and multiplies the original grid.
+* <strong>Use Case</strong>: Strictly positive variables like precipitation where subtraction might yield negative values.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="multiplicative_bias">
+<span class="sig-name descname"><span class="pre">multiplicative_bias</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">missing_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-999.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_cross_validation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#multiplicative_bias" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(<code class="docutils literal notranslate"><span class="pre">xr.DataArray</span></code> Corrected Grid, <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> CV Results)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+<section id="visualization">
+<h3>Visualization<a class="headerlink" href="#visualization" title="Link to this heading"></a></h3>
+<dl class="py method">
+<dt class="sig sig-object py" id="plot_merging_comparaison">
+<span class="sig-name descname"><span class="pre">plot_merging_comparaison</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_Obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">da_estimated</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">da_corrected</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">missing_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-999.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#plot_merging_comparaison" title="Link to this definition"></a></dt>
+<dd><p>Generates a 2-panel scatter plot comparing:
+1. Observation vs. Original Estimate
+2. Observation vs. Corrected Result</p>
+<p>Includes a 1:1 line to visually assess bias reduction.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">merger</span><span class="o">.</span><span class="n">plot_merging_comparaison</span><span class="p">(</span>
+    <span class="n">df_Obs</span><span class="o">=</span><span class="n">station_df</span><span class="p">,</span>
+    <span class="n">da_estimated</span><span class="o">=</span><span class="n">satellite_da</span><span class="p">,</span>
+    <span class="n">da_corrected</span><span class="o">=</span><span class="n">corrected_da</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="usage-example">
+<h3>Usage Example<a class="headerlink" href="#usage-example" title="Link to this heading"></a></h3>
+<p>This example demonstrates creating dummy data and running the <code class="docutils literal notranslate"><span class="pre">regression_kriging</span></code> method.</p>
+</section>
+</section>
+<section id="bias-correction-modules">
+<h2>Bias Correction Modules<a class="headerlink" href="#bias-correction-modules" title="Link to this heading"></a></h2>
+<p>This module provides advanced statistical bias correction methods for climate data. It is divided into two specialized classes depending on the nature of the climate variable being processed:</p>
+<ol class="arabic simple">
+<li><p><strong>WAS_Qmap</strong>: Designed for <strong>Precipitation</strong>. It handles “wet-day” frequencies, intermittency (zeros), and extreme value corrections.</p></li>
+<li><p><strong>WAS_bias_correction</strong>: Designed for <strong>Continuous Variables</strong> (Temperature, Wind, Humidity, Pressure). It handles mean adjustments, variance scaling, and continuous distribution mapping.</p></li>
+</ol>
+<p>Both classes support <strong>NumPy arrays</strong> and <strong>xarray.DataArrays</strong> (preserving coordinates).</p>
+<section id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="n">WAS_Qmap</span><span class="p">,</span> <span class="n">WAS_bias_correction</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="precipitation-bias-correction-was-qmap">
+<h3>1. Precipitation Bias Correction (WAS_Qmap)<a class="headerlink" href="#precipitation-bias-correction-was-qmap" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">WAS_Qmap</span></code> class implements Quantile Mapping (QM) techniques adapted from the R <code class="docutils literal notranslate"><span class="pre">qmap</span></code> package. It is specifically robust for rainfall data where the model might drizzle too often (drizzle effect) or miss extremes.</p>
+<section id="supported-methods">
+<h4>Supported Methods<a class="headerlink" href="#supported-methods" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">QUANT</span></code>: Empirical Quantile Mapping (Non-parametric). Maps the CDF of the model to the CDF of observations.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RQUANT</span></code>: Robust Quantile Mapping (Recommended). Uses local linear least squares to estimate quantile corrections, making it robust for tails/extremes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SSPLIN</span></code>: Smoothing Splines. Fits a smooth spline between quantiles.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PTF</span></code>: Parametric Transformation Functions (Power, Exponential, Linear).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DIST</span></code>: Distribution-based mapping (e.g., Bernoulli-Gamma for rain).</p></li>
+</ul>
+</section>
+<section id="example-correcting-daily-rainfall">
+<h4>Example: Correcting Daily Rainfall<a class="headerlink" href="#example-correcting-daily-rainfall" title="Link to this heading"></a></h4>
+<p>This example demonstrates how to create dummy input data with explicit coordinates and apply <strong>Robust Quantile Mapping (RQUANT)</strong>.</p>
+<p><strong>1. Prepare Input Data (xarray)</strong></p>
+<p>Inputs must be 3D DataArrays with dimensions <code class="docutils literal notranslate"><span class="pre">(T,</span> <span class="pre">Y,</span> <span class="pre">X)</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="n">WAS_Qmap</span>
+
+<span class="c1"># --- Define Explicit Coordinates ---</span>
+<span class="c1"># Time: 2 years of daily data</span>
+<span class="n">times</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s2">&quot;1981-01-01&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;1982-12-31&quot;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;D&quot;</span><span class="p">)</span>
+<span class="c1"># Space: 2x2 grid</span>
+<span class="n">lats</span> <span class="o">=</span> <span class="p">[</span><span class="mf">12.5</span><span class="p">,</span> <span class="mf">13.0</span><span class="p">]</span>
+<span class="n">lons</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">]</span>
+
+<span class="c1"># --- Generate Synthetic Rainfall Data ---</span>
+<span class="c1"># Observations: Gamma distribution (more variance)</span>
+<span class="c1"># Model: Gamma distribution (less variance, different mean)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">obs_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">lats</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">lons</span><span class="p">)))</span>
+<span class="n">mod_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">lats</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">lons</span><span class="p">)))</span>
+
+<span class="c1"># Introduce &quot;dry days&quot; (zeros)</span>
+<span class="n">obs_data</span><span class="p">[</span><span class="n">obs_data</span> <span class="o">&lt;</span> <span class="mf">1.0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">mod_data</span><span class="p">[</span><span class="n">mod_data</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Create DataArrays</span>
+<span class="n">obs_da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
+    <span class="n">obs_data</span><span class="p">,</span>
+    <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="n">times</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="n">lats</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="n">lons</span><span class="p">},</span>
+    <span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">),</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;pr_obs&quot;</span>
+<span class="p">)</span>
+
+<span class="n">mod_da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
+    <span class="n">mod_data</span><span class="p">,</span>
+    <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="n">times</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="n">lats</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="n">lons</span><span class="p">},</span>
+    <span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">),</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;pr_model&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Future/Forecast data (to be corrected)</span>
+<span class="n">fut_da</span> <span class="o">=</span> <span class="n">mod_da</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1.1</span> <span class="c1"># Simulating a wetter future</span>
+</pre></div>
+</div>
+<p><strong>2. Fit and Apply Correction</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- Step 1: Fit the Correction ---</span>
+<span class="c1"># Uses RQUANT method.</span>
+<span class="c1"># wet_day=True ensures dry-day frequency is corrected first.</span>
+<span class="n">fit_obj</span> <span class="o">=</span> <span class="n">WAS_Qmap</span><span class="o">.</span><span class="n">fitQmap</span><span class="p">(</span>
+    <span class="n">obs</span><span class="o">=</span><span class="n">obs_da</span><span class="p">,</span>
+    <span class="n">mod</span><span class="o">=</span><span class="n">mod_da</span><span class="p">,</span>
+    <span class="n">method</span><span class="o">=</span><span class="s1">&#39;RQUANT&#39;</span><span class="p">,</span>
+    <span class="n">wet_day</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">qstep</span><span class="o">=</span><span class="mf">0.01</span>        <span class="c1"># Calculate correction at every 1st percentile</span>
+<span class="p">)</span>
+
+<span class="c1"># --- Step 2: Apply to Data ---</span>
+<span class="c1"># Apply the fitted relationship to the forecast data</span>
+<span class="n">corrected_da</span> <span class="o">=</span> <span class="n">WAS_Qmap</span><span class="o">.</span><span class="n">doQmap</span><span class="p">(</span><span class="n">fut_da</span><span class="p">,</span> <span class="n">fit_obj</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original Max:&quot;</span><span class="p">,</span> <span class="n">fut_da</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Corrected Max:&quot;</span><span class="p">,</span> <span class="n">corrected_da</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>3. Evaluate Performance</strong></p>
+<p>The module includes built-in tools to validate the correction (Obs vs Corrected Hist).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compare Historical Model vs Observation vs Corrected</span>
+<span class="c1"># Returns datasets containing dry fraction diffs and extreme quantiles</span>
+<span class="n">ds_dry_wet</span><span class="p">,</span> <span class="n">ds_extreme</span> <span class="o">=</span> <span class="n">WAS_Qmap</span><span class="o">.</span><span class="n">evaluate_bias_correction</span><span class="p">(</span>
+    <span class="n">obs</span><span class="o">=</span><span class="n">obs_da</span><span class="p">,</span>
+    <span class="n">mod</span><span class="o">=</span><span class="n">mod_da</span><span class="p">,</span>
+    <span class="n">corrected</span><span class="o">=</span><span class="n">WAS_Qmap</span><span class="o">.</span><span class="n">doQmap</span><span class="p">(</span><span class="n">mod_da</span><span class="p">,</span> <span class="n">fit_obj</span><span class="p">),</span> <span class="c1"># Correcting the historical period for validation</span>
+    <span class="n">wet_threshold</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">extreme_quantiles</span><span class="o">=</span><span class="p">[</span><span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="c1"># Plot spatial maps of dry/wet fractions</span>
+<span class="n">WAS_Qmap</span><span class="o">.</span><span class="n">plot_fraction_group</span><span class="p">(</span><span class="n">ds_dry_wet</span><span class="p">,</span> <span class="n">group_prefix</span><span class="o">=</span><span class="s1">&#39;dry_fraction_&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot spatial maps of extreme quantiles (95th, 99th)</span>
+<span class="n">WAS_Qmap</span><span class="o">.</span><span class="n">plot_extreme_quantiles_group</span><span class="p">(</span><span class="n">ds_extreme</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="continuous-bias-correction-was-bias-correction">
+<h3>2. Continuous Bias Correction (WAS_bias_correction)<a class="headerlink" href="#continuous-bias-correction-was-bias-correction" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">WAS_bias_correction</span></code> class is optimized for variables like <strong>Temperature (TAS, TASMAX, TASMIN)</strong> or <strong>Wind Speed</strong>. It assumes the data is continuous and does not require complex “dry day” handling.</p>
+<section id="id1">
+<h4>Supported Methods<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">MEAN</span></code>: Simple additive bias correction (adjusts the mean only).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VARSCALE</span></code>: Variance Scaling. Adjusts both the mean and the standard deviation (useful for temperature).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">QUANT</span></code>: Empirical Quantile Mapping (Non-parametric).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NORM</span></code>: Fits a Normal distribution to both Obs and Model and maps the CDFs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DIST</span></code>: Fits a specific distribution (e.g., Weibull for wind, Gamma for skewed temp).</p></li>
+</ul>
+</section>
+<section id="example-correcting-temperature">
+<h4>Example: Correcting Temperature<a class="headerlink" href="#example-correcting-temperature" title="Link to this heading"></a></h4>
+<p><strong>1. Prepare Input Data (Temperature)</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="n">WAS_bias_correction</span>
+
+<span class="c1"># Create dummy Temperature data (Normal distribution)</span>
+<span class="c1"># Obs mean = 28C, Model mean = 26C (Model is cold biased)</span>
+<span class="n">obs_temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">28</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">730</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">mod_temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">26</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">730</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># Xarray wrapper</span>
+<span class="n">obs_t_da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">obs_temp</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">),</span> <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="n">times</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="n">lats</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="n">lons</span><span class="p">})</span>
+<span class="n">mod_t_da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">mod_temp</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">),</span> <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="n">times</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="n">lats</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="n">lons</span><span class="p">})</span>
+</pre></div>
+</div>
+<p><strong>2. Fit and Apply Variance Scaling</strong></p>
+<p>Variance scaling is often preferred for temperature as it preserves the shape of the distribution while correcting the first two moments (mean and variance).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- Step 1: Fit ---</span>
+<span class="c1"># Fits Mean and Standard Deviation for Obs and Model</span>
+<span class="n">fit_temp</span> <span class="o">=</span> <span class="n">WAS_bias_correction</span><span class="o">.</span><span class="n">fitBC</span><span class="p">(</span>
+    <span class="n">obs</span><span class="o">=</span><span class="n">obs_t_da</span><span class="p">,</span>
+    <span class="n">mod</span><span class="o">=</span><span class="n">mod_t_da</span><span class="p">,</span>
+    <span class="n">method</span><span class="o">=</span><span class="s1">&#39;VARSCALE&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># --- Step 2: Apply ---</span>
+<span class="n">corrected_temp</span> <span class="o">=</span> <span class="n">WAS_bias_correction</span><span class="o">.</span><span class="n">doBC</span><span class="p">(</span><span class="n">mod_t_da</span><span class="p">,</span> <span class="n">fit_temp</span><span class="p">)</span>
+
+<span class="c1"># Verify Mean Correction</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Obs Mean: </span><span class="si">{</span><span class="n">obs_t_da</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model Mean: </span><span class="si">{</span><span class="n">mod_t_da</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Corrected Mean: </span><span class="si">{</span><span class="n">corrected_temp</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="example-correcting-wind-speed-weibull">
+<h4>Example: Correcting Wind Speed (Weibull)<a class="headerlink" href="#example-correcting-wind-speed-weibull" title="Link to this heading"></a></h4>
+<p>For variables like wind speed which are positively skewed, use the <code class="docutils literal notranslate"><span class="pre">DIST</span></code> method with a Weibull distribution.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- Step 1: Fit Weibull ---</span>
+<span class="n">fit_wind</span> <span class="o">=</span> <span class="n">WAS_bias_correction</span><span class="o">.</span><span class="n">fitBC</span><span class="p">(</span>
+    <span class="n">obs</span><span class="o">=</span><span class="n">obs_wind_da</span><span class="p">,</span>
+    <span class="n">mod</span><span class="o">=</span><span class="n">mod_wind_da</span><span class="p">,</span>
+    <span class="n">method</span><span class="o">=</span><span class="s1">&#39;DIST&#39;</span><span class="p">,</span>
+    <span class="n">distr</span><span class="o">=</span><span class="s1">&#39;weibull&#39;</span> <span class="c1"># Options: &#39;gamma&#39;, &#39;lognormal&#39;, &#39;normal&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># --- Step 2: Apply ---</span>
+<span class="n">corrected_wind</span> <span class="o">=</span> <span class="n">WAS_bias_correction</span><span class="o">.</span><span class="n">doBC</span><span class="p">(</span><span class="n">mod_wind_da</span><span class="p">,</span> <span class="n">fit_wind</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="data-transformation-skewness-analysis">
+<h2>Data Transformation &amp; Skewness Analysis<a class="headerlink" href="#data-transformation-skewness-analysis" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">WAS_TransformData</span></code> module handles the statistical preprocessing of geospatial time-series data. Climate data (especially precipitation) is often non-normal and highly skewed. This module provides tools to:</p>
+<ol class="arabic simple">
+<li><p><strong>Analyze Skewness</strong>: Detect and map positive/negative skewness.</p></li>
+<li><p><strong>Transform Data</strong>: Apply and invert transformations (Box-Cox, Yeo-Johnson, Log) to normalize data.</p></li>
+<li><p><strong>Fit Distributions</strong>: spatially fit statistical distributions (e.g., Gamma, Weibull) using clustering techniques.</p></li>
+</ol>
+<section id="prerequisites-input-data">
+<h3>Prerequisites &amp; Input Data<a class="headerlink" href="#prerequisites-input-data" title="Link to this heading"></a></h3>
+<p>The module requires an <code class="docutils literal notranslate"><span class="pre">xarray.DataArray</span></code> with dimensions <code class="docutils literal notranslate"><span class="pre">(T,</span> <span class="pre">Y,</span> <span class="pre">X)</span></code>.</p>
+<p><strong>Example: Creating Synthetic Input Data</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="n">WAS_TransformData</span>
+
+<span class="c1"># 1. Define Coordinates</span>
+<span class="c1"># Time: Daily data for 2 years</span>
+<span class="n">times</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s2">&quot;2000-01-01&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;2001-12-31&quot;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;D&quot;</span><span class="p">)</span>
+<span class="c1"># Space: A 10x10 grid (approx 1 degree resolution)</span>
+<span class="n">lats</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">15.0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">lons</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># 2. Generate Skewed Synthetic Data (Gamma Distribution)</span>
+<span class="c1"># Shape=2.0, Scale=2.0 generates positively skewed precipitation-like data</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">data_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">lats</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">lons</span><span class="p">)))</span>
+
+<span class="c1"># 3. Create Xarray DataArray (Must have T, Y, X dims)</span>
+<span class="n">rainfall_da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
+    <span class="n">data_values</span><span class="p">,</span>
+    <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;T&quot;</span><span class="p">:</span> <span class="n">times</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="n">lats</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="n">lons</span><span class="p">},</span>
+    <span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">),</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;precip&quot;</span><span class="p">,</span>
+    <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;mm&quot;</span><span class="p">}</span>
+<span class="p">)</span>
+
+<span class="c1"># 4. Initialize the Transformer</span>
+<span class="n">transformer</span> <span class="o">=</span> <span class="n">WAS_TransformData</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">rainfall_da</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="skewness-detection-and-handling">
+<h3>1. Skewness Detection and Handling<a class="headerlink" href="#skewness-detection-and-handling" title="Link to this heading"></a></h3>
+<p>Before applying statistical models, it is often necessary to normalize the data.</p>
+<p><strong>Step 1: Detect Skewness</strong></p>
+<p>Calculates Fisher-Pearson skewness for every grid cell along the time dimension.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Returns a dataset with skewness values and categorical classes</span>
+<span class="c1"># Classes: &#39;symmetric&#39;, &#39;moderate_positive&#39;, &#39;high_positive&#39;, etc.</span>
+<span class="n">skew_ds</span><span class="p">,</span> <span class="n">skew_summary</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">detect_skewness</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Skewness Counts:&quot;</span><span class="p">,</span> <span class="n">skew_summary</span><span class="p">[</span><span class="s1">&#39;class_counts&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p><strong>Step 2: Handle Skewness</strong></p>
+<p>Based on the detected class and data properties (e.g., presence of zeros), this method recommends specific transformations.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Returns dataset with &#39;recommended_methods&#39; per pixel</span>
+<span class="n">handle_ds</span><span class="p">,</span> <span class="n">recommendations</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">handle_skewness</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Step 3: Apply Transformation</strong></p>
+<p>Applies the recommended method (or a specific forced method) to the data.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Option A: Auto-apply recommendations</span>
+<span class="n">transformed_da</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">apply_transformation</span><span class="p">()</span>
+
+<span class="c1"># Option B: Force a specific method (e.g., &#39;box_cox&#39; or &#39;yeo_johnson&#39;)</span>
+<span class="c1"># Box-Cox requires strictly positive data; Yeo-Johnson handles zeros.</span>
+<span class="n">transformed_da_forced</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">apply_transformation</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;yeo_johnson&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Step 4: Inverse Transformation</strong></p>
+<p>After analysis/modeling, you can revert the data to its original scale.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">original_scale_da</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="distribution-fitting-clustering-approach">
+<h3>2. Distribution Fitting (Clustering Approach)<a class="headerlink" href="#distribution-fitting-clustering-approach" title="Link to this heading"></a></h3>
+<p>Fitting distributions pixel-by-pixel can be noisy and computationally expensive. This module uses <strong>K-Means Clustering</strong> to define homogeneous zones based on mean and standard deviation, pools the data within those zones, and fits the best distribution using <strong>AIC (Akaike Information Criterion)</strong>.</p>
+<section id="supported-distributions">
+<h4>Supported Distributions<a class="headerlink" href="#supported-distributions" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><strong>Continuous</strong>: <code class="docutils literal notranslate"><span class="pre">norm</span></code>, <code class="docutils literal notranslate"><span class="pre">lognorm</span></code>, <code class="docutils literal notranslate"><span class="pre">gamma</span></code>, <code class="docutils literal notranslate"><span class="pre">weibull_min</span></code>, <code class="docutils literal notranslate"><span class="pre">expon</span></code>, <code class="docutils literal notranslate"><span class="pre">t</span></code></p></li>
+<li><p><strong>Discrete</strong>: <code class="docutils literal notranslate"><span class="pre">poisson</span></code>, <code class="docutils literal notranslate"><span class="pre">nbinom</span></code></p></li>
+</ul>
+<p><strong>Usage Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit distributions using the transformed data</span>
+<span class="c1"># n_clusters was defined in __init__ (default=5 or 1000 depending on resolution)</span>
+<span class="n">best_code</span><span class="p">,</span> <span class="n">best_shape</span><span class="p">,</span> <span class="n">best_loc</span><span class="p">,</span> <span class="n">best_scale</span><span class="p">,</span> <span class="n">cluster_map</span> <span class="o">=</span> \
+    <span class="n">transformer</span><span class="o">.</span><span class="n">fit_best_distribution_grid_onlycluster</span><span class="p">(</span><span class="n">use_transformed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># The outputs are xarray DataArrays of the same shape as (Y, X)</span>
+<span class="c1"># best_code: Integer mapping to the distribution name (see transformer.distribution_map)</span>
+<span class="c1"># best_shape/loc/scale: The fitted parameters for that pixel&#39;s assigned distribution</span>
+</pre></div>
+</div>
+<p><strong>Fitting Modes</strong></p>
+<p>The method <code class="docutils literal notranslate"><span class="pre">fit_best_distribution_grid_two_options</span></code> allows choosing the strategy:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mode &#39;cluster&#39;: Fits distributions to homogeneous zones (Faster, robust)</span>
+<span class="n">res_cluster</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">fit_best_distribution_grid_two_options</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;cluster&#39;</span><span class="p">)</span>
+
+<span class="c1"># Mode &#39;grid&#39;: Fits distributions independently to every pixel (Slower, captures local detail)</span>
+<span class="n">res_grid</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">fit_best_distribution_grid_two_options</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;grid&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id2">
+<h3>3. Visualization<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>The module includes a specific plotter for categorical maps (like distribution types or skewness classes) using Cartopy.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Define a color map for your distributions</span>
+<span class="c1"># Codes: norm=1, lognorm=2, expon=3, gamma=4, weibull=5, etc.</span>
+<span class="n">dist_colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#1f77b4&#39;</span><span class="p">,</span> <span class="s1">&#39;#ff7f0e&#39;</span><span class="p">,</span> <span class="s1">&#39;#2ca02c&#39;</span><span class="p">,</span> <span class="s1">&#39;#d62728&#39;</span><span class="p">,</span> <span class="s1">&#39;#9467bd&#39;</span><span class="p">,</span> <span class="s1">&#39;#8c564b&#39;</span><span class="p">]</span>
+
+<span class="c1"># 2. Plot the best distribution map</span>
+<span class="n">transformer</span><span class="o">.</span><span class="n">plot_best_fit_map</span><span class="p">(</span>
+    <span class="n">data_array</span><span class="o">=</span><span class="n">best_code</span><span class="p">,</span>
+    <span class="n">map_dict</span><span class="o">=</span><span class="n">transformer</span><span class="o">.</span><span class="n">distribution_map</span><span class="p">,</span>
+    <span class="n">output_file</span><span class="o">=</span><span class="s1">&#39;distribution_map.png&#39;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Best Fitting Distribution per Zone&#39;</span><span class="p">,</span>
+    <span class="n">colors</span><span class="o">=</span><span class="n">dist_colors</span><span class="p">,</span>
+    <span class="n">show_plot</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Download.html" class="btn btn-neutral float-left" title="Download module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Models.html" class="btn btn-neutral float-right" title="Models and Cross-Validation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Mandela C. M. HOUNGNIBO.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

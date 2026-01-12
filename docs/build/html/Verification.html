@@ -20,7 +20,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Multi-Model Ensemble (MME) Techniques" href="mme.html" />
-    <link rel="prev" title="Forecast" href="Forecast.html" /> 
+    <link rel="prev" title="Preprocessing Modules" href="Preprocessing.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,20 +47,16 @@
 <li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="Usage.html">Usage</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Download.html">Download module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Processing.html">Processing Modules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cv.html">Quantifying uncertainty via cross-validation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Models.html">Models Modules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Forecast.html">Forecast</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html">Preprocessing Modules</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Verification Module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#deterministic-metrics">Deterministic Metrics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#probabilistic-metrics">Probabilistic Metrics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ensemble-metrics">Ensemble Metrics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tercile-probability-computation">Tercile Probability Computation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gcm-validation">GCM Validation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#annual-year-validation">Annual Year Validation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="mme.html">Multi-Model Ensemble (MME) Techniques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ImplementWASNextGen.html">Quantifying uncertainty via cross-validation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">wass2s submodules</a></li>
@@ -101,19 +97,9 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s.was_verification</span> <span class="kn">import</span> <span class="n">WAS_Verification</span>
 
 <span class="c1"># Initialize with a distribution method for probabilistic forecasts</span>
-<span class="n">verifier</span> <span class="o">=</span> <span class="n">WAS_Verification</span><span class="p">(</span><span class="n">dist_method</span><span class="o">=</span><span class="s2">&quot;gamma&quot;</span><span class="p">)</span>
+<span class="n">verifier</span> <span class="o">=</span> <span class="n">WAS_Verification</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><strong>Parameters</strong></p>
-<ul class="simple">
-<li><p><cite>dist_method</cite>: Specifies the distribution method for computing tercile probabilities. Options include:
-- <cite>“t”</cite>: Student’s t-based method.
-- <cite>“gamma”</cite>: Gamma distribution-based method (default).
-- <cite>“normal”</cite>: Normal distribution-based method.
-- <cite>“lognormal”</cite>: Lognormal distribution-based method.
-- <cite>“weibull_min”</cite>: Weibull minimum distribution-based method.
-- <cite>“nonparam”</cite>: Non-parametric method using historical errors.</p></li>
-</ul>
 <p><strong>Available Metrics</strong></p>
 <p>The class defines a dictionary of scoring metrics with metadata, including:</p>
 <ul class="simple">
@@ -232,55 +218,6 @@
 <li><p><cite>compute_crps</cite>: Computes CRPS for ensemble forecasts, measuring the difference between predicted and observed distributions.</p></li>
 </ul>
 </section>
-<section id="tercile-probability-computation">
-<h2>Tercile Probability Computation<a class="headerlink" href="#tercile-probability-computation" title="Link to this heading"></a></h2>
-<p>The module provides multiple methods to compute tercile probabilities for probabilistic forecasts, based on different distributional assumptions.</p>
-<p><strong>Key Methods</strong></p>
-<ul class="simple">
-<li><p><cite>calculate_tercile_probabilities</cite>: Uses Student’s t-distribution.</p></li>
-<li><p><cite>calculate_tercile_probabilities_gamma</cite>: Uses Gamma distribution.</p></li>
-<li><p><cite>calculate_tercile_probabilities_normal</cite>: Uses Normal distribution.</p></li>
-<li><p><cite>calculate_tercile_probabilities_lognormal</cite>: Uses Lognormal distribution.</p></li>
-<li><p><cite>calculate_tercile_probabilities_weibull_min</cite>: Uses Weibull minimum distribution.</p></li>
-<li><p><cite>calculate_tercile_probabilities_nonparametric</cite>: Uses historical errors for a non-parametric approach.</p></li>
-</ul>
-<p><strong>Example Usage</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute probabilities using Gamma distribution</span>
-<span class="n">hindcast_prob</span> <span class="o">=</span> <span class="n">verifier</span><span class="o">.</span><span class="n">gcm_compute_prob</span><span class="p">(</span>
-    <span class="n">Predictant</span><span class="o">=</span><span class="n">obs_data</span><span class="p">,</span> <span class="n">clim_year_start</span><span class="o">=</span><span class="mi">1981</span><span class="p">,</span> <span class="n">clim_year_end</span><span class="o">=</span><span class="mi">2010</span><span class="p">,</span> <span class="n">hindcast_det</span><span class="o">=</span><span class="n">model_data</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<p>The <cite>gcm_compute_prob</cite> method selects the appropriate distribution based on the <cite>dist_method</cite> parameter.</p>
-</section>
-<section id="gcm-validation">
-<h2>GCM Validation<a class="headerlink" href="#gcm-validation" title="Link to this heading"></a></h2>
-<p>The module includes methods to validate General Circulation Model (GCM) forecasts against observations, supporting both deterministic and probabilistic metrics.</p>
-<p><strong>Key Methods</strong></p>
-<ul class="simple">
-<li><p><cite>gcm_validation_compute</cite>: Validates GCM forecasts for multiple models, computing specified metrics.</p></li>
-<li><p><cite>weighted_gcm_forecasts</cite>: Combines forecasts from multiple models using weights based on a performance metric (e.g., GROC).</p></li>
-</ul>
-<p><strong>Example Usage</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Validate GCM forecasts</span>
-<span class="n">models_files_path</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;model1&quot;</span><span class="p">:</span> <span class="s2">&quot;path/to/model1.nc&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;model2&quot;</span><span class="p">:</span> <span class="s2">&quot;path/to/model2.nc&quot;</span>
-<span class="p">}</span>
-<span class="n">x_metric</span> <span class="o">=</span> <span class="n">verifier</span><span class="o">.</span><span class="n">gcm_validation_compute</span><span class="p">(</span>
-    <span class="n">models_files_path</span><span class="o">=</span><span class="n">models_files_path</span><span class="p">,</span> <span class="n">Obs</span><span class="o">=</span><span class="n">obs_data</span><span class="p">,</span> <span class="n">score</span><span class="o">=</span><span class="s2">&quot;Pearson&quot;</span><span class="p">,</span>
-    <span class="n">month_of_initialization</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">clim_year_start</span><span class="o">=</span><span class="mi">1981</span><span class="p">,</span> <span class="n">clim_year_end</span><span class="o">=</span><span class="mi">2010</span><span class="p">,</span>
-    <span class="n">dir_to_save_roc_reliability</span><span class="o">=</span><span class="s2">&quot;./scores&quot;</span><span class="p">,</span> <span class="n">lead_time</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="p">)</span>
-
-<span class="c1"># Compute weighted GCM forecasts</span>
-<span class="n">hindcast_det</span><span class="p">,</span> <span class="n">hindcast_prob</span><span class="p">,</span> <span class="n">forecast_prob</span> <span class="o">=</span> <span class="n">verifier</span><span class="o">.</span><span class="n">weighted_gcm_forecasts</span><span class="p">(</span>
-    <span class="n">Obs</span><span class="o">=</span><span class="n">obs_data</span><span class="p">,</span> <span class="n">best_models</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;model1_MarIc_JFM_1&quot;</span><span class="p">:</span> <span class="n">score1</span><span class="p">},</span> <span class="n">scores</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;GROC&quot;</span><span class="p">:</span> <span class="n">x_metric</span><span class="p">},</span>
-    <span class="n">lead_time</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">model_dir</span><span class="o">=</span><span class="s2">&quot;./models&quot;</span><span class="p">,</span> <span class="n">clim_year_start</span><span class="o">=</span><span class="mi">1981</span><span class="p">,</span> <span class="n">clim_year_end</span><span class="o">=</span><span class="mi">2010</span><span class="p">,</span> <span class="n">variable</span><span class="o">=</span><span class="s2">&quot;PRCP&quot;</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</section>
 <section id="annual-year-validation">
 <h2>Annual Year Validation<a class="headerlink" href="#annual-year-validation" title="Link to this heading"></a></h2>
 <p>The module provides utilities to validate forecasts for a specific year, including ratio-to-average classification and RPSS computation.</p>
@@ -299,13 +236,8 @@
 <span class="p">)</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p><strong>Placeholder Functions</strong>: Some methods (e.g., <cite>taylor_diagram</cite>) are placeholders and require implementation based on specific needs.</p></li>
-<li><p><strong>Gridded Data</strong>: The module currently supports only gridded data validation. Non-gridded validation is not implemented.</p></li>
-<li><p><strong>Performance</strong>: The use of <cite>dask</cite> ensures efficient computation for large datasets, but users should ensure proper chunking of <cite>xarray</cite> DataArrays.</p></li>
-<li><p><strong>Visualization</strong>: Plots are saved to the specified directory and displayed using <cite>matplotlib</cite>. Ensure the output directory exists.</p></li>
-</ul>
-<p>This documentation provides an overview of the Verification module’s capabilities, along with example usage for key methods. For detailed information on each method, refer to the source code and docstrings in <cite>was_verification.py</cite>.</p>
+<p>This documentation provides an overview of the Verification module’s capabilities, along with example usage for key methods.
+For detailed information on each method, refer to the source code and docstrings in API.</p>
 </section>
 </section>
 
@@ -313,7 +245,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="Forecast.html" class="btn btn-neutral float-left" title="Forecast" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Preprocessing.html" class="btn btn-neutral float-left" title="Preprocessing Modules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="mme.html" class="btn btn-neutral float-right" title="Multi-Model Ensemble (MME) Techniques" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

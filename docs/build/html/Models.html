@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Models Modules &mdash; wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel. 0.1.1 documentation</title>
+  <title>Models and Cross-Validation &mdash; wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel. 0.1.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
@@ -19,8 +19,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Forecast" href="Forecast.html" />
-    <link rel="prev" title="Quantifying uncertainty via cross-validation" href="cv.html" /> 
+    <link rel="next" title="Verification Module" href="Verification.html" />
+    <link rel="prev" title="Preprocessing Modules" href="Preprocessing.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,18 +47,48 @@
 <li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="Usage.html">Usage</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Download.html">Download module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Processing.html">Processing Modules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cv.html">Quantifying uncertainty via cross-validation</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Models Modules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#machine-learning-models">Machine Learning Models</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#eof-and-pcr-models">EOF and PCR Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html">Preprocessing Modules</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Models and Cross-Validation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#linear-regression-and-regularization-models">Linear regression and regularization Models</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#linear-regression">1. Linear Regression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ridge-regression-l2-regularization">2. Ridge Regression (L2 Regularization)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lasso-regression-l1-regularization">3. Lasso Regression (L1 Regularization)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#elasticnet-l1-l2-regularization">4. ElasticNet (L1 + L2 Regularization)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#probabilistic-calculation-methods">5. Probabilistic Calculation Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-machine-learning-models">Advanced Machine Learning Models</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#support-vector-regression-svr">1. Support Vector Regression (SVR)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#multi-layer-perceptron-mlp">2. Multi-Layer Perceptron (MLP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stacking-ensemble-rf-xgb-mlp">3. Stacking Ensemble (RF + XGB + MLP)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#multivariate-adaptive-regression-splines-mars">4. Multivariate Adaptive Regression Splines (MARS)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#optimization-methods">Optimization Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#eof-analysis-principal-component-regression">EOF Analysis &amp; Principal Component Regression</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#eof-analysis-was-eof">1. EOF Analysis (WAS_EOF)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#principal-component-regression-was-pcr">2. Principal Component Regression (WAS_PCR)</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#cca-models">CCA Models</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#analog-forecasting-methods">Analog Forecasting Methods</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="Forecast.html">Forecast</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quantifying-uncertainty-via-cross-validation">Quantifying uncertainty via cross-validation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#estimating-prediction-uncertainty">Estimating Prediction Uncertainty</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="Verification.html">Verification Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mme.html">Multi-Model Ensemble (MME) Techniques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mme.html#performance-weighted-mme">Performance Weighted MME</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mme.html#min-et-al-2009-probabilistic-mme">Min et al. (2009) Probabilistic MME</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mme.html#stacking-super-ensemble">Stacking (Super-Ensemble)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mme.html#individual-ml-regressors">Individual ML Regressors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mme.html#non-homogeneous-gaussian-regression-ngr">Non-homogeneous Gaussian Regression (NGR)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mme.html#bayesian-model-averaging-bma">Bayesian Model Averaging (BMA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mme.html#extended-logistic-regression-elr">Extended Logistic Regression (ELR)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mme.html#mean-and-variance-adjustment-mva">Mean and Variance Adjustment (MVA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ImplementWASNextGen.html">Implementation of WAS-NextGen Approaches</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">wass2s submodules</a></li>
@@ -79,7 +109,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="Usage.html">Usage</a></li>
-      <li class="breadcrumb-item active">Models Modules</li>
+      <li class="breadcrumb-item active">Models and Cross-Validation</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/Models.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -89,8 +119,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="models-modules">
-<h1>Models Modules<a class="headerlink" href="#models-modules" title="Link to this heading"></a></h1>
+  <section id="models-and-cross-validation">
+<h1>Models and Cross-Validation<a class="headerlink" href="#models-and-cross-validation" title="Link to this heading"></a></h1>
 <p>The Models modules provide a comprehensive suite of statistical and machine learning models for climate prediction, including linear models, EOF-based models, canonical correlation analysis (CCA), analog methods, and multi-model ensemble (MME) techniques.
 These models are designed to handle both deterministic and probabilistic forecasts, with support for hyperparameter tuning.
 Models are evaluated using cross-validation schemes.</p>
@@ -102,71 +132,422 @@ Models are evaluated using cross-validation schemes.</p>
 <li><p><strong>Analog Methods</strong>: For finding historical analogs to current conditions.</p></li>
 <li><p><strong>Multi-Model Ensemble (MME) Techniques</strong>: For combining predictions from multiple models.</p></li>
 </ol>
-<section id="machine-learning-models">
-<h2>Machine Learning Models<a class="headerlink" href="#machine-learning-models" title="Link to this heading"></a></h2>
-<p>The available models are:</p>
-<ul class="simple">
-<li><p><cite>WAS_LinearRegression_Model</cite>:</p></li>
-</ul>
-<p>Standard Multiple Linear Regression.
-* <cite>WAS_Ridge_Model</cite>: Ridge regression with L2 regularization.
-* <cite>WAS_Lasso_Model</cite>: Lasso regression with L1 regularization.
-* <cite>WAS_LassoLars_Model</cite>: Lasso regression using the LARS algorithm.
-* <cite>WAS_ElasticNet_Model</cite>: Elastic net regression combining L1 and L2 regularization.
-* <cite>WAS_LogisticRegression_Model</cite>: Logistic regression for classification.
-* <cite>WAS_SVR</cite>: Support vector regression.
-* <cite>WAS_PolynomialRegression</cite>: Polynomial regression.
-* <cite>WAS_PoissonRegression</cite>: Poisson regression.
-* <cite>WAS_RandomForest_XGBoost_ML_Stacking</cite>: Random forest and XGBoost regression with stacking.
-* <cite>WAS_MLP</cite>: Multi-Layer Perceptron regression.
-* <cite>WAS_RandomForest_XGBoost_Stacking_MLP</cite>: Random forest, XGBoost, and MLP regression with stacking.
-* <cite>WAS_Stacking_Ridge</cite>: Random forest, XGBoost, MLP, and Ridge regression with stacking.</p>
-<p>Except for <cite>WAS_LogisticRegression_Model</cite>, each model class includes methods for:</p>
-<ul class="simple">
-<li><p><cite>compute_model</cite>: Training the model and making predictions.</p></li>
-<li><p><cite>compute_prob</cite>: Computing tercile probabilities for the predictions.</p></li>
-<li><p><cite>forecast</cite>: Making forecasts for new data.</p></li>
-</ul>
+<section id="linear-regression-and-regularization-models">
+<h2>Linear regression and regularization Models<a class="headerlink" href="#linear-regression-and-regularization-models" title="Link to this heading"></a></h2>
+<p>These modules provide classes for spatially distributed linear regression modeling of climate variables. It is designed to handle large xarray datasets using <strong>Dask</strong> for parallelization and <strong>Scikit-Learn</strong> for model fitting.</p>
+<p>Key Features:
+* <strong>Parallel Computing</strong>: Fits models pixel-by-pixel or cluster-by-cluster in parallel.
+* <strong>Hyperparameter Optimization</strong>: Supports Grid Search, Randomized Search, and <strong>Bayesian Optimization (Optuna)</strong>.
+* <strong>Probabilistic Output</strong>: Converts deterministic predictions into <strong>Tercile Probabilities</strong> (Below Normal, Normal, Above Normal) using parametric or non-parametric methods.</p>
+<hr class="docutils" />
+<section id="linear-regression">
+<h3>1. Linear Regression<a class="headerlink" href="#linear-regression" title="Link to this heading"></a></h3>
+<p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_LinearRegression_Model</span></code></p>
+<p>A baseline Ordinary Least Squares (OLS) model. It does not use regularization, making it fast but potentially prone to overfitting if predictors are correlated.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="n">WAS_LinearRegression_Model</span>
+
+<span class="c1"># 1. Initialize</span>
+<span class="c1"># nb_cores: Number of parallel workers</span>
+<span class="c1"># dist_method: Method for probability calculation (&#39;gamma&#39;, &#39;normal&#39;, &#39;nonparam&#39;)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">WAS_LinearRegression_Model</span><span class="p">(</span><span class="n">nb_cores</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">dist_method</span><span class="o">=</span><span class="s1">&#39;gamma&#39;</span><span class="p">)</span>
+
+<span class="c1"># 2. Compute Hindcasts (Training &amp; Testing on historical data)</span>
+<span class="c1"># X_train, y_train: Training period</span>
+<span class="c1"># X_test, y_test: Evaluation period</span>
+<span class="n">hindcast</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">compute_model</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+
+<span class="c1"># 3. Compute Probabilities (Terciles)</span>
+<span class="c1"># clim_year_start/end define the reference period for &quot;Normal&quot;</span>
+<span class="n">prob_forecast</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">compute_prob</span><span class="p">(</span>
+    <span class="n">Predictant</span><span class="o">=</span><span class="n">observed_rainfall</span><span class="p">,</span>
+    <span class="n">clim_year_start</span><span class="o">=</span><span class="mi">1981</span><span class="p">,</span>
+    <span class="n">clim_year_end</span><span class="o">=</span><span class="mi">2010</span><span class="p">,</span>
+    <span class="n">hindcast_det</span><span class="o">=</span><span class="n">hindcast</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 </section>
-<section id="eof-and-pcr-models">
-<h2>EOF and PCR Models<a class="headerlink" href="#eof-and-pcr-models" title="Link to this heading"></a></h2>
-<p>The <cite>was_eof.py</cite> and <cite>was_pcr.py</cite> modules provide classes for EOF analysis and Principal Component Regression (PCR), with support for multiple EOF zones:</p>
+<hr class="docutils" />
+<section id="ridge-regression-l2-regularization">
+<h3>2. Ridge Regression (L2 Regularization)<a class="headerlink" href="#ridge-regression-l2-regularization" title="Link to this heading"></a></h3>
+<p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_Ridge_Model</span></code></p>
+<p>Ridge regression adds an L2 penalty to the loss function, shrinking coefficients. It is useful when predictors are highly correlated (multicollinearity).</p>
+<p><strong>Optimization Modes</strong>
+* <code class="docutils literal notranslate"><span class="pre">mode='grid'</span></code>: Optimizes alpha independently for <strong>every single pixel</strong>. (Slow, detailed).
+* <code class="docutils literal notranslate"><span class="pre">mode='cluster'</span></code>: Clusters pixels into homogeneous zones and optimizes alpha <strong>per zone</strong>. (Fast, robust).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="n">WAS_Ridge_Model</span>
+
+<span class="c1"># Initialize with Bayesian Optimization (Optuna)</span>
+<span class="n">ridge</span> <span class="o">=</span> <span class="n">WAS_Ridge_Model</span><span class="p">(</span>
+    <span class="n">nb_cores</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;cluster&#39;</span><span class="p">,</span>
+    <span class="n">n_clusters</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">hyperparam_optimizer</span><span class="o">=</span><span class="s1">&#39;bayesian&#39;</span><span class="p">,</span>
+    <span class="n">n_trials</span><span class="o">=</span><span class="mi">50</span>
+<span class="p">)</span>
+
+<span class="c1"># Compute optimal hyperparameters (alpha)</span>
+<span class="n">alpha_map</span><span class="p">,</span> <span class="n">clusters</span> <span class="o">=</span> <span class="n">ridge</span><span class="o">.</span><span class="n">compute_hyperparameters</span><span class="p">(</span>
+    <span class="n">predictand</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span>
+    <span class="n">predictor</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span>
+    <span class="n">clim_year_start</span><span class="o">=</span><span class="mi">1981</span><span class="p">,</span>
+    <span class="n">clim_year_end</span><span class="o">=</span><span class="mi">2010</span>
+<span class="p">)</span>
+
+<span class="c1"># Run the model</span>
+<span class="n">hindcast</span> <span class="o">=</span> <span class="n">ridge</span><span class="o">.</span><span class="n">compute_model</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha_map</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="lasso-regression-l1-regularization">
+<h3>3. Lasso Regression (L1 Regularization)<a class="headerlink" href="#lasso-regression-l1-regularization" title="Link to this heading"></a></h3>
+<p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_Lasso_Model</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">WAS_LassoLars_Model</span></code></p>
+<p>Lasso adds an L1 penalty, which can force coefficients to zero. This effectively performs <strong>feature selection</strong>, keeping only the most important predictors.</p>
 <ul class="simple">
-<li><p><cite>WAS_EOF</cite>: Performs EOF analysis with options for cosine latitude weighting, standardization, and L2 normalization.</p></li>
-<li><p><cite>WAS_PCR</cite>: Combines EOF analysis with a regression model for prediction, supporting multiple EOF zones.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WAS_Lasso_Model</span></code>: Standard Coordinate Descent implementation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WAS_LassoLars_Model</span></code>: Uses <strong>Least Angle Regression (LARS)</strong>. Better for high-dimensional data or when <cite>n_features &gt; n_samples</cite>.</p></li>
 </ul>
-<p><strong>WAS_EOF</strong></p>
-<p><strong>Initialization</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="n">WAS_LassoLars_Model</span>
+
+<span class="n">lasso</span> <span class="o">=</span> <span class="n">WAS_LassoLars_Model</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;cluster&#39;</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">nb_cores</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># Automatically finds alpha using cross-validation (CV) if not provided</span>
+<span class="n">hindcast</span> <span class="o">=</span> <span class="n">lasso</span><span class="o">.</span><span class="n">compute_model</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="elasticnet-l1-l2-regularization">
+<h3>4. ElasticNet (L1 + L2 Regularization)<a class="headerlink" href="#elasticnet-l1-l2-regularization" title="Link to this heading"></a></h3>
+<p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_ElasticNet_Model</span></code></p>
+<p>Combines the properties of Ridge and Lasso. It is often the most robust choice for climate data as it handles correlated predictors (Ridge) while selecting features (Lasso).</p>
+<p><strong>Hyperparameters</strong>:
+* <code class="docutils literal notranslate"><span class="pre">alpha</span></code>: Total regularization strength.
+* <code class="docutils literal notranslate"><span class="pre">l1_ratio</span></code>: Balance between Lasso (1.0) and Ridge (0.0).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="n">WAS_ElasticNet_Model</span>
+
+<span class="n">enet</span> <span class="o">=</span> <span class="n">WAS_ElasticNet_Model</span><span class="p">(</span>
+    <span class="n">l1_ratio_range</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">],</span> <span class="c1"># Search space for mixing ratio</span>
+    <span class="n">hyperparam_optimizer</span><span class="o">=</span><span class="s1">&#39;random&#39;</span><span class="p">,</span>  <span class="c1"># Use Randomized Search</span>
+    <span class="n">n_iter</span><span class="o">=</span><span class="mi">20</span>
+<span class="p">)</span>
+
+<span class="c1"># Compute hyperparameters (returns alpha map and l1_ratio map)</span>
+<span class="n">alpha_map</span><span class="p">,</span> <span class="n">l1_map</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">enet</span><span class="o">.</span><span class="n">compute_hyperparameters</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="mi">1981</span><span class="p">,</span> <span class="mi">2010</span><span class="p">)</span>
+
+<span class="c1"># Forecast</span>
+<span class="n">forecast_det</span><span class="p">,</span> <span class="n">forecast_prob</span> <span class="o">=</span> <span class="n">enet</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span>
+    <span class="n">Predictant</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span>
+    <span class="n">clim_year_start</span><span class="o">=</span><span class="mi">1981</span><span class="p">,</span>
+    <span class="n">clim_year_end</span><span class="o">=</span><span class="mi">2010</span><span class="p">,</span>
+    <span class="n">Predictor</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span>
+    <span class="n">hindcast_det</span><span class="o">=</span><span class="n">hindcast</span><span class="p">,</span>
+    <span class="n">Predictor_for_year</span><span class="o">=</span><span class="n">X_next_year</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="n">alpha_map</span><span class="p">,</span>
+    <span class="n">l1_ratio</span><span class="o">=</span><span class="n">l1_map</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="probabilistic-calculation-methods">
+<h3>5. Probabilistic Calculation Methods<a class="headerlink" href="#probabilistic-calculation-methods" title="Link to this heading"></a></h3>
+<p>All models include a <code class="docutils literal notranslate"><span class="pre">compute_prob</span></code> method to convert deterministic outputs into probabilities for:
+1.  <strong>Below Normal (PB)</strong>
+2.  <strong>Normal (PN)</strong>
+3.  <strong>Above Normal (PA)</strong></p>
+<p>Supported Distribution Methods (<code class="docutils literal notranslate"><span class="pre">dist_method</span></code>):</p>
 <ul class="simple">
-<li><p><cite>n_modes</cite>: Number of EOF modes to retain.</p></li>
-<li><p><cite>use_coslat</cite>: Apply cosine latitude weighting (default: True).</p></li>
-<li><p><cite>standardize</cite>: Standardize the input data (default: False).</p></li>
-<li><p><cite>opti_explained_variance</cite>: Target cumulative explained variance to determine modes.</p></li>
-<li><p><cite>L2norm</cite>: Normalize components and scores to have L2 norm (default: True).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'normal'</span></code>: Assumes errors are Gaussian.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'gamma'</span></code>: Fits a Gamma distribution (good for precipitation).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'lognormal'</span></code>: Fits a Log-Normal distribution.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'weibull_min'</span></code>: Fits a Weibull distribution.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'bestfit'</span></code>: Uses the distribution map from <code class="docutils literal notranslate"><span class="pre">WAS_TransformData</span></code> to use the optimal distribution per pixel.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'nonparam'</span></code>: Non-parametric estimation based on historical error rank (no distribution assumption).</p></li>
 </ul>
-<p><strong>Methods</strong></p>
+<p><strong>Usage Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example: Using Best-Fit Distribution</span>
+<span class="c1"># best_code, best_shape, etc. come from the Data Transformation module</span>
+<span class="n">prob_da</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">compute_prob</span><span class="p">(</span>
+    <span class="n">Predictant</span><span class="o">=</span><span class="n">obs</span><span class="p">,</span>
+    <span class="n">clim_year_start</span><span class="o">=</span><span class="mi">1981</span><span class="p">,</span> <span class="n">clim_year_end</span><span class="o">=</span><span class="mi">2010</span><span class="p">,</span>
+    <span class="n">hindcast_det</span><span class="o">=</span><span class="n">det_forecast</span><span class="p">,</span>
+    <span class="n">best_code_da</span><span class="o">=</span><span class="n">best_code</span><span class="p">,</span>
+    <span class="n">best_shape_da</span><span class="o">=</span><span class="n">best_shape</span><span class="p">,</span>
+    <span class="n">best_loc_da</span><span class="o">=</span><span class="n">best_loc</span><span class="p">,</span>
+    <span class="n">best_scale_da</span><span class="o">=</span><span class="n">best_scale</span>
+<span class="p">)</span>
+
+<span class="c1"># Plotting Probability of Above Normal</span>
+<span class="n">prob_da</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">probability</span><span class="o">=</span><span class="s1">&#39;PA&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">col</span><span class="o">=</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="advanced-machine-learning-models">
+<h2>Advanced Machine Learning Models<a class="headerlink" href="#advanced-machine-learning-models" title="Link to this heading"></a></h2>
+<p>This module implements non-linear regression models optimized for spatiotemporal climate data. Unlike standard linear models, these classes capture complex relationships between predictors (e.g., SSTs) and predictands (e.g., rainfall).</p>
+<p>Key Features:
+* <strong>Spatial Clustering</strong>: Models can be trained on homogeneous zones (clusters) rather than pixel-by-pixel, reducing noise and computational cost.
+* <strong>Hyperparameter Optimization (HPO)</strong>: Integrated support for <strong>Grid Search</strong>, <strong>Randomized Search</strong>, and <strong>Bayesian Optimization (Optuna)</strong>.
+* <strong>Stacking Ensembles</strong>: Advanced architectures combining Random Forest, XGBoost, and MLP.
+* <strong>Probabilistic Forecasts</strong>: Converts deterministic predictions into tercile probabilities.</p>
+<hr class="docutils" />
+<section id="support-vector-regression-svr">
+<h3>1. Support Vector Regression (SVR)<a class="headerlink" href="#support-vector-regression-svr" title="Link to this heading"></a></h3>
+<p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_SVR</span></code></p>
+<p>Implements Support Vector Regression with spatial clustering. It effectively handles non-linearities using kernels (RBF, Polynomial).</p>
+<p><strong>Parameters</strong>:
+* <code class="docutils literal notranslate"><span class="pre">kernel</span></code>: ‘linear’, ‘poly’, ‘rbf’, or ‘all’ (to search all).
+* <code class="docutils literal notranslate"><span class="pre">n_clusters</span></code>: Number of spatial clusters for training.
+* <code class="docutils literal notranslate"><span class="pre">optimization_method</span></code>: ‘grid’, ‘random’, or ‘bayesian’.</p>
+<p><strong>Usage Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="n">WAS_SVR</span>
+
+<span class="c1"># 1. Initialize with Bayesian Optimization</span>
+<span class="n">svr_model</span> <span class="o">=</span> <span class="n">WAS_SVR</span><span class="p">(</span>
+    <span class="n">nb_cores</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">n_clusters</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span>
+    <span class="n">optimization_method</span><span class="o">=</span><span class="s1">&#39;bayesian&#39;</span><span class="p">,</span>
+    <span class="n">n_trials</span><span class="o">=</span><span class="mi">30</span>
+<span class="p">)</span>
+
+<span class="c1"># 2. Compute Hyperparameters (Clustering + HPO)</span>
+<span class="c1"># Returns maps of C, epsilon, gamma broadcasted to the grid</span>
+<span class="n">C_map</span><span class="p">,</span> <span class="n">eps_map</span><span class="p">,</span> <span class="n">deg_map</span><span class="p">,</span> <span class="n">clusters</span><span class="p">,</span> <span class="n">kernel_map</span><span class="p">,</span> <span class="n">gamma_map</span> <span class="o">=</span> <span class="n">svr_model</span><span class="o">.</span><span class="n">compute_hyperparameters</span><span class="p">(</span>
+    <span class="n">predictand</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span>
+    <span class="n">predictor</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span>
+    <span class="n">clim_year_start</span><span class="o">=</span><span class="mi">1981</span><span class="p">,</span>
+    <span class="n">clim_year_end</span><span class="o">=</span><span class="mi">2010</span>
+<span class="p">)</span>
+
+<span class="c1"># 3. Forecast Next Year</span>
+<span class="n">forecast_det</span><span class="p">,</span> <span class="n">forecast_prob</span> <span class="o">=</span> <span class="n">svr_model</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span>
+    <span class="n">Predictant</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span>
+    <span class="n">clim_year_start</span><span class="o">=</span><span class="mi">1981</span><span class="p">,</span>
+    <span class="n">clim_year_end</span><span class="o">=</span><span class="mi">2010</span><span class="p">,</span>
+    <span class="n">Predictor</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span>
+    <span class="n">hindcast_det</span><span class="o">=</span><span class="n">hindcast_da</span><span class="p">,</span> <span class="c1"># Pre-computed hindcast for error stats</span>
+    <span class="n">Predictor_for_year</span><span class="o">=</span><span class="n">X_next_year</span><span class="p">,</span>
+    <span class="n">epsilon</span><span class="o">=</span><span class="n">eps_map</span><span class="p">,</span>
+    <span class="n">C</span><span class="o">=</span><span class="n">C_map</span><span class="p">,</span>
+    <span class="n">kernel_array</span><span class="o">=</span><span class="n">kernel_map</span><span class="p">,</span>
+    <span class="n">degree_array</span><span class="o">=</span><span class="n">deg_map</span><span class="p">,</span>
+    <span class="n">gamma_array</span><span class="o">=</span><span class="n">gamma_map</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="multi-layer-perceptron-mlp">
+<h3>2. Multi-Layer Perceptron (MLP)<a class="headerlink" href="#multi-layer-perceptron-mlp" title="Link to this heading"></a></h3>
+<p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_MLP</span></code></p>
+<p>Implements a Neural Network regressor (using <code class="docutils literal notranslate"><span class="pre">sklearn.neural_network.MLPRegressor</span></code>). It is particularly useful for capturing high-dimensional, non-linear interactions.</p>
+<p><strong>Key Features</strong>:
+* <strong>Pipeline</strong>: Automatically handles scaling of target variables (<code class="docutils literal notranslate"><span class="pre">TransformedTargetRegressor</span></code>).
+* <strong>Search Space</strong>: Optimizes hidden layer sizes, activation functions, and learning rates.</p>
+<p><strong>Usage Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="n">WAS_MLP</span>
+
+<span class="c1"># 1. Initialize</span>
+<span class="n">mlp_model</span> <span class="o">=</span> <span class="n">WAS_MLP</span><span class="p">(</span>
+    <span class="n">nb_cores</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">n_clusters</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">optimization_method</span><span class="o">=</span><span class="s1">&#39;random&#39;</span><span class="p">,</span>
+    <span class="n">n_trials</span><span class="o">=</span><span class="mi">20</span>
+<span class="p">)</span>
+
+<span class="c1"># 2. Train &amp; Optimize</span>
+<span class="c1"># Returns maps of hidden_layer_sizes, activation, etc.</span>
+<span class="n">hl</span><span class="p">,</span> <span class="n">act</span><span class="p">,</span> <span class="n">solver</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">lr</span><span class="p">,</span> <span class="n">maxiter</span><span class="p">,</span> <span class="n">clusters</span> <span class="o">=</span> <span class="n">mlp_model</span><span class="o">.</span><span class="n">compute_hyperparameters</span><span class="p">(</span>
+    <span class="n">predictand</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span>
+    <span class="n">predictor</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span>
+    <span class="n">clim_year_start</span><span class="o">=</span><span class="mi">1981</span><span class="p">,</span>
+    <span class="n">clim_year_end</span><span class="o">=</span><span class="mi">2010</span>
+<span class="p">)</span>
+
+<span class="c1"># 3. Forecast</span>
+<span class="n">forecast_det</span><span class="p">,</span> <span class="n">forecast_prob</span> <span class="o">=</span> <span class="n">mlp_model</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span>
+    <span class="n">Predictant</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span>
+    <span class="n">clim_year_start</span><span class="o">=</span><span class="mi">1981</span><span class="p">,</span>
+    <span class="n">clim_year_end</span><span class="o">=</span><span class="mi">2010</span><span class="p">,</span>
+    <span class="n">Predictor</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span>
+    <span class="n">hindcast_det</span><span class="o">=</span><span class="n">hindcast_da</span><span class="p">,</span>
+    <span class="n">Predictor_for_year</span><span class="o">=</span><span class="n">X_next_year</span><span class="p">,</span>
+    <span class="n">hl_array</span><span class="o">=</span><span class="n">hl</span><span class="p">,</span>
+    <span class="n">act_array</span><span class="o">=</span><span class="n">act</span><span class="p">,</span>
+    <span class="n">lr_array</span><span class="o">=</span><span class="n">lr</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="stacking-ensemble-rf-xgb-mlp">
+<h3>3. Stacking Ensemble (RF + XGB + MLP)<a class="headerlink" href="#stacking-ensemble-rf-xgb-mlp" title="Link to this heading"></a></h3>
+<p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_RandomForest_XGBoost_Stacking_MLP</span></code></p>
+<p>A state-of-the-art ensemble method that stacks tree-based models with a neural network meta-learner.</p>
+<p><strong>Architecture</strong>:
+1.  <strong>Base Layer</strong>: Random Forest Regressor + XGBoost Regressor.
+2.  <strong>Meta Layer</strong>: Multi-Layer Perceptron (MLP).</p>
+<p>The base models make predictions, and the MLP learns how to best combine them to minimize error.</p>
+<p><strong>Usage Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="n">WAS_RandomForest_XGBoost_Stacking_MLP</span>
+
+<span class="c1"># 1. Initialize</span>
+<span class="n">stacking_model</span> <span class="o">=</span> <span class="n">WAS_RandomForest_XGBoost_Stacking_MLP</span><span class="p">(</span>
+    <span class="n">nb_cores</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="c1"># Fewer clusters due to high model complexity</span>
+    <span class="n">optimization_method</span><span class="o">=</span><span class="s1">&#39;bayesian&#39;</span><span class="p">,</span>
+    <span class="n">n_trials</span><span class="o">=</span><span class="mi">15</span>
+<span class="p">)</span>
+
+<span class="c1"># 2. Compute Hyperparameters</span>
+<span class="c1"># Optimizes RF trees, XGB depth, and MLP structure simultaneously</span>
+<span class="n">best_params_map</span><span class="p">,</span> <span class="n">clusters</span> <span class="o">=</span> <span class="n">stacking_model</span><span class="o">.</span><span class="n">compute_hyperparameters</span><span class="p">(</span>
+    <span class="n">predictand</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span>
+    <span class="n">predictor</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span>
+    <span class="n">clim_year_start</span><span class="o">=</span><span class="mi">1981</span><span class="p">,</span>
+    <span class="n">clim_year_end</span><span class="o">=</span><span class="mi">2010</span>
+<span class="p">)</span>
+
+<span class="c1"># 3. Forecast</span>
+<span class="n">forecast_det</span><span class="p">,</span> <span class="n">forecast_prob</span> <span class="o">=</span> <span class="n">stacking_model</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span>
+    <span class="n">Predictant</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span>
+    <span class="n">clim_year_start</span><span class="o">=</span><span class="mi">1981</span><span class="p">,</span>
+    <span class="n">clim_year_end</span><span class="o">=</span><span class="mi">2010</span><span class="p">,</span>
+    <span class="n">Predictor</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span>
+    <span class="n">hindcast_det</span><span class="o">=</span><span class="n">hindcast_da</span><span class="p">,</span>
+    <span class="n">Predictor_for_year</span><span class="o">=</span><span class="n">X_next_year</span><span class="p">,</span>
+    <span class="n">best_param_da</span><span class="o">=</span><span class="n">best_params_map</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="multivariate-adaptive-regression-splines-mars">
+<h3>4. Multivariate Adaptive Regression Splines (MARS)<a class="headerlink" href="#multivariate-adaptive-regression-splines-mars" title="Link to this heading"></a></h3>
+<p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_MARS_Model</span></code></p>
+<p>Implements MARS (Multivariate Adaptive Regression Splines), which models non-linearities by fitting piecewise linear basis functions (hinges). It automatically selects important variables and interactions.</p>
+<p><strong>Key Parameters</strong>:
+* <code class="docutils literal notranslate"><span class="pre">max_terms</span></code>: Maximum number of basis functions.
+* <code class="docutils literal notranslate"><span class="pre">max_degree</span></code>: Maximum degree of interaction (1=additive, 2=interactions).</p>
+<p><strong>Usage Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="n">WAS_MARS_Model</span>
+
+<span class="c1"># 1. Initialize</span>
+<span class="n">mars_model</span> <span class="o">=</span> <span class="n">WAS_MARS_Model</span><span class="p">(</span>
+    <span class="n">nb_cores</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">max_terms</span><span class="o">=</span><span class="mi">21</span><span class="p">,</span>
+    <span class="n">max_degree</span><span class="o">=</span><span class="mi">2</span> <span class="c1"># Allow pairwise interactions</span>
+<span class="p">)</span>
+
+<span class="c1"># 2. Compute Hindcasts (No separate HPO step needed for standard MARS)</span>
+<span class="n">hindcast</span> <span class="o">=</span> <span class="n">mars_model</span><span class="o">.</span><span class="n">compute_model</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="optimization-methods">
+<h3>Optimization Methods<a class="headerlink" href="#optimization-methods" title="Link to this heading"></a></h3>
+<p>All classes (except MARS/Poisson) allow selecting the optimization strategy via <code class="docutils literal notranslate"><span class="pre">optimization_method</span></code>:</p>
 <ul class="simple">
-<li><p><cite>fit</cite>: Fits the EOF model to the data, supporting multiple zones by applying EOF analysis to the entire dataset.</p></li>
-<li><p><cite>transform</cite>: Projects new data onto the EOF modes.</p></li>
-<li><p><cite>inverse_transform</cite>: Reconstructs data from principal components (PCs).</p></li>
-<li><p><cite>plot_EOF</cite>: Plots the EOF spatial patterns with explained variance.</p></li>
+<li><p><strong>‘grid’</strong>: Exhaustive search over <code class="docutils literal notranslate"><span class="pre">param_grid</span></code>. Reliable but slow.</p></li>
+<li><p><strong>‘random’</strong>: Randomized search. Faster, good for high-dimensional spaces.</p></li>
+<li><p><strong>‘bayesian’</strong>: Uses <strong>Optuna</strong> (TPE Sampler) to intelligently search the hyperparameter space. Recommended for complex models like Stacking and MLP.</p></li>
 </ul>
-<p><strong>WAS_PCR</strong></p>
-<p><strong>Initialization</strong></p>
-<ul class="simple">
-<li><p><cite>regression_model</cite>: The regression model (e.g., <cite>WAS_Ridge_Model</cite>) to use with PCs.</p></li>
-<li><p><cite>n_modes</cite>: Number of EOF modes to retain.</p></li>
-<li><p><cite>use_coslat</cite>: Apply cosine latitude weighting (default: True).</p></li>
-<li><p><cite>standardize</cite>: Standardize the input data (default: False).</p></li>
-<li><p><cite>opti_explained_variance</cite>: Target cumulative explained variance.</p></li>
-<li><p><cite>L2norm</cite>: Normalize EOF components and scores (default: True).</p></li>
-</ul>
-<p><strong>Methods</strong></p>
-<ul class="simple">
-<li><p><cite>compute_model</cite>: Fits the EOF model, transforms data to PCs, and applies the regression model.</p></li>
-<li><p><cite>compute_prob</cite>: Computes tercile probabilities using the regression model.</p></li>
-<li><p><cite>forecast</cite>: Makes forecasts using EOF-transformed data.</p></li>
-</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">BaseOptimizer</span></code> class handles the logic, ensuring compatibility with Scikit-Learn pipelines and custom regressors.</p>
+</section>
+</section>
+<section id="eof-analysis-principal-component-regression">
+<h2>EOF Analysis &amp; Principal Component Regression<a class="headerlink" href="#eof-analysis-principal-component-regression" title="Link to this heading"></a></h2>
+<p>This module provides tools for dimensionality reduction using Empirical Orthogonal Functions (EOFs) and integrates them into a Principal Component Regression (PCR) framework. This is standard practice in climate prediction to handle high-dimensional predictor fields (e.g., global SSTs).</p>
+<p>Dependencies:
+* <code class="docutils literal notranslate"><span class="pre">xeofs</span></code>: For efficient EOF computation.
+* <code class="docutils literal notranslate"><span class="pre">wass2s.was_linear_models</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">wass2s.was_machine_learning</span></code>: For regression back-ends.</p>
+<hr class="docutils" />
+<section id="eof-analysis-was-eof">
+<h3>1. EOF Analysis (WAS_EOF)<a class="headerlink" href="#eof-analysis-was-eof" title="Link to this heading"></a></h3>
+<p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_EOF</span></code></p>
+<p>Performs EOF analysis on spatiotemporal data (e.g., SST anomalies). It wraps the <code class="docutils literal notranslate"><span class="pre">xeofs</span></code> package with additional climate-specific utilities like detrending and latitude weighting.</p>
+<p><strong>Features</strong>:
+* <strong>Cosine Latitude Weighting</strong>: Corrects for area distortion in latitude-longitude grids.
+* <strong>Detrending</strong>: Removes linear trends before analysis (optional).
+* <strong>Automatic Mode Selection</strong>: Selects the number of modes based on a target cumulative explained variance (e.g., 90%).</p>
+<p><strong>Usage Example</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="n">WAS_EOF</span>
+
+<span class="c1"># Initialize EOF model</span>
+<span class="c1"># Retain enough modes to explain 90% variance</span>
+<span class="n">eof_solver</span> <span class="o">=</span> <span class="n">WAS_EOF</span><span class="p">(</span>
+    <span class="n">opti_explained_variance</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span>
+    <span class="n">detrend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">use_coslat</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># Fit the model</span>
+<span class="c1"># predictor must be xarray with dims (T, Y, X)</span>
+<span class="n">eofs</span><span class="p">,</span> <span class="n">pcs</span><span class="p">,</span> <span class="n">exp_var</span><span class="p">,</span> <span class="n">singular_vals</span> <span class="o">=</span> <span class="n">eof_solver</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">sst_anomaly_da</span><span class="p">)</span>
+
+<span class="c1"># Plot the EOF patterns</span>
+<span class="n">eof_solver</span><span class="o">.</span><span class="n">plot_EOF</span><span class="p">(</span><span class="n">eofs</span><span class="p">,</span> <span class="n">exp_var</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="principal-component-regression-was-pcr">
+<h3>2. Principal Component Regression (WAS_PCR)<a class="headerlink" href="#principal-component-regression-was-pcr" title="Link to this heading"></a></h3>
+<p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_PCR</span></code></p>
+<p>A wrapper class that combines EOF analysis (for predictors) with any regression model (Linear, Ridge, Lasso, SVR, etc.).</p>
+<p><strong>Workflow</strong>:
+1.  <strong>Fit EOF</strong>: Computes EOFs of the high-dimensional predictor (e.g., SST field).
+2.  <strong>Transform</strong>: Projects the predictor onto the EOFs to get Principal Components (PCs).
+3.  <strong>Regression</strong>: Uses the PCs as features to train the regression model against the predictand (e.g., local rainfall).</p>
+<p><strong>Parameters</strong>:
+* <code class="docutils literal notranslate"><span class="pre">regression_model</span></code>: An instance of any WAS regression model (e.g., <code class="docutils literal notranslate"><span class="pre">WAS_LinearRegression_Model</span></code>, <code class="docutils literal notranslate"><span class="pre">WAS_Lasso_Model</span></code>).
+* <code class="docutils literal notranslate"><span class="pre">n_modes</span></code>: (Optional) Hard limit on number of modes.
+* <code class="docutils literal notranslate"><span class="pre">opti_explained_variance</span></code>: (Optional) Variance threshold for mode selection.</p>
+<p><strong>Usage Example: PCR with Lasso</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="n">WAS_PCR</span><span class="p">,</span> <span class="n">WAS_Lasso_Model</span>
+
+<span class="c1"># 1. Define the Regression Model</span>
+<span class="n">lasso_model</span> <span class="o">=</span> <span class="n">WAS_Lasso_Model</span><span class="p">(</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;cluster&#39;</span><span class="p">,</span>
+    <span class="n">n_clusters</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">hyperparam_optimizer</span><span class="o">=</span><span class="s1">&#39;bayesian&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># 2. Define the PCR Wrapper</span>
+<span class="c1"># This will reduce the SST field to PCs explaining 85% variance</span>
+<span class="n">pcr_model</span> <span class="o">=</span> <span class="n">WAS_PCR</span><span class="p">(</span>
+    <span class="n">regression_model</span><span class="o">=</span><span class="n">lasso_model</span><span class="p">,</span>
+    <span class="n">opti_explained_variance</span><span class="o">=</span><span class="mi">85</span><span class="p">,</span>
+    <span class="n">detrend</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># 3. Compute Hyperparameters (Lasso Alpha)</span>
+<span class="c1"># Note: This step is now happening in PC-space, not Grid-space</span>
+<span class="n">alpha_map</span><span class="p">,</span> <span class="n">clusters</span> <span class="o">=</span> <span class="n">pcr_model</span><span class="o">.</span><span class="n">reg_model</span><span class="o">.</span><span class="n">compute_hyperparameters</span><span class="p">(</span>
+    <span class="n">predictand</span><span class="o">=</span><span class="n">rainfall_da</span><span class="p">,</span>
+    <span class="n">predictor</span><span class="o">=</span><span class="n">pcr_model</span><span class="o">.</span><span class="n">_prepare_pcs</span><span class="p">(</span><span class="n">sst_da</span><span class="p">,</span> <span class="n">sst_da</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="c1"># Manually projecting for HPO step</span>
+    <span class="n">clim_year_start</span><span class="o">=</span><span class="mi">1981</span><span class="p">,</span>
+    <span class="n">clim_year_end</span><span class="o">=</span><span class="mi">2010</span>
+<span class="p">)</span>
+
+<span class="c1"># 4. Forecast</span>
+<span class="c1"># Automatically handles EOF projection of the forecast year</span>
+<span class="n">forecast_det</span><span class="p">,</span> <span class="n">forecast_prob</span> <span class="o">=</span> <span class="n">pcr_model</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span>
+    <span class="n">Predictant</span><span class="o">=</span><span class="n">rainfall_da</span><span class="p">,</span>
+    <span class="n">clim_year_start</span><span class="o">=</span><span class="mi">1981</span><span class="p">,</span>
+    <span class="n">clim_year_end</span><span class="o">=</span><span class="mi">2010</span><span class="p">,</span>
+    <span class="n">Predictor</span><span class="o">=</span><span class="n">sst_da</span><span class="p">,</span>              <span class="c1"># Full field (T, Y, X)</span>
+    <span class="n">hindcast_det</span><span class="o">=</span><span class="n">hindcast_da</span><span class="p">,</span>
+    <span class="n">Predictor_for_year</span><span class="o">=</span><span class="n">sst_next_year</span><span class="p">,</span> <span class="c1"># Full field for target year</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="n">alpha_map</span>
+<span class="p">)</span>
+</pre></div>
+</div>
 <p><strong>Example Usage: Seasonal Forecasting Based on Observational Data</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="c1">## Define the directory to save the data</span>
@@ -314,6 +695,7 @@ Models are evaluated using cross-validation schemes.</p>
 </pre></div>
 </div>
 </section>
+</section>
 <section id="cca-models">
 <h2>CCA Models<a class="headerlink" href="#cca-models" title="Link to this heading"></a></h2>
 <p>The <cite>was_cca.py</cite> module provides classes for Canonical Correlation Analysis (CCA):</p>
@@ -439,13 +821,87 @@ Models are evaluated using cross-validation schemes.</p>
 </div>
 </section>
 </section>
+<section id="quantifying-uncertainty-via-cross-validation">
+<h1>Quantifying uncertainty via cross-validation<a class="headerlink" href="#quantifying-uncertainty-via-cross-validation" title="Link to this heading"></a></h1>
+<p>Cross-validation schemes are used to assess model performance and to quantify uncertainty. <cite>wass2s</cite> uses a cross-validation scheme that splits the data into training, omit, and test periods. The scheme is a variation of the <cite>K-Fold</cite> cross-validation scheme, but it is tailored for time series data throughout <cite>CustomTimeSeriesSplit</cite> and <cite>WAS_Cross_Validator</cite> class. The scheme is illustrated in the figure below (Figure 1).</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="_images/cvv.png"><img alt="Cross-validation scheme used in wass2s" src="_images/cvv.png" style="width: 693.0px; height: 303.09999999999997px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Cross-validation scheme used in wass2s</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>The figure shows how we split our data (1981–2010) to validate the model. Each row is a “fold” or a test run.</p>
+<ul class="simple">
+<li><p><strong>Pink (Training)</strong>: Years we use to train the model. For example, in the first row, we train on 1986–2010.</p></li>
+<li><p><strong>Yellow (Omit)</strong>: A buffer years we skip to avoid cheating. Climate data has patterns over time, so we don’t want to train on a years right after/before the one we’re predicting, which would make the model look better than it really is. In this case we’ve omitted four years (in the first row, we skip 1982-1985).</p></li>
+<li><p><strong>White (Predict)</strong>: The year we predict. In the first row, we predict 1981.</p></li>
+</ul>
+<p><strong>CustomTimeSeriesSplit</strong></p>
+<p>A custom splitter for time series data that accounts for temporal dependencies.</p>
+<p><strong>Initialization</strong></p>
+<ul class="simple">
+<li><p><cite>n_splits</cite>: Number of splits for cross-validation.</p></li>
+</ul>
+<p><strong>Methods</strong></p>
+<ul class="simple">
+<li><p><cite>split</cite>: Generates indices for training and test sets, omitting a specified number of samples after the test index.</p></li>
+<li><p><cite>get_n_splits</cite>: Returns the number of splits.</p></li>
+</ul>
+<p><strong>WAS_Cross_Validator</strong></p>
+<p>A wrapper class that uses the custom splitter to perform cross-validation with various models.</p>
+<p><strong>Initialization</strong></p>
+<ul class="simple">
+<li><p><cite>n_splits</cite>: Number of splits for cross-validation.</p></li>
+<li><p><cite>nb_omit</cite>: Number of samples to omit from training after the test index.</p></li>
+</ul>
+<p><strong>Methods</strong></p>
+<ul class="simple">
+<li><p><cite>get_model_params</cite>: Retrieves parameters for the model’s <cite>compute_model</cite> method.</p></li>
+<li><p><cite>cross_validate</cite>: Performs cross-validation and computes deterministic hindcast and tercile probabilities.</p></li>
+</ul>
+<p><strong>Example Usage</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s.was_cross_validate</span> <span class="kn">import</span> <span class="n">WAS_Cross_Validator</span>
+
+<span class="c1"># Initialize the cross-validator</span>
+<span class="n">cv</span> <span class="o">=</span> <span class="n">WAS_Cross_Validator</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">nb_omit</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A better example will be provided in the next sections.</p>
+<section id="estimating-prediction-uncertainty">
+<h2>Estimating Prediction Uncertainty<a class="headerlink" href="#estimating-prediction-uncertainty" title="Link to this heading"></a></h2>
+<p>The cross-validation makes out-of-sample predictions for each fold’s prediction period, and errors are calculated by comparing predictions to actual values. These errors are collected across all folds.
+Running the statistical models—e.g. multiple linear regression—yields the most likely value of the predictand (best-guess) for the coming season.
+Because seasonal outlooks are inherently probabilistic, we must go beyond this single best-guess and quantify the likelihood of other possible outcomes.
+wass2s does so by analysing the cross-validation errors described earlier. The method explicitly takes the statistical distribution of the predictand into account.
+If, for instance, the predictand is approximately Gaussian, we assume the predicted values follow a normal distribution whose mean is the single best-guess and whose variance equals the cross-validated error variance.
+Comparing that forecast probability-density function with the climatological density (see the example in Figure 2) lets us integrate the areas that fall below-normal (values below the 1st tercile), near-normal (values between the 1st and 3rd terciles), and above-normal (values above the 3rd tercile).
+These integrals are the tercile probabilities ultimately delivered to users.</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="_images/generation_proba.png"><img alt="Generation of probabilistic forecasts" src="_images/generation_proba.png" style="width: 439.59999999999997px; height: 322.7px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 2: Generation of probabilistic forecasts</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Classification-based statistical models—such as logistic regression,
+extended logistic regression and support vector classification—do <strong>not</strong>
+generate continuous probabilistic forecasts over a full distribution of outcomes as indicated above.
+Instead, they classify the predictand into discrete categories based on
+climatological terciles (below-normal, near-normal, above-normal) and
+estimate the probability associated with each class.</p>
+</div>
+</section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="cv.html" class="btn btn-neutral float-left" title="Quantifying uncertainty via cross-validation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="Forecast.html" class="btn btn-neutral float-right" title="Forecast" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Preprocessing.html" class="btn btn-neutral float-left" title="Preprocessing Modules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Verification.html" class="btn btn-neutral float-right" title="Verification Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -22,11 +22,10 @@ or download the zip file:
    :maxdepth: 1
    
    Download
-   Processing
-   cv
+   Preprocessing
    Models
-   Forecast
    Verification
    mme
+   ImplementWASNextGen
    
 

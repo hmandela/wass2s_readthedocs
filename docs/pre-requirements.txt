@@ -101,3 +101,4 @@ xyzservices==2024.6.0
 zict==3.0.0
 zipp==3.19.2
 zstandard==0.22.0
+optuna

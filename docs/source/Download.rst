@@ -1,273 +1,191 @@
+==========================================
+Data Download & Management
+==========================================
+**Section under Construction**
+The ``WAS_Download`` module provides a unified interface to retrieve climate data required for seasonal forecasting. It handles authentication (CDS API), protocol management (HTTP/FTP), file format conversion (TIFF/GRIB to NetCDF), and spatiotemporal standardization.
+
+Three types of data can be downloaded:
+1.  **GCM Data**: Seasonal forecasts (Hindcasts and Real-time).
+2.  **Reanalysis**: Historical baselines (ERA5, ERSST).
+3.  **Observations**: Satellite-based products (CHIRPS, TAMSAT, AgERA5).
+
+**Prerequisites**:
+For C3S data (ECMWF, UKMO, Météo-France, etc.), you must have a `.cdsapirc` file configured in your home directory. See `CDS API How-to <https://cds.climate.copernicus.eu/api-how-to>`_.
+
+-------------------------------------------------------------------------------
+
+1. Seasonal GCM Forecasts
+=========================
+
+This section handles data from the Copernicus Climate Change Service (C3S) and the North American Multi-Model Ensemble (NMME).
+
+Monthly GCM Data
 ----------------
-Download module
-----------------
 
-Three types of data can be downloaded with wass2s:
+**Method**: ``WAS_Download_Models``
 
-- GCM data on seasonal time scales
-- Reanalysis data
-- Observational data (satellite data, products combining satellite and observational data)
+Downloads monthly mean hindcasts or forecasts. It automatically handles the differences between C3S (NetCDF via API) and NMME (NetCDF/CPT via FTP).
 
-For some data, for instance `C3S <https://cds.climate.copernicus.eu/>`_, it requires creating an account, accepting the terms of use, and configuring an API key (`CDS API key <https://hmandela.github.io/WAS_S2S_Training/s2s_data.html>`_). 
-Please refer also to the `CDS documentation <https://cds.climate.copernicus.eu/api-how-to>`_ for more instructions on how to set up the API key. 
-For more information on C3S seasonal data, browse the `MetaData <https://confluence.ecmwf.int/display/CKB/Description+of+the+C3S+seasonal+multi-system>`_.
+**Parameters**:
 
-==============================================
-Download GCM data
-==============================================
+* ``dir_to_save`` (str): Target directory.
+* ``center_variable`` (list): Format ``"CENTER_SYSTEM.VAR"``.
+    * *Centers*: ECMWF_51, UKMO_604, METEOFRANCE_8, NCEP_2, CMCC_35, DWD_21, JMA_3, ECCC_4.
+    * *NMME*: CFSV2_1, CMC1_1, CMC2_1, GFDL_1, NASA_1, NCAR_CCSM4_1.
+    * *Variables*: PRCP, TEMP, TMAX, TMIN, SST, SLP, UGRD10, VGRD10.
+* ``month_of_initialization`` (int): 1-12.
+* ``lead_time`` (list): List of lead months (e.g., ``['01', '02', '03']``).
+* ``year_forecast`` (int, optional): If provided, downloads real-time forecast. If None, downloads hindcasts.
 
-The ``WAS_Download_Models`` method allows downloading seasonal forecast model data from various centers for specified variables, initialization months, lead times, and years.
 
-**Parameters:**
-
-- ``dir_to_save`` (str): Directory to save the downloaded files.
-- ``center_variable`` (list): List of center-variable identifiers, e.g., ["ECMWF_51.PRCP", "UKMO_604.TEMP"].
-- ``month_of_initialization`` (int): Initialization month as an integer (1-12).
-- ``lead_time`` (list): List of lead times in months.
-- ``year_start_hindcast`` (int): Start year for hindcast data.
-- ``year_end_hindcast`` (int): End year for hindcast data.
-- ``area`` (list): Bounding box as [North, West, South, East] for clipping.
-- ``year_forecast`` (int, optional): Forecast year if downloading forecast data. Defaults to None.
-- ``ensemble_mean`` (str, optional): Can be "median", "mean", or None. Defaults to None.
-- ``force_download`` (bool): If True, forces download even if file exists.
-
-**Available centers and variables:**
-
-- **Centers:** BOM_2, ECMWF_51, UKMO_604, UKMO_603, METEOFRANCE_8, METEOFRANCE_9, DWD_21, DWD_22, CMCC_35, NCEP_2, JMA_3, ECCC_4, ECCC_5, CFSV2_1, CMC1_1, CMC2_1, GFDL_1, NASA_1, NCAR_CCSM4_1, NMME_1
-- **Variables:** PRCP, TEMP, TMAX, TMIN, UGRD10, VGRD10, SST, SLP, DSWR, DLWR, HUSS_1000, HUSS_925, HUSS_850, UGRD_1000, UGRD_925, UGRD_850, VGRD_1000, VGRD_925, VGRD_850
-
-**Note:** Some models are part of the NMME (North American Multi-Model Ensemble) project. For more information, see the `NMME documentation <https://www.cpc.ncep.noaa.gov/products/NMME/>`_. 
-If ``year_forecast`` is not specified, hindcast data is downloaded; otherwise, forecast data for the specified year is retrieved.
-
-**Example:**
 
 .. code-block:: python
 
-    from wass2s import *
+    from wass2s import WAS_Download
 
     downloader = WAS_Download()
 
+    # Download Hindcasts (1993-2016) for ECMWF and NCEP Precipitation
     downloader.WAS_Download_Models(
-        dir_to_save="/path/to/save",
-        center_variable=["ECMWF_51.PRCP"],
-        month_of_initialization="03",
-        lead_time=["01", "02", "03"],
+        dir_to_save="./data/GCM",
+        center_variable=["ECMWF_51.PRCP", "NCEP_2.PRCP"],
+        month_of_initialization=5,  # May starts
+        lead_time=["01", "02", "03"], # Jun, Jul, Aug
         year_start_hindcast=1993,
         year_end_hindcast=2016,
-        area=[60, -180, -60, 180],
-        force_download=False
+        area=[20, -20, 0, 10]  # [N, W, S, E]
     )
 
-==============================================
-Download daily GCM data
-==============================================
+Daily GCM Data
+--------------
 
-The ``WAS_Download_Models_Daily`` method allows downloading daily or sub-daily seasonal forecast model data from various centers for specified variables, initialization dates, lead times, and years.
+**Method**: ``WAS_Download_Models_Daily``
 
-**Parameters:**
+Downloads daily or sub-daily data (e.g., for heatwave or dry spell analysis). Note that daily data is voluminous.
 
-- ``dir_to_save`` (str): Directory to save the downloaded files.
-- ``center_variable`` (list): List of center-variable identifiers, e.g., ["ECMWF_51.PRCP", "UKMO_604.TEMP"].
-- ``month_of_initialization`` (int): Initialization month as an integer (1-12).
-- ``day_of_initialization`` (int): Initialization day as an integer (1-31).
-- ``leadtime_hour`` (list): List of lead times in hours, e.g., ["24", "48", ..., "5160"].
-- ``year_start_hindcast`` (int): Start year for hindcast data.
-- ``year_end_hindcast`` (int): End year for hindcast data.
-- ``area`` (list): Bounding box as [North, West, South, East] for clipping.
-- ``year_forecast`` (int, optional): Forecast year if downloading forecast data. Defaults to None.
-- ``ensemble_mean`` (str, optional): Can be "mean", "median", or None. Defaults to None.
-- ``force_download`` (bool): If True, forces download even if file exists.
-
-**Available centers and variables:**
-
-- **Centers:** ECMWF_51, UKMO_604, UKMO_603, METEOFRANCE_8, DWD_21, DWD_22, CMCC_35, NCEP_2, JMA_3, ECCC_4, ECCC_5
-- **Variables:** PRCP, TEMP, TMAX, TMIN, UGRD10, VGRD10, SST, SLP, DSWR, DLWR, HUSS_1000, HUSS_925, HUSS_850, UGRD_1000, UGRD_925, UGRD_850, VGRD_1000, VGRD_925, VGRD_850
-
-**Example:**
+**Parameters**:
+Adds ``day_of_initialization`` and uses ``leadtime_hour`` (e.g., "24", "48"...) instead of months.
 
 .. code-block:: python
 
-    from wass2s import *
-
-    downloader = WAS_Download()
+    # Download Daily Forecast for specific initialization
     downloader.WAS_Download_Models_Daily(
-        dir_to_save="/path/to/save",
-        center_variable=["ECMWF_51.PRCP"],
-        month_of_initialization="01",
-        day_of_initialization="01",
-        leadtime_hour=["24", "48", "72"],
-        year_start_hindcast=1993,
-        year_end_hindcast=2016,
-        area=[60, -180, -60, 180],
-        force_download=False
+        dir_to_save="./data/GCM_Daily",
+        center_variable=["ECMWF_51.TMAX"],
+        month_of_initialization=5,
+        day_of_initialization=1,
+        leadtime_hour=["24", "48", "72", "96"], # First 4 days
+        year_start_hindcast=2000,
+        year_end_hindcast=2020,
+        area=[20, -20, 0, 10]
     )
 
-==============================================
-Download reanalysis data
-==============================================
+-------------------------------------------------------------------------------
 
-The ``WAS_Download_Reanalysis`` method downloads reanalysis data for specified center-variable combinations, years, and months, handling cross-year seasons.
+2. Reanalysis Data
+==================
 
-**Parameters:**
+Used for model calibration and verification. Supports ERA5 (Atmosphere), ERA5-Land (Surface), and NOAA ERSST (Ocean).
 
-- ``dir_to_save`` (str): Directory to save the downloaded files.
-- ``center_variable`` (list): List of center-variable identifiers, e.g., ["ERA5.PRCP", "MERRA2.TEMP"].
-- ``year_start`` (int): Start year for the data to download.
-- ``year_end`` (int): End year for the data to download.
-- ``area`` (list): Bounding box as [North, West, South, East] for clipping.
-- ``seas`` (list): List of month strings representing the season, e.g., ["11", "12", "01"] for NDJ.
-- ``force_download`` (bool): If True, forces download even if file exists.
-- ``run_avg`` (int): Number of months for running average (default=3).
+ERA5 & ERSST
+------------
 
-**Available centers and variables:**
+**Method**: ``WAS_Download_Reanalysis``
 
-- **Centers:** ERA5, MERRA2, NOAA (for SST)
-- **Variables:** PRCP, TEMP, TMAX, TMIN, UGRD10, VGRD10, SST, SLP, DSWR, DLWR, HUSS_1000, HUSS_925, HUSS_850, UGRD_1000, UGRD_925, UGRD_850, VGRD_1000, VGRD_925, VGRD_850
+Downloads monthly means. It handles cross-year seasons (e.g., DJF) by downloading appropriate months from adjacent years and aggregating them.
 
-**Example:**
+* **ERA5**: Downloads from CDS.
+* **NOAA ERSST**: Downloads V5/V6 from NCEI/IRIDL.
+
+**Usage Example**:
 
 .. code-block:: python
 
-    from wass2s import *
-
-    downloader = WAS_Download()
+    # Download SST for Nino 3.4 calculation
     downloader.WAS_Download_Reanalysis(
-        dir_to_save="/path/to/save",
-        center_variable=["ERA5.PRCP"],
-        year_start=1993,
-        year_end=2016,
-        area=[60, -180, -60, 180],
-        seas=["11", "12", "01"],
+        dir_to_save="./data/Reanalysis",
+        center_variable=["NOAA.SST"],
+        year_start=1981,
+        year_end=2020,
+        area=[5, -170, -5, -120], # Pacific box
+        seas=["11", "12", "01"],  # NDJ Season
         force_download=False
     )
 
+ERA5-Land
+---------
 
-==============================================
-Download observational data
-==============================================
+**Method**: ``WAS_Download_ERA5Land`` & ``WAS_Download_ERA5Land_daily``
 
-Observational data includes agro-meteorological indicators and satellite-based precipitation data like CHIRPS.
-
-Agro-meteorological indicators
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The ``WAS_Download_AgroIndicators`` method downloads agro-meteorological indicators for specified variables, years, and months, handling cross-year seasons.
-
-**Parameters:**
-
-- ``dir_to_save`` (str): Directory to save the downloaded files.
-- ``variables`` (list): List of shorthand variables, e.g., ["AGRO.PRCP", "AGRO.TMAX"].
-- ``year_start`` (int): Start year for the data to download.
-- ``year_end`` (int): End year for the data to download.
-- ``area`` (list): Bounding box as [North, West, South, East] for clipping.
-- ``seas`` (list): List of month strings representing the season, e.g., ["11", "12", "01"] for NDJ.
-- ``force_download`` (bool): If True, forces download even if file exists.
-
-**Available variables:**
-
-- AGRO.PRCP: precipitation_flux
-- AGRO.TMAX: 2m_temperature (24_hour_maximum)
-- AGRO.TEMP: 2m_temperature (24_hour_mean)
-- AGRO.TMIN: 2m_temperature (24_hour_minimum)
-
-**Example:**
+Higher resolution (9km) land data, ideal for hydrological applications (Runoff, Soil Moisture).
 
 .. code-block:: python
 
-    from wass2s import *
-
-    downloader = WAS_Download()
-    downloader.WAS_Download_AgroIndicators(
-        dir_to_save="/path/to/save",
-        variables=["AGRO.PRCP"],
-        year_start=1993,
-        year_end=2016,
-        area=[60, -180, -60, 180],
-        seas=["11", "12", "01"],
-        force_download=False
+    # Download monthly ERA5-Land Soil Moisture
+    downloader.WAS_Download_ERA5Land(
+        dir_to_save="./data/Reanalysis",
+        center_variable=["ERA5Land.SOILWATER1"],
+        year_start=1981,
+        year_end=2020,
+        area=[15, -18, 4, 10], # West Africa
+        seas=["06", "07", "08"] # JJA
     )
 
-Download daily agro-meteorological indicators
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The ``WAS_Download_AgroIndicators_daily`` method downloads daily agro-meteorological indicators for specified variables and years.
+-------------------------------------------------------------------------------
 
-**Parameters:**
+3. Observational Data (Satellite)
+=================================
 
-- ``dir_to_save`` (str): Directory to save the downloaded files.
-- ``variables`` (list): List of shorthand variables, e.g., ["AGRO.PRCP", "AGRO.TMAX"].
-- ``year_start`` (int): Start year for the data to download.
-- ``year_end`` (int): End year for the data to download.
-- ``area`` (list): Bounding box as [North, West, South, East] for clipping.
-- ``force_download`` (bool): If True, forces download even if file exists.
+High-resolution gridded observations for calibration and verification.
 
-**Available variables:**
+Agro-Climatic Indicators (AgERA5)
+---------------------------------
 
-- AGRO.PRCP: precipitation_flux
-- AGRO.TMAX: 2m_temperature (24_hour_maximum)
-- AGRO.TEMP: 2m_temperature (24_hour_mean)
-- AGRO.TMIN: 2m_temperature (24_hour_minimum)
+**Method**: ``WAS_Download_AgroIndicators``
 
-**Example:**
+Derived from ERA5, corrected against stations. Good for temperature and general indices.
 
-.. code-block:: python
+* **Variables**: ``AGRO.PRCP``, ``AGRO.TMAX``, ``AGRO.TMIN``, ``AGRO.DSWR`` (Solar Radiation), ``AGRO.ETP`` (Evapotranspiration).
 
-    from wass2s import *
+CHIRPS Precipitation
+--------------------
 
-    downloader = WAS_Download()
-    downloader.WAS_Download_AgroIndicators_daily(
-        dir_to_save="/path/to/save",
-        variables=["AGRO.PRCP"],
-        year_start=1993,
-        year_end=2016,
-        area=[60, -180, -60, 180],
-        force_download=False
-    )
+**Method**: ``WAS_Download_CHIRPSv3_Seasonal`` & ``_Daily``
 
-CHIRPS precipitation data
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-The ``WAS_Download_CHIRPSv3`` method downloads CHIRPS v3.0 monthly precipitation data for a specified cross-year season.
+Downloads high-resolution (0.05°) precipitation data from the Climate Hazards Group.
+* Fetches TIFF files from UCSB servers.
+* Merges, reprojects, and saves as NetCDF.
 
-**Parameters:**
 
-- ``dir_to_save`` (str): Directory to save the downloaded files.
-- ``variables`` (list): List of variables, typically ["PRCP"].
-- ``year_start`` (int): Start year for the data to download.
-- ``year_end`` (int): End year for the data to download.
-- ``area`` (list, optional): Bounding box as [North, West, South, East] for clipping.
-- ``season_months`` (list): List of month strings representing the season, e.g., ["03", "04", "05"] for MAM.
-- ``force_download`` (bool): If True, forces download even if file exists.
-
-**Note:** CHIRPS data is available for land areas between 50°S and 50°N.
-
-**Example:**
 
 .. code-block:: python
 
-    from wass2s import *
-
-    downloader = WAS_Download()
-    downloader.WAS_Download_CHIRPSv3(
-        dir_to_save="/path/to/save",
+    # Download Seasonal (aggregated) CHIRPS
+    downloader.WAS_Download_CHIRPSv3_Seasonal(
+        dir_to_save="./data/Obs",
         variables=["PRCP"],
-        year_start=1993,
-        year_end=2016,
-        area=[15, -20, -5, 20],  # Example for Africa
-        season_months=["03", "04", "05"],
-        force_download=False
+        year_start=1981,
+        year_end=2020,
+        region="africa",
+        season_months=["06", "07", "08", "09"], # JJAS
+        area=[20, -20, 0, 15]
     )
 
+TAMSAT Precipitation
+--------------------
 
+**Method**: ``WAS_Download_TAMSAT_Seasonal`` & ``_Daily``
 
+Downloads rainfall estimates (RFE) or Soil Moisture from the University of Reading (TAMSAT).
+* **Product**: ``rfe`` (Rainfall) or ``soil_moisture``.
 
+.. code-block:: python
 
-
-
-
-
-
-
-
-
-
-
-
-
+    # Download Daily TAMSAT Rainfall
+    downloader.WAS_Download_TAMSAT_Daily(
+        dir_to_save="./data/Obs",
+        product="rfe",
+        year_start=2023,
+        year_end=2023,
+        area=[20, -20, 0, 15]
+    )
