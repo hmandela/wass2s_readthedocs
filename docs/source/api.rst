@@ -13,6 +13,7 @@ wass2s.was\_transformdata module
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. automodule:: wass2s.was_transformdata
+   :no-index:
    :members:
    :show-inheritance:
    :undoc-members:

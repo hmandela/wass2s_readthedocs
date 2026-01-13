@@ -12,7 +12,7 @@ sys.path.insert(0, os.path.abspath('/home/user/Documents/AICCRA_AGRHYMET_2024/My
 project = 'wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel.'
 copyright = '2025, Mandela C. M. HOUNGNIBO'
 author = 'Mandela C. M. HOUNGNIBO'
-release = '0.1.1'
+release = '0.3.4'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

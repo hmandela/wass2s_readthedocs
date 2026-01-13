@@ -6,14 +6,14 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Models and Cross-Validation &mdash; wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel. 0.1.1 documentation</title>
+  <title>Models and Cross-Validation &mdash; wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel. 0.3.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=a58bc63e"></script>
+      <script src="_static/documentation_options.js?v=1e28cc32"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -46,7 +46,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="Usage.html">Usage</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Download.html">Download module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Download.html">Data Download &amp; Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Preprocessing.html">Preprocessing Modules</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Models and Cross-Validation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#linear-regression-and-regularization-models">Linear regression and regularization Models</a><ul>
@@ -80,14 +80,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="Verification.html">Verification Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mme.html">Multi-Model Ensemble (MME) Techniques</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mme.html#performance-weighted-mme">Performance Weighted MME</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mme.html#min-et-al-2009-probabilistic-mme">Min et al. (2009) Probabilistic MME</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mme.html#stacking-super-ensemble">Stacking (Super-Ensemble)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mme.html#individual-ml-regressors">Individual ML Regressors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mme.html#non-homogeneous-gaussian-regression-ngr">Non-homogeneous Gaussian Regression (NGR)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mme.html#bayesian-model-averaging-bma">Bayesian Model Averaging (BMA)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mme.html#extended-logistic-regression-elr">Extended Logistic Regression (ELR)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mme.html#mean-and-variance-adjustment-mva">Mean and Variance Adjustment (MVA)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ImplementWASNextGen.html">Implementation of WAS-NextGen Approaches</a></li>
 </ul>
 </li>
@@ -714,6 +706,93 @@ Models are evaluated using cross-validation schemes.</p>
 <li><p><cite>compute_prob</cite>: Computes tercile probabilities for the predictions.</p></li>
 </ul>
 <p><strong>Example Usage: Recalibrating Seasonal Forecast Outputs from Global Climate Models (GCMs)</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># Filter model names to identify precipitation-related models</span>
+<span class="n">center_variable</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ECMWF_51.PRCP&quot;</span><span class="p">]</span>
+
+<span class="c1"># Specify the directory to save downloaded model data</span>
+<span class="n">dir_to_save_model</span> <span class="o">=</span> <span class="s2">&quot;/path/to/save&quot;</span>
+
+<span class="c1"># Define the month for model initialization (March)</span>
+<span class="n">month_of_initialization</span> <span class="o">=</span> <span class="s2">&quot;03&quot;</span>
+
+<span class="c1"># Define lead times corresponding to seasonal forecast targets (MJJ season in this case)</span>
+<span class="n">lead_time</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;02&quot;</span><span class="p">,</span> <span class="s2">&quot;03&quot;</span><span class="p">,</span> <span class="s2">&quot;04&quot;</span><span class="p">]</span>
+
+<span class="c1"># Define the hindcast period for model data (years 1993 to 2016)</span>
+<span class="n">year_start_model</span> <span class="o">=</span> <span class="mi">1993</span>
+<span class="n">year_end_model</span> <span class="o">=</span> <span class="mi">2016</span>
+
+<span class="c1"># Set the bounding box for the area of interest (latitude and longitude bounds)</span>
+<span class="n">extent</span> <span class="o">=</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mi">25</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>  <span class="c1"># [Northern, Western, Southern and Eastern]</span>
+
+<span class="c1"># Define if you want to download forecast or hindcast</span>
+<span class="n">year_forecast</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="c1"># Define if you want all members of ensemble or doing an ensemble mean</span>
+<span class="n">ensemble_mean</span> <span class="o">=</span> <span class="s2">&quot;mean&quot;</span>
+
+<span class="c1"># Specify whether to overwrite existing files when downloading data</span>
+<span class="n">force_download</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="c1"># Define the climatology year range</span>
+<span class="n">clim_year_start</span> <span class="o">=</span> <span class="mi">1993</span>
+<span class="n">clim_year_end</span> <span class="o">=</span> <span class="mi">2016</span>
+
+
+<span class="c1"># Download the GCM data</span>
+<span class="n">downloader</span> <span class="o">=</span> <span class="n">WAS_Download</span><span class="p">()</span>
+<span class="c1"># Download hindcast data</span>
+<span class="n">downloader</span><span class="o">.</span><span class="n">WAS_Download_Models</span><span class="p">(</span>
+    <span class="n">dir_to_save</span><span class="o">=</span><span class="n">dir_to_save_model</span><span class="p">,</span>
+    <span class="n">center_variable</span><span class="o">=</span><span class="n">center_variable</span><span class="p">,</span>
+    <span class="n">month_of_initialization</span><span class="o">=</span><span class="n">month_of_initialization</span><span class="p">,</span>
+    <span class="n">lead_time</span><span class="o">=</span><span class="n">lead_time</span><span class="p">,</span>
+    <span class="n">year_start_hindcast</span><span class="o">=</span><span class="n">year_start_model</span><span class="p">,</span>
+    <span class="n">year_end_hindcast</span><span class="o">=</span><span class="n">year_end_model</span><span class="p">,</span>
+    <span class="n">extent</span><span class="o">=</span><span class="n">extent</span><span class="p">,</span>
+    <span class="n">year_forecast</span><span class="o">=</span><span class="n">year_forecast</span><span class="p">,</span>
+    <span class="n">ensemble_mean</span><span class="o">=</span><span class="n">ensemble_mean</span><span class="p">,</span>
+    <span class="n">force_download</span><span class="o">=</span><span class="n">force_download</span>
+<span class="p">)</span>
+<span class="n">year_forecast</span> <span class="o">=</span> <span class="mi">2024</span>
+<span class="c1"># Download forecast data</span>
+<span class="n">downloader</span><span class="o">.</span><span class="n">WAS_Download_Models</span><span class="p">(</span>
+    <span class="n">dir_to_save</span><span class="o">=</span><span class="n">dir_to_save_model</span><span class="p">,</span>
+    <span class="n">center_variable</span><span class="o">=</span><span class="n">center_variable</span><span class="p">,</span>
+    <span class="n">month_of_initialization</span><span class="o">=</span><span class="n">month_of_initialization</span><span class="p">,</span>
+    <span class="n">lead_time</span><span class="o">=</span><span class="n">lead_time</span><span class="p">,</span>
+    <span class="n">year_start_forecast</span><span class="o">=</span><span class="n">year_start_model</span><span class="p">,</span>
+    <span class="n">year_end_forecast</span><span class="o">=</span><span class="n">year_end_model</span><span class="p">,</span>
+    <span class="n">extent</span><span class="o">=</span><span class="n">extent</span><span class="p">,</span>
+    <span class="n">year_forecast</span><span class="o">=</span><span class="n">year_forecast</span><span class="p">,</span>
+    <span class="n">ensemble_mean</span><span class="o">=</span><span class="n">ensemble_mean</span><span class="p">,</span>
+    <span class="n">force_download</span><span class="o">=</span><span class="n">force_download</span>
+<span class="p">)</span>
+
+<span class="c1"># Initialize CCA model</span>
+<span class="n">was_cca</span> <span class="o">=</span> <span class="n">WAS_CCA</span><span class="p">(</span><span class="n">n_modes</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">n_pca_modes</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">dist_method</span><span class="o">=</span><span class="s2">&quot;lognormal&quot;</span><span class="p">)</span>
+
+<span class="c1"># Define zone as dict : {&#39;zone_name_key&#39;: (&#39;Explicit_Zone_name&#39;, lon_min, lon_max, lat_min, lat_max)}</span>
+<span class="n">defined_zone</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="o">-</span><span class="mi">45</span><span class="p">,</span> <span class="mi">45</span><span class="p">)}</span>
+<span class="c1"># Plot the zone</span>
+<span class="n">plot_map</span><span class="p">([</span><span class="n">extent</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">extent</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="n">extent</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">extent</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">sst_indices</span> <span class="o">=</span> <span class="n">defined_zone</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Predictors Area&quot;</span><span class="p">,</span><span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="c1"># Retrieve predictor data for the defined zone</span>
+<span class="n">center_variable_model</span> <span class="o">=</span> <span class="s2">&quot;ECMWF_51.PRCP&quot;</span>
+<span class="n">predictors</span> <span class="o">=</span> <span class="n">retrieve_single_zone_for_PCR</span><span class="p">(</span><span class="n">dir_to_save_model</span><span class="p">,</span> <span class="n">defined_zone</span><span class="p">,</span> <span class="n">center_variable_model</span><span class="p">,</span> <span class="n">year_start</span><span class="p">,</span> <span class="n">year_end</span><span class="p">,</span> <span class="n">clim_year_start</span><span class="p">,</span> <span class="n">clim_year_end</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">month_of_initialization</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">lead_time</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">predictor</span> <span class="o">=</span> <span class="n">predictors</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">predictor</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">predictand</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">year_start_model</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">year_end_model</span><span class="p">)))[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span>
+<span class="c1"># Plot the CCA modes and scores</span>
+<span class="n">was_cca</span><span class="o">.</span><span class="n">plot_cca_results</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">predictor</span><span class="p">,</span> <span class="n">Y</span><span class="o">=</span><span class="n">predictand</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">year_start_model</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">year_end_model</span><span class="p">))),</span> <span class="n">clim_year_start</span><span class="o">=</span><span class="n">clim_year_start</span><span class="p">,</span> <span class="n">clim_year_end</span><span class="o">=</span><span class="n">clim_year_end</span><span class="p">)</span>
+
+<span class="c1"># Perform cross-validation for each model</span>
+<span class="n">was_cv</span> <span class="o">=</span> <span class="n">WAS_Cross_Validator</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">predictand</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">year_start_model</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">year_end_model</span><span class="p">)))</span><span class="o">.</span><span class="n">get_index</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)),</span> <span class="n">nb_omit</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">hindcast_det_cca</span><span class="p">,</span> <span class="n">hindcast_prob_cca</span> <span class="o">=</span> <span class="n">was_cv</span><span class="o">.</span><span class="n">cross_validate</span><span class="p">(</span><span class="n">was_cca</span><span class="p">,</span> <span class="n">predictand</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">year_start_model</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">year_end_model</span><span class="p">))),</span> <span class="n">predictor</span><span class="p">,</span> <span class="n">clim_year_start</span><span class="p">,</span> <span class="n">clim_year_end</span><span class="p">)</span>
+<span class="n">forecast_det_cca</span><span class="p">,</span> <span class="n">forecast_prob_cca</span> <span class="o">=</span> <span class="n">was_cca</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="n">predictand</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">year_start_model</span><span class="p">),</span><span class="nb">str</span><span class="p">(</span><span class="n">year_end_model</span><span class="p">))),</span> <span class="n">clim_year_start</span><span class="p">,</span> <span class="n">clim_year_end</span><span class="p">,</span> <span class="n">predictor</span><span class="p">,</span> <span class="n">hindcast_det_cca</span><span class="p">,</span> <span class="n">predictor</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 <section id="analog-forecasting-methods">
 <h2>Analog Forecasting Methods<a class="headerlink" href="#analog-forecasting-methods" title="Link to this heading"></a></h2>
@@ -831,9 +910,9 @@ Models are evaluated using cross-validation schemes.</p>
 <p><span class="caption-text">Cross-validation scheme used in wass2s</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>The figure shows how we split our data (1981–2010) to validate the model. Each row is a “fold” or a test run.</p>
+<p>The figure shows how we split our data (1981-2010) to validate the model. Each row is a “fold” or a test run.</p>
 <ul class="simple">
-<li><p><strong>Pink (Training)</strong>: Years we use to train the model. For example, in the first row, we train on 1986–2010.</p></li>
+<li><p><strong>Pink (Training)</strong>: Years we use to train the model. For example, in the first row, we train on 1986-2010.</p></li>
 <li><p><strong>Yellow (Omit)</strong>: A buffer years we skip to avoid cheating. Climate data has patterns over time, so we don’t want to train on a years right after/before the one we’re predicting, which would make the model look better than it really is. In this case we’ve omitted four years (in the first row, we skip 1982-1985).</p></li>
 <li><p><strong>White (Predict)</strong>: The year we predict. In the first row, we predict 1981.</p></li>
 </ul>

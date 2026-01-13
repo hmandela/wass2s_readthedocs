@@ -1,5 +1,5 @@
 Installation
-============
+=============
 
 1. Create an environment and activate it
 

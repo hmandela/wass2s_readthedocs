@@ -406,9 +406,9 @@ All classes (except MARS/Poisson) allow selecting the optimization strategy via 
 
 The ``BaseOptimizer`` class handles the logic, ensuring compatibility with Scikit-Learn pipelines and custom regressors.
 
-==========================================
+==============================================
 EOF Analysis & Principal Component Regression
-==========================================
+==============================================
 
 This module provides tools for dimensionality reduction using Empirical Orthogonal Functions (EOFs) and integrates them into a Principal Component Regression (PCR) framework. This is standard practice in climate prediction to handle high-dimensional predictor fields (e.g., global SSTs).
 
@@ -690,6 +690,7 @@ The `was_cca.py` module provides classes for Canonical Correlation Analysis (CCA
 **Example Usage: Recalibrating Seasonal Forecast Outputs from Global Climate Models (GCMs)**
 
 .. code-block:: python
+    
     from wass2s import *
 
     # Filter model names to identify precipitation-related models
@@ -902,10 +903,10 @@ Cross-validation schemes are used to assess model performance and to quantify un
 
    Cross-validation scheme used in wass2s
 
-The figure shows how we split our data (1981–2010) to validate the model. Each row is a "fold" or a test run.
+The figure shows how we split our data (1981-2010) to validate the model. Each row is a "fold" or a test run.
 
-- **Pink (Training)**: Years we use to train the model. For example, in the first row, we train on 1986–2010.
-- **Yellow (Omit)**: A buffer years we skip to avoid cheating. Climate data has patterns over time, so we don’t want to train on a years right after/before the one we’re predicting, which would make the model look better than it really is. In this case we've omitted four years (in the first row, we skip 1982-1985).
+- **Pink (Training)**: Years we use to train the model. For example, in the first row, we train on 1986-2010.
+- **Yellow (Omit)**: A buffer years we skip to avoid cheating. Climate data has patterns over time, so we don't want to train on a years right after/before the one we're predicting, which would make the model look better than it really is. In this case we've omitted four years (in the first row, we skip 1982-1985).
 - **White (Predict)**: The year we predict. In the first row, we predict 1981.
 
 
@@ -951,7 +952,7 @@ A better example will be provided in the next sections.
 Estimating Prediction Uncertainty
 ==============================================
 
-The cross-validation makes out-of-sample predictions for each fold’s prediction period, and errors are calculated by comparing predictions to actual values. These errors are collected across all folds.
+The cross-validation makes out-of-sample predictions for each fold's prediction period, and errors are calculated by comparing predictions to actual values. These errors are collected across all folds.
 Running the statistical models—e.g. multiple linear regression—yields the most likely value of the predictand (best-guess) for the coming season. 
 Because seasonal outlooks are inherently probabilistic, we must go beyond this single best-guess and quantify the likelihood of other possible outcomes. 
 wass2s does so by analysing the cross-validation errors described earlier. The method explicitly takes the statistical distribution of the predictand into account. 

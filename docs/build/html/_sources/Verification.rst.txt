@@ -1,6 +1,6 @@
--------------------
+--------------------
 Verification Module
--------------------
+--------------------
 **This section is under construction.**
 
 The Verification module provides tools for evaluating the performance of climate forecasts using a variety of deterministic, probabilistic, and ensemble-based metrics. It is implemented in the `was_verification.py` module and leverages the `WAS_Verification` class to compute metrics such as Kling-Gupta Efficiency (KGE), Pearson Correlation, Ranked Probability Skill Score (RPSS), and Continuous Ranked Probability Score (CRPS). The module also includes visualization utilities for plotting scores, reliability diagrams, and ROC curves.
@@ -188,6 +188,7 @@ The module provides utilities to validate forecasts for a specific year, includi
     verifier.compute_one_year_rpss(
         obs=obs_data, prob_pred=proba_forecast, clim_year_start=1981, clim_year_end=2010, year=2020
     )
+
 This documentation provides an overview of the Verification module's capabilities, along with example usage for key methods. 
 For detailed information on each method, refer to the source code and docstrings in API.
 

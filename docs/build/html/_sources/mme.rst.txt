@@ -61,7 +61,7 @@ Combines models using weights derived from a skill score (e.g., GROC, Pearson). 
    hcst_det, fcst_det = mme_weighted.compute(obs, hdcst, fcst, scores)
 
 3. Min et al. (2009) Probabilistic MME
-===================================
+============================================
 
 **Class**: ``WAS_Min2009_ProbWeighted``
 
@@ -145,12 +145,12 @@ Calibrates the ensemble mean and spread by minimizing the **CRPS** (Continuous R
 
 
 **Class**: ``WAS_mme_xcELR`` & ``WAS_mme_logistic``
-.
-* **xcELR**: Wraps `xcast` Extended Logistic Regression.
-* **WAS_mme_logistic**: Native implementation of Multinomial Logistic Regression to predict tercile probabilities directly.
-* **WAS_mme_Guassian_process: 
 
-* **Mean and Variance Adjustment (MVA)*
+* **WAS_mme_xcELR**: Wraps `xcast` Extended Logistic Regression.
+* **WAS_mme_logistic**: Native implementation of Multinomial Logistic Regression to predict tercile probabilities directly.
+* **WAS_mme_Guassian_process**: 
+
+* **Mean and Variance Adjustment (MVA)**
 
 
 **Class**: ``WAS_mme_MVA``

@@ -1,6 +1,6 @@
-------------------
+----------------------
 Preprocessing Modules
-------------------
+----------------------
 The Processing modules provide tools for computing various climate indices or predictands from daily data, such as onset and cessation of the rainy season, dry and wet spells, number of rainy days, extreme precipitation indices, and heat wave indices. Additionally, it offers methods for merging or adjusting gridded data with station observations to correct biases.
 
 These modules are divided into two main parts:
@@ -458,6 +458,7 @@ Usage Example
 This example demonstrates creating dummy data and running the ``regression_kriging`` method.
 
 .. code-block:: python
+    
   import pandas as pd
   import numpy as np
   import xarray as xr
