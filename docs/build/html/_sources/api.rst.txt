@@ -5,7 +5,6 @@ wass2s.was\_download module
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^                            
 
 .. automodule:: wass2s.was_download
-   :no-index:
    :members:
    :show-inheritance:
    :undoc-members:
@@ -14,7 +13,6 @@ wass2s.was\_transformdata module
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. automodule:: wass2s.was_transformdata
-   :no-index:
    :members:
    :show-inheritance:
    :undoc-members:
