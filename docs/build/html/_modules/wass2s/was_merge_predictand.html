@@ -1,0 +1,1179 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>wass2s.was_merge_predictand &mdash; wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel. 0.3.4 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=1e28cc32"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel.
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel.</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">wass2s.was_merge_predictand</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for wass2s.was_merge_predictand</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pykrige.ok</span><span class="w"> </span><span class="kn">import</span> <span class="n">OrdinaryKriging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">KFold</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">mean_squared_error</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.neural_network</span><span class="w"> </span><span class="kn">import</span> <span class="n">MLPRegressor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">GridSearchCV</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">wass2s.utils</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+
+
+<div class="viewcode-block" id="WAS_Merging">
+<a class="viewcode-back" href="../../api.html#wass2s.was_merge_predictand.WAS_Merging">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">WAS_Merging</span><span class="p">:</span>
+<div class="viewcode-block" id="WAS_Merging.__init__">
+<a class="viewcode-back" href="../../api.html#wass2s.was_merge_predictand.WAS_Merging.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+        <span class="n">da</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">,</span>
+        <span class="n">date_month_day</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;08-01&quot;</span>
+    <span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">da</span> <span class="o">=</span> <span class="n">da</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">date_month_day</span> <span class="o">=</span> <span class="n">date_month_day</span></div>
+
+
+<div class="viewcode-block" id="WAS_Merging.adjust_duplicates">
+<a class="viewcode-back" href="../../api.html#wass2s.was_merge_predictand.WAS_Merging.adjust_duplicates">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">adjust_duplicates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">series</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="n">increment</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.00001</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        If any values in the Series repeat, nudge them by a tiny increment</span>
+<span class="sd">        so that all are unique (to avoid indexing collisions).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">counts</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">val</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">[</span><span class="n">counts</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">duplicates</span> <span class="o">=</span> <span class="n">series</span><span class="p">[</span><span class="n">series</span> <span class="o">==</span> <span class="n">val</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">duplicates</span><span class="p">):</span>
+                <span class="n">series</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">+=</span> <span class="n">increment</span> <span class="o">*</span> <span class="n">i</span>
+        <span class="k">return</span> <span class="n">series</span></div>
+
+
+<div class="viewcode-block" id="WAS_Merging.transform_cpt">
+<a class="viewcode-back" href="../../api.html#wass2s.was_merge_predictand.WAS_Merging.transform_cpt">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">transform_cpt</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+        <span class="n">missing_value</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="mf">999.0</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
+
+        <span class="c1"># --- 1) Extract metadata: first 2 rows (LAT, LON) ---</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">df</span>
+            <span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+            <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;STATION&quot;</span><span class="p">)</span>  <span class="c1"># -&gt; index = [&quot;LAT&quot;, &quot;LON&quot;]</span>
+            <span class="o">.</span><span class="n">T</span>
+            <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>         <span class="c1"># station names in &#39;index&#39;</span>
+        <span class="p">)</span>
+        <span class="n">metadata</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;STATION&quot;</span><span class="p">,</span> <span class="s2">&quot;LAT&quot;</span><span class="p">,</span> <span class="s2">&quot;LON&quot;</span><span class="p">]</span>
+        
+        <span class="c1"># Adjust duplicates in LAT / LON</span>
+        <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;LAT&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adjust_duplicates</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;LAT&quot;</span><span class="p">])</span>
+        <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;LON&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adjust_duplicates</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;LON&quot;</span><span class="p">])</span>
+        
+        <span class="c1"># --- 2) Extract the data part: from row 2 downward ---</span>
+        <span class="n">data_part</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">data_part</span> <span class="o">=</span> <span class="n">data_part</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;STATION&quot;</span><span class="p">:</span> <span class="s2">&quot;YEAR&quot;</span><span class="p">})</span>
+        <span class="n">data_part</span><span class="p">[</span><span class="s2">&quot;YEAR&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_part</span><span class="p">[</span><span class="s2">&quot;YEAR&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        
+        <span class="c1"># --- 3) Convert wide -&gt; long ---</span>
+        <span class="n">long_data</span> <span class="o">=</span> <span class="n">data_part</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span>
+            <span class="n">id_vars</span><span class="o">=</span><span class="s2">&quot;YEAR&quot;</span><span class="p">,</span>
+            <span class="n">var_name</span><span class="o">=</span><span class="s2">&quot;STATION&quot;</span><span class="p">,</span>
+            <span class="n">value_name</span><span class="o">=</span><span class="s2">&quot;VALUE&quot;</span>
+        <span class="p">)</span>
+        
+        <span class="c1"># --- 4) Turn YEAR into a date (e.g. YYYY-08-01) ---</span>
+        <span class="n">long_data</span><span class="p">[</span><span class="s2">&quot;DATE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span>
+            <span class="n">long_data</span><span class="p">[</span><span class="s2">&quot;YEAR&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;-</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">date_month_day</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+        
+        <span class="c1"># --- 5) Merge with metadata on STATION to attach (LAT, LON) ---</span>
+        <span class="n">final_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">long_data</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;STATION&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># --- 6) Convert to xarray DataArray ---</span>
+        <span class="n">rainfall_data_array</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">final_df</span><span class="p">[[</span><span class="s2">&quot;DATE&quot;</span><span class="p">,</span> <span class="s2">&quot;LAT&quot;</span><span class="p">,</span> <span class="s2">&quot;LON&quot;</span><span class="p">,</span> <span class="s2">&quot;VALUE&quot;</span><span class="p">]]</span>
+            <span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;DATE&quot;</span><span class="p">,</span> <span class="s2">&quot;LAT&quot;</span><span class="p">,</span> <span class="s2">&quot;LON&quot;</span><span class="p">])</span>
+            <span class="o">.</span><span class="n">to_xarray</span><span class="p">()</span>
+            <span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s2">&quot;VALUE&quot;</span><span class="p">:</span> <span class="s2">&quot;Observation&quot;</span><span class="p">,</span> <span class="s2">&quot;LAT&quot;</span><span class="p">:</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;LON&quot;</span><span class="p">:</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="s2">&quot;DATE&quot;</span><span class="p">:</span> <span class="s2">&quot;T&quot;</span><span class="p">})</span>
+        <span class="p">)</span>
+        <span class="c1"># Optional: mask out missing_value</span>
+        <span class="k">if</span> <span class="n">missing_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">rainfall_data_array</span> <span class="o">=</span> <span class="n">rainfall_data_array</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">rainfall_data_array</span> <span class="o">!=</span> <span class="n">missing_value</span><span class="p">)</span>
+            
+        <span class="k">return</span> <span class="n">rainfall_data_array</span></div>
+
+
+<div class="viewcode-block" id="WAS_Merging.transform_cdt">
+<a class="viewcode-back" href="../../api.html#wass2s.was_merge_predictand.WAS_Merging.transform_cdt">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">transform_cdt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
+
+        <span class="c1"># --- 1) Extract metadata (first 3 rows: LON, LAT, ELEV) ---</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;ID&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="n">metadata</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;STATION&quot;</span><span class="p">,</span> <span class="s2">&quot;LON&quot;</span><span class="p">,</span> <span class="s2">&quot;LAT&quot;</span><span class="p">,</span> <span class="s2">&quot;ELEV&quot;</span><span class="p">]</span>
+        
+        <span class="c1"># Adjust duplicates</span>
+        <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;LON&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adjust_duplicates</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;LON&quot;</span><span class="p">])</span>
+        <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;LAT&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adjust_duplicates</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;LAT&quot;</span><span class="p">])</span>
+        <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;ELEV&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adjust_duplicates</span><span class="p">(</span><span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;ELEV&quot;</span><span class="p">])</span>
+        
+        <span class="c1"># --- 2) Extract actual data from row 3 onward, rename ID -&gt; DATE ---</span>
+        <span class="n">data_part</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;ID&quot;</span><span class="p">:</span> <span class="s2">&quot;DATE&quot;</span><span class="p">})</span>
+        
+        <span class="c1"># Melt to long form</span>
+        <span class="n">data_long</span> <span class="o">=</span> <span class="n">data_part</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;DATE&quot;</span><span class="p">],</span> <span class="n">var_name</span><span class="o">=</span><span class="s2">&quot;STATION&quot;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s2">&quot;VALUE&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># --- 3) Merge with metadata to attach (LON, LAT, ELEV) ---</span>
+        <span class="n">final_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">data_long</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;STATION&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Ensure &#39;DATE&#39; is a proper datetime (assuming &quot;YYYYmmdd&quot; format)</span>
+        <span class="n">final_df</span><span class="p">[</span><span class="s2">&quot;DATE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">final_df</span><span class="p">[</span><span class="s2">&quot;DATE&quot;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;coerce&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># --- 4) Convert to xarray, rename coords ---</span>
+        <span class="n">rainfall_data_array</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">final_df</span><span class="p">[[</span><span class="s2">&quot;DATE&quot;</span><span class="p">,</span> <span class="s2">&quot;LAT&quot;</span><span class="p">,</span> <span class="s2">&quot;LON&quot;</span><span class="p">,</span> <span class="s2">&quot;VALUE&quot;</span><span class="p">]]</span>
+            <span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;DATE&quot;</span><span class="p">,</span> <span class="s2">&quot;LAT&quot;</span><span class="p">,</span> <span class="s2">&quot;LON&quot;</span><span class="p">])</span>
+            <span class="o">.</span><span class="n">to_xarray</span><span class="p">()</span>
+            <span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s2">&quot;VALUE&quot;</span><span class="p">:</span> <span class="s2">&quot;Observation&quot;</span><span class="p">,</span> <span class="s2">&quot;LAT&quot;</span><span class="p">:</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;LON&quot;</span><span class="p">:</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="s2">&quot;DATE&quot;</span><span class="p">:</span> <span class="s2">&quot;T&quot;</span><span class="p">})</span>
+        <span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">rainfall_data_array</span></div>
+
+
+<div class="viewcode-block" id="WAS_Merging.auto_select_kriging_parameters">
+<a class="viewcode-back" href="../../api.html#wass2s.was_merge_predictand.WAS_Merging.auto_select_kriging_parameters">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">auto_select_kriging_parameters</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+        <span class="n">x_col</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span>
+        <span class="n">y_col</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span>
+        <span class="n">z_col</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;residuals&#39;</span><span class="p">,</span>
+        <span class="n">variogram_models</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">nlags_range</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+        <span class="n">n_splits</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="n">random_state</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">42</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">enable_plotting</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Automatically selects the best variogram_model and nlags for Ordinary Kriging </span>
+<span class="sd">        using cross-validation.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">         - best_model (str)</span>
+<span class="sd">         - best_nlags (int)</span>
+<span class="sd">         - ok_best (OrdinaryKriging object)</span>
+<span class="sd">         - results_df (pd.DataFrame)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">variogram_models</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">variogram_models</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;power&#39;</span><span class="p">,</span> <span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="s1">&#39;spherical&#39;</span><span class="p">,</span> <span class="s1">&#39;exponential&#39;</span><span class="p">]</span>
+        
+        <span class="c1"># Suppress warnings for cleaner output</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+        
+        <span class="n">kf</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="n">n_splits</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
+        <span class="n">best_score</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+        <span class="n">best_model</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">best_nlags</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">variogram_models</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">nlags</span> <span class="ow">in</span> <span class="n">nlags_range</span><span class="p">:</span>
+                <span class="n">cv_errors</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">kf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+                    <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">ok</span> <span class="o">=</span> <span class="n">OrdinaryKriging</span><span class="p">(</span>
+                            <span class="n">x</span><span class="o">=</span><span class="n">train</span><span class="p">[</span><span class="n">x_col</span><span class="p">],</span>
+                            <span class="n">y</span><span class="o">=</span><span class="n">train</span><span class="p">[</span><span class="n">y_col</span><span class="p">],</span>
+                            <span class="n">z</span><span class="o">=</span><span class="n">train</span><span class="p">[</span><span class="n">z_col</span><span class="p">],</span>
+                            <span class="n">variogram_model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+                            <span class="n">nlags</span><span class="o">=</span><span class="n">nlags</span><span class="p">,</span>
+                            <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                            <span class="n">enable_plotting</span><span class="o">=</span><span class="kc">False</span>
+                        <span class="p">)</span>
+                        <span class="n">z_pred</span><span class="p">,</span> <span class="n">ss</span> <span class="o">=</span> <span class="n">ok</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;points&#39;</span><span class="p">,</span> <span class="n">test</span><span class="p">[</span><span class="n">x_col</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">test</span><span class="p">[</span><span class="n">y_col</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+                        <span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">z_col</span><span class="p">],</span> <span class="n">z_pred</span><span class="p">)</span>
+                        <span class="n">cv_errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mse</span><span class="p">)</span>
+                    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                        <span class="c1"># E.g., convergence issues</span>
+                        <span class="n">cv_errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exception for model </span><span class="si">{</span><span class="n">model</span><span class="si">}</span><span class="s2"> with nlags </span><span class="si">{</span><span class="n">nlags</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                        <span class="k">break</span>
+                
+                <span class="n">avg_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cv_errors</span><span class="p">)</span>
+                <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s1">&#39;variogram_model&#39;</span><span class="p">:</span> <span class="n">model</span><span class="p">,</span>
+                    <span class="s1">&#39;nlags&#39;</span><span class="p">:</span> <span class="n">nlags</span><span class="p">,</span>
+                    <span class="s1">&#39;cv_mse&#39;</span><span class="p">:</span> <span class="n">avg_error</span>
+                <span class="p">})</span>
+
+                <span class="k">if</span> <span class="n">avg_error</span> <span class="o">&lt;</span> <span class="n">best_score</span><span class="p">:</span>
+                    <span class="n">best_score</span> <span class="o">=</span> <span class="n">avg_error</span>
+                    <span class="n">best_model</span> <span class="o">=</span> <span class="n">model</span>
+                    <span class="n">best_nlags</span> <span class="o">=</span> <span class="n">nlags</span>
+
+                <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model: </span><span class="si">{</span><span class="n">model</span><span class="si">}</span><span class="s2">, nlags: </span><span class="si">{</span><span class="n">nlags</span><span class="si">}</span><span class="s2">, CV MSE: </span><span class="si">{</span><span class="n">avg_error</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">results_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;cv_mse&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Best Variogram Model: </span><span class="si">{</span><span class="n">best_model</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Best nlags: </span><span class="si">{</span><span class="n">best_nlags</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Best CV MSE: </span><span class="si">{</span><span class="n">best_score</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Fit the best model on the entire dataset</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">ok_best</span> <span class="o">=</span> <span class="n">OrdinaryKriging</span><span class="p">(</span>
+                <span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">x_col</span><span class="p">],</span>
+                <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">y_col</span><span class="p">],</span>
+                <span class="n">z</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">z_col</span><span class="p">],</span>
+                <span class="n">variogram_model</span><span class="o">=</span><span class="n">best_model</span><span class="p">,</span>
+                <span class="n">nlags</span><span class="o">=</span><span class="n">best_nlags</span><span class="p">,</span>
+                <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>
+                <span class="n">enable_plotting</span><span class="o">=</span><span class="n">enable_plotting</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to fit the best Ordinary Kriging model: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">best_model</span><span class="p">,</span> <span class="n">best_nlags</span><span class="p">,</span> <span class="n">ok_best</span><span class="p">,</span> <span class="n">results_df</span></div>
+
+
+<div class="viewcode-block" id="WAS_Merging.simple_bias_adjustment">
+<a class="viewcode-back" href="../../api.html#wass2s.was_merge_predictand.WAS_Merging.simple_bias_adjustment">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">simple_bias_adjustment</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">missing_value</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="mf">999.0</span><span class="p">,</span>
+        <span class="n">do_cross_validation</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Performs spatial bias adjustment for each time slice. Optionally does</span>
+<span class="sd">        leave-one-out (LOO) cross-validation to compute RMSE at each time.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        xr.DataArray</span>
+<span class="sd">            Concatenated bias-adjusted values along the time dimension.</span>
+<span class="sd">        pd.DataFrame or None</span>
+<span class="sd">            A DataFrame containing the LOO RMSE for each time if do_cross_validation=True.</span>
+<span class="sd">            Otherwise, returns None.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># 1. Read &amp; transform CSV data</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="c1"># pd.read_csv(self.input_csv_path, sep=&quot;\t&quot;)</span>
+        <span class="n">df_seas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform_cpt</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">missing_value</span><span class="o">=</span><span class="n">missing_value</span><span class="p">)</span>
+
+        <span class="c1"># 2. Read gridded NetCDF data</span>
+        <span class="n">estim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">da</span> <span class="c1">#xr.open_dataset(self.input_nc_path)</span>
+        <span class="n">estim</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Estimation&quot;</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">estim</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;T&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">mask</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        
+        <span class="c1"># 3. Interpolate NetCDF data onto station coordinates</span>
+        <span class="n">estim_stations</span> <span class="o">=</span> <span class="n">estim</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span>
+            <span class="n">X</span><span class="o">=</span><span class="n">df_seas</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span>
+            <span class="n">Y</span><span class="o">=</span><span class="n">df_seas</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">],</span>
+        <span class="p">)</span>
+        
+        <span class="c1"># 4. Align on time</span>
+        <span class="n">df_seas</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_seas</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[ns]&#39;</span><span class="p">)</span>
+        <span class="n">estim_stations</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">estim_stations</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[ns]&#39;</span><span class="p">)</span>
+        <span class="n">estim</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">estim</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[ns]&#39;</span><span class="p">)</span>
+
+        <span class="n">df_seas</span><span class="p">,</span> <span class="n">estim_stations</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">align</span><span class="p">(</span><span class="n">df_seas</span><span class="p">,</span> <span class="n">estim_stations</span><span class="p">)</span>
+
+        <span class="n">sp_bias_adj</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">cv_rmse_records</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># 5. Process each time step</span>
+        <span class="k">for</span> <span class="n">t_val</span> <span class="ow">in</span> <span class="n">df_seas</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+            <span class="c1"># a. Merge data for the same time</span>
+            <span class="n">merged_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+                <span class="n">df_seas</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">t_val</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(),</span>
+                <span class="n">estim_stations</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">t_val</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(),</span>
+                <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">],</span>
+                <span class="n">how</span><span class="o">=</span><span class="s2">&quot;outer&quot;</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+            <span class="n">station_var</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df_seas</span><span class="o">.</span><span class="n">data_vars</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">estim_var</span> <span class="o">=</span> <span class="s2">&quot;Estimation&quot;</span> <span class="c1">#list(estim_stations.data_vars.keys())[0]</span>
+            
+            <span class="c1"># b. Keep only rows with station data</span>
+            <span class="n">merged_df</span> <span class="o">=</span> <span class="n">merged_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="n">station_var</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">merged_df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="c1"># c. Compute residuals</span>
+            <span class="n">merged_df</span><span class="p">[</span><span class="s1">&#39;residuals&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">merged_df</span><span class="p">[</span><span class="n">station_var</span><span class="p">]</span> <span class="o">-</span> <span class="n">merged_df</span><span class="p">[</span><span class="n">estim_var</span><span class="p">]</span>
+            <span class="n">merged_df</span> <span class="o">=</span> <span class="n">merged_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;residuals&#39;</span><span class="p">])</span>
+            <span class="n">merged_df</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">merged_df</span><span class="p">[</span><span class="s1">&#39;residuals&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+                <span class="k">continue</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Year = </span><span class="si">{</span><span class="n">t_val</span><span class="si">}</span><span class="s2">, number in-situ = </span><span class="si">{</span><span class="n">merged_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="c1"># d. Auto-select kriging parameters</span>
+            <span class="n">best_variogram</span><span class="p">,</span> <span class="n">best_nlags</span><span class="p">,</span> <span class="n">ok_model</span><span class="p">,</span> <span class="n">cv_results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auto_select_kriging_parameters</span><span class="p">(</span>
+                <span class="n">merged_df</span><span class="p">,</span>
+                <span class="n">x_col</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span>
+                <span class="n">y_col</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span>
+                <span class="n">z_col</span><span class="o">=</span><span class="s1">&#39;residuals&#39;</span><span class="p">,</span>
+                <span class="n">variogram_models</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;power&#39;</span><span class="p">,</span> <span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="s1">&#39;spherical&#39;</span><span class="p">,</span> <span class="s1">&#39;exponential&#39;</span><span class="p">],</span>
+                <span class="n">nlags_range</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+                <span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+                <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">enable_plotting</span><span class="o">=</span><span class="kc">False</span>
+            <span class="p">)</span>
+
+            <span class="c1"># LOO cross-validation</span>
+            <span class="n">loo_rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+            <span class="k">if</span> <span class="n">do_cross_validation</span><span class="p">:</span>
+                <span class="n">X_data</span> <span class="o">=</span> <span class="n">merged_df</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+                <span class="n">Y_data</span> <span class="o">=</span> <span class="n">merged_df</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+                <span class="n">Z_data</span> <span class="o">=</span> <span class="n">merged_df</span><span class="p">[</span><span class="s1">&#39;residuals&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+                <span class="n">n_points</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">merged_df</span><span class="p">)</span>
+
+                <span class="n">loo_predictions</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_points</span><span class="p">):</span>
+                    <span class="n">train_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_points</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+                    <span class="n">train_mask</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
+                    <span class="n">X_train</span> <span class="o">=</span> <span class="n">X_data</span><span class="p">[</span><span class="n">train_mask</span><span class="p">]</span>
+                    <span class="n">Y_train</span> <span class="o">=</span> <span class="n">Y_data</span><span class="p">[</span><span class="n">train_mask</span><span class="p">]</span>
+                    <span class="n">Z_train</span> <span class="o">=</span> <span class="n">Z_data</span><span class="p">[</span><span class="n">train_mask</span><span class="p">]</span>
+
+                    <span class="n">ok_loo</span> <span class="o">=</span> <span class="n">OrdinaryKriging</span><span class="p">(</span>
+                        <span class="n">X_train</span><span class="p">,</span>
+                        <span class="n">Y_train</span><span class="p">,</span>
+                        <span class="n">Z_train</span><span class="p">,</span>
+                        <span class="n">variogram_model</span><span class="o">=</span><span class="n">best_variogram</span><span class="p">,</span>
+                        <span class="n">nlags</span><span class="o">=</span><span class="n">best_nlags</span>
+                    <span class="p">)</span>
+                    <span class="n">zhat</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ok_loo</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;points&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">X_data</span><span class="p">[</span><span class="n">j</span><span class="p">]],</span> <span class="p">[</span><span class="n">Y_data</span><span class="p">[</span><span class="n">j</span><span class="p">]])</span>
+                    <span class="n">loo_predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">zhat</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+                <span class="n">loo_errors</span> <span class="o">=</span> <span class="n">Z_data</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">loo_predictions</span><span class="p">)</span>
+                <span class="n">loo_rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">loo_errors</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  LOO RMSE for T=</span><span class="si">{</span><span class="n">t_val</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">loo_rmse</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+                <span class="n">cv_rmse_records</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">t_val</span><span class="p">,</span>
+                    <span class="s1">&#39;LOO_RMSE&#39;</span><span class="p">:</span> <span class="n">loo_rmse</span><span class="p">,</span>
+                    <span class="s1">&#39;num_stations&#39;</span><span class="p">:</span> <span class="n">n_points</span>
+                <span class="p">})</span>
+
+            <span class="c1"># e. Krige residuals over the entire grid</span>
+            <span class="n">z_pred</span><span class="p">,</span> <span class="n">ss</span> <span class="o">=</span> <span class="n">ok_model</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;grid&#39;</span><span class="p">,</span> <span class="n">estim</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">estim</span><span class="o">.</span><span class="n">Y</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+            <span class="n">z_pred_da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
+                <span class="n">z_pred</span><span class="p">,</span>
+                <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Y&#39;</span><span class="p">:</span> <span class="n">estim</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">],</span> <span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="n">estim</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]},</span>
+                <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">]</span>
+            <span class="p">)</span>
+            <span class="n">z_pred_da</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">t_val</span>
+
+            <span class="c1"># f. Add residual field to the original dataset slice</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">estim</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
+                <span class="n">estim_i</span> <span class="o">=</span> <span class="n">estim</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">t_val</span><span class="p">)</span><span class="o">.</span><span class="n">to_array</span><span class="p">()</span><span class="o">.</span><span class="n">drop_vars</span><span class="p">(</span><span class="s1">&#39;variable&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">estim_i</span> <span class="o">=</span> <span class="n">estim</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">t_val</span><span class="p">)</span>
+                
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">estim_i</span> <span class="o">+</span> <span class="n">z_pred_da</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">tmp</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tmp</span><span class="p">)</span>  <span class="c1"># floor negative values at zero</span>
+            <span class="n">sp_bias_adj</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+
+        <span class="c1"># 6. Concatenate along time dimension</span>
+        <span class="k">if</span> <span class="n">sp_bias_adj</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">sp_bias_adj</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;T&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">do_cross_validation</span> <span class="ow">and</span> <span class="n">cv_rmse_records</span><span class="p">:</span>
+            <span class="n">cv_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cv_rmse_records</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cv_df</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">return</span> <span class="n">result</span><span class="o">*</span><span class="n">mask</span><span class="p">,</span> <span class="n">cv_df</span></div>
+
+
+<div class="viewcode-block" id="WAS_Merging.regression_kriging">
+<a class="viewcode-back" href="../../api.html#wass2s.was_merge_predictand.WAS_Merging.regression_kriging">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">regression_kriging</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">missing_value</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="mf">999.0</span><span class="p">,</span>
+        <span class="n">do_cross_validation</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Performs spatial bias adjustment for each time slice using:</span>
+<span class="sd">          1) Linear Regression</span>
+<span class="sd">          2) Kriging of residuals</span>
+
+<span class="sd">        Optionally performs LOO cross-validation for each time.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="c1"># pd.read_csv(self.input_csv_path, sep=&quot;\t&quot;)</span>
+        <span class="n">df_seas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform_cpt</span><span class="p">(</span><span class="n">df</span><span class="p">,</span>  <span class="n">missing_value</span><span class="o">=</span><span class="n">missing_value</span><span class="p">)</span>
+        
+        <span class="n">estim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">da</span> <span class="c1"># xr.open_dataset(self.input_nc_path)</span>
+        <span class="n">estim</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Estimation&quot;</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">estim</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;T&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">mask</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        
+        <span class="n">gridx</span><span class="p">,</span> <span class="n">gridy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">estim</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">estim</span><span class="o">.</span><span class="n">Y</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+        <span class="n">estim_stations</span> <span class="o">=</span> <span class="n">estim</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span>
+            <span class="n">X</span><span class="o">=</span><span class="n">df_seas</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span>
+            <span class="n">Y</span><span class="o">=</span><span class="n">df_seas</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">],</span>
+        <span class="p">)</span>
+
+        <span class="n">df_seas</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_seas</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[ns]&#39;</span><span class="p">)</span>
+        <span class="n">estim_stations</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">estim_stations</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[ns]&#39;</span><span class="p">)</span>
+        <span class="n">estim</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">estim</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[ns]&#39;</span><span class="p">)</span>
+
+        <span class="n">df_seas</span><span class="p">,</span> <span class="n">estim_stations</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">align</span><span class="p">(</span><span class="n">df_seas</span><span class="p">,</span> <span class="n">estim_stations</span><span class="p">)</span>
+
+        <span class="n">sp_regress_krig</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">cv_rmse_records</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">t_val</span> <span class="ow">in</span> <span class="n">df_seas</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+            <span class="n">merged_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+                <span class="n">df_seas</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">t_val</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(),</span>
+                <span class="n">estim_stations</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">t_val</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(),</span>
+                <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">],</span>
+                <span class="n">how</span><span class="o">=</span><span class="s2">&quot;outer&quot;</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+            
+            <span class="n">station_var</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df_seas</span><span class="o">.</span><span class="n">data_vars</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">estim_var</span> <span class="o">=</span> <span class="s2">&quot;Estimation&quot;</span> <span class="c1">#list(estim_stations.data_vars.keys())[0]</span>
+
+            <span class="c1"># Drop rows with no station observation</span>
+            <span class="n">merged_df</span> <span class="o">=</span> <span class="n">merged_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="n">station_var</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">merged_df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="n">X</span> <span class="o">=</span> <span class="n">merged_df</span><span class="p">[[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">estim_var</span><span class="p">]]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">merged_df</span><span class="p">[[</span><span class="n">station_var</span><span class="p">]]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+            <span class="c1"># 1) Linear regression</span>
+            <span class="n">reg_model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+            <span class="n">reg_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+            <span class="n">merged_df</span><span class="p">[</span><span class="s1">&#39;regression_prediction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">reg_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+            <span class="n">merged_df</span><span class="p">[</span><span class="s1">&#39;residuals&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">merged_df</span><span class="p">[</span><span class="n">station_var</span><span class="p">]</span> <span class="o">-</span> <span class="n">merged_df</span><span class="p">[</span><span class="s1">&#39;regression_prediction&#39;</span><span class="p">]</span>
+            <span class="n">merged_df</span> <span class="o">=</span> <span class="n">merged_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;residuals&#39;</span><span class="p">])</span>
+            
+            <span class="n">merged_df</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">merged_df</span><span class="p">[</span><span class="s1">&#39;residuals&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+                <span class="k">continue</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Year = </span><span class="si">{</span><span class="n">t_val</span><span class="si">}</span><span class="s2">, number in-situ = </span><span class="si">{</span><span class="n">merged_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="c1"># 2) Auto-select kriging parameters</span>
+            <span class="n">best_variogram</span><span class="p">,</span> <span class="n">best_nlags</span><span class="p">,</span> <span class="n">ok_model</span><span class="p">,</span> <span class="n">cv_results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auto_select_kriging_parameters</span><span class="p">(</span>
+                <span class="n">merged_df</span><span class="p">,</span>
+                <span class="n">x_col</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span>
+                <span class="n">y_col</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span>
+                <span class="n">z_col</span><span class="o">=</span><span class="s1">&#39;residuals&#39;</span><span class="p">,</span>
+                <span class="n">variogram_models</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;power&#39;</span><span class="p">,</span> <span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="s1">&#39;spherical&#39;</span><span class="p">,</span> <span class="s1">&#39;exponential&#39;</span><span class="p">],</span>
+                <span class="n">nlags_range</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+                <span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+                <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">enable_plotting</span><span class="o">=</span><span class="kc">False</span>
+            <span class="p">)</span>
+
+            <span class="c1"># Cross-validation on residuals could go here if desired.</span>
+
+            <span class="c1"># Krige the residual field</span>
+            <span class="n">z_pred</span><span class="p">,</span> <span class="n">ss</span> <span class="o">=</span> <span class="n">ok_model</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;grid&#39;</span><span class="p">,</span> <span class="n">estim</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">estim</span><span class="o">.</span><span class="n">Y</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+            <span class="c1"># Predict from the regression model on the entire grid</span>
+            <span class="c1"># We assume the &quot;estim_var&quot; is the variable needed for regression</span>
+            <span class="n">reg_input</span> <span class="o">=</span> <span class="n">estim</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">t_val</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()[[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span><span class="n">estim_var</span><span class="p">]]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">regression_pred_grid</span> <span class="o">=</span> <span class="n">reg_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">reg_input</span><span class="p">)</span>
+            <span class="n">regression_pred_grid</span> <span class="o">=</span> <span class="n">regression_pred_grid</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">gridx</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+            <span class="n">final_prediction_ok</span> <span class="o">=</span> <span class="n">regression_pred_grid</span> <span class="o">+</span> <span class="n">z_pred</span>
+            <span class="n">final_prediction_ok</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">final_prediction_ok</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">final_prediction_ok</span><span class="p">)</span>
+
+            <span class="n">final_prediction_da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
+                <span class="n">final_prediction_ok</span><span class="p">,</span>
+                <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Y&#39;</span><span class="p">:</span> <span class="n">estim</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">],</span> <span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="n">estim</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]},</span>
+                <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">]</span>
+            <span class="p">)</span>
+            <span class="n">final_prediction_da</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">t_val</span>
+
+            <span class="n">sp_regress_krig</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">final_prediction_da</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">sp_regress_krig</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">sp_regress_krig</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;T&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">do_cross_validation</span> <span class="ow">and</span> <span class="n">cv_rmse_records</span><span class="p">:</span>
+            <span class="n">cv_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cv_rmse_records</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cv_df</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">return</span> <span class="n">result</span><span class="o">*</span><span class="n">mask</span><span class="p">,</span> <span class="n">cv_df</span></div>
+
+
+<div class="viewcode-block" id="WAS_Merging.neural_network_kriging_">
+<a class="viewcode-back" href="../../api.html#wass2s.was_merge_predictand.WAS_Merging.neural_network_kriging_">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">neural_network_kriging_</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">missing_value</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="mf">999.0</span><span class="p">,</span>
+        <span class="n">do_cross_validation</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Performs spatial bias adjustment for each time slice using:</span>
+<span class="sd">          1) Neural Network</span>
+<span class="sd">          2) Kriging of residuals</span>
+
+<span class="sd">        Optionally performs LOO cross-validation for each time.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="c1"># pd.read_csv(self.input_csv_path, sep=&quot;\t&quot;)</span>
+        <span class="n">df_seas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform_cpt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">,</span>  <span class="n">missing_value</span><span class="o">=</span><span class="n">missing_value</span><span class="p">)</span>
+        
+        <span class="n">estim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">da</span> <span class="c1"># xr.open_dataset(self.input_nc_path)</span>
+        <span class="n">estim</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Estimation&quot;</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">estim</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;T&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">mask</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+        
+        
+        <span class="n">gridx</span><span class="p">,</span> <span class="n">gridy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">estim</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">estim</span><span class="o">.</span><span class="n">Y</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+        <span class="n">estim_stations</span> <span class="o">=</span> <span class="n">estim</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span>
+            <span class="n">X</span><span class="o">=</span><span class="n">df_seas</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span>
+            <span class="n">Y</span><span class="o">=</span><span class="n">df_seas</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">],</span>
+        <span class="p">)</span>
+        
+        <span class="n">df_seas</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_seas</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[ns]&#39;</span><span class="p">)</span>
+        <span class="n">estim_stations</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">estim_stations</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[ns]&#39;</span><span class="p">)</span>
+        <span class="n">estim</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">estim</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[ns]&#39;</span><span class="p">)</span>
+
+        <span class="n">df_seas</span><span class="p">,</span> <span class="n">estim_stations</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">align</span><span class="p">(</span><span class="n">df_seas</span><span class="p">,</span> <span class="n">estim_stations</span><span class="p">)</span>
+
+        <span class="n">df_seas_</span> <span class="o">=</span> <span class="n">standardize_timeseries</span><span class="p">(</span><span class="n">df_seas</span><span class="p">)</span>
+        <span class="n">estim_stations_</span> <span class="o">=</span> <span class="n">standardize_timeseries</span><span class="p">(</span><span class="n">estim_stations</span><span class="p">)</span>
+        <span class="n">estim_</span> <span class="o">=</span> <span class="n">standardize_timeseries</span><span class="p">(</span><span class="n">estim</span><span class="p">)</span>
+        
+        <span class="n">sp_neural_krig</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">cv_rmse_records</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">t_val</span> <span class="ow">in</span> <span class="n">df_seas</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+            <span class="n">merged_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+                <span class="n">df_seas_</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">t_val</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(),</span>
+                <span class="n">estim_stations_</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">t_val</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(),</span>
+                <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">],</span>
+                <span class="n">how</span><span class="o">=</span><span class="s2">&quot;outer&quot;</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+            
+            <span class="n">station_var</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df_seas_</span><span class="o">.</span><span class="n">data_vars</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">estim_var</span> <span class="o">=</span> <span class="s2">&quot;Estimation&quot;</span> <span class="c1">#list(estim_stations.data_vars.keys())[0]</span>
+
+            <span class="c1"># Drop rows with no station observation or no grid estimate</span>
+            <span class="n">merged_df</span> <span class="o">=</span> <span class="n">merged_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="n">station_var</span><span class="p">,</span> <span class="n">estim_var</span><span class="p">])</span>
+            
+            <span class="k">if</span> <span class="n">merged_df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="n">X_vals</span> <span class="o">=</span> <span class="n">merged_df</span><span class="p">[[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">estim_var</span><span class="p">]]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+            <span class="n">y_vals</span> <span class="o">=</span> <span class="n">merged_df</span><span class="p">[[</span><span class="n">station_var</span><span class="p">]]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+
+            <span class="c1"># Perform hyperparameter tuning for the MLPRegressor</span>
+            <span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;hidden_layer_sizes&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="mi">5</span><span class="p">,),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">75</span><span class="p">)],</span>
+                <span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="s1">&#39;tanh&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;solver&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;adam&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;max_iter&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">],</span>
+            <span class="p">}</span>
+            <span class="n">base_model</span> <span class="o">=</span> <span class="n">MLPRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+            <span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">base_model</span><span class="p">,</span> 
+                                       <span class="n">param_grid</span><span class="p">,</span> 
+                                       <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                                       <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">,</span>
+                                       <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_vals</span><span class="p">,</span> <span class="n">y_vals</span><span class="p">)</span>
+            <span class="n">nn_model</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_estimator_</span>
+
+            <span class="c1"># nn_model = MLPRegressor(</span>
+            <span class="c1">#     hidden_layer_sizes=(100, 50),</span>
+            <span class="c1">#     activation=&#39;relu&#39;,</span>
+            <span class="c1">#     solver=&#39;adam&#39;,</span>
+            <span class="c1">#     max_iter=5000,</span>
+            <span class="c1">#     random_state=42</span>
+            <span class="c1"># )</span>
+            <span class="c1"># nn_model.fit(X_vals, y_vals)</span>
+
+            <span class="n">merged_df</span><span class="p">[</span><span class="s1">&#39;neural_prediction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_vals</span><span class="p">)</span>
+            <span class="n">merged_df</span><span class="p">[</span><span class="s1">&#39;residuals&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">merged_df</span><span class="p">[</span><span class="n">station_var</span><span class="p">]</span> <span class="o">-</span> <span class="n">merged_df</span><span class="p">[</span><span class="s1">&#39;neural_prediction&#39;</span><span class="p">]</span>
+            <span class="n">merged_df</span> <span class="o">=</span> <span class="n">merged_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;residuals&#39;</span><span class="p">])</span>
+            <span class="n">merged_df</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">merged_df</span><span class="p">[</span><span class="s1">&#39;residuals&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+                <span class="k">continue</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Year = </span><span class="si">{</span><span class="n">t_val</span><span class="si">}</span><span class="s2">, number in-situ = </span><span class="si">{</span><span class="n">merged_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="n">best_variogram</span><span class="p">,</span> <span class="n">best_nlags</span><span class="p">,</span> <span class="n">ok_model</span><span class="p">,</span> <span class="n">cv_results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auto_select_kriging_parameters</span><span class="p">(</span>
+                <span class="n">merged_df</span><span class="p">,</span>
+                <span class="n">x_col</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span>
+                <span class="n">y_col</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span>
+                <span class="n">z_col</span><span class="o">=</span><span class="s1">&#39;residuals&#39;</span><span class="p">,</span>
+                <span class="n">variogram_models</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;power&#39;</span><span class="p">,</span> <span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="s1">&#39;spherical&#39;</span><span class="p">,</span> <span class="s1">&#39;exponential&#39;</span><span class="p">],</span>
+                <span class="n">nlags_range</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+                <span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+                <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">enable_plotting</span><span class="o">=</span><span class="kc">False</span>
+            <span class="p">)</span>
+
+            <span class="c1"># (Optional) LOO cross-validation </span>
+
+            <span class="c1"># Predict residuals over the entire grid</span>
+            <span class="n">z_pred</span><span class="p">,</span> <span class="n">ss</span> <span class="o">=</span> <span class="n">ok_model</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;grid&#39;</span><span class="p">,</span> <span class="n">estim</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">estim</span><span class="o">.</span><span class="n">Y</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+            <span class="c1"># Predict from the NN model on the entire grid</span>
+            <span class="n">nn_input</span> <span class="o">=</span> <span class="n">estim_</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">t_val</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()[[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">estim_var</span><span class="p">]]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">nn_pred_grid</span> <span class="o">=</span> <span class="n">nn_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">nn_input</span><span class="p">)</span>
+            <span class="n">nn_pred_grid</span> <span class="o">=</span> <span class="n">nn_pred_grid</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">gridx</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+            <span class="c1"># Combine the NN prediction + Kriged residuals</span>
+            <span class="n">final_prediction_ok</span> <span class="o">=</span> <span class="n">nn_pred_grid</span> <span class="o">+</span> <span class="n">z_pred</span>
+            <span class="n">final_prediction_ok</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">final_prediction_ok</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">final_prediction_ok</span><span class="p">)</span>
+            
+            <span class="n">final_prediction_da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
+                <span class="n">final_prediction_ok</span><span class="p">,</span>
+                <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Y&#39;</span><span class="p">:</span> <span class="n">estim</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">],</span> <span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="n">estim</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]},</span>
+                <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">]</span>
+            <span class="p">)</span>
+            <span class="n">final_prediction_da</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">t_val</span>
+
+            <span class="n">sp_neural_krig</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">final_prediction_da</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">sp_neural_krig</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">sp_neural_krig</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;T&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">()</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">reverse_standardize</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">estim</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">do_cross_validation</span> <span class="ow">and</span> <span class="n">cv_rmse_records</span><span class="p">:</span>
+            <span class="n">cv_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cv_rmse_records</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cv_df</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">return</span> <span class="n">result</span><span class="o">*</span><span class="n">mask</span><span class="p">,</span> <span class="n">cv_df</span></div>
+
+
+<div class="viewcode-block" id="WAS_Merging.neural_network_kriging">
+<a class="viewcode-back" href="../../api.html#wass2s.was_merge_predictand.WAS_Merging.neural_network_kriging">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">neural_network_kriging</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">missing_value</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="mf">999.0</span><span class="p">,</span>
+        <span class="n">do_cross_validation</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Performs a two-step spatial bias adjustment for each time slice, leveraging:</span>
+<span class="sd">        </span>
+<span class="sd">        1) **Neural Network** (MLPRegressor) to capture non-linear relationships between</span>
+<span class="sd">           the large-scale estimations (predictors) and in-situ observations (predictands).</span>
+<span class="sd">        2) **Kriging** of the residuals (observation - NN_prediction) to spatially interpolate</span>
+<span class="sd">           the remaining error structure under the assumption that these residuals are </span>
+<span class="sd">           stationary and exhibit spatial autocorrelation.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        missing_value : float, optional</span>
+<span class="sd">            Value used to fill missing data in the input station dataset, by default -999.0</span>
+<span class="sd">        do_cross_validation : bool, optional</span>
+<span class="sd">            Whether or not to perform cross-validation (e.g., leave-one-out or k-fold) </span>
+<span class="sd">            during kriging parameter selection, by default False.</span>
+<span class="sd">    </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        xr.DataArray</span>
+<span class="sd">            Bias-adjusted field over the domain, with the same spatial dimensions as the </span>
+<span class="sd">            original input (and time dimension if applicable).</span>
+<span class="sd">        pd.DataFrame or None</span>
+<span class="sd">            If `do_cross_validation=True`, returns a DataFrame with RMSE records from CV; </span>
+<span class="sd">            otherwise, None.</span>
+<span class="sd">    </span>
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        - The hyperparameter search for the MLP uses GridSearchCV with MSE-based scoring.</span>
+<span class="sd">        - Kriging assumes the residuals are reasonably stationary and spatially correlated.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+    
+        <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span>  <span class="c1"># Station data (already loaded)</span>
+        <span class="n">df_seas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform_cpt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">,</span> <span class="n">missing_value</span><span class="o">=</span><span class="n">missing_value</span><span class="p">)</span>
+    
+        <span class="c1"># Load or reference the gridded dataset</span>
+        <span class="n">estim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">da</span>
+        <span class="n">estim</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Estimation&quot;</span>
+    
+        <span class="c1"># Create a mask for valid points (non-NaN across time)</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">estim</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;T&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">mask</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    
+        <span class="n">gridx</span><span class="p">,</span> <span class="n">gridy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">estim</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">estim</span><span class="o">.</span><span class="n">Y</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+    
+        <span class="c1"># 1) Interpolate the model estimates to the station locations for direct comparison</span>
+        <span class="n">estim_stations</span> <span class="o">=</span> <span class="n">estim</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span>
+            <span class="n">X</span><span class="o">=</span><span class="n">df_seas</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span>
+            <span class="n">Y</span><span class="o">=</span><span class="n">df_seas</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">],</span>
+        <span class="p">)</span>
+    
+        <span class="c1"># Ensure consistent datetime64 dtypes</span>
+        <span class="n">df_seas</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_seas</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[ns]&#39;</span><span class="p">)</span>
+        <span class="n">estim_stations</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">estim_stations</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[ns]&#39;</span><span class="p">)</span>
+        <span class="n">estim</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">estim</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[ns]&#39;</span><span class="p">)</span>
+    
+        <span class="c1"># Align station data and interpolated estimates along T</span>
+        <span class="n">df_seas</span><span class="p">,</span> <span class="n">estim_stations</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">align</span><span class="p">(</span><span class="n">df_seas</span><span class="p">,</span> <span class="n">estim_stations</span><span class="p">)</span>
+    
+        <span class="c1"># (Optional) Standardize data so that NN training deals with normalized values</span>
+        <span class="n">df_seas_</span> <span class="o">=</span> <span class="n">standardize_timeseries</span><span class="p">(</span><span class="n">df_seas</span><span class="p">)</span>
+        <span class="n">estim_stations_</span> <span class="o">=</span> <span class="n">standardize_timeseries</span><span class="p">(</span><span class="n">estim_stations</span><span class="p">)</span>
+        <span class="n">estim_</span> <span class="o">=</span> <span class="n">standardize_timeseries</span><span class="p">(</span><span class="n">estim</span><span class="p">)</span>
+    
+        <span class="n">sp_neural_krig</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">cv_rmse_records</span> <span class="o">=</span> <span class="p">[]</span>
+    
+        <span class="c1"># 2) Loop over each time slice</span>
+        <span class="k">for</span> <span class="n">t_val</span> <span class="ow">in</span> <span class="n">df_seas</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+            <span class="c1"># Merge station data with model-based data for this time</span>
+            <span class="n">merged_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+                <span class="n">df_seas_</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">t_val</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(),</span>
+                <span class="n">estim_stations_</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">t_val</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(),</span>
+                <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">],</span>
+                <span class="n">how</span><span class="o">=</span><span class="s2">&quot;outer&quot;</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    
+            <span class="n">station_var</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df_seas_</span><span class="o">.</span><span class="n">data_vars</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">estim_var</span> <span class="o">=</span> <span class="s2">&quot;Estimation&quot;</span>
+    
+            <span class="c1"># Drop rows with no station observation or no estimate</span>
+            <span class="n">merged_df</span> <span class="o">=</span> <span class="n">merged_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="n">station_var</span><span class="p">,</span> <span class="n">estim_var</span><span class="p">])</span>
+    
+            <span class="k">if</span> <span class="n">merged_df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+                <span class="k">continue</span>
+    
+            <span class="c1"># Prepare inputs and labels for the Neural Network</span>
+            <span class="n">X_vals</span> <span class="o">=</span> <span class="n">merged_df</span><span class="p">[[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">estim_var</span><span class="p">]]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+            <span class="n">y_vals</span> <span class="o">=</span> <span class="n">merged_df</span><span class="p">[[</span><span class="n">station_var</span><span class="p">]]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+    
+            <span class="c1"># 2a) Hyperparameter tuning for the MLPRegressor</span>
+            <span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;hidden_layer_sizes&#39;</span><span class="p">:</span> <span class="p">[(</span><span class="mi">5</span><span class="p">,),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">75</span><span class="p">)],</span>
+                <span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="s1">&#39;tanh&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;solver&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;adam&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;max_iter&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">],</span>
+            <span class="p">}</span>
+            <span class="n">base_model</span> <span class="o">=</span> <span class="n">MLPRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+            <span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span>
+                <span class="n">base_model</span><span class="p">,</span> 
+                <span class="n">param_grid</span><span class="p">,</span> 
+                <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">,</span>
+                <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span>
+            <span class="p">)</span>
+            <span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_vals</span><span class="p">,</span> <span class="n">y_vals</span><span class="p">)</span>
+    
+            <span class="n">nn_model</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_estimator_</span>
+    
+            <span class="c1"># Compute station residuals = Observed - NN_prediction</span>
+            <span class="n">merged_df</span><span class="p">[</span><span class="s1">&#39;neural_prediction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_vals</span><span class="p">)</span>
+            <span class="n">merged_df</span><span class="p">[</span><span class="s1">&#39;residuals&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">merged_df</span><span class="p">[</span><span class="n">station_var</span><span class="p">]</span> <span class="o">-</span> <span class="n">merged_df</span><span class="p">[</span><span class="s1">&#39;neural_prediction&#39;</span><span class="p">]</span>
+            <span class="n">merged_df</span> <span class="o">=</span> <span class="n">merged_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;residuals&#39;</span><span class="p">])</span>
+            <span class="n">merged_df</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">merged_df</span><span class="p">[</span><span class="s1">&#39;residuals&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+                <span class="k">continue</span>
+    
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Time = </span><span class="si">{</span><span class="n">t_val</span><span class="si">}</span><span class="s2">, station count = </span><span class="si">{</span><span class="n">merged_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+            <span class="c1"># 2b) Auto-selection of Kriging parameters, </span>
+            <span class="c1">#     e.g., best variogram model &amp; nlags via cross-validation</span>
+            <span class="n">best_variogram</span><span class="p">,</span> <span class="n">best_nlags</span><span class="p">,</span> <span class="n">ok_model</span><span class="p">,</span> <span class="n">cv_results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auto_select_kriging_parameters</span><span class="p">(</span>
+                <span class="n">merged_df</span><span class="p">,</span>
+                <span class="n">x_col</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span>
+                <span class="n">y_col</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span>
+                <span class="n">z_col</span><span class="o">=</span><span class="s1">&#39;residuals&#39;</span><span class="p">,</span>
+                <span class="n">variogram_models</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;power&#39;</span><span class="p">,</span> <span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="s1">&#39;spherical&#39;</span><span class="p">,</span> <span class="s1">&#39;exponential&#39;</span><span class="p">],</span>
+                <span class="n">nlags_range</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+                <span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+                <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">enable_plotting</span><span class="o">=</span><span class="kc">False</span>
+            <span class="p">)</span>
+    
+            <span class="c1"># 2c) Krige the residuals over the grid</span>
+            <span class="n">z_pred</span><span class="p">,</span> <span class="n">ss</span> <span class="o">=</span> <span class="n">ok_model</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;grid&#39;</span><span class="p">,</span> <span class="n">estim</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">estim</span><span class="o">.</span><span class="n">Y</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+    
+            <span class="c1"># Get the NN model&#39;s predictions on the full domain</span>
+            <span class="n">nn_input</span> <span class="o">=</span> <span class="n">estim_</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">t_val</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()[[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">estim_var</span><span class="p">]]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">nn_pred_grid</span> <span class="o">=</span> <span class="n">nn_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">nn_input</span><span class="p">)</span>
+            <span class="n">nn_pred_grid</span> <span class="o">=</span> <span class="n">nn_pred_grid</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">gridx</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    
+            <span class="c1"># Combine NN prediction + kriged residual</span>
+            <span class="n">final_prediction_ok</span> <span class="o">=</span> <span class="n">nn_pred_grid</span> <span class="o">+</span> <span class="n">z_pred</span>
+            <span class="n">final_prediction_ok</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">final_prediction_ok</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">final_prediction_ok</span><span class="p">)</span>
+    
+            <span class="c1"># Create an xarray DataArray</span>
+            <span class="n">final_prediction_da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
+                <span class="n">final_prediction_ok</span><span class="p">,</span>
+                <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Y&#39;</span><span class="p">:</span> <span class="n">estim</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">],</span> <span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="n">estim</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]},</span>
+                <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">]</span>
+            <span class="p">)</span>
+            <span class="n">final_prediction_da</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">t_val</span>
+    
+            <span class="n">sp_neural_krig</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">final_prediction_da</span><span class="p">)</span>
+    
+        <span class="c1"># 3) Concatenate results over time dimension</span>
+        <span class="k">if</span> <span class="n">sp_neural_krig</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">sp_neural_krig</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;T&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">()</span>
+    
+        <span class="c1"># 4) Reverse the standardization to get back to original scale</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">reverse_standardize</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">estim</span><span class="p">)</span>
+    
+        <span class="c1"># 5) If cross-validation was enabled, return records</span>
+        <span class="k">if</span> <span class="n">do_cross_validation</span> <span class="ow">and</span> <span class="n">cv_rmse_records</span><span class="p">:</span>
+            <span class="n">cv_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cv_rmse_records</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cv_df</span> <span class="o">=</span> <span class="kc">None</span>
+    
+        <span class="c1"># Apply mask to keep only valid domain</span>
+        <span class="k">return</span> <span class="n">result</span> <span class="o">*</span> <span class="n">mask</span><span class="p">,</span> <span class="n">cv_df</span></div>
+
+
+    
+<div class="viewcode-block" id="WAS_Merging.multiplicative_bias">
+<a class="viewcode-back" href="../../api.html#wass2s.was_merge_predictand.WAS_Merging.multiplicative_bias">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">multiplicative_bias</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">missing_value</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="mf">999.0</span><span class="p">,</span>
+        <span class="n">do_cross_validation</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">):</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Apply multiplicative bias correction to gridded predictions using ground observations.</span>
+
+<span class="sd">        This method performs bias adjustment for each time step by comparing standardized observations</span>
+<span class="sd">        and model estimates, interpolating residuals using kriging, and applying a multiplicative correction</span>
+<span class="sd">        across the spatial domain.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        missing_value : float, optional</span>
+<span class="sd">            Value used to represent missing data in the input observational CSV, by default -999.0.</span>
+<span class="sd">        do_cross_validation : bool, optional</span>
+<span class="sd">            If True, perform Leave-One-Out Cross-Validation to estimate kriging performance, by default False.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        xr.DataArray</span>
+<span class="sd">            The bias-corrected spatial dataset over time (with dimensions: T, Y, X), masked over valid areas.</span>
+<span class="sd">        pd.DataFrame or None</span>
+<span class="sd">            DataFrame containing LOOCV RMSE per time step, or None if cross-validation was not performed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="c1"># pd.read_csv(self.input_csv_path, sep=&quot;\t&quot;)</span>
+        <span class="n">df_seas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform_cpt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">,</span>  <span class="n">missing_value</span><span class="o">=</span><span class="n">missing_value</span><span class="p">)</span>  
+        
+        <span class="n">estim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">da</span> <span class="c1"># xr.open_dataset(self.input_nc_path)</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">estim</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;T&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">mask</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+                
+        <span class="n">gridx</span><span class="p">,</span> <span class="n">gridy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">estim</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">estim</span><span class="o">.</span><span class="n">Y</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+        <span class="n">estim_stations</span> <span class="o">=</span> <span class="n">estim</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span>
+            <span class="n">X</span><span class="o">=</span><span class="n">df_seas</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span>
+            <span class="n">Y</span><span class="o">=</span><span class="n">df_seas</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">],</span>
+        <span class="p">)</span>
+
+        <span class="n">f_hdcst</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="p">[</span><span class="n">f_hdcst</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">df_seas</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">df_seas</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">df_seas</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">i</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="n">estim_stations</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">estim_stations</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">estim_stations</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">i</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">estim_stations</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]))]</span>
+        
+        <span class="n">f_hdcst</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">f_hdcst</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;T&quot;</span><span class="p">)</span> 
+        <span class="n">f_hdcst</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">estim_stations</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span>
+        
+        <span class="n">df_seas</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_seas</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[ns]&#39;</span><span class="p">)</span>
+        <span class="n">f_hdcst</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">f_hdcst</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[ns]&#39;</span><span class="p">)</span>
+        <span class="n">estim</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">estim</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[ns]&#39;</span><span class="p">)</span>
+
+
+        <span class="n">sp_mult_bias</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">cv_rmse_records</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">t_val</span> <span class="ow">in</span> <span class="n">df_seas</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+            
+            <span class="n">merged_df</span> <span class="o">=</span> <span class="n">f_hdcst</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">t_val</span><span class="p">)</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+            <span class="n">merged_df</span> <span class="o">=</span> <span class="n">merged_df</span><span class="p">[</span><span class="o">~</span><span class="n">merged_df</span><span class="p">[</span><span class="s2">&quot;Observation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">merged_df</span><span class="p">[</span><span class="s2">&quot;Observation&quot;</span><span class="p">])]</span>
+
+            <span class="k">if</span> <span class="n">merged_df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="k">if</span> <span class="n">merged_df</span><span class="p">[</span><span class="s1">&#39;Observation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+                <span class="k">continue</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Year = </span><span class="si">{</span><span class="n">t_val</span><span class="si">}</span><span class="s2">, number in-situ = </span><span class="si">{</span><span class="n">merged_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+            <span class="c1"># d. Auto-select kriging parameters</span>
+            <span class="n">best_variogram</span><span class="p">,</span> <span class="n">best_nlags</span><span class="p">,</span> <span class="n">ok_model</span><span class="p">,</span> <span class="n">cv_results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auto_select_kriging_parameters</span><span class="p">(</span>
+                <span class="n">merged_df</span><span class="p">,</span>
+                <span class="n">x_col</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">,</span>
+                <span class="n">y_col</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span>
+                <span class="n">z_col</span><span class="o">=</span><span class="s1">&#39;Observation&#39;</span><span class="p">,</span>
+                <span class="n">variogram_models</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;power&#39;</span><span class="p">,</span> <span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="s1">&#39;spherical&#39;</span><span class="p">,</span> <span class="s1">&#39;exponential&#39;</span><span class="p">],</span>
+                <span class="n">nlags_range</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+                <span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+                <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">enable_plotting</span><span class="o">=</span><span class="kc">False</span>
+            <span class="p">)</span>
+
+            <span class="c1"># (Optional) LOO cross-validation</span>
+            <span class="n">loo_rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+            <span class="k">if</span> <span class="n">do_cross_validation</span><span class="p">:</span>
+                <span class="n">X_data</span> <span class="o">=</span> <span class="n">merged_df</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+                <span class="n">Y_data</span> <span class="o">=</span> <span class="n">merged_df</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+                <span class="n">Z_data</span> <span class="o">=</span> <span class="n">merged_df</span><span class="p">[</span><span class="s1">&#39;Observation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+                <span class="n">n_points</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">merged_df</span><span class="p">)</span>
+
+                <span class="n">loo_predictions</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_points</span><span class="p">):</span>
+                    <span class="n">train_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_points</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+                    <span class="n">train_mask</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
+                    <span class="n">X_train</span> <span class="o">=</span> <span class="n">X_data</span><span class="p">[</span><span class="n">train_mask</span><span class="p">]</span>
+                    <span class="n">Y_train</span> <span class="o">=</span> <span class="n">Y_data</span><span class="p">[</span><span class="n">train_mask</span><span class="p">]</span>
+                    <span class="n">Z_train</span> <span class="o">=</span> <span class="n">Z_data</span><span class="p">[</span><span class="n">train_mask</span><span class="p">]</span>
+
+                    <span class="n">ok_loo</span> <span class="o">=</span> <span class="n">OrdinaryKriging</span><span class="p">(</span>
+                        <span class="n">X_train</span><span class="p">,</span>
+                        <span class="n">Y_train</span><span class="p">,</span>
+                        <span class="n">Z_train</span><span class="p">,</span>
+                        <span class="n">variogram_model</span><span class="o">=</span><span class="n">best_variogram</span><span class="p">,</span>
+                        <span class="n">nlags</span><span class="o">=</span><span class="n">best_nlags</span>
+                    <span class="p">)</span>
+                    <span class="n">zhat</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ok_loo</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;points&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">X_data</span><span class="p">[</span><span class="n">j</span><span class="p">]],</span> <span class="p">[</span><span class="n">Y_data</span><span class="p">[</span><span class="n">j</span><span class="p">]])</span>
+                    <span class="n">loo_predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">zhat</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+                <span class="n">loo_errors</span> <span class="o">=</span> <span class="n">Z_data</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">loo_predictions</span><span class="p">)</span>
+                <span class="n">loo_rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">loo_errors</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  LOO RMSE for T=</span><span class="si">{</span><span class="n">t_val</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">loo_rmse</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+                <span class="n">cv_rmse_records</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">t_val</span><span class="p">,</span>
+                    <span class="s1">&#39;LOO_RMSE&#39;</span><span class="p">:</span> <span class="n">loo_rmse</span><span class="p">,</span>
+                    <span class="s1">&#39;num_stations&#39;</span><span class="p">:</span> <span class="n">n_points</span>
+                <span class="p">})</span>
+
+            <span class="c1"># e. Krige residuals over the entire grid</span>
+            <span class="n">z_pred</span><span class="p">,</span> <span class="n">ss</span> <span class="o">=</span> <span class="n">ok_model</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;grid&#39;</span><span class="p">,</span> <span class="n">estim</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">estim</span><span class="o">.</span><span class="n">Y</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+            <span class="n">z_pred_da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
+                <span class="n">z_pred</span><span class="p">,</span>
+                <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Y&#39;</span><span class="p">:</span> <span class="n">estim</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">],</span> <span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="n">estim</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]},</span>
+                <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">]</span>
+            <span class="p">)</span>
+            <span class="n">z_pred_da</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">t_val</span>
+
+            <span class="c1"># f. Add residual field to the original dataset slice</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">estim</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
+                <span class="n">estim_i</span> <span class="o">=</span> <span class="n">estim</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">t_val</span><span class="p">)</span><span class="o">.</span><span class="n">to_array</span><span class="p">()</span><span class="o">.</span><span class="n">drop_vars</span><span class="p">(</span><span class="s1">&#39;variable&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">estim_i</span> <span class="o">=</span> <span class="n">estim</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">t_val</span><span class="p">)</span>
+                
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">estim_i</span><span class="o">*</span><span class="n">z_pred_da</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">tmp</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tmp</span><span class="p">)</span>  <span class="c1"># floor negative values at zero</span>
+            <span class="n">sp_mult_bias</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+
+        <span class="c1"># 6. Concatenate along time dimension</span>
+        <span class="k">if</span> <span class="n">sp_mult_bias</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">sp_mult_bias</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;T&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">do_cross_validation</span> <span class="ow">and</span> <span class="n">cv_rmse_records</span><span class="p">:</span>
+            <span class="n">cv_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cv_rmse_records</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cv_df</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">*</span><span class="n">mask</span><span class="p">,</span> <span class="n">cv_df</span></div>
+
+
+<div class="viewcode-block" id="WAS_Merging.plot_merging_comparaison">
+<a class="viewcode-back" href="../../api.html#wass2s.was_merge_predictand.WAS_Merging.plot_merging_comparaison">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">plot_merging_comparaison</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df_Obs</span><span class="p">,</span> <span class="n">da_estimated</span><span class="p">,</span> <span class="n">da_corrected</span><span class="p">,</span> <span class="n">missing_value</span> <span class="o">=</span> <span class="o">-</span><span class="mf">999.0</span><span class="p">):</span>
+        
+        <span class="n">da_Obs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform_cpt</span><span class="p">(</span><span class="n">df_Obs</span><span class="p">,</span> <span class="n">missing_value</span><span class="o">=</span><span class="n">missing_value</span><span class="p">)</span>
+        
+        <span class="n">da_estimated_</span> <span class="o">=</span> <span class="n">da_estimated</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span>
+            <span class="n">X</span><span class="o">=</span><span class="n">da_Obs</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span>
+            <span class="n">Y</span><span class="o">=</span><span class="n">da_Obs</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">],</span>
+        <span class="p">)</span>
+        <span class="n">da_estimated_</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Estimation&quot;</span>
+        
+        <span class="n">da_corrected_</span> <span class="o">=</span> <span class="n">da_corrected</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span>
+            <span class="n">X</span><span class="o">=</span><span class="n">da_Obs</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span>
+            <span class="n">Y</span><span class="o">=</span><span class="n">da_Obs</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">],</span>
+        <span class="p">)</span>
+        <span class="n">da_corrected_</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Correction&quot;</span>
+            
+        <span class="n">merged_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+            <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">da_Obs</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(),</span> 
+                     <span class="n">da_estimated_</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(),</span> 
+                     <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">],</span> 
+                     <span class="n">how</span><span class="o">=</span><span class="s2">&quot;outer&quot;</span><span class="p">),</span>
+            <span class="n">da_corrected_</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(),</span>
+            <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">],</span>
+            <span class="n">how</span><span class="o">=</span><span class="s2">&quot;outer&quot;</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        
+        <span class="n">df</span> <span class="o">=</span> <span class="n">merged_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Observation&quot;</span><span class="p">,</span>  <span class="s2">&quot;Estimation&quot;</span><span class="p">,</span> <span class="s2">&quot;Correction&quot;</span><span class="p">])</span>
+        
+        <span class="c1"># Create a 1-row, 2-column figure</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        
+        <span class="c1"># Define limits for square axes</span>
+        <span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Observation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Observation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+        <span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Observation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Observation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+        <span class="c1"># y_min = min(df[&quot;Estimation&quot;].min(), df[&quot;Correction&quot;].min())</span>
+        <span class="c1"># y_max = max(df[&quot;Estimation&quot;].max(), df[&quot;Correction&quot;].max())</span>
+        
+        <span class="c1"># Set equal axis limits</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">)</span>
+        
+        <span class="c1"># Define y=x reference line range</span>
+        <span class="n">y_line</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+        
+        <span class="c1"># Panel 1: Scatterplot for Observations vs Estimated</span>
+        <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Observation&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Estimation&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_line</span><span class="p">,</span> <span class="n">y_line</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;y = x&quot;</span><span class="p">)</span>  <span class="c1"># y=x line</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Observation vs Estimation&quot;</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Observation&quot;</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Estimation&quot;</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">adjustable</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>  <span class="c1"># Make square</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        
+        <span class="c1"># Panel 2: Scatterplot for Observations vs Corrected</span>
+        <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Observation&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Correction&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_line</span><span class="p">,</span> <span class="n">y_line</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;y = x&quot;</span><span class="p">)</span>  <span class="c1"># y=x line</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Observation vs Correction&quot;</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Observation&quot;</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Correction&quot;</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">adjustable</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>  <span class="c1"># Make square</span>
+        <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        
+        <span class="c1"># Adjust layout</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+</div>
+
+
+        
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Mandela C. M. HOUNGNIBO.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

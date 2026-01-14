@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>wass2s.was_pcr &mdash; wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel. 0.3.4 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=1e28cc32"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel.
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel.</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">wass2s.was_pcr</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for wass2s.was_pcr</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">wass2s.was_linear_models</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">wass2s.was_eof</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">wass2s.was_machine_learning</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+
+<div class="viewcode-block" id="WAS_PCR">
+<a class="viewcode-back" href="../../api.html#wass2s.was_pcr.WAS_PCR">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">WAS_PCR</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class for Principal Component Regression (PCR) integrating EOF analysis</span>
+<span class="sd">    with flexible regression models.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    regression_model : object</span>
+<span class="sd">        An instance of a WAS regression model class.</span>
+<span class="sd">    n_modes : int, optional</span>
+<span class="sd">        Number of EOF modes to retain.</span>
+<span class="sd">    use_coslat : bool, default=True</span>
+<span class="sd">        Apply cosine latitude weighting in EOF analysis.</span>
+<span class="sd">    standardize : bool, default=False</span>
+<span class="sd">        Standardize the input data.</span>
+<span class="sd">    detrend : bool, default=True</span>
+<span class="sd">        Detrend the input data.</span>
+<span class="sd">    opti_explained_variance : float, optional</span>
+<span class="sd">        Target cumulative explained variance to determine number of EOF modes.</span>
+<span class="sd">    L2norm : bool, default=False</span>
+<span class="sd">        Normalize EOF components and scores to have L2 norm.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="WAS_PCR.__init__">
+<a class="viewcode-back" href="../../api.html#wass2s.was_pcr.WAS_PCR.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">regression_model</span><span class="p">,</span> <span class="n">n_modes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">use_coslat</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">standardize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">detrend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">opti_explained_variance</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">L2norm</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes the PCR class using a WAS_EOF instance and a flexible regression model.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eof_model</span> <span class="o">=</span> <span class="n">WAS_EOF</span><span class="p">(</span>
+            <span class="n">n_modes</span><span class="o">=</span><span class="n">n_modes</span><span class="p">,</span> 
+            <span class="n">use_coslat</span><span class="o">=</span><span class="n">use_coslat</span><span class="p">,</span> 
+            <span class="n">standardize</span><span class="o">=</span><span class="n">standardize</span><span class="p">,</span> 
+            <span class="n">detrend</span><span class="o">=</span><span class="n">detrend</span><span class="p">,</span>
+            <span class="n">opti_explained_variance</span><span class="o">=</span><span class="n">opti_explained_variance</span><span class="p">,</span> 
+            <span class="n">L2norm</span><span class="o">=</span><span class="n">L2norm</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reg_model</span> <span class="o">=</span> <span class="n">regression_model</span></div>
+
+
+<div class="viewcode-block" id="WAS_PCR._prepare_pcs">
+<a class="viewcode-back" href="../../api.html#wass2s.was_pcr.WAS_PCR._prepare_pcs">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_prepare_pcs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Helper to fit EOF on train and transform test data.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X_train : xarray.DataArray</span>
+<span class="sd">            Training predictor data with time dimension &#39;T&#39;</span>
+<span class="sd">        X_test : xarray.DataArray</span>
+<span class="sd">            Test predictor data with time dimension &#39;T&#39;</span>
+<span class="sd">            </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        X_train_pcs : xarray.DataArray</span>
+<span class="sd">            Principal components for training data</span>
+<span class="sd">        X_test_pcs : xarray.DataArray</span>
+<span class="sd">            Principal components for test data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Fit EOF on training data</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">s_pcs</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">eof_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;T&quot;</span><span class="p">)</span>
+        <span class="n">X_train_pcs</span> <span class="o">=</span> <span class="n">s_pcs</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;features&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;features&#39;</span><span class="p">)</span>
+        
+        <span class="c1"># Transform test data</span>
+        <span class="n">X_test_filled</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+        
+        <span class="c1"># Ensure T dimension exists for transform</span>
+        <span class="k">if</span> <span class="s1">&#39;T&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">X_test_filled</span><span class="o">.</span><span class="n">dims</span><span class="p">:</span>
+            <span class="n">X_test_filled</span> <span class="o">=</span> <span class="n">X_test_filled</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">)</span>
+             
+        <span class="n">X_test_pcs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">eof_model</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test_filled</span><span class="p">)</span>
+        <span class="n">X_test_pcs</span> <span class="o">=</span> <span class="n">X_test_pcs</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;features&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;features&#39;</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">X_train_pcs</span><span class="p">,</span> <span class="n">X_test_pcs</span></div>
+
+
+<div class="viewcode-block" id="WAS_PCR.compute_model">
+<a class="viewcode-back" href="../../api.html#wass2s.was_pcr.WAS_PCR.compute_model">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Fits EOF, transforms predictors, and runs the deterministic regression.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X_train : xarray.DataArray</span>
+<span class="sd">            Training predictor data</span>
+<span class="sd">        y_train : array-like or xarray.DataArray</span>
+<span class="sd">            Training target data</span>
+<span class="sd">        X_test : xarray.DataArray</span>
+<span class="sd">            Test predictor data</span>
+<span class="sd">        **kwargs : dict</span>
+<span class="sd">            Additional parameters passed to the regression model&#39;s compute_model method</span>
+<span class="sd">            </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        result : object</span>
+<span class="sd">            Result from the regression model&#39;s compute_model method</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">X_train_pcs</span><span class="p">,</span> <span class="n">X_test_pcs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_pcs</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">)</span>
+
+        <span class="c1"># all_params = {**kwargs}</span>
+        <span class="c1"># params_prob = {</span>
+        <span class="c1">#     key: value for key, value in all_params.items() </span>
+        <span class="c1">#     if key not in self.reg_model.compute_model.__code__.co_varnames</span>
+        <span class="c1"># }</span>
+
+        <span class="c1"># params_models = {</span>
+        <span class="c1">#     key: value for key, value in all_params.items() </span>
+        <span class="c1">#     if key not in params_prob</span>
+        <span class="c1"># } </span>
+        
+        <span class="c1"># Forward all parameters to the underlying compute_model</span>
+        <span class="k">if</span> <span class="s1">&#39;y_test&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">reg_model</span><span class="o">.</span><span class="n">compute_model</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_varnames</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">reg_model</span><span class="o">.</span><span class="n">compute_model</span><span class="p">(</span><span class="n">X_train_pcs</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test_pcs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">reg_model</span><span class="o">.</span><span class="n">compute_model</span><span class="p">(</span><span class="n">X_train_pcs</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test_pcs</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WAS_PCR.compute_prob">
+<a class="viewcode-back" href="../../api.html#wass2s.was_pcr.WAS_PCR.compute_prob">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_prob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Predictant</span><span class="p">,</span> <span class="n">clim_year_start</span><span class="p">,</span> <span class="n">clim_year_end</span><span class="p">,</span> <span class="n">hindcast_det</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Computes probabilistic forecasts using the regression model&#39;s probability method.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Predictant : xarray.DataArray</span>
+<span class="sd">            Target variable data</span>
+<span class="sd">        clim_year_start : int</span>
+<span class="sd">            Start year for climatology</span>
+<span class="sd">        clim_year_end : int</span>
+<span class="sd">            End year for climatology</span>
+<span class="sd">        hindcast_det : xarray.DataArray</span>
+<span class="sd">            Hindcast deterministic predictions</span>
+<span class="sd">        **kwargs : dict</span>
+<span class="sd">            Additional parameters for the regression model</span>
+<span class="sd">            </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        result : object or None</span>
+<span class="sd">            Probabilistic forecast result or None for unsupported models</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
+        
+        <span class="c1"># Check if the regression model has a compute_prob method</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reg_model</span><span class="p">,</span> <span class="s1">&#39;compute_prob&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">None</span>
+            
+        <span class="c1"># # Filter kwargs to only pass what the specific reg_model.compute_prob accepts</span>
+        <span class="c1"># sig = inspect.signature(self.reg_model.compute_prob)</span>
+        <span class="c1"># valid_params = [p.name for p in sig.parameters.values() </span>
+        <span class="c1">#                if p.name not in [&#39;self&#39;, &#39;Predictant&#39;, &#39;clim_year_start&#39;, </span>
+        <span class="c1">#                                 &#39;clim_year_end&#39;, &#39;hindcast_det&#39;]]</span>
+        <span class="c1"># params_prob = {k: v for k, v in kwargs.items() if k in valid_params}</span>
+        
+        <span class="n">all_params</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">kwargs</span><span class="p">}</span>
+        <span class="n">params_prob</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">key</span><span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">all_params</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> 
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">reg_model</span><span class="o">.</span><span class="n">compute_model</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_varnames</span>
+        <span class="p">}</span>
+
+        <span class="c1"># Handle Logistic Regression (usually returns classes, not tercile probs)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reg_model</span><span class="p">,</span> <span class="n">WAS_LogisticRegression_Model</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">None</span>
+            
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">reg_model</span><span class="o">.</span><span class="n">compute_prob</span><span class="p">(</span>
+            <span class="n">Predictant</span><span class="p">,</span> <span class="n">clim_year_start</span><span class="p">,</span> <span class="n">clim_year_end</span><span class="p">,</span> <span class="n">hindcast_det</span><span class="p">,</span> <span class="o">**</span><span class="n">params_prob</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WAS_PCR.forecast">
+<a class="viewcode-back" href="../../api.html#wass2s.was_pcr.WAS_PCR.forecast">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">forecast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Predictant</span><span class="p">,</span> <span class="n">clim_year_start</span><span class="p">,</span> <span class="n">clim_year_end</span><span class="p">,</span> <span class="n">Predictor</span><span class="p">,</span> 
+                 <span class="n">hindcast_det</span><span class="p">,</span> <span class="n">Predictor_for_year</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generates an operational forecast by projecting the forecast year onto EOF space.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Predictant : xarray.DataArray</span>
+<span class="sd">            Target variable data</span>
+<span class="sd">        clim_year_start : int</span>
+<span class="sd">            Start year for climatology</span>
+<span class="sd">        clim_year_end : int</span>
+<span class="sd">            End year for climatology</span>
+<span class="sd">        Predictor : xarray.DataArray</span>
+<span class="sd">            Historical predictor data for training</span>
+<span class="sd">        hindcast_det : xarray.DataArray</span>
+<span class="sd">            Hindcast deterministic predictions</span>
+<span class="sd">        Predictor_for_year : xarray.DataArray</span>
+<span class="sd">            Predictor data for the forecast year</span>
+<span class="sd">        **kwargs : dict</span>
+<span class="sd">            Additional parameters for the regression model</span>
+<span class="sd">            </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        result : object</span>
+<span class="sd">            Forecast result from the regression model</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Fit EOF on historical predictors</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">s_pcs</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">eof_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Predictor</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;T&quot;</span><span class="p">)</span>
+        <span class="n">Predictor_pcs</span> <span class="o">=</span> <span class="n">s_pcs</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;features&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;features&#39;</span><span class="p">)</span>
+        
+        <span class="c1"># Transform predictor for forecast year</span>
+        <span class="n">Predictor_for_year_filled</span> <span class="o">=</span> <span class="n">Predictor_for_year</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">Predictor</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+        <span class="n">Predictor_for_year_pcs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">eof_model</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Predictor_for_year_filled</span><span class="p">)</span>
+        <span class="n">Predictor_for_year_pcs</span> <span class="o">=</span> <span class="n">Predictor_for_year_pcs</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;features&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;features&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Run the underlying model&#39;s forecast method</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">reg_model</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span>
+            <span class="n">Predictant</span><span class="p">,</span> <span class="n">clim_year_start</span><span class="p">,</span> <span class="n">clim_year_end</span><span class="p">,</span> 
+            <span class="n">Predictor_pcs</span><span class="p">,</span> <span class="n">hindcast_det</span><span class="p">,</span> <span class="n">Predictor_for_year_pcs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Mandela C. M. HOUNGNIBO.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

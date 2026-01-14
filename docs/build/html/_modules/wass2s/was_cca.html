@@ -1,0 +1,1001 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>wass2s.was_cca &mdash; wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel. 0.3.4 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=1e28cc32"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel.
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel.</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">wass2s.was_cca</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for wass2s.was_cca</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">signal</span> <span class="k">as</span> <span class="n">sig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">gamma</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">norm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">lognorm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xeofs</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xe</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">wass2s.utils</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.dates</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mdates</span>
+
+
+
+
+
+
+
+<div class="viewcode-block" id="WAS_CCA">
+<a class="viewcode-back" href="../../api.html#wass2s.was_cca.WAS_CCA">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">WAS_CCA</span><span class="p">:</span>
+<div class="viewcode-block" id="WAS_CCA.__init__">
+<a class="viewcode-back" href="../../api.html#wass2s.was_cca.WAS_CCA.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_modes</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">n_pca_modes</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">standardize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">use_coslat</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">use_pca</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dist_method</span><span class="o">=</span><span class="s2">&quot;nonparam&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the WAS_CCA class with specified parameters.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        - n_modes: Number of canonical modes to compute.</span>
+<span class="sd">        - n_pca_modes: Number of PCA modes to use before CCA.</span>
+<span class="sd">        - standardize: Whether to standardize the data. Keep it False in our case data already standardize</span>
+<span class="sd">        - use_coslat: Whether to use cosine latitude weighting.</span>
+<span class="sd">        - use_pca: Whether to perform PCA before CCA.</span>
+<span class="sd">        - detrend: Whether to apply detrending to the data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_modes</span> <span class="o">=</span> <span class="n">n_modes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_pca_modes</span> <span class="o">=</span> <span class="n">n_pca_modes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">standardize</span> <span class="o">=</span> <span class="n">standardize</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_coslat</span> <span class="o">=</span> <span class="n">use_coslat</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_pca</span> <span class="o">=</span> <span class="n">use_pca</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dist_method</span> <span class="o">=</span> <span class="n">dist_method</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cca</span> <span class="o">=</span> <span class="n">xe</span><span class="o">.</span><span class="n">cross</span><span class="o">.</span><span class="n">CCA</span><span class="p">(</span>
+            <span class="n">n_modes</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_modes</span><span class="p">,</span>
+            <span class="n">standardize</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">standardize</span><span class="p">,</span>
+            <span class="n">use_coslat</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_coslat</span><span class="p">,</span>
+            <span class="n">use_pca</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_pca</span><span class="p">,</span>
+            <span class="n">n_pca_modes</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_pca_modes</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cca_model</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+    
+<div class="viewcode-block" id="WAS_CCA.fit_cca">
+<a class="viewcode-back" href="../../api.html#wass2s.was_cca.WAS_CCA.fit_cca">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fit_cca</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Fit the CCA model using the training data.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        - X_train: xarray DataArray for predictor training data.</span>
+<span class="sd">        - y_train: xarray DataArray for predictand training data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Preprocess the data</span>
+        <span class="n">X_train_final</span><span class="p">,</span> <span class="n">y_train_final</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">preprocess_data</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+        <span class="c1"># Fit the CCA model</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cca_model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cca</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_final</span><span class="p">,</span> <span class="n">y_train_final</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;T&quot;</span><span class="p">)</span></div>
+
+
+    <span class="c1"># def detrend_data(self, data): ### Replace detrend by extendedEOF after</span>
+    <span class="c1">#     &quot;&quot;&quot;</span>
+    <span class="c1">#     Detrend the data along the &#39;T&#39; dimension if detrending is enabled.</span>
+
+    <span class="c1">#     Parameters:</span>
+    <span class="c1">#     - data: xarray DataArray to be detrended.</span>
+
+    <span class="c1">#     Returns:</span>
+    <span class="c1">#     - data_detrended: Detrended xarray DataArray.</span>
+    <span class="c1">#     &quot;&quot;&quot;</span>
+    <span class="c1">#     if self.detrend:</span>
+    <span class="c1">#         # Create mask for missing data</span>
+    <span class="c1">#         mask = xr.where(np.isnan(data), np.nan, 1)</span>
+    <span class="c1">#         # mask = np.where(np.isnan(data.isel(T=0)), np.nan, 1)</span>
+    <span class="c1">#         # Fill missing values with zero before detrending</span>
+    <span class="c1">#         data_filled = data.fillna(0)</span>
+    <span class="c1">#         # Detrend data along &#39;T&#39; axis (axis=0)</span>
+    <span class="c1">#         data_detrended = sig.detrend(data_filled, axis=0)</span>
+    <span class="c1">#         data_detrended = xr.DataArray(data_detrended, dims=data.dims, coords=data.coords)</span>
+    <span class="c1">#         # Apply mask after detrending</span>
+    <span class="c1">#         # data_detrended = data_detrended * mask</span>
+    <span class="c1">#         return data_detrended</span>
+    <span class="c1">#     else:</span>
+    <span class="c1">#         return data</span>
+
+    <span class="c1"># def preprocess_data(self, X, Y):</span>
+    <span class="c1">#     &quot;&quot;&quot;</span>
+    <span class="c1">#     Preprocess the data by detrending, masking, and filling missing values.</span>
+
+    <span class="c1">#     Parameters:</span>
+    <span class="c1">#     - X: xarray DataArray for predictors.</span>
+    <span class="c1">#     - Y: xarray DataArray for predictands.</span>
+
+    <span class="c1">#     Returns:</span>
+    <span class="c1">#     - X_final: Preprocessed X data.</span>
+    <span class="c1">#     - Y_final: Preprocessed Y data.</span>
+    <span class="c1">#     &quot;&quot;&quot;</span>
+    <span class="c1">#     # Apply detrending and masking (masking is now inside detrend_data)</span>
+    <span class="c1">#     X_processed = self.detrend_data(X)</span>
+    <span class="c1">#     # Fill missing values with mean along &#39;T&#39;</span>
+    <span class="c1">#     X_final = X_processed.fillna(X_processed.mean(dim=&quot;T&quot;, skipna=True))</span>
+
+    <span class="c1">#     # Process Y data (assuming we do not detrend Y)</span>
+    <span class="c1">#     Y_final = Y.fillna(Y.mean(dim=&quot;T&quot;, skipna=True))</span>
+
+    <span class="c1">#     # Rename dimensions and transpose</span>
+    <span class="c1">#     dims_rename = {&quot;X&quot;: &quot;lon&quot;, &quot;Y&quot;: &quot;lat&quot;}</span>
+    <span class="c1">#     X_final = X_final.rename(dims_rename).transpose(&#39;T&#39;, &#39;lat&#39;, &#39;lon&#39;)</span>
+    <span class="c1">#     Y_final = Y_final.rename(dims_rename).transpose(&#39;T&#39;, &#39;lat&#39;, &#39;lon&#39;)</span>
+
+    <span class="c1">#     return X_final, Y_final</span>
+
+<div class="viewcode-block" id="WAS_CCA.preprocess_data">
+<a class="viewcode-back" href="../../api.html#wass2s.was_cca.WAS_CCA.preprocess_data">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">preprocess_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Preprocess the data by detrending, masking, and filling missing values.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        - X: xarray DataArray for predictors.</span>
+<span class="sd">        - Y: xarray DataArray for predictands.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        - X_final: Preprocessed X data.</span>
+<span class="sd">        - Y_final: Preprocessed Y data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Apply detrending to both X and Y</span>
+        <span class="n">X_processed</span> <span class="o">=</span> <span class="n">X</span> <span class="c1">#- self.detrend_data(X)</span>
+        <span class="n">Y_processed</span> <span class="o">=</span> <span class="n">Y</span> <span class="c1">#- self.detrend_data(Y)</span>
+
+        <span class="c1"># Fill missing values with mean along &#39;T&#39;</span>
+        <span class="n">X_final</span> <span class="o">=</span> <span class="n">X_processed</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">X_processed</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+        <span class="n">Y_final</span> <span class="o">=</span> <span class="n">Y_processed</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">Y_processed</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+        <span class="c1"># Rename dimensions and transpose</span>
+        <span class="n">dims_rename</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="s2">&quot;lon&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;lat&quot;</span><span class="p">}</span>
+        <span class="n">X_final</span> <span class="o">=</span> <span class="n">X_final</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">dims_rename</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">)</span>
+        <span class="n">Y_final</span> <span class="o">=</span> <span class="n">Y_final</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">dims_rename</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">X_final</span><span class="p">,</span> <span class="n">Y_final</span></div>
+
+
+<div class="viewcode-block" id="WAS_CCA.preprocess_test_data">
+<a class="viewcode-back" href="../../api.html#wass2s.was_cca.WAS_CCA.preprocess_test_data">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">preprocess_test_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Preprocess the test data.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        - X_test: xarray DataArray for predictor testing data.</span>
+<span class="sd">        - y_test: xarray DataArray for predictand testing data.</span>
+<span class="sd">        - X_train: xarray DataArray for predictor training data.</span>
+<span class="sd">        - y_train: xarray DataArray for predictand training data.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        - X_test_prepared: Preprocessed X test data.</span>
+<span class="sd">        - y_test_prepared: Preprocessed Y test data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Apply detrending and masking</span>
+        <span class="n">X_test_processed</span> <span class="o">=</span> <span class="n">X_test</span> <span class="c1">#- self.detrend_data(X_train).mean(dim=&quot;T&quot;, skipna=True)</span>
+        <span class="n">y_test_processed</span> <span class="o">=</span> <span class="n">y_test</span> 
+        
+        <span class="c1"># Fill missing values with mean from training data along &#39;T&#39;</span>
+        <span class="n">X_test_prepared</span> <span class="o">=</span> <span class="n">X_test_processed</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>        
+        <span class="n">y_test_prepared</span> <span class="o">=</span> <span class="n">y_test_processed</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">y_train</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+        <span class="c1"># Rename dimensions and transpose</span>
+        <span class="n">dims_rename</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="s2">&quot;lon&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;lat&quot;</span><span class="p">}</span>
+        <span class="n">X_test_prepared</span> <span class="o">=</span> <span class="n">X_test_prepared</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">dims_rename</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">)</span>
+        <span class="n">y_test_prepared</span> <span class="o">=</span> <span class="n">y_test_prepared</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">dims_rename</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">X_test_prepared</span><span class="p">,</span> <span class="n">y_test_prepared</span></div>
+
+
+<div class="viewcode-block" id="WAS_CCA.compute_model">
+<a class="viewcode-back" href="../../api.html#wass2s.was_cca.WAS_CCA.compute_model">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the CCA model and generate hindcasts.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        - X_train: xarray DataArray for predictor training data.</span>
+<span class="sd">        - y_train: xarray DataArray for predictand training data.</span>
+<span class="sd">        - X_test: xarray DataArray for predictor testing data.</span>
+<span class="sd">        - y_test: xarray DataArray for predictand testing data.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">        - hindcast: xarray DataArray containing predictions and errors.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        
+        <span class="c1"># Fit the CCA model</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">fit_cca</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+            
+        <span class="c1"># Prepare test data</span>
+        <span class="n">X_test_prepared</span><span class="p">,</span> <span class="n">y_test_prepared</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">preprocess_test_data</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+        <span class="c1"># Predict</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cca_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_prepared</span><span class="p">)</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cca_model</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cca_model</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test_prepared</span><span class="p">),</span> <span class="n">y_pred</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> 
+
+        <span class="n">y_pred</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_test_prepared</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span>
+        <span class="c1"># Calculate error</span>
+        <span class="c1"># error = y_test_prepared - y_pred</span>
+
+        <span class="c1"># Combine prediction and error into a DataArray</span>
+        <span class="c1"># hindcast = xr.concat([error, y_pred], dim=&quot;output&quot;)</span>
+        <span class="n">hindcast</span> <span class="o">=</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="s2">&quot;Y&quot;</span><span class="p">})</span>
+        <span class="c1"># hindcast = hindcast.assign_coords(output=[&#39;error&#39;, &#39;prediction&#39;])</span>
+
+        <span class="k">return</span> <span class="n">hindcast</span></div>
+
+
+    <span class="c1"># --------------------------------------------------------------------------</span>
+    <span class="c1">#  Probability Calculation Methods</span>
+    <span class="c1"># --------------------------------------------------------------------------</span>
+    <span class="c1"># ------------------ Probability Calculation Methods ------------------</span>
+
+<div class="viewcode-block" id="WAS_CCA._ppf_terciles_from_code">
+<a class="viewcode-back" href="../../api.html#wass2s.was_cca.WAS_CCA._ppf_terciles_from_code">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_ppf_terciles_from_code</span><span class="p">(</span><span class="n">dist_code</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return tercile thresholds (T1, T2) from best-fit distribution parameters.</span>
+<span class="sd">    </span>
+<span class="sd">        dist_code:</span>
+<span class="sd">            1: norm</span>
+<span class="sd">            2: lognorm</span>
+<span class="sd">            3: expon</span>
+<span class="sd">            4: gamma</span>
+<span class="sd">            5: weibull_min</span>
+<span class="sd">            6: t</span>
+<span class="sd">            7: poisson</span>
+<span class="sd">            8: nbinom</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">dist_code</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    
+        <span class="n">code</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">dist_code</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">code</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">(</span>
+                    <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.32</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">),</span>
+                    <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.67</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">),</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="n">code</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">(</span>
+                    <span class="n">lognorm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.32</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">),</span>
+                    <span class="n">lognorm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.67</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">),</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="n">code</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">(</span>
+                    <span class="n">expon</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.32</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">),</span>
+                    <span class="n">expon</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.67</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">),</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="n">code</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">(</span>
+                    <span class="n">gamma</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.32</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">),</span>
+                    <span class="n">gamma</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.67</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">),</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="n">code</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">(</span>
+                    <span class="n">weibull_min</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.32</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">),</span>
+                    <span class="n">weibull_min</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.67</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">),</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="n">code</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+                <span class="c1"># Note: Renamed &#39;t_dist&#39; to &#39;t&#39; for standard scipy.stats</span>
+                <span class="k">return</span> <span class="p">(</span>
+                    <span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.32</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">),</span>
+                    <span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.67</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">),</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="n">code</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
+                <span class="c1"># Poisson: poisson.ppf(q, mu, loc=0)</span>
+                <span class="c1"># ASSUMPTION: &#39;mu&#39; (mean) is passed as &#39;shape&#39;</span>
+                <span class="c1">#             &#39;loc&#39; is passed as &#39;loc&#39;</span>
+                <span class="c1">#             &#39;scale&#39; is unused</span>
+                <span class="k">return</span> <span class="p">(</span>
+                    <span class="n">poisson</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.32</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">loc</span><span class="p">),</span>
+                    <span class="n">poisson</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.67</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">loc</span><span class="p">),</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="n">code</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span>
+                <span class="c1"># Negative Binomial: nbinom.ppf(q, n, p, loc=0)</span>
+                <span class="c1"># ASSUMPTION: &#39;n&#39; (successes) is passed as &#39;shape&#39;</span>
+                <span class="c1">#             &#39;p&#39; (probability) is passed as &#39;scale&#39;</span>
+                <span class="c1">#             &#39;loc&#39; is passed as &#39;loc&#39;</span>
+                <span class="k">return</span> <span class="p">(</span>
+                    <span class="n">nbinom</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.32</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">loc</span><span class="p">),</span>
+                    <span class="n">nbinom</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.67</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">loc</span><span class="p">),</span>
+                <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    
+        <span class="c1"># Fallback if code is not 1-8</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span></div>
+
+        
+<div class="viewcode-block" id="WAS_CCA.weibull_shape_solver">
+<a class="viewcode-back" href="../../api.html#wass2s.was_cca.WAS_CCA.weibull_shape_solver">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">weibull_shape_solver</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">V</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Function to find the root of the Weibull shape parameter &#39;k&#39;.</span>
+<span class="sd">        We find &#39;k&#39; such that the theoretical variance/mean^2 ratio</span>
+<span class="sd">        matches the observed V/M^2 ratio.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Guard against invalid &#39;k&#39; values during solving</span>
+        <span class="k">if</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">g1</span> <span class="o">=</span> <span class="n">gamma_function</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">k</span><span class="p">)</span>
+            <span class="n">g2</span> <span class="o">=</span> <span class="n">gamma_function</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">/</span><span class="n">k</span><span class="p">)</span>
+            
+            <span class="c1"># This is the V/M^2 ratio *implied by k*</span>
+            <span class="n">implied_v_over_m_sq</span> <span class="o">=</span> <span class="p">(</span><span class="n">g2</span> <span class="o">/</span> <span class="p">(</span><span class="n">g1</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span>
+            
+            <span class="c1"># This is the *observed* ratio</span>
+            <span class="n">observed_v_over_m_sq</span> <span class="o">=</span> <span class="n">V</span> <span class="o">/</span> <span class="p">(</span><span class="n">M</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+            
+            <span class="c1"># Return the difference (we want this to be 0)</span>
+            <span class="k">return</span> <span class="n">observed_v_over_m_sq</span> <span class="o">-</span> <span class="n">implied_v_over_m_sq</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span> <span class="c1"># Handle math errors</span></div>
+
+
+<div class="viewcode-block" id="WAS_CCA.calculate_tercile_probabilities_bestfit">
+<a class="viewcode-back" href="../../api.html#wass2s.was_cca.WAS_CCA.calculate_tercile_probabilities_bestfit">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">calculate_tercile_probabilities_bestfit</span><span class="p">(</span><span class="n">best_guess</span><span class="p">,</span> <span class="n">error_variance</span><span class="p">,</span> <span class="n">T1</span><span class="p">,</span> <span class="n">T2</span><span class="p">,</span> <span class="n">dist_code</span><span class="p">,</span> <span class="n">dof</span> 
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generic tercile probabilities using best-fit family per grid cell.</span>
+
+<span class="sd">        Inputs (per grid cell):</span>
+<span class="sd">        - best_guess : 1D array over T (hindcast_det or forecast_det)</span>
+<span class="sd">        - T1, T2     : scalar terciles from climatological best-fit distribution</span>
+<span class="sd">        - dist_code  : int, as in _ppf_terciles_from_code</span>
+<span class="sd">        - shape, loc, scale : scalars from climatology fit</span>
+
+<span class="sd">        Strategy:</span>
+<span class="sd">        - For each time step, build a predictive distribution of the same family:</span>
+<span class="sd">            * Use best_guess[t] to adjust mean / location;</span>
+<span class="sd">            * Keep shape parameters from climatology.</span>
+<span class="sd">        - Then compute probabilities:</span>
+<span class="sd">            P(B) = F(T1), P(N) = F(T2) - F(T1), P(A) = 1 - F(T2).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">best_guess</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">best_guess</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+        <span class="n">error_variance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">error_variance</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+        <span class="c1"># T1 = np.asarray(T1, dtype=float)</span>
+        <span class="c1"># T2 = np.asarray(T2, dtype=float)</span>
+        <span class="n">n_time</span> <span class="o">=</span> <span class="n">best_guess</span><span class="o">.</span><span class="n">size</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="n">n_time</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">best_guess</span><span class="p">))</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">dist_code</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">T2</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">error_variance</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">out</span>
+
+        <span class="n">code</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">dist_code</span><span class="p">)</span>
+
+        <span class="c1"># Normal: loc = forecast; scale from clim</span>
+        <span class="k">if</span> <span class="n">code</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">error_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">error_variance</span><span class="p">)</span>
+            <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">best_guess</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">error_std</span><span class="p">)</span>
+            <span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">T2</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">best_guess</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">error_std</span><span class="p">)</span> <span class="o">-</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">best_guess</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">error_std</span><span class="p">)</span>
+            <span class="n">out</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">T2</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">best_guess</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">error_std</span><span class="p">)</span>
+
+        <span class="c1"># Lognormal: shape = sigma from clim; enforce mean = best_guess</span>
+        <span class="k">elif</span> <span class="n">code</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">error_variance</span> <span class="o">/</span> <span class="p">(</span><span class="n">best_guess</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
+            <span class="n">mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">best_guess</span><span class="p">)</span> <span class="o">-</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="mi">2</span>
+            <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">lognorm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">sigma</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">mu</span><span class="p">))</span>
+            <span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">lognorm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">T2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">sigma</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">mu</span><span class="p">))</span> <span class="o">-</span> <span class="n">lognorm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">sigma</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">mu</span><span class="p">))</span>
+            <span class="n">out</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">lognorm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">T2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="n">sigma</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">mu</span><span class="p">))</span>      
+
+
+        <span class="c1"># Exponential: keep scale from clim; shift loc so mean = best_guess</span>
+        <span class="k">elif</span> <span class="n">code</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">c1</span> <span class="o">=</span> <span class="n">expon</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">best_guess</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">error_variance</span><span class="p">))</span>
+            <span class="n">c2</span> <span class="o">=</span> <span class="n">expon</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">T2</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">loc_t</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">error_variance</span><span class="p">))</span>
+            <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">c1</span>
+            <span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">c2</span> <span class="o">-</span> <span class="n">c1</span>
+            <span class="n">out</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">c2</span>
+
+        <span class="c1"># Gamma: use shape from clim; set scale so mean = best_guess</span>
+        <span class="k">elif</span> <span class="n">code</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="n">alpha</span> <span class="o">=</span> <span class="p">(</span><span class="n">best_guess</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">error_variance</span>
+            <span class="n">theta</span> <span class="o">=</span> <span class="n">error_variance</span> <span class="o">/</span> <span class="n">best_guess</span>
+            <span class="n">c1</span> <span class="o">=</span> <span class="n">gamma</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">theta</span><span class="p">)</span>
+            <span class="n">c2</span> <span class="o">=</span> <span class="n">gamma</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">T2</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">theta</span><span class="p">)</span>
+            <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">c1</span>
+            <span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">c2</span> <span class="o">-</span> <span class="n">c1</span>
+            <span class="n">out</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">c2</span>
+
+        <span class="k">elif</span> <span class="n">code</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span> <span class="c1"># Assuming 5 is for Weibull   </span>
+        
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_time</span><span class="p">):</span>
+                <span class="c1"># Get the scalar values for this specific element (e.g., grid cell)</span>
+                <span class="n">M</span> <span class="o">=</span> <span class="n">best_guess</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+                <span class="n">V</span> <span class="o">=</span> <span class="n">error_variance</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+                
+                <span class="c1"># Handle cases with no variance to avoid division by zero</span>
+                <span class="k">if</span> <span class="n">V</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">M</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+                    <span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+                    <span class="n">out</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+                    <span class="k">continue</span> <span class="c1"># Skip to the next element</span>
+        
+                <span class="c1"># --- 1. Numerically solve for shape &#39;k&#39; ---</span>
+                <span class="c1"># We need a reasonable starting guess. 2.0 is common (Rayleigh dist.)</span>
+                <span class="n">initial_guess</span> <span class="o">=</span> <span class="mf">2.0</span>
+                
+                <span class="c1"># fsolve finds the root of our helper function</span>
+                <span class="n">k</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">weibull_shape_solver</span><span class="p">,</span> <span class="n">initial_guess</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">V</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+        
+                <span class="c1"># --- 2. Check for bad solution and calculate scale &#39;lambda&#39; ---</span>
+                <span class="k">if</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="c1"># Solver failed</span>
+                    <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+                    <span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+                    <span class="n">out</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+                    <span class="k">continue</span>
+                
+                <span class="c1"># With &#39;k&#39; found, we can now algebraically find scale &#39;lambda&#39;</span>
+                <span class="c1"># In scipy.stats, scale is &#39;scale&#39;</span>
+                <span class="n">lambda_scale</span> <span class="o">=</span> <span class="n">M</span> <span class="o">/</span> <span class="n">gamma_function</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">k</span><span class="p">)</span>
+        
+                <span class="c1"># --- 3. Calculate Probabilities ---</span>
+                <span class="c1"># In scipy.stats, shape &#39;k&#39; is &#39;c&#39;</span>
+                <span class="c1"># Use the T1 and T2 values for this specific element</span>
+                
+                <span class="n">c1</span> <span class="o">=</span> <span class="n">weibull_min</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">lambda_scale</span><span class="p">)</span>
+                <span class="n">c2</span> <span class="o">=</span> <span class="n">weibull_min</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">T2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">lambda_scale</span><span class="p">)</span>
+        
+                <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">c1</span>
+                <span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">c2</span> <span class="o">-</span> <span class="n">c1</span>
+                <span class="n">out</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">c2</span>
+
+        <span class="c1"># Student-t: df from clim; scale from clim; loc = best_guess</span>
+        <span class="k">elif</span> <span class="n">code</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>       
+            <span class="c1"># Check if df is valid for variance calculation</span>
+            <span class="k">if</span> <span class="n">dof</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="c1"># Cannot calculate scale, fill with NaNs</span>
+                <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+                <span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+                <span class="n">out</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># 1. Calculate t-distribution parameters</span>
+                <span class="c1"># &#39;loc&#39; (mean) is just the best_guess</span>
+                <span class="n">loc</span> <span class="o">=</span> <span class="n">best_guess</span>
+                <span class="c1"># &#39;scale&#39; is calculated from the variance and df</span>
+                <span class="c1"># Variance = scale**2 * (df / (df - 2))</span>
+                <span class="n">scale</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">error_variance</span> <span class="o">*</span> <span class="p">(</span><span class="n">dof</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">dof</span><span class="p">)</span>
+                
+                <span class="c1"># 2. Calculate probabilities</span>
+                <span class="n">c1</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">dof</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
+                <span class="n">c2</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">T2</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">dof</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
+
+                <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">c1</span>
+                <span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">c2</span> <span class="o">-</span> <span class="n">c1</span>
+                <span class="n">out</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">c2</span>
+
+        <span class="k">elif</span> <span class="n">code</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span> <span class="c1"># Assuming 7 is for Poisson</span>
+            
+            <span class="c1"># --- 1. Set the Poisson parameter &#39;mu&#39; ---</span>
+            <span class="c1"># The &#39;mu&#39; parameter is the mean.</span>
+            
+            <span class="c1"># A warning is strongly recommended if error_variance is different from best_guess</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">best_guess</span><span class="p">,</span> <span class="n">error_variance</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning: &#39;error_variance&#39; is not equal to &#39;best_guess&#39;.&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Poisson model assumes mean=variance and is likely inappropriate.&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Consider using Negative Binomial.&quot;</span><span class="p">)</span>
+            
+            <span class="n">mu</span> <span class="o">=</span> <span class="n">best_guess</span>
+        
+            <span class="c1"># --- 2. Calculate Probabilities ---</span>
+            <span class="c1"># poisson.cdf(k, mu) calculates P(X &lt;= k)</span>
+            
+            <span class="n">c1</span> <span class="o">=</span> <span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="n">mu</span><span class="p">)</span>
+            <span class="n">c2</span> <span class="o">=</span> <span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">T2</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="n">mu</span><span class="p">)</span>
+            
+            <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">c1</span>
+            <span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">c2</span> <span class="o">-</span> <span class="n">c1</span>
+            <span class="n">out</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">c2</span>
+
+        <span class="k">elif</span> <span class="n">code</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span> <span class="c1"># Assuming 8 is for Negative Binomial</span>
+            
+            <span class="c1"># --- 1. Calculate Negative Binomial Parameters ---</span>
+            <span class="c1"># This model is ONLY valid for overdispersion (Variance &gt; Mean).</span>
+            <span class="c1"># We will use np.where to set parameters to NaN if V &lt;= M.</span>
+            
+            <span class="c1"># p = Mean / Variance</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">error_variance</span> <span class="o">&gt;</span> <span class="n">best_guess</span><span class="p">,</span> 
+                         <span class="n">best_guess</span> <span class="o">/</span> <span class="n">error_variance</span><span class="p">,</span> 
+                         <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+            
+            <span class="c1"># n = Mean^2 / (Variance - Mean)</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">error_variance</span> <span class="o">&gt;</span> <span class="n">best_guess</span><span class="p">,</span> 
+                         <span class="p">(</span><span class="n">best_guess</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">error_variance</span> <span class="o">-</span> <span class="n">best_guess</span><span class="p">),</span> 
+                         <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+            
+            <span class="c1"># --- 2. Calculate Probabilities ---</span>
+            <span class="c1"># The nbinom.cdf function will propagate NaNs, correctly</span>
+            <span class="c1"># handling the cases where the model was invalid.</span>
+            
+            <span class="n">c1</span> <span class="o">=</span> <span class="n">nbinom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>
+            <span class="n">c2</span> <span class="o">=</span> <span class="n">nbinom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">T2</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>
+            
+            <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">c1</span>
+            <span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">c2</span> <span class="o">-</span> <span class="n">c1</span>
+            <span class="n">out</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">c2</span>
+            
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid distribution&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">out</span></div>
+
+
+<div class="viewcode-block" id="WAS_CCA.calculate_tercile_probabilities_nonparametric">
+<a class="viewcode-back" href="../../api.html#wass2s.was_cca.WAS_CCA.calculate_tercile_probabilities_nonparametric">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">calculate_tercile_probabilities_nonparametric</span><span class="p">(</span><span class="n">best_guess</span><span class="p">,</span> <span class="n">error_samples</span><span class="p">,</span> <span class="n">first_tercile</span><span class="p">,</span> <span class="n">second_tercile</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Non-parametric method using historical error samples.&quot;&quot;&quot;</span>
+        <span class="n">n_time</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">best_guess</span><span class="p">)</span>
+        <span class="n">pred_prob</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="n">n_time</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_time</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">best_guess</span><span class="p">[</span><span class="n">t</span><span class="p">]):</span>
+                <span class="k">continue</span>
+            <span class="n">dist</span> <span class="o">=</span> <span class="n">best_guess</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+</span> <span class="n">error_samples</span>
+            <span class="n">dist</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">dist</span><span class="p">)]</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dist</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">p_below</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dist</span> <span class="o">&lt;</span> <span class="n">first_tercile</span><span class="p">)</span>
+            <span class="n">p_between</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">dist</span> <span class="o">&gt;=</span> <span class="n">first_tercile</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dist</span> <span class="o">&lt;</span> <span class="n">second_tercile</span><span class="p">))</span>
+            <span class="n">p_above</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="p">(</span><span class="n">p_below</span> <span class="o">+</span> <span class="n">p_between</span><span class="p">)</span>
+            <span class="n">pred_prob</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">p_below</span>
+            <span class="n">pred_prob</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">p_between</span>
+            <span class="n">pred_prob</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">p_above</span>
+        <span class="k">return</span> <span class="n">pred_prob</span></div>
+
+
+
+
+<div class="viewcode-block" id="WAS_CCA.compute_prob">
+<a class="viewcode-back" href="../../api.html#wass2s.was_cca.WAS_CCA.compute_prob">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_prob</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">Predictant</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span>
+        <span class="n">clim_year_start</span><span class="p">,</span>
+        <span class="n">clim_year_end</span><span class="p">,</span>
+        <span class="n">hindcast_det</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span>
+        <span class="n">best_code_da</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">best_shape_da</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">best_loc_da</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">best_scale_da</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute tercile probabilities for deterministic hindcasts.</span>
+
+<span class="sd">        If dist_method == &#39;bestfit&#39;:</span>
+<span class="sd">            - Use cluster-based best-fit distributions to:</span>
+<span class="sd">                * derive terciles analytically from (best_code_da, best_shape_da, best_loc_da, best_scale_da),</span>
+<span class="sd">                * compute predictive probabilities using the same family.</span>
+
+<span class="sd">        Otherwise:</span>
+<span class="sd">            - Use empirical terciles from Predictant climatology and the selected</span>
+<span class="sd">              parametric / nonparametric method.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Predictant : xarray.DataArray</span>
+<span class="sd">            Observed data (T, Y, X) or (T, Y, X, M).</span>
+<span class="sd">        clim_year_start, clim_year_end : int or str</span>
+<span class="sd">            Climatology period (inclusive) for thresholds.</span>
+<span class="sd">        hindcast_det : xarray.DataArray</span>
+<span class="sd">            Deterministic hindcast (T, Y, X).</span>
+<span class="sd">        best_code_da, best_shape_da, best_loc_da, best_scale_da : xarray.DataArray, optional</span>
+<span class="sd">            Output from WAS_TransformData.fit_best_distribution_grid, required for &#39;bestfit&#39;.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        hindcast_prob : xarray.DataArray</span>
+<span class="sd">            Probabilities with dims (probability=[&#39;PB&#39;,&#39;PN&#39;,&#39;PA&#39;], T, Y, X).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Handle member dimension if present</span>
+        <span class="k">if</span> <span class="s2">&quot;M&quot;</span> <span class="ow">in</span> <span class="n">Predictant</span><span class="o">.</span><span class="n">dims</span><span class="p">:</span>
+            <span class="n">Predictant</span> <span class="o">=</span> <span class="n">Predictant</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">M</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">drop_vars</span><span class="p">(</span><span class="s2">&quot;M&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+
+        <span class="c1"># Ensure dimension order</span>
+        <span class="n">Predictant</span> <span class="o">=</span> <span class="n">Predictant</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Spatial mask</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">Predictant</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="mi">0</span><span class="p">)),</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+
+        <span class="c1"># Climatology subset</span>
+        <span class="n">clim</span> <span class="o">=</span> <span class="n">Predictant</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">clim_year_start</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">clim_year_end</span><span class="p">)))</span>
+        <span class="k">if</span> <span class="n">clim</span><span class="o">.</span><span class="n">sizes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Not enough years in climatology period for terciles.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Error variance for predictive distributions</span>
+        <span class="n">error_variance</span> <span class="o">=</span> <span class="p">(</span><span class="n">Predictant</span> <span class="o">-</span> <span class="n">hindcast_det</span><span class="p">)</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;T&quot;</span><span class="p">)</span>
+        <span class="n">dof</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">clim</span><span class="o">.</span><span class="n">sizes</span><span class="p">[</span><span class="s2">&quot;T&quot;</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+        <span class="c1"># Empirical terciles (used by non-bestfit methods)</span>
+        <span class="n">terciles_emp</span> <span class="o">=</span> <span class="n">clim</span><span class="o">.</span><span class="n">quantile</span><span class="p">([</span><span class="mf">0.32</span><span class="p">,</span> <span class="mf">0.67</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="s2">&quot;T&quot;</span><span class="p">)</span>
+        <span class="n">T1_emp</span> <span class="o">=</span> <span class="n">terciles_emp</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">quantile</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">drop_vars</span><span class="p">(</span><span class="s2">&quot;quantile&quot;</span><span class="p">)</span>
+        <span class="n">T2_emp</span> <span class="o">=</span> <span class="n">terciles_emp</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">quantile</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">drop_vars</span><span class="p">(</span><span class="s2">&quot;quantile&quot;</span><span class="p">)</span>
+        
+
+        <span class="n">dm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dist_method</span>
+
+        <span class="c1"># ---------- BESTFIT: zone-wise optimal distributions ----------</span>
+        <span class="k">if</span> <span class="n">dm</span> <span class="o">==</span> <span class="s2">&quot;bestfit&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">v</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="p">(</span><span class="n">best_code_da</span><span class="p">,</span> <span class="n">best_shape_da</span><span class="p">,</span> <span class="n">best_loc_da</span><span class="p">,</span> <span class="n">best_scale_da</span><span class="p">)):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;dist_method=&#39;bestfit&#39; requires best_code_da, best_shape_da_da, best_loc_da, best_scale_da.&quot;</span>
+                <span class="p">)</span>
+
+            <span class="c1"># T1, T2 from best-fit distributions (per grid)</span>
+            <span class="n">T1</span><span class="p">,</span> <span class="n">T2</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">apply_ufunc</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_ppf_terciles_from_code</span><span class="p">,</span>
+                <span class="n">best_code_da</span><span class="p">,</span>
+                <span class="n">best_shape_da</span><span class="p">,</span>
+                <span class="n">best_loc_da</span><span class="p">,</span>
+                <span class="n">best_scale_da</span><span class="p">,</span>
+                <span class="n">input_core_dims</span><span class="o">=</span><span class="p">[(),</span> <span class="p">(),</span> <span class="p">(),</span> <span class="p">()],</span>
+                <span class="n">output_core_dims</span><span class="o">=</span><span class="p">[(),</span> <span class="p">()],</span>
+                <span class="n">vectorize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">dask</span><span class="o">=</span><span class="s2">&quot;parallelized&quot;</span><span class="p">,</span>
+                <span class="n">output_dtypes</span><span class="o">=</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
+            <span class="p">)</span>
+
+            <span class="c1"># Predictive probabilities using same family</span>
+            <span class="n">hindcast_prob</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">apply_ufunc</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">calculate_tercile_probabilities_bestfit</span><span class="p">,</span>
+                <span class="n">hindcast_det</span><span class="p">,</span>
+                <span class="n">error_variance</span><span class="p">,</span>
+                <span class="n">T1</span><span class="p">,</span>
+                <span class="n">T2</span><span class="p">,</span>
+                <span class="n">best_code_da</span><span class="p">,</span>
+                <span class="n">input_core_dims</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;T&quot;</span><span class="p">,),</span> <span class="p">(),</span> <span class="p">(),</span> <span class="p">(),</span> <span class="p">()],</span>
+                <span class="n">output_core_dims</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;probability&quot;</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span><span class="p">)],</span>
+                <span class="n">vectorize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;dof&#39;</span><span class="p">:</span> <span class="n">dof</span><span class="p">},</span>
+                <span class="n">dask</span><span class="o">=</span><span class="s2">&quot;parallelized&quot;</span><span class="p">,</span>
+                <span class="n">output_dtypes</span><span class="o">=</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+                <span class="n">dask_gufunc_kwargs</span><span class="o">=</span><span class="p">{</span>
+                    <span class="s2">&quot;output_sizes&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;probability&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
+                    <span class="s2">&quot;allow_rechunk&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="p">},</span>
+            <span class="p">)</span>
+
+        <span class="c1"># ---------- Nonparametric ----------</span>
+        <span class="k">elif</span> <span class="n">dm</span> <span class="o">==</span> <span class="s2">&quot;nonparam&quot;</span><span class="p">:</span>
+            <span class="n">error_samples</span> <span class="o">=</span> <span class="n">Predictant</span> <span class="o">-</span> <span class="n">hindcast_det</span>
+            <span class="n">hindcast_prob</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">apply_ufunc</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">calculate_tercile_probabilities_nonparametric</span><span class="p">,</span>
+                <span class="n">hindcast_det</span><span class="p">,</span>
+                <span class="n">error_samples</span><span class="p">,</span>
+                <span class="n">T1_emp</span><span class="p">,</span>
+                <span class="n">T2_emp</span><span class="p">,</span>
+                <span class="n">input_core_dims</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;T&quot;</span><span class="p">,),</span> <span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">,),</span> <span class="p">(),</span> <span class="p">()],</span>
+                <span class="n">output_core_dims</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;probability&quot;</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span><span class="p">)],</span>
+                <span class="n">vectorize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">dask</span><span class="o">=</span><span class="s2">&quot;parallelized&quot;</span><span class="p">,</span>
+                <span class="n">output_dtypes</span><span class="o">=</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+                <span class="n">dask_gufunc_kwargs</span><span class="o">=</span><span class="p">{</span>
+                    <span class="s2">&quot;output_sizes&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;probability&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
+                    <span class="s2">&quot;allow_rechunk&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="p">},</span>
+            <span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid dist_method: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">dist_method</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">hindcast_prob</span> <span class="o">=</span> <span class="n">hindcast_prob</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span>
+            <span class="n">probability</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;probability&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;PB&quot;</span><span class="p">,</span> <span class="s2">&quot;PN&quot;</span><span class="p">,</span> <span class="s2">&quot;PA&quot;</span><span class="p">])</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">hindcast_prob</span> <span class="o">*</span> <span class="n">mask</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="s2">&quot;probability&quot;</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">)</span></div>
+
+
+
+
+<div class="viewcode-block" id="WAS_CCA.forecast">
+<a class="viewcode-back" href="../../api.html#wass2s.was_cca.WAS_CCA.forecast">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">forecast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Predictant</span><span class="p">,</span> <span class="n">clim_year_start</span><span class="p">,</span> <span class="n">clim_year_end</span><span class="p">,</span> <span class="n">Predictor</span><span class="p">,</span> <span class="n">hindcast_det</span><span class="p">,</span> <span class="n">Predictor_for_year</span><span class="p">,</span> <span class="n">best_code_da</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">best_shape_da</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">best_loc_da</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">best_scale_da</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">Predictant</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="mi">0</span><span class="p">)),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">drop_vars</span><span class="p">([</span><span class="s1">&#39;T&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+        <span class="n">Predictor_</span> <span class="o">=</span> <span class="p">(</span><span class="n">Predictor</span> <span class="o">-</span> <span class="n">trend_data</span><span class="p">(</span><span class="n">Predictor</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">trend_data</span><span class="p">(</span><span class="n">Predictor</span><span class="p">)[</span><span class="o">-</span><span class="mi">3</span><span class="p">]))</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">Predictant_st</span> <span class="o">=</span> <span class="n">standardize_timeseries</span><span class="p">(</span><span class="n">Predictant</span><span class="p">,</span> <span class="n">clim_year_start</span><span class="p">,</span> <span class="n">clim_year_end</span><span class="p">)</span>
+        <span class="n">Predictant_</span> <span class="o">=</span> <span class="p">(</span><span class="n">Predictant_st</span> <span class="o">-</span> <span class="n">trend_data</span><span class="p">(</span><span class="n">Predictant_st</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">trend_data</span><span class="p">(</span><span class="n">Predictant_st</span><span class="p">)[</span><span class="o">-</span><span class="mi">3</span><span class="p">]))</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        
+        <span class="n">Predictor_for_year_</span> <span class="o">=</span> <span class="p">((((</span><span class="n">Predictor_for_year</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">Predictor</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">)))</span><span class="o">.</span><span class="n">ffill</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;Y&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">bfill</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;Y&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">ffill</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;X&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">bfill</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;X&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">)</span>
+
+        <span class="c1"># last_trend_X = ((trend_data(standardize_timeseries(Predictor, clim_year_start, clim_year_end))).isel(T=[-3]))</span>
+        <span class="c1"># last_trend_X = ((trend_data(Predictor)).isel(T=[-3]))</span>
+        <span class="c1"># last_trend_X[&#39;T&#39;] = Predictor_for_year_[&#39;T&#39;]</span>
+        <span class="c1"># Predictor_for_year__ = Predictor_for_year_.fillna(0)</span>
+        <span class="c1"># Predictor_for_year__ = (Predictor_for_year_ - last_trend_X).fillna(0)</span>
+
+        <span class="n">Predictor_for_year__</span> <span class="o">=</span> <span class="n">Predictor_for_year_</span>
+
+        <span class="c1"># Fit the CCA model</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fit_cca</span><span class="p">(</span><span class="n">Predictor_</span><span class="p">,</span> <span class="n">Predictant_</span><span class="p">)</span>
+            
+        <span class="c1"># Prepare test data</span>
+        <span class="n">X_test_prepared</span> <span class="o">=</span> <span class="n">Predictor_for_year__</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s2">&quot;X&quot;</span><span class="p">:</span> <span class="s2">&quot;lon&quot;</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">:</span> <span class="s2">&quot;lat&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Predict</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cca_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_prepared</span><span class="p">)</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cca_model</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cca_model</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test_prepared</span><span class="p">),</span> <span class="n">y_pred</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> 
+        <span class="n">result_</span> <span class="o">=</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="s2">&quot;Y&quot;</span><span class="p">})</span>
+        
+        <span class="c1"># last_trend_Y = ((trend_data(Predictant_st)).isel(T=[-3]))</span>
+        <span class="c1"># last_trend_Y[&#39;T&#39;] = result_[&#39;T&#39;]</span>
+        <span class="c1"># result_ = (result_ + last_trend_Y)</span>
+       
+        <span class="n">result_</span> <span class="o">=</span> <span class="n">reverse_standardize</span><span class="p">(</span><span class="n">result_</span><span class="p">,</span> <span class="n">Predictant</span><span class="p">,</span> <span class="n">clim_year_start</span><span class="p">,</span> <span class="n">clim_year_end</span><span class="p">)</span> 
+        
+        <span class="c1"># 2) Compute thresholds T1, T2 from climatology</span>
+        <span class="n">index_start</span> <span class="o">=</span> <span class="n">Predictant</span><span class="o">.</span><span class="n">get_index</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">clim_year_start</span><span class="p">))</span><span class="o">.</span><span class="n">start</span>
+        <span class="n">index_end</span>   <span class="o">=</span> <span class="n">Predictant</span><span class="o">.</span><span class="n">get_index</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">clim_year_end</span><span class="p">))</span><span class="o">.</span><span class="n">stop</span>
+        <span class="n">rainfall_for_tercile</span> <span class="o">=</span> <span class="n">Predictant</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="n">index_start</span><span class="p">,</span> <span class="n">index_end</span><span class="p">))</span>
+        <span class="n">terciles</span> <span class="o">=</span> <span class="n">rainfall_for_tercile</span><span class="o">.</span><span class="n">quantile</span><span class="p">([</span><span class="mf">0.32</span><span class="p">,</span> <span class="mf">0.67</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="s1">&#39;T&#39;</span><span class="p">)</span>
+        <span class="n">T1_emp</span> <span class="o">=</span> <span class="n">terciles</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">quantile</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">drop_vars</span><span class="p">(</span><span class="s1">&#39;quantile&#39;</span><span class="p">)</span>
+        <span class="n">T2_emp</span> <span class="o">=</span> <span class="n">terciles</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">quantile</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">drop_vars</span><span class="p">(</span><span class="s1">&#39;quantile&#39;</span><span class="p">)</span>
+        <span class="n">error_variance</span> <span class="o">=</span> <span class="p">(</span><span class="n">Predictant</span> <span class="o">-</span> <span class="n">hindcast_det</span><span class="p">)</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;T&#39;</span><span class="p">)</span>
+
+        <span class="n">year</span> <span class="o">=</span> <span class="n">Predictor_for_year</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[Y]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1970</span>  <span class="c1"># Convert from epoch</span>
+        <span class="n">T_value_1</span> <span class="o">=</span> <span class="n">Predictant</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>  <span class="c1"># Get the datetime64 value from da1</span>
+        <span class="n">month_1</span> <span class="o">=</span> <span class="n">T_value_1</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[M]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="o">%</span> <span class="mi">12</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># Extract month</span>
+        <span class="n">new_T_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">month_1</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="mi">1</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">forecast_expanded</span> <span class="o">=</span> <span class="n">result_</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">([</span><span class="n">new_T_value</span><span class="p">],</span> <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;T&quot;</span><span class="p">]))</span>
+        <span class="n">forecast_expanded</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">forecast_expanded</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[ns]&#39;</span><span class="p">)</span>
+        
+        
+        <span class="n">dof</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">rainfall_for_tercile</span><span class="o">.</span><span class="n">sizes</span><span class="p">[</span><span class="s2">&quot;T&quot;</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+        <span class="n">dm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dist_method</span>
+
+        <span class="c1"># ---------- BESTFIT ----------</span>
+        <span class="k">if</span> <span class="n">dm</span> <span class="o">==</span> <span class="s2">&quot;bestfit&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">v</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="p">(</span><span class="n">best_code_da</span><span class="p">,</span> <span class="n">best_shape_da</span><span class="p">,</span> <span class="n">best_loc_da</span><span class="p">,</span> <span class="n">best_scale_da</span><span class="p">)):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;dist_method=&#39;bestfit&#39; requires best_code_da, best_shape_da, best_loc_da, best_scale_da.&quot;</span>
+                <span class="p">)</span>
+            
+            <span class="n">T1</span><span class="p">,</span> <span class="n">T2</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">apply_ufunc</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_ppf_terciles_from_code</span><span class="p">,</span>
+                <span class="n">best_code_da</span><span class="p">,</span>
+                <span class="n">best_shape_da</span><span class="p">,</span>
+                <span class="n">best_loc_da</span><span class="p">,</span>
+                <span class="n">best_scale_da</span><span class="p">,</span>
+                <span class="n">input_core_dims</span><span class="o">=</span><span class="p">[(),</span> <span class="p">(),</span> <span class="p">(),</span> <span class="p">()],</span>
+                <span class="n">output_core_dims</span><span class="o">=</span><span class="p">[(),</span> <span class="p">()],</span>
+                <span class="n">vectorize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">dask</span><span class="o">=</span><span class="s2">&quot;parallelized&quot;</span><span class="p">,</span>
+                <span class="n">output_dtypes</span><span class="o">=</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
+            <span class="p">)</span>
+
+            <span class="n">forecast_prob</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">apply_ufunc</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">calculate_tercile_probabilities_bestfit</span><span class="p">,</span>
+                <span class="n">forecast_expanded</span><span class="p">,</span>
+                <span class="n">error_variance</span><span class="p">,</span>
+                <span class="n">T1</span><span class="p">,</span>
+                <span class="n">T2</span><span class="p">,</span>
+                <span class="n">best_code_da</span><span class="p">,</span>
+                <span class="n">input_core_dims</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;T&quot;</span><span class="p">,),</span> <span class="p">(),</span> <span class="p">(),</span> <span class="p">(),</span> <span class="p">()],</span>
+                <span class="n">output_core_dims</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;probability&quot;</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span><span class="p">)],</span>
+                <span class="n">vectorize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">dask</span><span class="o">=</span><span class="s2">&quot;parallelized&quot;</span><span class="p">,</span>
+                <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;dof&quot;</span><span class="p">:</span> <span class="n">dof</span><span class="p">},</span>
+                <span class="n">output_dtypes</span><span class="o">=</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+                <span class="n">dask_gufunc_kwargs</span><span class="o">=</span><span class="p">{</span>
+                    <span class="s2">&quot;output_sizes&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;probability&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
+                    <span class="s2">&quot;allow_rechunk&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="p">},</span>
+            <span class="p">)</span>
+
+        <span class="c1"># ---------- Nonparametric ----------</span>
+        <span class="k">elif</span> <span class="n">dm</span> <span class="o">==</span> <span class="s2">&quot;nonparam&quot;</span><span class="p">:</span>
+            <span class="n">error_samples</span> <span class="o">=</span> <span class="n">Predictant</span> <span class="o">-</span> <span class="n">hindcast_det</span>
+            <span class="n">forecast_prob</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">apply_ufunc</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">calculate_tercile_probabilities_nonparametric</span><span class="p">,</span>
+                <span class="n">forecast_expanded</span><span class="p">,</span>
+                <span class="n">error_samples</span><span class="p">,</span>
+                <span class="n">T1_emp</span><span class="p">,</span>
+                <span class="n">T2_emp</span><span class="p">,</span>
+                <span class="n">input_core_dims</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;T&quot;</span><span class="p">,),</span> <span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">,),</span> <span class="p">(),</span> <span class="p">()],</span>
+                <span class="n">output_core_dims</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;probability&quot;</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span><span class="p">)],</span>
+                <span class="n">vectorize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">dask</span><span class="o">=</span><span class="s2">&quot;parallelized&quot;</span><span class="p">,</span>
+                <span class="n">output_dtypes</span><span class="o">=</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+                <span class="n">dask_gufunc_kwargs</span><span class="o">=</span><span class="p">{</span>
+                    <span class="s2">&quot;output_sizes&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;probability&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
+                    <span class="s2">&quot;allow_rechunk&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="p">},</span>
+            <span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid dist_method: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">dist_method</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">forecast_prob</span> <span class="o">=</span> <span class="n">forecast_prob</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">probability</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;probability&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;PB&#39;</span><span class="p">,</span> <span class="s1">&#39;PN&#39;</span><span class="p">,</span> <span class="s1">&#39;PA&#39;</span><span class="p">]))</span>
+        <span class="k">return</span> <span class="n">forecast_expanded</span> <span class="o">*</span> <span class="n">mask</span><span class="p">,</span> <span class="n">mask</span> <span class="o">*</span> <span class="n">forecast_prob</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="s1">&#39;probability&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">)</span></div>
+
+        
+
+<div class="viewcode-block" id="WAS_CCA.plot_cca_results">
+<a class="viewcode-back" href="../../api.html#wass2s.was_cca.WAS_CCA.plot_cca_results">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">plot_cca_results</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">Y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_modes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">clim_year_start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">clim_year_end</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Plots the CCA modes and scores.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">        - X: Optional xarray DataArray for predictors. If provided, the model will be fitted using X and Y.</span>
+<span class="sd">        - Y: Optional xarray DataArray for predictands.</span>
+<span class="sd">        - n_modes: Number of modes to plot. If None, plots all modes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">X</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">Y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">Y</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="mi">0</span><span class="p">)),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">drop_vars</span><span class="p">([</span><span class="s1">&#39;T&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+            <span class="c1"># mask.name = None</span>
+            
+            <span class="c1"># X_ = standardize_timeseries(X, clim_year_start, clim_year_end) - trend_data(standardize_timeseries(X, clim_year_start, clim_year_end)).fillna(trend_data(standardize_timeseries(X, clim_year_start, clim_year_end))[-3])</span>
+
+            <span class="n">X_</span> <span class="o">=</span> <span class="n">X</span> <span class="o">-</span> <span class="n">trend_data</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">trend_data</span><span class="p">(</span><span class="n">X</span><span class="p">)[</span><span class="o">-</span><span class="mi">3</span><span class="p">])</span>
+            
+            <span class="n">Y_</span> <span class="o">=</span> <span class="n">standardize_timeseries</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">clim_year_start</span><span class="p">,</span> <span class="n">clim_year_end</span><span class="p">)</span> <span class="o">-</span> <span class="n">trend_data</span><span class="p">(</span><span class="n">standardize_timeseries</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">clim_year_start</span><span class="p">,</span> <span class="n">clim_year_end</span><span class="p">))</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">trend_data</span><span class="p">(</span><span class="n">standardize_timeseries</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">clim_year_start</span><span class="p">,</span> <span class="n">clim_year_end</span><span class="p">))[</span><span class="o">-</span><span class="mi">3</span><span class="p">])</span>
+            
+            <span class="c1"># Fit the model using the provided data</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fit_cca</span><span class="p">(</span><span class="n">X_</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">Y_</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">cca_model</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The CCA model has not been fitted yet. Provide X and Y data to fit the model.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Get components (modes) and scores</span>
+        <span class="n">X_modes</span><span class="p">,</span> <span class="n">Y_modes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cca_model</span><span class="o">.</span><span class="n">components</span><span class="p">()</span>  <span class="c1"># Spatial patterns</span>
+        <span class="n">X_scores</span><span class="p">,</span> <span class="n">Y_scores</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cca_model</span><span class="o">.</span><span class="n">scores</span><span class="p">()</span>    <span class="c1"># Temporal projections (canonical variates)</span>
+
+        <span class="c1"># Get explained variances</span>
+        <span class="n">var_explained_X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cca_model</span><span class="o">.</span><span class="n">fraction_variance_X_explained_by_X</span><span class="p">()</span>
+        <span class="n">var_explained_Y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cca_model</span><span class="o">.</span><span class="n">fraction_variance_Y_explained_by_Y</span><span class="p">()</span>
+        <span class="n">var_explained_Y_by_X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cca_model</span><span class="o">.</span><span class="n">fraction_variance_Y_explained_by_X</span><span class="p">()</span>
+
+        <span class="c1"># Determine number of modes to plot</span>
+        <span class="k">if</span> <span class="n">n_modes</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">n_modes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_modes</span>
+
+        <span class="c1"># Mode indices start from 1 in xeofs</span>
+        <span class="n">mode_indices</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_modes</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># Create subplots</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">n_modes</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">n_modes</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">n_modes</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">axes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">axes</span><span class="p">])</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">mode</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">mode_indices</span><span class="p">):</span>
+
+            <span class="c1"># First Column: Plot X_modes</span>
+            <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+            <span class="n">X_mode</span> <span class="o">=</span> <span class="n">X_modes</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">)</span>
+            <span class="n">X_mode</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s2">&quot;RdBu_r&quot;</span><span class="p">)</span>
+            <span class="n">var_X</span> <span class="o">=</span> <span class="n">var_explained_X</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">)</span><span class="o">.</span><span class="n">values</span> <span class="o">*</span> <span class="mi">100</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;X Mode </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">var_X</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">% variance explained)&#39;</span><span class="p">)</span>
+
+            <span class="c1"># Second Column: Plot X_scores and Y_scores</span>
+            <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">X_score</span> <span class="o">=</span> <span class="n">X_scores</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">)</span>
+            <span class="n">Y_score</span> <span class="o">=</span> <span class="n">Y_scores</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">)</span>
+            <span class="n">var_Y_X</span> <span class="o">=</span> <span class="n">var_explained_Y_by_X</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">)</span><span class="o">.</span><span class="n">values</span> <span class="o">*</span> <span class="mi">100</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_score</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">X_score</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;X Score&#39;</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Y_score</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">Y_score</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Y Score&#39;</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="c1">#### line Canonical Variate = 0</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Scores for Mode </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">var_Y_X</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">% variance Y explained by X)&#39;</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Canonical Variate&#39;</span><span class="p">)</span>
+
+            <span class="c1"># Third Column: Plot Y_modes</span>
+            <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+            <span class="n">Y_mode</span> <span class="o">=</span> <span class="p">(</span><span class="n">Y_modes</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">))</span><span class="o">*</span><span class="n">mask</span>
+            <span class="n">Y_mode</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span> <span class="s2">&quot;RdBu_r&quot;</span><span class="p">)</span>
+            <span class="n">var_Y</span> <span class="o">=</span> <span class="n">var_explained_Y</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">)</span><span class="o">.</span><span class="n">values</span> <span class="o">*</span> <span class="mi">100</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Y Mode </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">var_Y</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">% variance explained)&#39;</span><span class="p">)</span>
+            
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+</div>
+
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Mandela C. M. HOUNGNIBO.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

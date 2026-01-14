@@ -18,11 +18,44 @@ release = '0.3.4'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-    'sphinx.ext.autodoc',      # extract docs from docstrings
-    'sphinx.ext.napoleon',     # Google / NumPy docstring support
-    #'sphinx.ext.viewcode',     # add links to source code
-		]
-        	
+    'sphinx.ext.autodoc',        # For auto-generating docs from docstrings
+    'sphinx.ext.autosummary',    # For generating summary tables
+    'sphinx.ext.viewcode',       # Optional: adds links to source code
+    'sphinx.ext.napoleon',       # For Google/NumPy style docstrings
+]
+
+# Automatically document all members (functions, classes, methods)
+autodoc_default_options = {
+    'members': True,
+    'undoc-members': True,      # Include members without docstrings
+    'private-members': True,    # Include private members (starting with _)
+    'special-members': '__init__, __call__',  # Include special methods
+    'inherited-members': True,  # Include inherited members
+    'show-inheritance': True,
+}
+
+napoleon_google_docstring = True
+napoleon_numpy_docstring = True
+napoleon_include_init_with_doc = True
+napoleon_include_private_with_doc = True
+napoleon_include_special_with_doc = True
+
+#extensions = [
+#    'sphinx.ext.autodoc',      # extract docs from docstrings
+#    'sphinx.ext.napoleon',     # Google / NumPy docstring support
+#    'sphinx.ext.viewcode',     # add links to source code
+#		]
+# Suppress some warnings
+#suppress_warnings = [
+#    'autodoc.duplicate_object',
+#    'docutils.parsers.rst.duplicate_target'
+#]
+
+# Or use nitpick_ignore
+nitpick_ignore = [
+    ('py:class', 'wass2s.was_transformdata.WAS_TransformData.apply_transformation'),
+    # Add other duplicates here
+]        	
 
 templates_path = ['_templates']
 exclude_patterns = []
