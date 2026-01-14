@@ -7,7 +7,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Verification Module &mdash; wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel. 0.3.4 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
   
@@ -48,8 +48,47 @@
 <li class="toctree-l1 current"><a class="reference internal" href="Usage.html">Usage</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Download.html">Data Download &amp; Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Preprocessing.html">Preprocessing Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#computing-predictands">Computing Predictands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#agro-climatic-seasonality">Agro-Climatic Seasonality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#spell-analysis-dry-wet">Spell Analysis (Dry/Wet)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#etccdi-temperature-extremes">ETCCDI Temperature Extremes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#etccdi-precipitation-extremes">ETCCDI Precipitation Extremes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#input-data-formats">Input Data Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#merging-gridded-data-with-observations">Merging Gridded Data with Observations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#prerequisites-data-formats">Prerequisites &amp; Data Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#class-initialization">Class Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#merging-methods">Merging Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#visualization">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#usage-example">Usage Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#bias-correction-modules">Bias Correction Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#id1">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#precipitation-bias-correction-was-qmap">Precipitation Bias Correction (WAS_Qmap)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#continuous-bias-correction-was-bias-correction">Continuous Bias Correction (WAS_bias_correction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#data-transformation-skewness-analysis">Data Transformation &amp; Skewness Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#prerequisites-input-data">Prerequisites &amp; Input Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#skewness-detection-and-handling">Skewness Detection and Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#distribution-fitting-clustering-approach">Distribution Fitting (Clustering Approach)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#id2">Visualization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Models.html">Models and Cross-Validation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Models.html#quantifying-uncertainty-via-cross-validation">Quantifying uncertainty via cross-validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#linear-regression-and-regularization-models">Linear Regression and Regularization Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#linear-regression">Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#ridge-regression-l2-regularization">Ridge Regression (L2 Regularization)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#lasso-regression-l1-regularization">Lasso Regression (L1 Regularization)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#elasticnet-l1-l2-regularization">ElasticNet (L1 + L2 Regularization)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#probabilistic-calculation-methods">Probabilistic Calculation Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#advanced-machine-learning-models">Advanced Machine Learning Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#support-vector-regression-svr">Support Vector Regression (SVR)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#multi-layer-perceptron-mlp">Multi-Layer Perceptron (MLP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#stacking-ensemble-rf-xgb-mlp">Stacking Ensemble (RF + XGB + MLP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#multivariate-adaptive-regression-splines-mars">Multivariate Adaptive Regression Splines (MARS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#optimization-methods">Optimization Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#eof-analysis-principal-component-regression">EOF Analysis &amp; Principal Component Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#eof-analysis-was-eof">EOF Analysis (WAS_EOF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#principal-component-regression-was-pcr">Principal Component Regression (WAS_PCR)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#cca-models">CCA Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#analog-forecasting-methods">Analog Forecasting Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#quantifying-uncertainty-via-cross-validation">Quantifying Uncertainty via Cross-Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#estimating-prediction-uncertainty">Estimating Prediction Uncertainty</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Verification Module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#deterministic-metrics">Deterministic Metrics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#probabilistic-metrics">Probabilistic Metrics</a></li>
@@ -58,10 +97,15 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="mme.html">Multi-Model Ensemble (MME) Techniques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mme.html#data-preparation">1. Data Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mme.html#weighted-ensembles-linear">2. Weighted Ensembles (Linear)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mme.html#min-et-al-2009-probabilistic-mme">3. Min et al. (2009) Probabilistic MME</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mme.html#machine-learning-ensembles">4. Machine Learning Ensembles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mme.html#calibration-postprocessing">5. Calibration &amp; Post‑Processing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ImplementWASNextGen.html">Implementation of WAS-NextGen Approaches</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">wass2s submodules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
 </ul>
 
         </div>
@@ -96,7 +140,7 @@
 <p>This module is designed to work with gridded climate data, typically stored in <cite>xarray</cite> DataArrays, and supports parallel computation using <cite>dask</cite> for efficiency with large datasets.</p>
 <p>The <cite>WAS_Verification</cite> class is the core of the Verification module, providing methods to compute and visualize various performance metrics for climate forecasts.</p>
 <p><strong>Initialization</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s.was_verification</span> <span class="kn">import</span> <span class="n">WAS_Verification</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">wass2s.was_verification</span><span class="w"> </span><span class="kn">import</span> <span class="n">WAS_Verification</span>
 
 <span class="c1"># Initialize with a distribution method for probabilistic forecasts</span>
 <span class="n">verifier</span> <span class="o">=</span> <span class="n">WAS_Verification</span><span class="p">()</span>

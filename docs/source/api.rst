@@ -1,5 +1,14 @@
-wass2s submodules
------------------
+API Reference
+=============
+
+This page contains the API reference for the wass2s package.
+
+.. _modules:
+
+
+
+Module Documentation
+--------------------
 
 wass2s.was\_download module
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^                            

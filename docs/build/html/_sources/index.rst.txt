@@ -15,7 +15,7 @@ A user-friendly `jupyter-lab notebook <https://github.com/hmandela/WASS2S_notebo
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
    Installation

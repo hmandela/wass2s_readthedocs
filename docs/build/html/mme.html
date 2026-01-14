@@ -7,7 +7,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Multi-Model Ensemble (MME) Techniques &mdash; wass2s: A python-based tool for seasonal climate forecast in West Africa and the Sahel. 0.3.4 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
   
@@ -49,21 +49,58 @@
 <li class="toctree-l1 current"><a class="reference internal" href="Usage.html">Usage</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Download.html">Data Download &amp; Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Preprocessing.html">Preprocessing Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#computing-predictands">Computing Predictands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#agro-climatic-seasonality">Agro-Climatic Seasonality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#spell-analysis-dry-wet">Spell Analysis (Dry/Wet)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#etccdi-temperature-extremes">ETCCDI Temperature Extremes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#etccdi-precipitation-extremes">ETCCDI Precipitation Extremes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#input-data-formats">Input Data Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#merging-gridded-data-with-observations">Merging Gridded Data with Observations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#prerequisites-data-formats">Prerequisites &amp; Data Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#class-initialization">Class Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#merging-methods">Merging Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#visualization">Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#usage-example">Usage Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#bias-correction-modules">Bias Correction Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#id1">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#precipitation-bias-correction-was-qmap">Precipitation Bias Correction (WAS_Qmap)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#continuous-bias-correction-was-bias-correction">Continuous Bias Correction (WAS_bias_correction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#data-transformation-skewness-analysis">Data Transformation &amp; Skewness Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#prerequisites-input-data">Prerequisites &amp; Input Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#skewness-detection-and-handling">Skewness Detection and Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#distribution-fitting-clustering-approach">Distribution Fitting (Clustering Approach)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Preprocessing.html#id2">Visualization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Models.html">Models and Cross-Validation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Models.html#quantifying-uncertainty-via-cross-validation">Quantifying uncertainty via cross-validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#linear-regression-and-regularization-models">Linear Regression and Regularization Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#linear-regression">Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#ridge-regression-l2-regularization">Ridge Regression (L2 Regularization)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#lasso-regression-l1-regularization">Lasso Regression (L1 Regularization)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#elasticnet-l1-l2-regularization">ElasticNet (L1 + L2 Regularization)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#probabilistic-calculation-methods">Probabilistic Calculation Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#advanced-machine-learning-models">Advanced Machine Learning Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#support-vector-regression-svr">Support Vector Regression (SVR)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#multi-layer-perceptron-mlp">Multi-Layer Perceptron (MLP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#stacking-ensemble-rf-xgb-mlp">Stacking Ensemble (RF + XGB + MLP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#multivariate-adaptive-regression-splines-mars">Multivariate Adaptive Regression Splines (MARS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#optimization-methods">Optimization Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#eof-analysis-principal-component-regression">EOF Analysis &amp; Principal Component Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#eof-analysis-was-eof">EOF Analysis (WAS_EOF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#principal-component-regression-was-pcr">Principal Component Regression (WAS_PCR)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#cca-models">CCA Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#analog-forecasting-methods">Analog Forecasting Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#quantifying-uncertainty-via-cross-validation">Quantifying Uncertainty via Cross-Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Models.html#estimating-prediction-uncertainty">Estimating Prediction Uncertainty</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Verification.html">Verification Module</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Multi-Model Ensemble (MME) Techniques</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#data-preparation">1. Data Preparation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#weighted-ensembles-linear">2. Weighted Ensembles (Linear)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#min-et-al-2009-probabilistic-mme">3. Min et al. (2009) Probabilistic MME</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#machine-learning-ensembles">4. Machine Learning Ensembles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#calibration-post-processing">5. Calibration &amp; Post-Processing</a></li>
-</ul>
-</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Multi-Model Ensemble (MME) Techniques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-preparation">1. Data Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#weighted-ensembles-linear">2. Weighted Ensembles (Linear)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#min-et-al-2009-probabilistic-mme">3. Min et al. (2009) Probabilistic MME</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#machine-learning-ensembles">4. Machine Learning Ensembles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calibration-postprocessing">5. Calibration &amp; Post‑Processing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ImplementWASNextGen.html">Implementation of WAS-NextGen Approaches</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">wass2s submodules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
 </ul>
 
         </div>
@@ -93,21 +130,35 @@
              
   <section id="multi-model-ensemble-mme-techniques">
 <h1>Multi-Model Ensemble (MME) Techniques<a class="headerlink" href="#multi-model-ensemble-mme-techniques" title="Link to this heading"></a></h1>
-<p><strong>This section is under construction.</strong></p>
-<p>The <code class="docutils literal notranslate"><span class="pre">WAS_mme</span></code> module provides a suite of tools to combine hindcasts/forecasts from different models (e.g., GCMs) to improve predictive skill. It ranges from simple weighted averages to complex Machine Learning stacking and statistical calibration.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">WAS_mme</span></code> module provides a suite of tools to combine hindcasts and forecasts from different climate models (e.g., GCMs) in order to improve predictive skill. It includes methods ranging from simple weighted averages to advanced Machine Learning stacking and statistical calibration.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This module is actively maintained. Some advanced features are still under development.</p>
+</div>
 <p><strong>Key Features</strong>:
-* <strong>Spatial Clustering</strong>: ML models (RF, XGB, MLP) use K-Means to cluster grid points into homogeneous zones for robust hyperparameter optimization.
-* <strong>Hyperparameter Optimization (HPO)</strong>: Integrated <strong>Grid</strong>, <strong>Random</strong>, and <strong>Bayesian (Optuna)</strong> search.
-* <strong>Calibration</strong>: Methods like NGR and BMA to correct bias and spread.
+* <strong>Spatial Clustering</strong>: Uses ML models (RF, XGBoost, MLP) with K‑Means to cluster grid points into homogeneous zones for robust hyperparameter optimization.
+* <strong>Hyperparameter Optimization (HPO)</strong>: Integrated <strong>Grid</strong>, <strong>Random</strong>, and <strong>Bayesian (Optuna)</strong> search methods.
+* <strong>Calibration</strong>: Implements methods like NGR and BMA to correct bias and spread.
 * <strong>Probabilistic Output</strong>: All methods generate tercile probabilities (Below, Normal, Above).</p>
+</section>
 <hr class="docutils" />
 <section id="data-preparation">
-<h2>1. Data Preparation<a class="headerlink" href="#data-preparation" title="Link to this heading"></a></h2>
+<h1>1. Data Preparation<a class="headerlink" href="#data-preparation" title="Link to this heading"></a></h1>
 <p><strong>Function</strong>: <code class="docutils literal notranslate"><span class="pre">process_datasets_for_mme</span></code></p>
-<p>A utility function to load, interpolate, and harmonize hindcasts and forecasts from different sources (GCMs, Agro-parameters, etc.) onto a common grid (usually the observational rainfall grid).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="n">process_datasets_for_mme</span>
+<p>A utility function to load, interpolate, and harmonize hindcasts and forecasts from different sources (GCMs, agro‑parameters, etc.) onto a common grid (usually the observational rainfall grid).</p>
+<dl class="simple">
+<dt><strong>Parameters</strong>:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rainfall</span></code>: Observational data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dir_to_save_model</span></code>: Directory to save processed data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">best_models</span></code>: List of model identifiers to include.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">year_start</span></code>, <code class="docutils literal notranslate"><span class="pre">year_end</span></code>: Training period.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">score_metric</span></code>: Metric used for evaluation (e.g., ‘GROC’).</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">wass2s</span><span class="w"> </span><span class="kn">import</span> <span class="n">process_datasets_for_mme</span>
 
-<span class="c1"># Load and prep data for ensemble</span>
 <span class="n">hdcst</span><span class="p">,</span> <span class="n">fcst</span><span class="p">,</span> <span class="n">obs</span><span class="p">,</span> <span class="n">scores</span> <span class="o">=</span> <span class="n">process_datasets_for_mme</span><span class="p">(</span>
     <span class="n">rainfall</span><span class="o">=</span><span class="n">obs_data</span><span class="p">,</span>
     <span class="n">dir_to_save_model</span><span class="o">=</span><span class="s2">&quot;./data/&quot;</span><span class="p">,</span>
@@ -121,14 +172,13 @@
 </section>
 <hr class="docutils" />
 <section id="weighted-ensembles-linear">
-<h2>2. Weighted Ensembles (Linear)<a class="headerlink" href="#weighted-ensembles-linear" title="Link to this heading"></a></h2>
+<h1>2. Weighted Ensembles (Linear)<a class="headerlink" href="#weighted-ensembles-linear" title="Link to this heading"></a></h1>
 <p>These methods combine models using linear weights based on historical performance.</p>
 <p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_mme_Weighted</span></code></p>
-<p>Combines models using weights derived from a skill score (e.g., GROC, Pearson). It supports “stepwise” weighting to zero-out poor models.</p>
-<ul class="simple">
-<li><p><strong>Logic</strong>: If Score &lt; Threshold, Weight = 0. Otherwise, weight is proportional to the score (or steps like 0.6, 0.8, 1.0).</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="n">WAS_mme_Weighted</span>
+<p>Combines models using weights derived from a skill score (e.g., GROC, Pearson). Supports stepwise weighting to exclude poorly performing models.</p>
+<p><strong>Logic</strong>: If a model’s score is below a given threshold, its weight is set to zero. Otherwise, the weight is proportional to the score (or assigned stepwise values like 0.6, 0.8, 1.0).</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">wass2s</span><span class="w"> </span><span class="kn">import</span> <span class="n">WAS_mme_Weighted</span>
 
 <span class="n">mme_weighted</span> <span class="o">=</span> <span class="n">WAS_mme_Weighted</span><span class="p">(</span>
     <span class="n">equal_weighted</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
@@ -136,96 +186,109 @@
     <span class="n">threshold</span><span class="o">=</span><span class="mf">0.5</span>
 <span class="p">)</span>
 
-<span class="c1"># Compute weighted ensemble</span>
 <span class="n">hcst_det</span><span class="p">,</span> <span class="n">fcst_det</span> <span class="o">=</span> <span class="n">mme_weighted</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">hdcst</span><span class="p">,</span> <span class="n">fcst</span><span class="p">,</span> <span class="n">scores</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
+<hr class="docutils" />
 <section id="min-et-al-2009-probabilistic-mme">
-<h2>3. Min et al. (2009) Probabilistic MME<a class="headerlink" href="#min-et-al-2009-probabilistic-mme" title="Link to this heading"></a></h2>
+<h1>3. Min et al. (2009) Probabilistic MME<a class="headerlink" href="#min-et-al-2009-probabilistic-mme" title="Link to this heading"></a></h1>
 <p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_Min2009_ProbWeighted</span></code></p>
-<p>Implements the PMME method (Min et al., 2009).
-1.  Calculates individual model probabilities (assuming Gaussian/Lognormal).
-2.  Weights models based on the square root of their ensemble size.
-3.  Combines probabilities directly.
-4.  Computes a <strong>Chi-Square Combined Map</strong> to identify areas with significant signal.</p>
+<p>Implements the PMME method from Min et al. (2009):</p>
+<ol class="arabic simple">
+<li><p>Calculates individual model probabilities (assuming Gaussian or Lognormal distribution).</p></li>
+<li><p>Weights models based on the square root of their ensemble size.</p></li>
+<li><p>Combines probabilities directly.</p></li>
+<li><p>Computes a <strong>Chi‑Square Combined Map</strong> to identify areas with significant signal.</p></li>
+</ol>
 </section>
 <hr class="docutils" />
 <section id="machine-learning-ensembles">
-<h2>4. Machine Learning Ensembles<a class="headerlink" href="#machine-learning-ensembles" title="Link to this heading"></a></h2>
-<p>These classes treat the MME problem as a regression/classification task: <em>Given GCM outputs (predictors), predict Observed Rainfall</em>. They typically employ <strong>Spatial Clustering</strong> to group grid cells and optimize hyperparameters per cluster.</p>
-<ul class="simple">
-<li><p>Stacking (Super-Ensemble)</p></li>
-</ul>
+<h1>4. Machine Learning Ensembles<a class="headerlink" href="#machine-learning-ensembles" title="Link to this heading"></a></h1>
+<p>These methods treat the MME problem as a regression/classification task: given GCM outputs (predictors), predict observed rainfall. They typically employ <strong>spatial clustering</strong> to group grid cells and optimize hyperparameters per cluster.</p>
+<p><strong>Stacking (Super‑Ensemble)</strong></p>
 <p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_mme_Stacking</span></code></p>
-<p>A state-of-the-art method that stacks multiple base learners (RF, XGBoost, MLP, ELM) and combines them using a meta-learner (Ridge, Lasso, or ElasticNet).</p>
+<p>A state‑of‑the‑art method that stacks multiple base learners (RF, XGBoost, MLP, ELM) and combines them using a meta‑learner (Ridge, Lasso, or ElasticNet).</p>
 <ul class="simple">
-<li><p><strong>Layer 0 (Base)</strong>: Random Forest, XGBoost, HP-ELM, MLP.</p></li>
-<li><p><strong>Layer 1 (Meta)</strong>: Linear model trained on Out-of-Fold (OOF) predictions from Layer 0.</p></li>
+<li><p><strong>Layer 0 (Base)</strong>: Random Forest, XGBoost, HP‑ELM, MLP.</p></li>
+<li><p><strong>Layer 1 (Meta)</strong>: Linear model trained on Out‑of‑Fold (OOF) predictions from Layer 0.</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="n">WAS_mme_Stacking</span>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">wass2s</span><span class="w"> </span><span class="kn">import</span> <span class="n">WAS_mme_Stacking</span>
 
-<span class="c1"># Initialize Stacking with Bayesian Optimization</span>
 <span class="n">stacking_model</span> <span class="o">=</span> <span class="n">WAS_mme_Stacking</span><span class="p">(</span>
     <span class="n">meta_learner_type</span><span class="o">=</span><span class="s1">&#39;ridge&#39;</span><span class="p">,</span>
     <span class="n">meta_search_method</span><span class="o">=</span><span class="s1">&#39;bayesian&#39;</span><span class="p">,</span>
     <span class="n">n_clusters</span><span class="o">=</span><span class="mi">4</span>
 <span class="p">)</span>
 
-<span class="c1"># Forecast</span>
-<span class="c1"># Automatically handles clustering, HPO, and stacking</span>
 <span class="n">fcst_det</span><span class="p">,</span> <span class="n">fcst_prob</span> <span class="o">=</span> <span class="n">stacking_model</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span>
     <span class="n">Predictant</span><span class="o">=</span><span class="n">obs</span><span class="p">,</span>
-    <span class="n">clim_year_start</span><span class="o">=</span><span class="mi">1981</span><span class="p">,</span> <span class="n">clim_year_end</span><span class="o">=</span><span class="mi">2010</span><span class="p">,</span>
-    <span class="n">hindcast_det</span><span class="o">=</span><span class="n">hdcst</span><span class="p">,</span>           <span class="c1"># (T, M, Y, X)</span>
-    <span class="n">hindcast_det_cross</span><span class="o">=</span><span class="n">hdcst_cv</span><span class="p">,</span>  <span class="c1"># For error variance</span>
+    <span class="n">clim_year_start</span><span class="o">=</span><span class="mi">1981</span><span class="p">,</span>
+    <span class="n">clim_year_end</span><span class="o">=</span><span class="mi">2010</span><span class="p">,</span>
+    <span class="n">hindcast_det</span><span class="o">=</span><span class="n">hdcst</span><span class="p">,</span>            <span class="c1"># shape: (T, M, Y, X)</span>
+    <span class="n">hindcast_det_cross</span><span class="o">=</span><span class="n">hdcst_cv</span><span class="p">,</span>   <span class="c1"># for error variance</span>
     <span class="n">Predictor_for_year</span><span class="o">=</span><span class="n">fcst_year</span>
 <span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>Individual ML Regressors</strong></p>
 <ul class="simple">
-<li><p>Individual ML Regressors</p></li>
 <li><p><strong>Random Forest</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_mme_RF</span></code></p></li>
 <li><p><strong>XGBoost</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_mme_XGBoosting</span></code></p></li>
-<li><p><strong>MLP (Neural Net)</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_mme_MLP</span></code></p></li>
+<li><p><strong>MLP (Neural Network)</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_mme_MLP</span></code></p></li>
 <li><p><strong>Extreme Learning Machine</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_mme_hpELM</span></code></p></li>
 </ul>
 </section>
 <hr class="docutils" />
-<section id="calibration-post-processing">
-<h2>5. Calibration &amp; Post-Processing<a class="headerlink" href="#calibration-post-processing" title="Link to this heading"></a></h2>
+<section id="calibration-postprocessing">
+<h1>5. Calibration &amp; Post‑Processing<a class="headerlink" href="#calibration-postprocessing" title="Link to this heading"></a></h1>
 <p>Methods to correct bias and reliability errors in raw ensembles.</p>
-<ul class="simple">
-<li><p><strong>Non-homogeneous Gaussian Regression (NGR)</strong></p></li>
-</ul>
+<p><strong>Non‑homogeneous Gaussian Regression (NGR)</strong></p>
 <p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_mme_NGR</span></code></p>
-<p>Calibrates the ensemble mean and spread by minimizing the <strong>CRPS</strong> (Continuous Ranked Probability Score).
-* <strong>Model</strong>: <span class="math notranslate nohighlight">\(\mu = a + b \cdot \bar{x}_{ens}\)</span>, <span class="math notranslate nohighlight">\(\sigma = \sqrt{c^2 + d^2 \cdot s^2_{ens}}\)</span></p>
-<ul class="simple">
-<li><p><strong>Bayesian Model Averaging (BMA)</strong></p></li>
+<p>Calibrates the ensemble mean and spread by minimizing the <strong>Continuous Ranked Probability Score (CRPS)</strong>.</p>
+<ul>
+<li><dl>
+<dt><strong>Model</strong>:</dt><dd><div class="math notranslate nohighlight">
+\[\mu = a + b \cdot \bar{x}_{\text{ens}}, \quad
+\sigma = \sqrt{c^2 + d^2 \cdot s^2_{\text{ens}}}\]</div>
+</dd>
+</dl>
+</li>
 </ul>
-<p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_GaussianBMA_EM</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">WAS_EnsembleBMA</span></code></p>
+<p><strong>Bayesian Model Averaging (BMA)</strong></p>
 <ul class="simple">
-<li><p><strong>Gaussian BMA</strong>: Standard BMA for temperature or normal-distributed variables using EM algorithm.</p></li>
-<li><p><strong>Extended Logistic Regression (ELR)</strong></p></li>
+<li><dl class="simple">
+<dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_GaussianBMA_EM</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">WAS_EnsembleBMA</span></code></dt><dd><ul>
+<li><p><strong>Gaussian BMA</strong>: Standard BMA for temperature or normally‑distributed variables using the Expectation‑Maximization (EM) algorithm.</p></li>
 </ul>
-<p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_mme_xcELR</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">WAS_mme_logistic</span></code></p>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Extended Logistic Regression (ELR)</strong></p>
 <ul class="simple">
+<li><dl class="simple">
+<dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_mme_xcELR</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">WAS_mme_logistic</span></code></dt><dd><ul>
 <li><p><strong>WAS_mme_xcELR</strong>: Wraps <cite>xcast</cite> Extended Logistic Regression.</p></li>
 <li><p><strong>WAS_mme_logistic</strong>: Native implementation of Multinomial Logistic Regression to predict tercile probabilities directly.</p></li>
-<li><p><strong>WAS_mme_Guassian_process</strong>:</p></li>
-<li><p><strong>Mean and Variance Adjustment (MVA)</strong></p></li>
+<li><p><strong>WAS_mme_Gaussian_process</strong>: (Under development)</p></li>
 </ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Mean and Variance Adjustment (MVA)</strong></p>
 <p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">WAS_mme_MVA</span></code></p>
-<p>A simple bias correction technique that rescales the forecast to match the climatological mean and variance of the observations.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wass2s</span> <span class="kn">import</span> <span class="n">WAS_mme_MVA</span>
+<p>A simple bias‑correction technique that rescales the forecast to match the climatological mean and variance of the observations.</p>
+<p><strong>Example</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">wass2s</span><span class="w"> </span><span class="kn">import</span> <span class="n">WAS_mme_MVA</span>
 
 <span class="n">mva</span> <span class="o">=</span> <span class="n">WAS_mme_MVA</span><span class="p">()</span>
 <span class="n">mva</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">hindcast_da</span><span class="p">,</span> <span class="n">obs_da</span><span class="p">)</span>
 <span class="n">calibrated_fcst</span> <span class="o">=</span> <span class="n">mva</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">forecast_da</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
 </section>
 
 
