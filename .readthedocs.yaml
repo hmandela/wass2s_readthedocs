@@ -21,6 +21,8 @@ build:
         cd _build/latex &&
         xelatex -interaction=nonstopmode *.tex &&
         xelatex -interaction=nonstopmode *.tex &&
+        xelatex -interaction=nonstopmode *.tex &&
+        xelatex -interaction=nonstopmode *.tex &&
         mkdir -p $READTHEDOCS_OUTPUT/pdf &&
         rm -rf $READTHEDOCS_OUTPUT/pdf/*.pdf &&
         mv *.pdf $READTHEDOCS_OUTPUT/pdf/ &&
