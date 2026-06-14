@@ -1,0 +1,153 @@
+\xpg@aux {}{english}
+\contentsline {chapter}{\numberline {1}Key capabilities}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Installation}{3}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}1. Create and activate the environment}{3}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}2. Install or upgrade wass2s}{4}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}3. Configure the CDS API (required for ERA5 and C3S data)}{4}{subsection.1.1.3}%
+\contentsline {subsection}{\numberline {1.1.4}4. Verify the installation}{4}{subsection.1.1.4}%
+\contentsline {section}{\numberline {1.2}Quick Start}{4}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Prerequisites}{4}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Step 1 — Download data}{5}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Step 2 — Prepare predictors and predictand}{5}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}Step 3 — Cross\sphinxhyphen {}validate a Ridge regression model}{6}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.5}Step 4 — Verify the hindcast}{6}{subsection.1.2.5}%
+\contentsline {subsection}{\numberline {1.2.6}Step 5 — Operational forecast for the target year}{6}{subsection.1.2.6}%
+\contentsline {section}{\numberline {1.3}Data Download}{7}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}1. Seasonal GCM Forecasts}{7}{subsection.1.3.1}%
+\contentsline {subsubsection}{Monthly GCM Data}{7}{subsubsection*.3}%
+\contentsline {subsubsection}{Daily GCM Data}{9}{subsubsection*.4}%
+\contentsline {subsection}{\numberline {1.3.2}2. Reanalysis Data}{9}{subsection.1.3.2}%
+\contentsline {subsubsection}{ERA5 and ERSST}{9}{subsubsection*.5}%
+\contentsline {subsubsection}{ERA5\sphinxhyphen {}Land}{10}{subsubsection*.6}%
+\contentsline {subsection}{\numberline {1.3.3}3. Observational Data}{10}{subsection.1.3.3}%
+\contentsline {subsubsection}{AgERA5 Agro\sphinxhyphen {}Climatic Indicators}{10}{subsubsection*.7}%
+\contentsline {subsubsection}{CHIRPS Precipitation}{11}{subsubsection*.8}%
+\contentsline {subsubsection}{TAMSAT Precipitation}{11}{subsubsection*.9}%
+\contentsline {section}{\numberline {1.4}Preprocessing}{12}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Input data format conventions}{12}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Computing Agroclimatic Predictands}{12}{subsection.1.4.2}%
+\contentsline {subsubsection}{Onset of the rainy season}{12}{subsubsection*.12}%
+\contentsline {subsubsection}{Cessation of the rainy season}{13}{subsubsection*.13}%
+\contentsline {subsubsection}{Dry and wet spell analysis}{14}{subsubsection*.14}%
+\contentsline {subsubsection}{ETCCDI temperature extremes}{15}{subsubsection*.15}%
+\contentsline {subsubsection}{ETCCDI precipitation extremes}{15}{subsubsection*.16}%
+\contentsline {subsection}{\numberline {1.4.3}Merging Gridded Data with Station Observations}{15}{subsection.1.4.3}%
+\contentsline {subsubsection}{Available merging methods}{16}{subsubsection*.17}%
+\contentsline {subsubsection}{Visualising the correction}{16}{subsubsection*.18}%
+\contentsline {subsection}{\numberline {1.4.4}Bias Correction}{16}{subsection.1.4.4}%
+\contentsline {subsubsection}{Precipitation — \sphinxstyleliteralintitle {\sphinxupquote {WAS\_Qmap}}}{16}{subsubsection*.19}%
+\contentsline {subsubsection}{Continuous variables — \sphinxstyleliteralintitle {\sphinxupquote {WAS\_bias\_correction}}}{17}{subsubsection*.20}%
+\contentsline {subsection}{\numberline {1.4.5}Data Transformation and Distribution Fitting}{18}{subsection.1.4.5}%
+\contentsline {subsubsection}{Skewness analysis}{18}{subsubsection*.21}%
+\contentsline {subsubsection}{Applying and inverting transformations}{18}{subsubsection*.22}%
+\contentsline {subsubsection}{Distribution fitting}{18}{subsubsection*.23}%
+\contentsline {section}{\numberline {1.5}Models and Cross\sphinxhyphen {}Validation}{19}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Linear Regression Models}{19}{subsection.1.5.1}%
+\contentsline {subsubsection}{Ordinary Least Squares — \sphinxstyleliteralintitle {\sphinxupquote {WAS\_LinearRegression\_Model}}}{19}{subsubsection*.24}%
+\contentsline {subsubsection}{Ridge — \sphinxstyleliteralintitle {\sphinxupquote {WAS\_Ridge\_Model}}}{19}{subsubsection*.25}%
+\contentsline {subsubsection}{Lasso and LassoLars — \sphinxstyleliteralintitle {\sphinxupquote {WAS\_Lasso\_Model}}, \sphinxstyleliteralintitle {\sphinxupquote {WAS\_LassoLars\_Model}}}{20}{subsubsection*.26}%
+\contentsline {subsubsection}{ElasticNet — \sphinxstyleliteralintitle {\sphinxupquote {WAS\_ElasticNet\_Model}}}{20}{subsubsection*.27}%
+\contentsline {subsubsection}{MARS — \sphinxstyleliteralintitle {\sphinxupquote {WAS\_MARS\_Model}}}{20}{subsubsection*.28}%
+\contentsline {subsubsection}{Probabilistic output methods}{21}{subsubsection*.29}%
+\contentsline {subsection}{\numberline {1.5.2}Advanced Machine\sphinxhyphen {}Learning Models}{21}{subsection.1.5.2}%
+\contentsline {subsubsection}{Hyperparameter optimisation}{21}{subsubsection*.30}%
+\contentsline {subsubsection}{Support Vector Regression — \sphinxstyleliteralintitle {\sphinxupquote {WAS\_SVR}}}{21}{subsubsection*.31}%
+\contentsline {subsubsection}{Multi\sphinxhyphen {}Layer Perceptron — \sphinxstyleliteralintitle {\sphinxupquote {WAS\_MLP}}}{22}{subsubsection*.32}%
+\contentsline {subsubsection}{Stacking Ensemble — \sphinxstyleliteralintitle {\sphinxupquote {WAS\_RandomForest\_XGBoost\_Stacking\_MLP}}}{22}{subsubsection*.33}%
+\contentsline {subsection}{\numberline {1.5.3}EOF Analysis and Principal Component Regression}{23}{subsection.1.5.3}%
+\contentsline {subsubsection}{EOF analysis (WAS\_EOF)}{23}{subsubsection*.34}%
+\contentsline {subsubsection}{Principal Component Regression (WAS\_PCR)}{23}{subsubsection*.35}%
+\contentsline {subsection}{\numberline {1.5.4}Canonical Correlation Analysis}{25}{subsection.1.5.4}%
+\contentsline {subsection}{\numberline {1.5.5}Analog Forecasting}{25}{subsection.1.5.5}%
+\contentsline {subsubsection}{Analog selection methods}{26}{subsubsection*.36}%
+\contentsline {subsection}{\numberline {1.5.6}Cross\sphinxhyphen {}Validation}{27}{subsection.1.5.6}%
+\contentsline {subsubsection}{Estimating forecast uncertainty}{27}{subsubsection*.37}%
+\contentsline {section}{\numberline {1.6}Verification}{29}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}Deterministic Metrics}{29}{subsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.6.2}Probabilistic Metrics}{30}{subsection.1.6.2}%
+\contentsline {subsubsection}{Reliability diagrams and ROC curves}{30}{subsubsection*.38}%
+\contentsline {subsection}{\numberline {1.6.3}Ensemble Metrics}{30}{subsection.1.6.3}%
+\contentsline {subsection}{\numberline {1.6.4}Year\sphinxhyphen {}by\sphinxhyphen {}Year Validation}{31}{subsection.1.6.4}%
+\contentsline {subsection}{\numberline {1.6.5}Tercile Classification Utilities}{31}{subsection.1.6.5}%
+\contentsline {section}{\numberline {1.7}Multi\sphinxhyphen {}Model Ensemble Methods}{31}{section.1.7}%
+\contentsline {subsection}{\numberline {1.7.1}1. Data Preparation}{31}{subsection.1.7.1}%
+\contentsline {subsection}{\numberline {1.7.2}2. Weighted Ensemble Averaging}{32}{subsection.1.7.2}%
+\contentsline {subsection}{\numberline {1.7.3}3. Min et al. (2009) Probabilistic MME}{32}{subsection.1.7.3}%
+\contentsline {subsection}{\numberline {1.7.4}4. Machine\sphinxhyphen {}Learning Ensemble Methods}{33}{subsection.1.7.4}%
+\contentsline {subsubsection}{Stacking super\sphinxhyphen {}ensemble — \sphinxstyleliteralintitle {\sphinxupquote {WAS\_mme\_Stacking}}}{33}{subsubsection*.39}%
+\contentsline {subsubsection}{Individual machine\sphinxhyphen {}learning regressors}{33}{subsubsection*.40}%
+\contentsline {subsection}{\numberline {1.7.5}5. Calibration and Post\sphinxhyphen {}Processing}{34}{subsection.1.7.5}%
+\contentsline {subsubsection}{Non\sphinxhyphen {}Homogeneous Gaussian Regression — \sphinxstyleliteralintitle {\sphinxupquote {WAS\_mme\_NGR\_Gaussian}}}{34}{subsubsection*.41}%
+\contentsline {subsubsection}{Bayesian Model Averaging — \sphinxstyleliteralintitle {\sphinxupquote {WAS\_mme\_FastBMA}}, \sphinxstyleliteralintitle {\sphinxupquote {WAS\_mme\_FullBMA}}}{34}{subsubsection*.42}%
+\contentsline {subsubsection}{Extended Logistic Regression — \sphinxstyleliteralintitle {\sphinxupquote {WAS\_mme\_xcELR}}, \sphinxstyleliteralintitle {\sphinxupquote {WAS\_mme\_ELR}}}{34}{subsubsection*.43}%
+\contentsline {subsubsection}{Logistic MME — \sphinxstyleliteralintitle {\sphinxupquote {WAS\_mme\_logistic}}}{35}{subsubsection*.44}%
+\contentsline {subsubsection}{Mean and Variance Adjustment — \sphinxstyleliteralintitle {\sphinxupquote {WAS\_mme\_MVA}}}{35}{subsubsection*.45}%
+\contentsline {section}{\numberline {1.8}Implementing WAS\sphinxhyphen {}NextGen Approaches}{35}{section.1.8}%
+\contentsline {subsection}{\numberline {1.8.1}Overview of the WAS\sphinxhyphen {}NextGen pipeline}{35}{subsection.1.8.1}%
+\contentsline {subsection}{\numberline {1.8.2}Recommended model hierarchy}{36}{subsection.1.8.2}%
+\contentsline {subsection}{\numberline {1.8.3}Running multiple models and selecting the best}{36}{subsection.1.8.3}%
+\contentsline {subsection}{\numberline {1.8.4}Multi\sphinxhyphen {}model ensemble of the best performers}{37}{subsection.1.8.4}%
+\contentsline {subsection}{\numberline {1.8.5}Operational forecast dissemination}{38}{subsection.1.8.5}%
+\contentsline {subsection}{\numberline {1.8.6}Agroclimatic forecast products}{38}{subsection.1.8.6}%
+\contentsline {section}{\numberline {1.9}API Reference}{38}{section.1.9}%
+\contentsline {subsection}{\numberline {1.9.1}Data download}{38}{subsection.1.9.1}%
+\contentsline {subsubsection}{Class}{39}{subsubsection*.46}%
+\contentsline {subsubsection}{Standalone function}{39}{subsubsection*.47}%
+\contentsline {subsection}{\numberline {1.9.2}Utilities}{47}{subsection.1.9.2}%
+\contentsline {subsubsection}{Data utilities}{47}{subsubsection*.69}%
+\contentsline {subsubsection}{Index and predictor loaders}{47}{subsubsection*.70}%
+\contentsline {subsubsection}{Network utilities}{47}{subsubsection*.71}%
+\contentsline {subsubsection}{Geo utilities}{48}{subsubsection*.72}%
+\contentsline {subsubsection}{Visualisation}{48}{subsubsection*.73}%
+\contentsline {subsection}{\numberline {1.9.3}Data transformation}{61}{subsection.1.9.3}%
+\contentsline {subsubsection}{Standalone functions}{61}{subsubsection*.113}%
+\contentsline {subsubsection}{Class}{61}{subsubsection*.114}%
+\contentsline {subsection}{\numberline {1.9.4}Agroclimatic predictand computation}{62}{subsection.1.9.4}%
+\contentsline {subsubsection}{Classes}{62}{subsubsection*.125}%
+\contentsline {subsection}{\numberline {1.9.5}Bias correction}{84}{subsection.1.9.5}%
+\contentsline {subsection}{\numberline {1.9.6}Station \& gridded merging}{87}{subsection.1.9.6}%
+\contentsline {subsubsection}{Classes}{87}{subsubsection*.259}%
+\contentsline {subsection}{\numberline {1.9.7}EOF analysis}{91}{subsection.1.9.7}%
+\contentsline {subsubsection}{Class}{91}{subsubsection*.288}%
+\contentsline {subsubsection}{Corrections relative to my previous version}{91}{subsubsection*.290}%
+\contentsline {subsection}{\numberline {1.9.8}Cross\sphinxhyphen {}validation}{92}{subsection.1.9.8}%
+\contentsline {subsubsection}{Classes}{92}{subsubsection*.296}%
+\contentsline {subsubsection}{Helper functions}{92}{subsubsection*.297}%
+\contentsline {subsection}{\numberline {1.9.9}Linear models}{94}{subsection.1.9.9}%
+\contentsline {subsubsection}{Classes}{94}{subsubsection*.305}%
+\contentsline {subsection}{\numberline {1.9.10}Principal Component Regression}{119}{subsection.1.9.10}%
+\contentsline {subsubsection}{Single\sphinxhyphen {}field and multivariate predictors}{119}{subsubsection*.370}%
+\contentsline {subsection}{\numberline {1.9.11}Canonical Correlation Analysis}{122}{subsection.1.9.11}%
+\contentsline {subsubsection}{Important:}{124}{subsubsection*.389}%
+\contentsline {subsection}{\numberline {1.9.12}Kernel CCA variants}{129}{subsection.1.9.12}%
+\contentsline {subsubsection}{Classes}{129}{subsubsection*.426}%
+\contentsline {subsection}{\numberline {1.9.13}Machine\sphinxhyphen {}learning models}{131}{subsection.1.9.13}%
+\contentsline {subsubsection}{Classes}{131}{subsubsection*.456}%
+\contentsline {subsubsection}{Parameters:}{143}{subsubsection*.498}%
+\contentsline {subsection}{\numberline {1.9.14}Analog forecasting}{151}{subsection.1.9.14}%
+\contentsline {subsubsection}{Classes}{151}{subsubsection*.533}%
+\contentsline {subsection}{\numberline {1.9.15}Forecast verification}{159}{subsection.1.9.15}%
+\contentsline {subsubsection}{Class}{160}{subsubsection*.583}%
+\contentsline {subsection}{\numberline {1.9.16}Multi\sphinxhyphen {}model ensemble methods}{175}{subsection.1.9.16}%
+\contentsline {subsubsection}{Key functions}{175}{subsubsection*.629}%
+\contentsline {subsubsection}{Key classes}{175}{subsubsection*.630}%
+\contentsline {subsubsection}{What this class does}{181}{subsubsection*.646}%
+\contentsline {subsubsection}{Assumed dims}{182}{subsubsection*.647}%
+\contentsline {subsubsection}{Corrections relative to the previous version}{184}{subsubsection*.656}%
+\contentsline {subsubsection}{Recommended usage / framework}{184}{subsubsection*.657}%
+\contentsline {subsubsection}{Predictor at each grid cell}{185}{subsubsection*.664}%
+\contentsline {subsubsection}{Thresholds}{185}{subsubsection*.665}%
+\contentsline {subsubsection}{Fitting}{185}{subsubsection*.666}%
+\contentsline {paragraph}{Observed truth = tercile CLASSES (like the logistic class)}{187}{paragraph*.670}%
+\contentsline {subsubsection}{Model}{192}{subsubsection*.693}%
+\contentsline {subsubsection}{Supported \sphinxstyleliteralintitle {\sphinxupquote {model\_type}} values}{194}{subsubsection*.721}%
+\contentsline {subsubsection}{Tercile thresholds}{194}{subsubsection*.722}%
+\contentsline {subsubsection}{Distribution families (per gridpoint, supplied via \sphinxstyleliteralintitle {\sphinxupquote {dist\_map}})}{195}{subsubsection*.728}%
+\contentsline {subsubsection}{Fitting modes}{196}{subsubsection*.729}%
+\contentsline {subsection}{\numberline {1.9.17}CEAC agroclimatic suite}{206}{subsection.1.9.17}%
+\contentsline {subsubsection}{Base class}{206}{subsubsection*.796}%
+\contentsline {subsubsection}{Indicator classes}{206}{subsubsection*.797}%
+\contentsline {subsection}{\numberline {1.9.18}Seasonal diagnostic tools}{208}{subsection.1.9.18}%
+\contentsline {chapter}{\numberline {2}Indices and tables}{213}{chapter.2}%
+\contentsline {chapter}{Python Module Index}{215}{section*.846}%
+\contentsline {chapter}{Index}{217}{section*.847}%

@@ -1,0 +1,1412 @@
+\begin{sphinxtheindex}
+\let\bigletter\sphinxstyleindexlettergroup
+\let\spxpagem \sphinxstyleindexpagemain
+\let\spxentry \sphinxstyleindexentry
+\let\spxextra \sphinxstyleindexextra
+
+  \bigletter {\sphinxsymbolsname}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.ceac\_agro.CAF\_AgroClimateBase method}, 
+		\hyperpage{207}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_analog.WAS\_Analog method}, \hyperpage{153}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_analog.WAS\_Analog\_\_ method}, 
+		\hyperpage{157}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_cca.WAS\_CCA method}, \hyperpage{122}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_cca.WAS\_CCA\_base method}, \hyperpage{124}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_cca.WAS\_CCA\_op method}, \hyperpage{125}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_cca.WAS\_CCA\_strict method}, 
+		\hyperpage{127}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_cca\_2.WAS\_EOF\_KCCA method}, 
+		\hyperpage{131}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_cca\_2.WAS\_KGCCA method}, \hyperpage{130}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_cca\_2.WAS\_KernelCCA\_base method}, 
+		\hyperpage{129}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_compute\_predictand.HeatWaveDefinition method}, 
+		\hyperpage{82}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_compute\_predictand.WAS\_HeatWaveIndices method}, 
+		\hyperpage{83}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_compute\_predictand.WAS\_PrecipIndices method}, 
+		\hyperpage{81}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_compute\_predictand.WAS\_TempPercentileIndices method}, 
+		\hyperpage{79}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_cessation method}, 
+		\hyperpage{67}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_cessation\_dry\_spell method}, 
+		\hyperpage{69}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_onset method}, 
+		\hyperpage{63}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_onset\_dry\_spell method}, 
+		\hyperpage{65}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_cross\_validate.CustomTimeSeriesSplit method}, 
+		\hyperpage{92}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_cross\_validate.WAS\_Cross\_Validator method}, 
+		\hyperpage{93}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_download.WAS\_Download method}, 
+		\hyperpage{39}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_eof.WAS\_EOF method}, \hyperpage{91}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_linear\_models.WAS\_ElasticNet\_Model method}, 
+		\hyperpage{110}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_linear\_models.WAS\_LassoLars\_Model method}, 
+		\hyperpage{115}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_linear\_models.WAS\_Lasso\_Model method}, 
+		\hyperpage{105}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_linear\_models.WAS\_LinearRegression\_Model method}, 
+		\hyperpage{96}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_linear\_models.WAS\_Ridge\_Model method}, 
+		\hyperpage{101}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_machine\_learning.BaseOptimizer method}, 
+		\hyperpage{132}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_machine\_learning.MARS method}, 
+		\hyperpage{143}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_machine\_learning.WAS\_LogisticRegression\_Model method}, 
+		\hyperpage{134}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_machine\_learning.WAS\_MARS\_Model method}, 
+		\hyperpage{145}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_machine\_learning.WAS\_NegativeBinomial\_Model method}, 
+		\hyperpage{149}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_machine\_learning.WAS\_PoissonRegression method}, 
+		\hyperpage{140}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_machine\_learning.WAS\_PolynomialRegression method}, 
+		\hyperpage{135}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_merge\_predictand.WAS\_Merging method}, 
+		\hyperpage{87}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_merge\_predictand.WAS\_Merging\_Extended method}, 
+		\hyperpage{89}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_mme.HPELMWrapper method}, \hyperpage{201}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_mme.WAS\_Min2009\_ProbWeighted method}, 
+		\hyperpage{182}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_mme.WAS\_ProbWeighted method}, 
+		\hyperpage{180}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_mme.WAS\_mme\_ELR method}, \hyperpage{186}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_mme.WAS\_mme\_ExpertKnowledge method}, 
+		\hyperpage{206}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_mme.WAS\_mme\_FastBMA method}, 
+		\hyperpage{194}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_mme.WAS\_mme\_FullBMA method}, 
+		\hyperpage{196}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_mme.WAS\_mme\_MLP method}, \hyperpage{204}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_mme.WAS\_mme\_MVA method}, \hyperpage{193}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_mme.WAS\_mme\_NGR\_Gaussian method}, 
+		\hyperpage{192}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_mme.WAS\_mme\_NGR\_NonGaussian method}, 
+		\hyperpage{193}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_mme.WAS\_mme\_PCR method}, \hyperpage{205}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_mme.WAS\_mme\_RF method}, \hyperpage{198}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_mme.WAS\_mme\_Weighted method}, 
+		\hyperpage{177}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_mme.WAS\_mme\_XGBoosting method}, 
+		\hyperpage{200}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_mme.WAS\_mme\_gaussian\_process method}, 
+		\hyperpage{188}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_mme.WAS\_mme\_hpELM method}, \hyperpage{203}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_mme.WAS\_mme\_logistic method}, 
+		\hyperpage{184}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_mme.WAS\_mme\_xcELM method}, \hyperpage{188}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_mme.WAS\_mme\_xcELR method}, \hyperpage{183}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_pcr.WAS\_PCR method}, \hyperpage{120}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_seasonal\_analysis.BOMViewer method}, 
+		\hyperpage{212}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_seasonal\_analysis.C3SViewer method}, 
+		\hyperpage{211}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_transformdata.WAS\_TransformData method}, 
+		\hyperpage{61}
+  \item \spxentry{\_\_init\_\_()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{160}
+
+  \indexspace
+  \bigletter A
+  \item \spxentry{adjust\_duplicates()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_cessation static method}, 
+		\hyperpage{67}
+  \item \spxentry{adjust\_duplicates()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_cessation\_dry\_spell static method}, 
+		\hyperpage{69}
+  \item \spxentry{adjust\_duplicates()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_onset static method}, 
+		\hyperpage{63}
+  \item \spxentry{adjust\_duplicates()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_onset\_dry\_spell static method}, 
+		\hyperpage{65}
+  \item \spxentry{adjust\_duplicates()}\spxextra{wass2s.was\_compute\_predictand.WAS\_count\_dry\_spells static method}, 
+		\hyperpage{71}
+  \item \spxentry{adjust\_duplicates()}\spxextra{wass2s.was\_merge\_predictand.WAS\_Merging method}, 
+		\hyperpage{87}
+  \item \spxentry{adjust\_duplicates()}\spxextra{wass2s.was\_merge\_predictand.WAS\_Merging\_Extended method}, 
+		\hyperpage{90}
+  \item \spxentry{Agglomerative\_Based()}\spxextra{wass2s.was\_analog.WAS\_Analog method}, 
+		\hyperpage{154}
+  \item \spxentry{Agglomerative\_Based()}\spxextra{wass2s.was\_analog.WAS\_Analog\_\_ method}, 
+		\hyperpage{158}
+  \item \spxentry{AgroObsName()}\spxextra{wass2s.was\_download.WAS\_Download method}, 
+		\hyperpage{40}
+  \item \spxentry{anomalize\_timeseries()}\spxextra{in module wass2s.utils}, \hyperpage{51}
+  \item \spxentry{anomaly\_timeseries()}\spxextra{wass2s.was\_analog.WAS\_Analog method}, 
+		\hyperpage{154}
+  \item \spxentry{anomaly\_timeseries()}\spxextra{wass2s.was\_analog.WAS\_Analog\_\_ method}, 
+		\hyperpage{158}
+  \item \spxentry{apply\_detrend\_data()}\spxextra{in module wass2s.utils}, \hyperpage{52}
+  \item \spxentry{apply\_transformation()}\spxextra{wass2s.was\_transformdata.WAS\_TransformData method}, 
+		\hyperpage{62}
+  \item \spxentry{arrange\_indices\_for\_som()}\spxextra{wass2s.was\_analog.WAS\_Analog method}, 
+		\hyperpage{154}
+  \item \spxentry{arrange\_indices\_for\_som()}\spxextra{wass2s.was\_analog.WAS\_Analog\_\_ method}, 
+		\hyperpage{158}
+  \item \spxentry{auto\_select\_kriging\_parameters()}\spxextra{wass2s.was\_merge\_predictand.WAS\_Merging method}, 
+		\hyperpage{87}
+  \item \spxentry{auto\_select\_kriging\_parameters()}\spxextra{wass2s.was\_merge\_predictand.WAS\_Merging\_Extended method}, 
+		\hyperpage{90}
+
+  \indexspace
+  \bigletter B
+  \item \spxentry{backward\_pass()}\spxextra{wass2s.was\_machine\_learning.MARS method}, 
+		\hyperpage{144}
+  \item \spxentry{barnes\_interpolation()}\spxextra{wass2s.was\_merge\_predictand.WAS\_Merging\_Extended method}, 
+		\hyperpage{90}
+  \item \spxentry{BaseOptimizer}\spxextra{class in wass2s.was\_machine\_learning}, \hyperpage{131}
+  \item \spxentry{Bias\_Based()}\spxextra{wass2s.was\_analog.WAS\_Analog method}, \hyperpage{154}
+  \item \spxentry{Bias\_Based()}\spxextra{wass2s.was\_analog.WAS\_Analog\_\_ method}, 
+		\hyperpage{158}
+  \item \spxentry{BOMViewer}\spxextra{class in wass2s.was\_seasonal\_analysis}, \hyperpage{212}
+  \item \spxentry{brier\_score()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{166}
+  \item \spxentry{brier\_skill\_score()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{166}
+  \item \spxentry{build\_cpt\_output()}\spxextra{wass2s.ceac\_agro.CAF\_AgroClimateBase method}, 
+		\hyperpage{207}
+  \item \spxentry{build\_iridl\_url\_ersst()}\spxextra{in module wass2s.utils}, \hyperpage{49}
+
+  \indexspace
+  \bigletter C
+  \item \spxentry{C3SViewer}\spxextra{class in wass2s.was\_seasonal\_analysis}, \hyperpage{211}
+  \item \spxentry{CAF\_AgroClimateBase}\spxextra{class in wass2s.ceac\_agro}, \hyperpage{207}
+  \item \spxentry{calc\_index()}\spxextra{wass2s.was\_analog.WAS\_Analog method}, \hyperpage{153}
+  \item \spxentry{calc\_index()}\spxextra{wass2s.was\_analog.WAS\_Analog\_\_ method}, 
+		\hyperpage{157}
+  \item \spxentry{calculate\_groc()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{164}
+  \item \spxentry{calculate\_groc\_()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{164}
+  \item \spxentry{calculate\_groc\_fixed()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{165}
+  \item \spxentry{calculate\_groc\_weighted()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{165}
+  \item \spxentry{calculate\_rpss()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{165}
+  \item \spxentry{calculate\_rpss\_()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{174}
+  \item \spxentry{calculate\_tercile\_probabilities\_bestfit()}\spxextra{wass2s.was\_analog.WAS\_Analog static method}, 
+		\hyperpage{154}
+  \item \spxentry{calculate\_tercile\_probabilities\_bestfit()}\spxextra{wass2s.was\_analog.WAS\_Analog\_\_ static method}, 
+		\hyperpage{158}
+  \item \spxentry{calculate\_tercile\_probabilities\_bestfit()}\spxextra{wass2s.was\_cca.WAS\_CCA static method}, 
+		\hyperpage{123}
+  \item \spxentry{calculate\_tercile\_probabilities\_bestfit()}\spxextra{wass2s.was\_cca.WAS\_CCA\_base static method}, 
+		\hyperpage{125}
+  \item \spxentry{calculate\_tercile\_probabilities\_bestfit()}\spxextra{wass2s.was\_cca.WAS\_CCA\_op static method}, 
+		\hyperpage{126}
+  \item \spxentry{calculate\_tercile\_probabilities\_bestfit()}\spxextra{wass2s.was\_cca.WAS\_CCA\_strict static method}, 
+		\hyperpage{128}
+  \item \spxentry{calculate\_tercile\_probabilities\_bestfit()}\spxextra{wass2s.was\_cca\_2.WAS\_KernelCCA\_base class method}, 
+		\hyperpage{130}
+  \item \spxentry{calculate\_tercile\_probabilities\_bestfit()}\spxextra{wass2s.was\_linear\_models.WAS\_ElasticNet\_Model static method}, 
+		\hyperpage{111}
+  \item \spxentry{calculate\_tercile\_probabilities\_bestfit()}\spxextra{wass2s.was\_linear\_models.WAS\_Lasso\_Model static method}, 
+		\hyperpage{106}
+  \item \spxentry{calculate\_tercile\_probabilities\_bestfit()}\spxextra{wass2s.was\_linear\_models.WAS\_LassoLars\_Model static method}, 
+		\hyperpage{117}
+  \item \spxentry{calculate\_tercile\_probabilities\_bestfit()}\spxextra{wass2s.was\_linear\_models.WAS\_LinearRegression\_Model static method}, 
+		\hyperpage{97}
+  \item \spxentry{calculate\_tercile\_probabilities\_bestfit()}\spxextra{wass2s.was\_linear\_models.WAS\_Ridge\_Model static method}, 
+		\hyperpage{102}
+  \item \spxentry{calculate\_tercile\_probabilities\_bestfit()}\spxextra{wass2s.was\_machine\_learning.WAS\_MARS\_Model static method}, 
+		\hyperpage{146}
+  \item \spxentry{calculate\_tercile\_probabilities\_bestfit()}\spxextra{wass2s.was\_machine\_learning.WAS\_PoissonRegression static method}, 
+		\hyperpage{141}
+  \item \spxentry{calculate\_tercile\_probabilities\_bestfit()}\spxextra{wass2s.was\_machine\_learning.WAS\_PolynomialRegression static method}, 
+		\hyperpage{137}
+  \item \spxentry{calculate\_tercile\_probabilities\_bestfit()}\spxextra{wass2s.was\_mme.WAS\_mme\_hpELM static method}, 
+		\hyperpage{203}
+  \item \spxentry{calculate\_tercile\_probabilities\_bestfit()}\spxextra{wass2s.was\_mme.WAS\_mme\_MLP static method}, 
+		\hyperpage{204}
+  \item \spxentry{calculate\_tercile\_probabilities\_bestfit()}\spxextra{wass2s.was\_mme.WAS\_mme\_PCR static method}, 
+		\hyperpage{205}
+  \item \spxentry{calculate\_tercile\_probabilities\_bestfit()}\spxextra{wass2s.was\_mme.WAS\_mme\_RF static method}, 
+		\hyperpage{198}
+  \item \spxentry{calculate\_tercile\_probabilities\_bestfit()}\spxextra{wass2s.was\_mme.WAS\_mme\_Weighted static method}, 
+		\hyperpage{178}
+  \item \spxentry{calculate\_tercile\_probabilities\_bestfit()}\spxextra{wass2s.was\_mme.WAS\_mme\_xcELM static method}, 
+		\hyperpage{189}
+  \item \spxentry{calculate\_tercile\_probabilities\_bestfit()}\spxextra{wass2s.was\_mme.WAS\_mme\_XGBoosting static method}, 
+		\hyperpage{200}
+  \item \spxentry{calculate\_tercile\_probabilities\_bestfit()}\spxextra{wass2s.was\_verification.WAS\_Verification static method}, 
+		\hyperpage{170}
+  \item \spxentry{calculate\_tercile\_probabilities\_nonparametric()}\spxextra{wass2s.was\_analog.WAS\_Analog static method}, 
+		\hyperpage{155}
+  \item \spxentry{calculate\_tercile\_probabilities\_nonparametric()}\spxextra{wass2s.was\_analog.WAS\_Analog\_\_ static method}, 
+		\hyperpage{158}
+  \item \spxentry{calculate\_tercile\_probabilities\_nonparametric()}\spxextra{wass2s.was\_cca.WAS\_CCA static method}, 
+		\hyperpage{123}
+  \item \spxentry{calculate\_tercile\_probabilities\_nonparametric()}\spxextra{wass2s.was\_cca.WAS\_CCA\_base static method}, 
+		\hyperpage{125}
+  \item \spxentry{calculate\_tercile\_probabilities\_nonparametric()}\spxextra{wass2s.was\_cca.WAS\_CCA\_op static method}, 
+		\hyperpage{126}
+  \item \spxentry{calculate\_tercile\_probabilities\_nonparametric()}\spxextra{wass2s.was\_cca.WAS\_CCA\_strict static method}, 
+		\hyperpage{128}
+  \item \spxentry{calculate\_tercile\_probabilities\_nonparametric()}\spxextra{wass2s.was\_cca\_2.WAS\_KernelCCA\_base static method}, 
+		\hyperpage{130}
+  \item \spxentry{calculate\_tercile\_probabilities\_nonparametric()}\spxextra{wass2s.was\_linear\_models.WAS\_ElasticNet\_Model static method}, 
+		\hyperpage{112}
+  \item \spxentry{calculate\_tercile\_probabilities\_nonparametric()}\spxextra{wass2s.was\_linear\_models.WAS\_Lasso\_Model static method}, 
+		\hyperpage{107}
+  \item \spxentry{calculate\_tercile\_probabilities\_nonparametric()}\spxextra{wass2s.was\_linear\_models.WAS\_LassoLars\_Model static method}, 
+		\hyperpage{117}
+  \item \spxentry{calculate\_tercile\_probabilities\_nonparametric()}\spxextra{wass2s.was\_linear\_models.WAS\_LinearRegression\_Model static method}, 
+		\hyperpage{98}
+  \item \spxentry{calculate\_tercile\_probabilities\_nonparametric()}\spxextra{wass2s.was\_linear\_models.WAS\_Ridge\_Model static method}, 
+		\hyperpage{103}
+  \item \spxentry{calculate\_tercile\_probabilities\_nonparametric()}\spxextra{wass2s.was\_machine\_learning.WAS\_MARS\_Model static method}, 
+		\hyperpage{147}
+  \item \spxentry{calculate\_tercile\_probabilities\_nonparametric()}\spxextra{wass2s.was\_machine\_learning.WAS\_PoissonRegression static method}, 
+		\hyperpage{142}
+  \item \spxentry{calculate\_tercile\_probabilities\_nonparametric()}\spxextra{wass2s.was\_machine\_learning.WAS\_PolynomialRegression static method}, 
+		\hyperpage{138}
+  \item \spxentry{calculate\_tercile\_probabilities\_nonparametric()}\spxextra{wass2s.was\_mme.WAS\_mme\_hpELM static method}, 
+		\hyperpage{203}
+  \item \spxentry{calculate\_tercile\_probabilities\_nonparametric()}\spxextra{wass2s.was\_mme.WAS\_mme\_MLP static method}, 
+		\hyperpage{204}
+  \item \spxentry{calculate\_tercile\_probabilities\_nonparametric()}\spxextra{wass2s.was\_mme.WAS\_mme\_PCR static method}, 
+		\hyperpage{205}
+  \item \spxentry{calculate\_tercile\_probabilities\_nonparametric()}\spxextra{wass2s.was\_mme.WAS\_mme\_RF static method}, 
+		\hyperpage{198}
+  \item \spxentry{calculate\_tercile\_probabilities\_nonparametric()}\spxextra{wass2s.was\_mme.WAS\_mme\_Weighted static method}, 
+		\hyperpage{179}
+  \item \spxentry{calculate\_tercile\_probabilities\_nonparametric()}\spxextra{wass2s.was\_mme.WAS\_mme\_xcELM static method}, 
+		\hyperpage{189}
+  \item \spxentry{calculate\_tercile\_probabilities\_nonparametric()}\spxextra{wass2s.was\_mme.WAS\_mme\_XGBoosting static method}, 
+		\hyperpage{200}
+  \item \spxentry{calculate\_tercile\_probabilities\_nonparametric()}\spxextra{wass2s.was\_verification.WAS\_Verification static method}, 
+		\hyperpage{170}
+  \item \spxentry{CEAC\_compute\_cessation}\spxextra{class in wass2s.ceac\_agro}, \hyperpage{207}
+  \item \spxentry{CEAC\_compute\_cessation\_dry\_spell}\spxextra{class in wass2s.ceac\_agro}, 
+		\hyperpage{207}
+  \item \spxentry{CEAC\_compute\_onset}\spxextra{class in wass2s.ceac\_agro}, \hyperpage{207}
+  \item \spxentry{CEAC\_compute\_onset\_dry\_spell}\spxextra{class in wass2s.ceac\_agro}, 
+		\hyperpage{207}
+  \item \spxentry{CEAC\_count\_dry\_spells}\spxextra{class in wass2s.ceac\_agro}, \hyperpage{208}
+  \item \spxentry{CEAC\_count\_wet\_spells}\spxextra{class in wass2s.ceac\_agro}, \hyperpage{208}
+  \item \spxentry{censored\_normal\_mean\_var()}\spxextra{in module wass2s.was\_mme}, 
+		\hyperpage{190}
+  \item \spxentry{cessation\_function()}\spxextra{wass2s.ceac\_agro.CEAC\_compute\_cessation static method}, 
+		\hyperpage{207}
+  \item \spxentry{cessation\_function()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_cessation method}, 
+		\hyperpage{67}
+  \item \spxentry{classify()}\spxextra{wass2s.was\_machine\_learning.WAS\_LogisticRegression\_Model method}, 
+		\hyperpage{133}
+  \item \spxentry{classify()}\spxextra{wass2s.was\_machine\_learning.WAS\_LogisticRegression\_Model static method}, 
+		\hyperpage{134}
+  \item \spxentry{classify()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{163}
+  \item \spxentry{classify\_data\_into\_terciles()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{163}
+  \item \spxentry{classify\_percent()}\spxextra{wass2s.was\_verification.WAS\_Verification static method}, 
+		\hyperpage{173}
+  \item \spxentry{COLD}\spxextra{wass2s.was\_compute\_predictand.ExtremeType attribute}, 
+		\hyperpage{78}
+  \item \spxentry{cold\_days()}\spxextra{wass2s.was\_compute\_predictand.ETCCDITempIndices static method}, 
+		\hyperpage{80}
+  \item \spxentry{cold\_nights()}\spxextra{wass2s.was\_compute\_predictand.ETCCDITempIndices static method}, 
+		\hyperpage{80}
+  \item \spxentry{composite\_plot()}\spxextra{wass2s.was\_analog.WAS\_Analog method}, 
+		\hyperpage{156}
+  \item \spxentry{composite\_plot()}\spxextra{wass2s.was\_analog.WAS\_Analog\_\_ method}, 
+		\hyperpage{159}
+  \item \spxentry{compound\_heat\_wave()}\spxextra{wass2s.was\_compute\_predictand.ETCCDIHeatWaveIndices static method}, 
+		\hyperpage{83}
+  \item \spxentry{compute()}\spxextra{wass2s.ceac\_agro.CEAC\_compute\_cessation method}, 
+		\hyperpage{207}
+  \item \spxentry{compute()}\spxextra{wass2s.ceac\_agro.CEAC\_compute\_cessation\_dry\_spell method}, 
+		\hyperpage{208}
+  \item \spxentry{compute()}\spxextra{wass2s.ceac\_agro.CEAC\_compute\_onset method}, 
+		\hyperpage{207}
+  \item \spxentry{compute()}\spxextra{wass2s.ceac\_agro.CEAC\_compute\_onset\_dry\_spell method}, 
+		\hyperpage{207}
+  \item \spxentry{compute()}\spxextra{wass2s.ceac\_agro.CEAC\_count\_dry\_spells method}, 
+		\hyperpage{208}
+  \item \spxentry{compute()}\spxextra{wass2s.ceac\_agro.CEAC\_count\_wet\_spells method}, 
+		\hyperpage{208}
+  \item \spxentry{compute()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_cessation method}, 
+		\hyperpage{68}
+  \item \spxentry{compute()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_cessation\_dry\_spell method}, 
+		\hyperpage{70}
+  \item \spxentry{compute()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_onset method}, 
+		\hyperpage{64}
+  \item \spxentry{compute()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_onset\_dry\_spell method}, 
+		\hyperpage{66}
+  \item \spxentry{compute()}\spxextra{wass2s.was\_compute\_predictand.WAS\_count\_dry\_spells method}, 
+		\hyperpage{71}, \hyperpage{73}
+  \item \spxentry{compute()}\spxextra{wass2s.was\_compute\_predictand.WAS\_count\_rainy\_days method}, 
+		\hyperpage{76, 77}
+  \item \spxentry{compute()}\spxextra{wass2s.was\_compute\_predictand.WAS\_count\_wet\_spells method}, 
+		\hyperpage{73, 74}
+  \item \spxentry{compute()}\spxextra{wass2s.was\_compute\_predictand.WAS\_HeatWaveIndices method}, 
+		\hyperpage{83}
+  \item \spxentry{compute()}\spxextra{wass2s.was\_compute\_predictand.WAS\_PrecipIndices method}, 
+		\hyperpage{81}
+  \item \spxentry{compute()}\spxextra{wass2s.was\_compute\_predictand.WAS\_TempPercentileIndices method}, 
+		\hyperpage{79}
+  \item \spxentry{compute()}\spxextra{wass2s.was\_mme.WAS\_mme\_Weighted method}, \hyperpage{177}
+  \item \spxentry{compute()}\spxextra{wass2s.was\_mme.WAS\_ProbWeighted method}, \hyperpage{180}
+  \item \spxentry{compute\_class()}\spxextra{wass2s.was\_machine\_learning.WAS\_LogisticRegression\_Model method}, 
+		\hyperpage{133, 134}
+  \item \spxentry{compute\_class()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{163}
+  \item \spxentry{compute\_combined\_map()}\spxextra{wass2s.was\_mme.WAS\_Min2009\_ProbWeighted method}, 
+		\hyperpage{183}
+  \item \spxentry{compute\_crps()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{169}
+  \item \spxentry{compute\_deterministic\_score()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{163}
+  \item \spxentry{compute\_eofs()}\spxextra{wass2s.was\_analog.WAS\_Analog method}, \hyperpage{154}
+  \item \spxentry{compute\_eofs()}\spxextra{wass2s.was\_analog.WAS\_Analog\_\_ method}, 
+		\hyperpage{158}
+  \item \spxentry{compute\_gridpoint\_terciles\_from\_obs()}\spxextra{wass2s.was\_mme.WAS\_mme\_FastBMA static method}, 
+		\hyperpage{194}
+  \item \spxentry{compute\_gridpoint\_terciles\_from\_obs()}\spxextra{wass2s.was\_mme.WAS\_mme\_FullBMA static method}, 
+		\hyperpage{196}
+  \item \spxentry{compute\_hyperparameters()}\spxextra{wass2s.was\_cca\_2.WAS\_EOF\_KCCA method}, 
+		\hyperpage{131}
+  \item \spxentry{compute\_hyperparameters()}\spxextra{wass2s.was\_cca\_2.WAS\_KernelCCA\_base method}, 
+		\hyperpage{129}
+  \item \spxentry{compute\_hyperparameters()}\spxextra{wass2s.was\_linear\_models.WAS\_ElasticNet\_Model method}, 
+		\hyperpage{109, 110}
+  \item \spxentry{compute\_hyperparameters()}\spxextra{wass2s.was\_linear\_models.WAS\_Lasso\_Model method}, 
+		\hyperpage{104, 105}
+  \item \spxentry{compute\_hyperparameters()}\spxextra{wass2s.was\_linear\_models.WAS\_LassoLars\_Model method}, 
+		\hyperpage{114, 115}
+  \item \spxentry{compute\_hyperparameters()}\spxextra{wass2s.was\_linear\_models.WAS\_Ridge\_Model method}, 
+		\hyperpage{100, 101}
+  \item \spxentry{compute\_hyperparameters()}\spxextra{wass2s.was\_machine\_learning.WAS\_LogisticRegression\_Model method}, 
+		\hyperpage{133, 134}
+  \item \spxentry{compute\_hyperparameters()}\spxextra{wass2s.was\_mme.WAS\_mme\_ELR method}, 
+		\hyperpage{186}
+  \item \spxentry{compute\_hyperparameters()}\spxextra{wass2s.was\_mme.WAS\_mme\_gaussian\_process method}, 
+		\hyperpage{188}
+  \item \spxentry{compute\_hyperparameters()}\spxextra{wass2s.was\_mme.WAS\_mme\_hpELM method}, 
+		\hyperpage{203}
+  \item \spxentry{compute\_hyperparameters()}\spxextra{wass2s.was\_mme.WAS\_mme\_logistic method}, 
+		\hyperpage{184}
+  \item \spxentry{compute\_hyperparameters()}\spxextra{wass2s.was\_mme.WAS\_mme\_MLP method}, 
+		\hyperpage{204}
+  \item \spxentry{compute\_hyperparameters()}\spxextra{wass2s.was\_mme.WAS\_mme\_RF method}, 
+		\hyperpage{198}
+  \item \spxentry{compute\_hyperparameters()}\spxextra{wass2s.was\_mme.WAS\_mme\_XGBoosting method}, 
+		\hyperpage{200}
+  \item \spxentry{compute\_insitu()}\spxextra{wass2s.ceac\_agro.CEAC\_compute\_cessation method}, 
+		\hyperpage{207}
+  \item \spxentry{compute\_insitu()}\spxextra{wass2s.ceac\_agro.CEAC\_compute\_cessation\_dry\_spell method}, 
+		\hyperpage{208}
+  \item \spxentry{compute\_insitu()}\spxextra{wass2s.ceac\_agro.CEAC\_compute\_onset method}, 
+		\hyperpage{207}
+  \item \spxentry{compute\_insitu()}\spxextra{wass2s.ceac\_agro.CEAC\_compute\_onset\_dry\_spell method}, 
+		\hyperpage{207}
+  \item \spxentry{compute\_insitu()}\spxextra{wass2s.ceac\_agro.CEAC\_count\_dry\_spells method}, 
+		\hyperpage{208}
+  \item \spxentry{compute\_insitu()}\spxextra{wass2s.ceac\_agro.CEAC\_count\_wet\_spells method}, 
+		\hyperpage{208}
+  \item \spxentry{compute\_insitu()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_cessation method}, 
+		\hyperpage{67}
+  \item \spxentry{compute\_insitu()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_cessation\_dry\_spell method}, 
+		\hyperpage{70}
+  \item \spxentry{compute\_insitu()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_onset method}, 
+		\hyperpage{64}
+  \item \spxentry{compute\_insitu()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_onset\_dry\_spell method}, 
+		\hyperpage{66}
+  \item \spxentry{compute\_insitu()}\spxextra{wass2s.was\_compute\_predictand.WAS\_count\_dry\_spells method}, 
+		\hyperpage{71, 72}
+  \item \spxentry{compute\_insitu()}\spxextra{wass2s.was\_compute\_predictand.WAS\_count\_rainy\_days method}, 
+		\hyperpage{76, 77}
+  \item \spxentry{compute\_insitu()}\spxextra{wass2s.was\_compute\_predictand.WAS\_count\_wet\_spells method}, 
+		\hyperpage{73}, \hyperpage{75}
+  \item \spxentry{compute\_insitu()}\spxextra{wass2s.was\_compute\_predictand.WAS\_PrecipIndices method}, 
+		\hyperpage{81}
+  \item \spxentry{compute\_insitu()}\spxextra{wass2s.was\_compute\_predictand.WAS\_TempPercentileIndices method}, 
+		\hyperpage{79}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_analog.WAS\_Analog method}, 
+		\hyperpage{154}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_analog.WAS\_Analog\_\_ method}, 
+		\hyperpage{158}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_cca.WAS\_CCA method}, \hyperpage{123}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_cca.WAS\_CCA\_base method}, 
+		\hyperpage{125}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_cca.WAS\_CCA\_op method}, \hyperpage{126}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_cca.WAS\_CCA\_strict method}, 
+		\hyperpage{127}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_cca\_2.WAS\_EOF\_KCCA method}, 
+		\hyperpage{131}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_cca\_2.WAS\_KernelCCA\_base method}, 
+		\hyperpage{130}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_linear\_models.WAS\_ElasticNet\_Model method}, 
+		\hyperpage{109}, \hyperpage{111}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_linear\_models.WAS\_Lasso\_Model method}, 
+		\hyperpage{104}, \hyperpage{106}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_linear\_models.WAS\_LassoLars\_Model method}, 
+		\hyperpage{114}, \hyperpage{116}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_linear\_models.WAS\_LinearRegression\_Model method}, 
+		\hyperpage{95, 96}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_linear\_models.WAS\_Ridge\_Model method}, 
+		\hyperpage{100}, \hyperpage{102}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_machine\_learning.WAS\_LogisticRegression\_Model method}, 
+		\hyperpage{133, 134}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_machine\_learning.WAS\_MARS\_Model method}, 
+		\hyperpage{144}, \hyperpage{146}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_machine\_learning.WAS\_NegativeBinomial\_Model method}, 
+		\hyperpage{149}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_machine\_learning.WAS\_PoissonRegression method}, 
+		\hyperpage{139}, \hyperpage{141}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_machine\_learning.WAS\_PolynomialRegression method}, 
+		\hyperpage{135, 136}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_mme.WAS\_mme\_ELR method}, \hyperpage{186}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_mme.WAS\_mme\_ExpertKnowledge method}, 
+		\hyperpage{206}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_mme.WAS\_mme\_FullBMA method}, 
+		\hyperpage{196}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_mme.WAS\_mme\_gaussian\_process method}, 
+		\hyperpage{188}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_mme.WAS\_mme\_hpELM method}, 
+		\hyperpage{203}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_mme.WAS\_mme\_logistic method}, 
+		\hyperpage{184}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_mme.WAS\_mme\_MLP method}, \hyperpage{204}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_mme.WAS\_mme\_NGR\_Gaussian method}, 
+		\hyperpage{192}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_mme.WAS\_mme\_NGR\_NonGaussian method}, 
+		\hyperpage{193}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_mme.WAS\_mme\_PCR method}, \hyperpage{205}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_mme.WAS\_mme\_RF method}, \hyperpage{198}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_mme.WAS\_mme\_xcELM method}, 
+		\hyperpage{188}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_mme.WAS\_mme\_xcELR method}, 
+		\hyperpage{183}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_mme.WAS\_mme\_XGBoosting method}, 
+		\hyperpage{200}
+  \item \spxentry{compute\_model()}\spxextra{wass2s.was\_pcr.WAS\_PCR method}, \hyperpage{120}
+  \item \spxentry{compute\_one\_year\_rpss()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{174}
+  \item \spxentry{compute\_one\_year\_rpss\_()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{174}
+  \item \spxentry{compute\_other\_indices()}\spxextra{in module wass2s.utils}, \hyperpage{54}
+  \item \spxentry{compute\_pmme\_probabilities()}\spxextra{wass2s.was\_mme.WAS\_Min2009\_ProbWeighted method}, 
+		\hyperpage{182}
+  \item \spxentry{compute\_prob()}\spxextra{wass2s.was\_analog.WAS\_Analog method}, \hyperpage{155}
+  \item \spxentry{compute\_prob()}\spxextra{wass2s.was\_analog.WAS\_Analog\_\_ method}, 
+		\hyperpage{158}
+  \item \spxentry{compute\_prob()}\spxextra{wass2s.was\_cca.WAS\_CCA method}, \hyperpage{123}
+  \item \spxentry{compute\_prob()}\spxextra{wass2s.was\_cca.WAS\_CCA\_base method}, \hyperpage{125}
+  \item \spxentry{compute\_prob()}\spxextra{wass2s.was\_cca.WAS\_CCA\_op method}, \hyperpage{126}
+  \item \spxentry{compute\_prob()}\spxextra{wass2s.was\_cca.WAS\_CCA\_strict method}, 
+		\hyperpage{129}
+  \item \spxentry{compute\_prob()}\spxextra{wass2s.was\_cca\_2.WAS\_KernelCCA\_base method}, 
+		\hyperpage{130}
+  \item \spxentry{compute\_prob()}\spxextra{wass2s.was\_linear\_models.WAS\_ElasticNet\_Model method}, 
+		\hyperpage{112}
+  \item \spxentry{compute\_prob()}\spxextra{wass2s.was\_linear\_models.WAS\_Lasso\_Model method}, 
+		\hyperpage{107}
+  \item \spxentry{compute\_prob()}\spxextra{wass2s.was\_linear\_models.WAS\_LassoLars\_Model method}, 
+		\hyperpage{117}
+  \item \spxentry{compute\_prob()}\spxextra{wass2s.was\_linear\_models.WAS\_LinearRegression\_Model method}, 
+		\hyperpage{98}
+  \item \spxentry{compute\_prob()}\spxextra{wass2s.was\_linear\_models.WAS\_Ridge\_Model method}, 
+		\hyperpage{103}
+  \item \spxentry{compute\_prob()}\spxextra{wass2s.was\_machine\_learning.WAS\_MARS\_Model method}, 
+		\hyperpage{147}
+  \item \spxentry{compute\_prob()}\spxextra{wass2s.was\_machine\_learning.WAS\_NegativeBinomial\_Model method}, 
+		\hyperpage{149}
+  \item \spxentry{compute\_prob()}\spxextra{wass2s.was\_machine\_learning.WAS\_PoissonRegression method}, 
+		\hyperpage{142}
+  \item \spxentry{compute\_prob()}\spxextra{wass2s.was\_machine\_learning.WAS\_PolynomialRegression method}, 
+		\hyperpage{138}
+  \item \spxentry{compute\_prob()}\spxextra{wass2s.was\_mme.WAS\_mme\_hpELM method}, 
+		\hyperpage{203}
+  \item \spxentry{compute\_prob()}\spxextra{wass2s.was\_mme.WAS\_mme\_MLP method}, \hyperpage{204}
+  \item \spxentry{compute\_prob()}\spxextra{wass2s.was\_mme.WAS\_mme\_MVA method}, \hyperpage{194}
+  \item \spxentry{compute\_prob()}\spxextra{wass2s.was\_mme.WAS\_mme\_PCR method}, \hyperpage{205}
+  \item \spxentry{compute\_prob()}\spxextra{wass2s.was\_mme.WAS\_mme\_RF method}, \hyperpage{198}
+  \item \spxentry{compute\_prob()}\spxextra{wass2s.was\_mme.WAS\_mme\_Weighted method}, 
+		\hyperpage{179}
+  \item \spxentry{compute\_prob()}\spxextra{wass2s.was\_mme.WAS\_mme\_xcELM method}, 
+		\hyperpage{189}
+  \item \spxentry{compute\_prob()}\spxextra{wass2s.was\_mme.WAS\_mme\_XGBoosting method}, 
+		\hyperpage{200}
+  \item \spxentry{compute\_prob()}\spxextra{wass2s.was\_pcr.WAS\_PCR method}, \hyperpage{121}
+  \item \spxentry{compute\_probabilistic\_score()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{169}
+  \item \spxentry{compute\_sst\_indices()}\spxextra{in module wass2s.utils}, \hyperpage{53}
+  \item \spxentry{conditional\_merging()}\spxextra{wass2s.was\_merge\_predictand.WAS\_Merging\_Extended method}, 
+		\hyperpage{90}
+  \item \spxentry{Corr\_Based()}\spxextra{wass2s.was\_analog.WAS\_Analog method}, \hyperpage{154}
+  \item \spxentry{Corr\_Based()}\spxextra{wass2s.was\_analog.WAS\_Analog\_\_ method}, 
+		\hyperpage{158}
+  \item \spxentry{count\_dry\_spells()}\spxextra{wass2s.ceac\_agro.CEAC\_count\_dry\_spells static method}, 
+		\hyperpage{208}
+  \item \spxentry{count\_dry\_spells()}\spxextra{wass2s.was\_compute\_predictand.WAS\_count\_dry\_spells static method}, 
+		\hyperpage{72}
+  \item \spxentry{count\_rainy\_days()}\spxextra{wass2s.was\_compute\_predictand.WAS\_count\_rainy\_days static method}, 
+		\hyperpage{77}
+  \item \spxentry{count\_wet\_spells()}\spxextra{wass2s.ceac\_agro.CEAC\_count\_wet\_spells static method}, 
+		\hyperpage{208}
+  \item \spxentry{count\_wet\_spells()}\spxextra{wass2s.was\_compute\_predictand.WAS\_count\_wet\_spells static method}, 
+		\hyperpage{74}
+  \item \spxentry{cross\_validate()}\spxextra{wass2s.was\_cross\_validate.WAS\_Cross\_Validator method}, 
+		\hyperpage{93}
+  \item \spxentry{crps\_censored\_normal()}\spxextra{in module wass2s.was\_mme}, \hyperpage{191}
+  \item \spxentry{crps\_gaussian()}\spxextra{in module wass2s.was\_mme}, \hyperpage{191}
+  \item \spxentry{crps\_truncated\_normal()}\spxextra{in module wass2s.was\_mme}, \hyperpage{191}
+  \item \spxentry{CustomTimeSeriesSplit}\spxextra{class in wass2s.was\_cross\_validate}, 
+		\hyperpage{92}
+
+  \indexspace
+  \bigletter D
+  \item \spxentry{day\_of\_year()}\spxextra{wass2s.ceac\_agro.CAF\_AgroClimateBase static method}, 
+		\hyperpage{207}
+  \item \spxentry{day\_of\_year()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_cessation static method}, 
+		\hyperpage{67}
+  \item \spxentry{day\_of\_year()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_cessation\_dry\_spell static method}, 
+		\hyperpage{70}
+  \item \spxentry{day\_of\_year()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_onset static method}, 
+		\hyperpage{63}
+  \item \spxentry{day\_of\_year()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_onset\_dry\_spell static method}, 
+		\hyperpage{66}
+  \item \spxentry{days\_in\_month()}\spxextra{wass2s.was\_download.WAS\_Download method}, 
+		\hyperpage{40}
+  \item \spxentry{decode\_cf()}\spxextra{in module wass2s.utils}, \hyperpage{48}
+  \item \spxentry{default\_criteria}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_cessation attribute}, 
+		\hyperpage{67}
+  \item \spxentry{default\_criteria}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_cessation\_dry\_spell attribute}, 
+		\hyperpage{68}
+  \item \spxentry{default\_criteria}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_onset attribute}, 
+		\hyperpage{63}
+  \item \spxentry{default\_criteria}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_onset\_dry\_spell attribute}, 
+		\hyperpage{65}
+  \item \spxentry{detect\_skewness()}\spxextra{wass2s.was\_transformdata.WAS\_TransformData method}, 
+		\hyperpage{62}
+  \item \spxentry{detrended\_data()}\spxextra{in module wass2s.utils}, \hyperpage{52}
+  \item \spxentry{DIST\_CODE\_TO\_NAME}\spxextra{wass2s.was\_mme.WAS\_mme\_FullBMA attribute}, 
+		\hyperpage{196}
+  \item \spxentry{DIST\_NAME\_TO\_CODE}\spxextra{wass2s.was\_mme.WAS\_mme\_FullBMA attribute}, 
+		\hyperpage{196}
+  \item \spxentry{doBC()}\spxextra{wass2s.was\_bias\_correction.WAS\_bias\_correction static method}, 
+		\hyperpage{86}
+  \item \spxentry{doDist()}\spxextra{wass2s.was\_bias\_correction.WAS\_bias\_correction static method}, 
+		\hyperpage{86}
+  \item \spxentry{doMean()}\spxextra{wass2s.was\_bias\_correction.WAS\_bias\_correction static method}, 
+		\hyperpage{86}
+  \item \spxentry{doQmap()}\spxextra{wass2s.was\_bias\_correction.WAS\_Qmap static method}, 
+		\hyperpage{84}
+  \item \spxentry{doQmapDIST()}\spxextra{wass2s.was\_bias\_correction.WAS\_Qmap static method}, 
+		\hyperpage{85}
+  \item \spxentry{doQmapPTF()}\spxextra{wass2s.was\_bias\_correction.WAS\_Qmap static method}, 
+		\hyperpage{85}
+  \item \spxentry{doQmapQUANT()}\spxextra{wass2s.was\_bias\_correction.WAS\_Qmap static method}, 
+		\hyperpage{85}
+  \item \spxentry{doQmapRQUANT()}\spxextra{wass2s.was\_bias\_correction.WAS\_Qmap static method}, 
+		\hyperpage{85}
+  \item \spxentry{doQmapSSPLIN()}\spxextra{wass2s.was\_bias\_correction.WAS\_Qmap static method}, 
+		\hyperpage{85}
+  \item \spxentry{doQuant()}\spxextra{wass2s.was\_bias\_correction.WAS\_bias\_correction static method}, 
+		\hyperpage{86}
+  \item \spxentry{doVarscale()}\spxextra{wass2s.was\_bias\_correction.WAS\_bias\_correction static method}, 
+		\hyperpage{86}
+  \item \spxentry{download\_and\_process()}\spxextra{wass2s.was\_analog.WAS\_Analog method}, 
+		\hyperpage{154}
+  \item \spxentry{download\_and\_process()}\spxextra{wass2s.was\_analog.WAS\_Analog\_\_ method}, 
+		\hyperpage{158}
+  \item \spxentry{download\_data()}\spxextra{in module wass2s.was\_seasonal\_analysis}, 
+		\hyperpage{209}
+  \item \spxentry{download\_file()}\spxextra{in module wass2s.utils}, \hyperpage{50}
+  \item \spxentry{download\_models()}\spxextra{wass2s.was\_analog.WAS\_Analog method}, 
+		\hyperpage{154}
+  \item \spxentry{download\_models()}\spxextra{wass2s.was\_analog.WAS\_Analog\_\_ method}, 
+		\hyperpage{158}
+  \item \spxentry{download\_nmme\_txt\_with\_progress()}\spxextra{wass2s.was\_download.WAS\_Download method}, 
+		\hyperpage{40}
+  \item \spxentry{download\_reanalysis()}\spxextra{wass2s.was\_analog.WAS\_Analog method}, 
+		\hyperpage{154}
+  \item \spxentry{download\_reanalysis()}\spxextra{wass2s.was\_analog.WAS\_Analog\_\_ method}, 
+		\hyperpage{157}
+  \item \spxentry{download\_reanalysis\_()}\spxextra{wass2s.was\_analog.WAS\_Analog method}, 
+		\hyperpage{153}
+  \item \spxentry{dry\_spell\_cessation\_function()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_cessation\_dry\_spell method}, 
+		\hyperpage{69}
+  \item \spxentry{dry\_spell\_onset\_function()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_onset\_dry\_spell method}, 
+		\hyperpage{65}
+  \item \spxentry{dry\_spell\_onset\_function\_()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_onset\_dry\_spell method}, 
+		\hyperpage{65}
+  \item \spxentry{ds\_cess\_func()}\spxextra{wass2s.ceac\_agro.CEAC\_compute\_cessation\_dry\_spell static method}, 
+		\hyperpage{207}
+  \item \spxentry{ds\_onset\_func()}\spxextra{wass2s.ceac\_agro.CEAC\_compute\_onset\_dry\_spell static method}, 
+		\hyperpage{207}
+  \item \spxentry{duration}\spxextra{wass2s.was\_compute\_predictand.HeatWaveDefinition attribute}, 
+		\hyperpage{82}
+
+  \indexspace
+  \bigletter E
+  \item \spxentry{end\_date}\spxextra{wass2s.was\_compute\_predictand.HeatWaveDefinition attribute}, 
+		\hyperpage{82}
+  \item \spxentry{eof\_model}\spxextra{wass2s.was\_pcr.WAS\_PCR attribute}, \hyperpage{120}
+  \item \spxentry{et0\_fao56\_daily()}\spxextra{in module wass2s.utils}, \hyperpage{60}
+  \item \spxentry{ETCCDIHeatWaveIndices}\spxextra{class in wass2s.was\_compute\_predictand}, 
+		\hyperpage{83}
+  \item \spxentry{ETCCDITempIndices}\spxextra{class in wass2s.was\_compute\_predictand}, 
+		\hyperpage{79}
+  \item \spxentry{evaluate\_bias\_correction()}\spxextra{wass2s.was\_bias\_correction.WAS\_Qmap static method}, 
+		\hyperpage{85}
+  \item \spxentry{extract\_leading\_eeof\_component()}\spxextra{in module wass2s.utils}, 
+		\hyperpage{52}
+  \item \spxentry{extraterrestrial\_radiation()}\spxextra{in module wass2s.utils}, \hyperpage{59}
+  \item \spxentry{ExtremeType}\spxextra{class in wass2s.was\_compute\_predictand}, \hyperpage{78}
+
+  \indexspace
+  \bigletter F
+  \item \spxentry{fit()}\spxextra{wass2s.was\_eof.WAS\_EOF method}, \hyperpage{91}
+  \item \spxentry{fit()}\spxextra{wass2s.was\_machine\_learning.MARS method}, \hyperpage{144}
+  \item \spxentry{fit()}\spxextra{wass2s.was\_mme.HPELMWrapper method}, \hyperpage{201}
+  \item \spxentry{fit()}\spxextra{wass2s.was\_mme.WAS\_mme\_ExpertKnowledge method}, 
+		\hyperpage{206}
+  \item \spxentry{fit()}\spxextra{wass2s.was\_mme.WAS\_mme\_FastBMA method}, \hyperpage{195}
+  \item \spxentry{fit()}\spxextra{wass2s.was\_mme.WAS\_mme\_FullBMA method}, \hyperpage{196}
+  \item \spxentry{fit()}\spxextra{wass2s.was\_mme.WAS\_mme\_MVA method}, \hyperpage{193}
+  \item \spxentry{fit()}\spxextra{wass2s.was\_mme.WAS\_mme\_NGR\_Gaussian method}, \hyperpage{192}
+  \item \spxentry{fit()}\spxextra{wass2s.was\_mme.WAS\_mme\_NGR\_NonGaussian method}, 
+		\hyperpage{193}
+  \item \spxentry{fit\_best\_distribution()}\spxextra{wass2s.was\_transformdata.WAS\_TransformData method}, 
+		\hyperpage{62}
+  \item \spxentry{fit\_cca()}\spxextra{wass2s.was\_cca.WAS\_CCA method}, \hyperpage{122}
+  \item \spxentry{fit\_cca()}\spxextra{wass2s.was\_cca.WAS\_CCA\_base method}, \hyperpage{125}
+  \item \spxentry{fit\_cca()}\spxextra{wass2s.was\_cca.WAS\_CCA\_op method}, \hyperpage{126}
+  \item \spxentry{fit\_cca()}\spxextra{wass2s.was\_cca.WAS\_CCA\_strict method}, \hyperpage{127}
+  \item \spxentry{fit\_cca()}\spxextra{wass2s.was\_cca\_2.WAS\_KernelCCA\_base method}, 
+		\hyperpage{130}
+  \item \spxentry{fit\_one\_grid\_min\_crps()}\spxextra{in module wass2s.was\_mme}, \hyperpage{191}
+  \item \spxentry{fit\_predict()}\spxextra{wass2s.was\_linear\_models.WAS\_ElasticNet\_Model method}, 
+		\hyperpage{109}, \hyperpage{111}
+  \item \spxentry{fit\_predict()}\spxextra{wass2s.was\_linear\_models.WAS\_Lasso\_Model method}, 
+		\hyperpage{104}, \hyperpage{106}
+  \item \spxentry{fit\_predict()}\spxextra{wass2s.was\_linear\_models.WAS\_LassoLars\_Model method}, 
+		\hyperpage{114}, \hyperpage{116}
+  \item \spxentry{fit\_predict()}\spxextra{wass2s.was\_linear\_models.WAS\_LinearRegression\_Model method}, 
+		\hyperpage{95, 96}
+  \item \spxentry{fit\_predict()}\spxextra{wass2s.was\_linear\_models.WAS\_Ridge\_Model method}, 
+		\hyperpage{100, 101}
+  \item \spxentry{fit\_predict()}\spxextra{wass2s.was\_machine\_learning.WAS\_HurdleNB\_Model method}, 
+		\hyperpage{150}
+  \item \spxentry{fit\_predict()}\spxextra{wass2s.was\_machine\_learning.WAS\_LogisticRegression\_Model method}, 
+		\hyperpage{133, 134}
+  \item \spxentry{fit\_predict()}\spxextra{wass2s.was\_machine\_learning.WAS\_MARS\_Model method}, 
+		\hyperpage{144}, \hyperpage{146}
+  \item \spxentry{fit\_predict()}\spxextra{wass2s.was\_machine\_learning.WAS\_NegativeBinomial\_Model method}, 
+		\hyperpage{149}
+  \item \spxentry{fit\_predict()}\spxextra{wass2s.was\_machine\_learning.WAS\_PoissonRegression method}, 
+		\hyperpage{139, 140}
+  \item \spxentry{fit\_predict()}\spxextra{wass2s.was\_machine\_learning.WAS\_PolynomialRegression method}, 
+		\hyperpage{135, 136}
+  \item \spxentry{fit\_predict()}\spxextra{wass2s.was\_machine\_learning.WAS\_ZINB\_Model method}, 
+		\hyperpage{149}
+  \item \spxentry{fit\_transform\_loocv()}\spxextra{wass2s.was\_mme.WAS\_mme\_MVA method}, 
+		\hyperpage{193}
+  \item \spxentry{fitBC()}\spxextra{wass2s.was\_bias\_correction.WAS\_bias\_correction static method}, 
+		\hyperpage{86}
+  \item \spxentry{fitDist()}\spxextra{wass2s.was\_bias\_correction.WAS\_bias\_correction static method}, 
+		\hyperpage{86}
+  \item \spxentry{fitMean()}\spxextra{wass2s.was\_bias\_correction.WAS\_bias\_correction static method}, 
+		\hyperpage{86}
+  \item \spxentry{fitQmap()}\spxextra{wass2s.was\_bias\_correction.WAS\_Qmap static method}, 
+		\hyperpage{84}
+  \item \spxentry{fitQmapDIST()}\spxextra{wass2s.was\_bias\_correction.WAS\_Qmap static method}, 
+		\hyperpage{85}
+  \item \spxentry{fitQmapPTF()}\spxextra{wass2s.was\_bias\_correction.WAS\_Qmap static method}, 
+		\hyperpage{85}
+  \item \spxentry{fitQmapQUANT()}\spxextra{wass2s.was\_bias\_correction.WAS\_Qmap static method}, 
+		\hyperpage{85}
+  \item \spxentry{fitQmapRQUANT()}\spxextra{wass2s.was\_bias\_correction.WAS\_Qmap static method}, 
+		\hyperpage{85}
+  \item \spxentry{fitQmapSSPLIN()}\spxextra{wass2s.was\_bias\_correction.WAS\_Qmap static method}, 
+		\hyperpage{85}
+  \item \spxentry{fitQuant()}\spxextra{wass2s.was\_bias\_correction.WAS\_bias\_correction static method}, 
+		\hyperpage{86}
+  \item \spxentry{fitVarscale()}\spxextra{wass2s.was\_bias\_correction.WAS\_bias\_correction static method}, 
+		\hyperpage{86}
+  \item \spxentry{fix\_time\_coord()}\spxextra{in module wass2s.utils}, \hyperpage{49}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_analog.WAS\_Analog method}, \hyperpage{155}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_analog.WAS\_Analog\_\_ method}, \hyperpage{159}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_cca.WAS\_CCA method}, \hyperpage{124}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_cca.WAS\_CCA\_base method}, \hyperpage{125}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_cca.WAS\_CCA\_op method}, \hyperpage{126}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_cca.WAS\_CCA\_strict method}, \hyperpage{127}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_cca\_2.WAS\_EOF\_KCCA method}, \hyperpage{131}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_cca\_2.WAS\_KernelCCA\_base method}, 
+		\hyperpage{130}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_linear\_models.WAS\_ElasticNet\_Model method}, 
+		\hyperpage{113}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_linear\_models.WAS\_Lasso\_Model method}, 
+		\hyperpage{108}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_linear\_models.WAS\_LassoLars\_Model method}, 
+		\hyperpage{118}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_linear\_models.WAS\_LinearRegression\_Model method}, 
+		\hyperpage{98}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_linear\_models.WAS\_Ridge\_Model method}, 
+		\hyperpage{103}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_machine\_learning.WAS\_LogisticRegression\_Model method}, 
+		\hyperpage{134}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_machine\_learning.WAS\_MARS\_Model method}, 
+		\hyperpage{148}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_machine\_learning.WAS\_NegativeBinomial\_Model method}, 
+		\hyperpage{149}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_machine\_learning.WAS\_PoissonRegression method}, 
+		\hyperpage{143}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_machine\_learning.WAS\_PolynomialRegression method}, 
+		\hyperpage{138}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_mme.WAS\_mme\_ELR method}, \hyperpage{187}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_mme.WAS\_mme\_gaussian\_process method}, 
+		\hyperpage{188}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_mme.WAS\_mme\_hpELM method}, \hyperpage{203}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_mme.WAS\_mme\_logistic method}, \hyperpage{185}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_mme.WAS\_mme\_MLP method}, \hyperpage{204}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_mme.WAS\_mme\_MVA method}, \hyperpage{194}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_mme.WAS\_mme\_NGR\_Gaussian method}, 
+		\hyperpage{192}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_mme.WAS\_mme\_NGR\_NonGaussian method}, 
+		\hyperpage{193}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_mme.WAS\_mme\_PCR method}, \hyperpage{205}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_mme.WAS\_mme\_RF method}, \hyperpage{198}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_mme.WAS\_mme\_Weighted method}, \hyperpage{179}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_mme.WAS\_mme\_xcELM method}, \hyperpage{190}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_mme.WAS\_mme\_xcELR method}, \hyperpage{183}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_mme.WAS\_mme\_XGBoosting method}, 
+		\hyperpage{200}
+  \item \spxentry{forecast()}\spxextra{wass2s.was\_pcr.WAS\_PCR method}, \hyperpage{121}
+  \item \spxentry{format\_grid\_output()}\spxextra{wass2s.ceac\_agro.CAF\_AgroClimateBase method}, 
+		\hyperpage{207}
+  \item \spxentry{forward\_pass()}\spxextra{wass2s.was\_machine\_learning.MARS method}, 
+		\hyperpage{143}
+
+  \indexspace
+  \bigletter G
+  \item \spxentry{gcm\_compute\_prob()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{170}
+  \item \spxentry{gcm\_validation\_compute()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{171}
+  \item \spxentry{get\_best\_models()}\spxextra{in module wass2s.utils}, \hyperpage{56}
+  \item \spxentry{get\_canonical\_correlations()}\spxextra{wass2s.was\_cca\_2.WAS\_KernelCCA\_base method}, 
+		\hyperpage{130}
+  \item \spxentry{get\_components()}\spxextra{wass2s.was\_cca\_2.WAS\_KernelCCA\_base method}, 
+		\hyperpage{130}
+  \item \spxentry{get\_fit\_stats()}\spxextra{wass2s.was\_mme.WAS\_mme\_NGR\_Gaussian method}, 
+		\hyperpage{192}
+  \item \spxentry{get\_fit\_stats()}\spxextra{wass2s.was\_mme.WAS\_mme\_NGR\_NonGaussian method}, 
+		\hyperpage{193}
+  \item \spxentry{get\_formula()}\spxextra{wass2s.was\_machine\_learning.MARS method}, 
+		\hyperpage{144}
+  \item \spxentry{get\_hpo\_summary()}\spxextra{wass2s.was\_mme.WAS\_mme\_gaussian\_process method}, 
+		\hyperpage{188}
+  \item \spxentry{get\_index\_definition()}\spxextra{wass2s.was\_compute\_predictand.WAS\_PrecipIndices method}, 
+		\hyperpage{82}
+  \item \spxentry{get\_index\_definition()}\spxextra{wass2s.was\_compute\_predictand.WAS\_TempPercentileIndices method}, 
+		\hyperpage{79}
+  \item \spxentry{get\_index\_for\_station()}\spxextra{wass2s.ceac\_agro.CAF\_AgroClimateBase method}, 
+		\hyperpage{207}
+  \item \spxentry{get\_model\_info()}\spxextra{wass2s.was\_cca\_2.WAS\_KernelCCA\_base method}, 
+		\hyperpage{130}
+  \item \spxentry{get\_n\_splits()}\spxextra{wass2s.was\_cross\_validate.CustomTimeSeriesSplit method}, 
+		\hyperpage{93}
+  \item \spxentry{get\_optimization\_results()}\spxextra{wass2s.was\_mme.WAS\_mme\_hpELM method}, 
+		\hyperpage{203}
+  \item \spxentry{get\_optimization\_results()}\spxextra{wass2s.was\_mme.WAS\_mme\_logistic method}, 
+		\hyperpage{185}
+  \item \spxentry{get\_params()}\spxextra{wass2s.was\_mme.HPELMWrapper method}, \hyperpage{201}
+  \item \spxentry{get\_scores()}\spxextra{wass2s.was\_cca\_2.WAS\_KernelCCA\_base method}, 
+		\hyperpage{130}
+  \item \spxentry{get\_scores\_metadata()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{160}
+  \item \spxentry{get\_shapefile()}\spxextra{in module wass2s.utils}, \hyperpage{56}
+  \item \spxentry{get\_shapefile\_()}\spxextra{in module wass2s.utils}, \hyperpage{56}
+
+  \indexspace
+  \bigletter H
+  \item \spxentry{handle\_skewness()}\spxextra{wass2s.was\_transformdata.WAS\_TransformData method}, 
+		\hyperpage{62}
+  \item \spxentry{heat\_wave\_duration\_index()}\spxextra{wass2s.was\_compute\_predictand.ETCCDIHeatWaveIndices static method}, 
+		\hyperpage{83}
+  \item \spxentry{heat\_wave\_frequency()}\spxextra{wass2s.was\_compute\_predictand.ETCCDIHeatWaveIndices static method}, 
+		\hyperpage{83}
+  \item \spxentry{HeatWaveDefinition}\spxextra{class in wass2s.was\_compute\_predictand}, 
+		\hyperpage{82}
+  \item \spxentry{HeatWaveMetric}\spxextra{class in wass2s.was\_compute\_predictand}, 
+		\hyperpage{82}
+  \item \spxentry{HOT}\spxextra{wass2s.was\_compute\_predictand.ExtremeType attribute}, 
+		\hyperpage{78}
+  \item \spxentry{hot\_days()}\spxextra{wass2s.was\_compute\_predictand.ETCCDITempIndices static method}, 
+		\hyperpage{80}
+  \item \spxentry{hot\_nights()}\spxextra{wass2s.was\_compute\_predictand.ETCCDITempIndices static method}, 
+		\hyperpage{80}
+  \item \spxentry{HPELMWrapper}\spxextra{class in wass2s.was\_mme}, \hyperpage{201}
+  \item \spxentry{HWDI}\spxextra{wass2s.was\_compute\_predictand.HeatWaveMetric attribute}, 
+		\hyperpage{82}
+  \item \spxentry{HWF}\spxextra{wass2s.was\_compute\_predictand.HeatWaveMetric attribute}, 
+		\hyperpage{82}
+  \item \spxentry{HWN}\spxextra{wass2s.was\_compute\_predictand.HeatWaveMetric attribute}, 
+		\hyperpage{82}
+
+  \indexspace
+  \bigletter I
+  \item \spxentry{identify\_analogs\_bmu()}\spxextra{wass2s.was\_analog.WAS\_Analog method}, 
+		\hyperpage{154}
+  \item \spxentry{identify\_analogs\_bmu()}\spxextra{wass2s.was\_analog.WAS\_Analog\_\_ method}, 
+		\hyperpage{158}
+  \item \spxentry{ignorance\_score()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{165}
+  \item \spxentry{index\_of\_agreement()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{161}
+  \item \spxentry{inv\_boxcox()}\spxextra{in module wass2s.was\_transformdata}, \hyperpage{61}
+  \item \spxentry{inv\_yeojohnson()}\spxextra{in module wass2s.was\_transformdata}, \hyperpage{61}
+  \item \spxentry{inverse\_transform()}\spxextra{wass2s.was\_eof.WAS\_EOF method}, \hyperpage{91}
+  \item \spxentry{inverse\_transform()}\spxextra{wass2s.was\_transformdata.WAS\_TransformData method}, 
+		\hyperpage{62}
+
+  \indexspace
+  \bigletter K
+  \item \spxentry{kling\_gupta\_efficiency()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{160}
+  \item \spxentry{KMeans\_Based()}\spxextra{wass2s.was\_analog.WAS\_Analog method}, \hyperpage{154}
+  \item \spxentry{KMeans\_Based()}\spxextra{wass2s.was\_analog.WAS\_Analog\_\_ method}, 
+		\hyperpage{158}
+  \item \spxentry{kriging\_with\_external\_drift()}\spxextra{wass2s.was\_merge\_predictand.WAS\_Merging\_Extended method}, 
+		\hyperpage{90}
+
+  \indexspace
+  \bigletter L
+  \item \spxentry{load\_gridded\_predictor()}\spxextra{in module wass2s.utils}, \hyperpage{52}
+
+  \indexspace
+  \bigletter M
+  \item \spxentry{main\_driver()}\spxextra{in module wass2s.was\_seasonal\_analysis}, 
+		\hyperpage{211}
+  \item \spxentry{MARS}\spxextra{class in wass2s.was\_machine\_learning}, \hyperpage{143}
+  \item \spxentry{max\_temp}\spxextra{wass2s.was\_compute\_predictand.HeatWaveDefinition attribute}, 
+		\hyperpage{82}
+  \item \spxentry{mean\_absolute\_error()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{161}
+  \item \spxentry{mean\_temp}\spxextra{wass2s.was\_compute\_predictand.HeatWaveDefinition attribute}, 
+		\hyperpage{82}
+  \item \spxentry{MODE\_CODE}\spxextra{wass2s.was\_mme.WAS\_mme\_FullBMA attribute}, 
+		\hyperpage{196}
+  \item \spxentry{ModelsName()}\spxextra{wass2s.was\_download.WAS\_Download method}, \hyperpage{39}
+  \item \spxentry{module}
+    \subitem \spxentry{wass2s.ceac\_agro}, \hyperpage{206}
+    \subitem \spxentry{wass2s.utils}, \hyperpage{47}
+    \subitem \spxentry{wass2s.was\_analog}, \hyperpage{151}
+    \subitem \spxentry{wass2s.was\_bias\_correction}, \hyperpage{84}
+    \subitem \spxentry{wass2s.was\_cca}, \hyperpage{122}
+    \subitem \spxentry{wass2s.was\_cca\_2}, \hyperpage{129}
+    \subitem \spxentry{wass2s.was\_compute\_predictand}, \hyperpage{62}
+    \subitem \spxentry{wass2s.was\_cross\_validate}, \hyperpage{92}
+    \subitem \spxentry{wass2s.was\_download}, \hyperpage{38}
+    \subitem \spxentry{wass2s.was\_eof}, \hyperpage{91}
+    \subitem \spxentry{wass2s.was\_linear\_models}, \hyperpage{94}
+    \subitem \spxentry{wass2s.was\_machine\_learning}, \hyperpage{131}
+    \subitem \spxentry{wass2s.was\_merge\_predictand}, \hyperpage{87}
+    \subitem \spxentry{wass2s.was\_mme}, \hyperpage{175}
+    \subitem \spxentry{wass2s.was\_pcr}, \hyperpage{119}
+    \subitem \spxentry{wass2s.was\_seasonal\_analysis}, \hyperpage{208}
+    \subitem \spxentry{wass2s.was\_transformdata}, \hyperpage{61}
+    \subitem \spxentry{wass2s.was\_verification}, \hyperpage{159}
+  \item \spxentry{multiplicative\_bias()}\spxextra{wass2s.was\_merge\_predictand.WAS\_Merging method}, 
+		\hyperpage{89}
+  \item \spxentry{myfill()}\spxextra{in module wass2s.was\_mme}, \hyperpage{176}
+
+  \indexspace
+  \bigletter N
+  \item \spxentry{nash\_sutcliffe\_efficiency()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{162}
+  \item \spxentry{neural\_network\_kriging()}\spxextra{wass2s.was\_merge\_predictand.WAS\_Merging method}, 
+		\hyperpage{88}
+  \item \spxentry{neural\_network\_kriging\_()}\spxextra{wass2s.was\_merge\_predictand.WAS\_Merging method}, 
+		\hyperpage{88}
+
+  \indexspace
+  \bigletter O
+  \item \spxentry{onset\_function()}\spxextra{wass2s.ceac\_agro.CEAC\_compute\_onset static method}, 
+		\hyperpage{207}
+  \item \spxentry{onset\_function()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_onset method}, 
+		\hyperpage{64}
+  \item \spxentry{optimal\_interpolation()}\spxextra{wass2s.was\_merge\_predictand.WAS\_Merging\_Extended method}, 
+		\hyperpage{90}
+  \item \spxentry{optimize()}\spxextra{wass2s.was\_machine\_learning.BaseOptimizer method}, 
+		\hyperpage{132}
+  \item \spxentry{optimizer}\spxextra{wass2s.was\_machine\_learning.WAS\_LogisticRegression\_Model attribute}, 
+		\hyperpage{133}
+  \item \spxentry{output\_format\_value()}\spxextra{wass2s.ceac\_agro.CAF\_AgroClimateBase method}, 
+		\hyperpage{207}
+
+  \indexspace
+  \bigletter P
+  \item \spxentry{parse\_cpt\_data\_optimized()}\spxextra{wass2s.was\_download.WAS\_Download method}, 
+		\hyperpage{40}
+  \item \spxentry{parse\_variable()}\spxextra{in module wass2s.utils}, \hyperpage{50}
+  \item \spxentry{Pca\_Based()}\spxextra{wass2s.was\_analog.WAS\_Analog method}, \hyperpage{154}
+  \item \spxentry{Pca\_Based()}\spxextra{wass2s.was\_analog.WAS\_Analog\_\_ method}, 
+		\hyperpage{158}
+  \item \spxentry{pearson\_corr()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{160}
+  \item \spxentry{plot\_best\_fit\_map()}\spxextra{wass2s.was\_transformdata.WAS\_TransformData method}, 
+		\hyperpage{62}
+  \item \spxentry{plot\_cca\_results()}\spxextra{wass2s.was\_cca.WAS\_CCA method}, \hyperpage{124}
+  \item \spxentry{plot\_cca\_results()}\spxextra{wass2s.was\_cca.WAS\_CCA\_base method}, 
+		\hyperpage{125}
+  \item \spxentry{plot\_cca\_results()}\spxextra{wass2s.was\_cca.WAS\_CCA\_op method}, 
+		\hyperpage{126}
+  \item \spxentry{plot\_cca\_results()}\spxextra{wass2s.was\_cca.WAS\_CCA\_strict method}, 
+		\hyperpage{128}
+  \item \spxentry{plot\_cca\_results()}\spxextra{wass2s.was\_cca\_2.WAS\_KernelCCA\_base method}, 
+		\hyperpage{130}
+  \item \spxentry{plot\_date()}\spxextra{in module wass2s.utils}, \hyperpage{58}
+  \item \spxentry{plot\_det\_forecasts()}\spxextra{in module wass2s.utils}, \hyperpage{56}
+  \item \spxentry{plot\_EOF()}\spxextra{wass2s.was\_eof.WAS\_EOF method}, \hyperpage{91}
+  \item \spxentry{plot\_extreme\_quantiles\_group()}\spxextra{wass2s.was\_bias\_correction.WAS\_Qmap static method}, 
+		\hyperpage{86}
+  \item \spxentry{plot\_fraction\_group()}\spxextra{wass2s.was\_bias\_correction.WAS\_Qmap static method}, 
+		\hyperpage{85}
+  \item \spxentry{plot\_georeferenced\_forecast\_map()}\spxextra{in module wass2s.utils}, 
+		\hyperpage{57}
+  \item \spxentry{plot\_hovmoller()}\spxextra{in module wass2s.was\_seasonal\_analysis}, 
+		\hyperpage{210}
+  \item \spxentry{plot\_map()}\spxextra{in module wass2s.utils}, \hyperpage{56}
+  \item \spxentry{plot\_map()}\spxextra{in module wass2s.was\_download}, \hyperpage{46}
+  \item \spxentry{plot\_maps()}\spxextra{in module wass2s.was\_seasonal\_analysis}, \hyperpage{210}
+  \item \spxentry{plot\_mean\_wet\_group()}\spxextra{wass2s.was\_bias\_correction.WAS\_Qmap static method}, 
+		\hyperpage{86}
+  \item \spxentry{plot\_merging\_comparaison()}\spxextra{wass2s.was\_merge\_predictand.WAS\_Merging method}, 
+		\hyperpage{89}
+  \item \spxentry{plot\_merging\_comparison()}\spxextra{wass2s.was\_merge\_predictand.WAS\_Merging\_Extended method}, 
+		\hyperpage{90}
+  \item \spxentry{plot\_model\_score()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{170}
+  \item \spxentry{plot\_models\_score()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{170}
+  \item \spxentry{plot\_prob\_forecasts()}\spxextra{in module wass2s.utils}, \hyperpage{56}
+  \item \spxentry{plot\_prob\_forecasts\_()}\spxextra{in module wass2s.utils}, \hyperpage{56}
+  \item \spxentry{plot\_prob\_forecastsAlpha()}\spxextra{in module wass2s.utils}, \hyperpage{56}
+  \item \spxentry{plot\_roc\_curves()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{168}
+  \item \spxentry{plot\_tercile()}\spxextra{in module wass2s.utils}, \hyperpage{57}
+  \item \spxentry{polygons\_to\_prob\_ds()}\spxextra{in module wass2s.utils}, \hyperpage{57}
+  \item \spxentry{pre\_process\_biophysical\_model()}\spxextra{in module wass2s.utils}, 
+		\hyperpage{58}
+  \item \spxentry{predict()}\spxextra{wass2s.was\_machine\_learning.MARS method}, \hyperpage{144}
+  \item \spxentry{predict()}\spxextra{wass2s.was\_mme.HPELMWrapper method}, \hyperpage{201}
+  \item \spxentry{predict()}\spxextra{wass2s.was\_mme.WAS\_mme\_ExpertKnowledge method}, 
+		\hyperpage{206}
+  \item \spxentry{predict()}\spxextra{wass2s.was\_mme.WAS\_mme\_NGR\_Gaussian method}, 
+		\hyperpage{192}
+  \item \spxentry{predict()}\spxextra{wass2s.was\_mme.WAS\_mme\_NGR\_NonGaussian method}, 
+		\hyperpage{193}
+  \item \spxentry{predict\_mean()}\spxextra{wass2s.was\_mme.WAS\_mme\_MVA method}, \hyperpage{194}
+  \item \spxentry{predict\_probabilistic()}\spxextra{wass2s.was\_mme.WAS\_mme\_FastBMA method}, 
+		\hyperpage{195}
+  \item \spxentry{predict\_probabilistic()}\spxextra{wass2s.was\_mme.WAS\_mme\_FullBMA method}, 
+		\hyperpage{196}
+  \item \spxentry{predictant\_mask()}\spxextra{in module wass2s.utils}, \hyperpage{52}
+  \item \spxentry{prepare\_predictand()}\spxextra{in module wass2s.utils}, \hyperpage{52}
+  \item \spxentry{preprocess\_data()}\spxextra{wass2s.was\_cca.WAS\_CCA method}, \hyperpage{122}
+  \item \spxentry{preprocess\_data()}\spxextra{wass2s.was\_cca.WAS\_CCA\_base method}, 
+		\hyperpage{124}
+  \item \spxentry{preprocess\_data()}\spxextra{wass2s.was\_cca.WAS\_CCA\_op method}, 
+		\hyperpage{126}
+  \item \spxentry{preprocess\_data()}\spxextra{wass2s.was\_cca.WAS\_CCA\_strict method}, 
+		\hyperpage{127}
+  \item \spxentry{preprocess\_data()}\spxextra{wass2s.was\_cca\_2.WAS\_KernelCCA\_base method}, 
+		\hyperpage{129}
+  \item \spxentry{preprocess\_forecast\_data()}\spxextra{wass2s.was\_cca.WAS\_CCA\_base method}, 
+		\hyperpage{125}
+  \item \spxentry{preprocess\_forecast\_data()}\spxextra{wass2s.was\_cca\_2.WAS\_KernelCCA\_base method}, 
+		\hyperpage{129}
+  \item \spxentry{preprocess\_test\_data()}\spxextra{wass2s.was\_cca.WAS\_CCA method}, 
+		\hyperpage{122}
+  \item \spxentry{preprocess\_test\_data()}\spxextra{wass2s.was\_cca.WAS\_CCA\_base method}, 
+		\hyperpage{124}
+  \item \spxentry{preprocess\_test\_data()}\spxextra{wass2s.was\_cca.WAS\_CCA\_op method}, 
+		\hyperpage{126}
+  \item \spxentry{preprocess\_test\_data()}\spxextra{wass2s.was\_cca.WAS\_CCA\_strict method}, 
+		\hyperpage{127}
+  \item \spxentry{preprocess\_test\_data()}\spxextra{wass2s.was\_cca\_2.WAS\_KernelCCA\_base method}, 
+		\hyperpage{129}
+  \item \spxentry{proceed\_seasonal\_daily\_bias\_correction()}\spxextra{in module wass2s.utils}, 
+		\hyperpage{58}
+  \item \spxentry{process\_datasets\_for\_mme()}\spxextra{in module wass2s.was\_mme}, 
+		\hyperpage{175}
+  \item \spxentry{process\_model\_for\_other\_params()}\spxextra{in module wass2s.utils}, 
+		\hyperpage{57}
+  \item \spxentry{process\_variable()}\spxextra{in module wass2s.was\_seasonal\_analysis}, 
+		\hyperpage{211}
+
+  \indexspace
+  \bigletter Q
+  \item \spxentry{Q\_HIGH}\spxextra{wass2s.was\_cca\_2.WAS\_KernelCCA\_base attribute}, 
+		\hyperpage{129}
+  \item \spxentry{Q\_LOW}\spxextra{wass2s.was\_cca\_2.WAS\_KernelCCA\_base attribute}, 
+		\hyperpage{129}
+
+  \indexspace
+  \bigletter R
+  \item \spxentry{rainf\_zone()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_cessation method}, 
+		\hyperpage{67}
+  \item \spxentry{rainf\_zone()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_cessation\_dry\_spell method}, 
+		\hyperpage{69}
+  \item \spxentry{rainf\_zone()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_onset method}, 
+		\hyperpage{64}
+  \item \spxentry{rainf\_zone()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_onset\_dry\_spell method}, 
+		\hyperpage{65}
+  \item \spxentry{random\_forest\_merging()}\spxextra{wass2s.was\_merge\_predictand.WAS\_Merging\_Extended method}, 
+		\hyperpage{90}
+  \item \spxentry{ratio\_to\_average()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{173}
+  \item \spxentry{ReanalysisName()}\spxextra{wass2s.was\_download.WAS\_Download method}, 
+		\hyperpage{40}
+  \item \spxentry{regression\_kriging()}\spxextra{wass2s.was\_merge\_predictand.WAS\_Merging method}, 
+		\hyperpage{88}
+  \item \spxentry{regression\_kriging()}\spxextra{wass2s.was\_merge\_predictand.WAS\_Merging\_Extended method}, 
+		\hyperpage{90}
+  \item \spxentry{reliability\_diagram()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{168}
+  \item \spxentry{reliability\_score\_grid()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{167}
+  \item \spxentry{resolution\_and\_reliability\_over\_all\_grid()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{167}
+  \item \spxentry{resolution\_and\_reliability\_over\_all\_grid\_per\_category()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{168}
+  \item \spxentry{resolution\_and\_reliability\_per\_category\_grid()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{167}
+  \item \spxentry{resolution\_score\_grid()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{166}
+  \item \spxentry{retrieve\_several\_zones\_for\_PCR()}\spxextra{in module wass2s.utils}, 
+		\hyperpage{54}
+  \item \spxentry{retrieve\_single\_zone\_for\_PCR()}\spxextra{in module wass2s.utils}, 
+		\hyperpage{55}
+  \item \spxentry{reverse\_standardize()}\spxextra{in module wass2s.utils}, \hyperpage{51}
+  \item \spxentry{revert\_grid\_index()}\spxextra{wass2s.ceac\_agro.CAF\_AgroClimateBase method}, 
+		\hyperpage{207}
+  \item \spxentry{revert\_to\_index()}\spxextra{wass2s.ceac\_agro.CAF\_AgroClimateBase method}, 
+		\hyperpage{207}
+  \item \spxentry{root\_mean\_square\_error()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{161}
+
+  \indexspace
+  \bigletter S
+  \item \spxentry{score()}\spxextra{wass2s.was\_mme.HPELMWrapper method}, \hyperpage{201}
+  \item \spxentry{set\_hyperparameters()}\spxextra{wass2s.was\_cca\_2.WAS\_KernelCCA\_base method}, 
+		\hyperpage{130}
+  \item \spxentry{set\_params()}\spxextra{wass2s.was\_mme.HPELMWrapper method}, \hyperpage{201}
+  \item \spxentry{shift\_gridded\_data()}\spxextra{wass2s.ceac\_agro.CAF\_AgroClimateBase method}, 
+		\hyperpage{207}
+  \item \spxentry{SHIFT\_OFFSET}\spxextra{wass2s.ceac\_agro.CAF\_AgroClimateBase attribute}, 
+		\hyperpage{207}
+  \item \spxentry{show()}\spxextra{wass2s.was\_seasonal\_analysis.BOMViewer method}, 
+		\hyperpage{212}
+  \item \spxentry{show()}\spxextra{wass2s.was\_seasonal\_analysis.C3SViewer method}, 
+		\hyperpage{211}
+  \item \spxentry{simple\_bias\_adjustment()}\spxextra{wass2s.was\_merge\_predictand.WAS\_Merging method}, 
+		\hyperpage{88}
+  \item \spxentry{simple\_bias\_adjustment()}\spxextra{wass2s.was\_merge\_predictand.WAS\_Merging\_Extended method}, 
+		\hyperpage{90}
+  \item \spxentry{SOM()}\spxextra{wass2s.was\_analog.WAS\_Analog method}, \hyperpage{154}
+  \item \spxentry{SOM()}\spxextra{wass2s.was\_analog.WAS\_Analog\_\_ method}, \hyperpage{158}
+  \item \spxentry{spearman\_corr()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{161}
+  \item \spxentry{split()}\spxextra{wass2s.was\_cross\_validate.CustomTimeSeriesSplit method}, 
+		\hyperpage{92}
+  \item \spxentry{standardize\_timeseries()}\spxextra{in module wass2s.utils}, \hyperpage{50}
+  \item \spxentry{standardize\_timeseries()}\spxextra{wass2s.was\_analog.WAS\_Analog method}, 
+		\hyperpage{154}
+  \item \spxentry{standardize\_timeseries()}\spxextra{wass2s.was\_analog.WAS\_Analog\_\_ method}, 
+		\hyperpage{158}
+  \item \spxentry{start\_date}\spxextra{wass2s.was\_compute\_predictand.HeatWaveDefinition attribute}, 
+		\hyperpage{82}
+  \item \spxentry{summary()}\spxextra{wass2s.was\_mme.WAS\_mme\_ExpertKnowledge method}, 
+		\hyperpage{206}
+  \item \spxentry{summary()}\spxextra{wass2s.was\_mme.WAS\_mme\_NGR\_Gaussian method}, 
+		\hyperpage{192}
+  \item \spxentry{summary()}\spxextra{wass2s.was\_mme.WAS\_mme\_NGR\_NonGaussian method}, 
+		\hyperpage{193}
+  \item \spxentry{svp()}\spxextra{in module wass2s.utils}, \hyperpage{59}
+
+  \indexspace
+  \bigletter T
+  \item \spxentry{taylor\_diagram()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{162}
+  \item \spxentry{to\_iridl\_lat()}\spxextra{in module wass2s.utils}, \hyperpage{48}
+  \item \spxentry{to\_iridl\_lon()}\spxextra{in module wass2s.utils}, \hyperpage{48}
+  \item \spxentry{transform()}\spxextra{wass2s.was\_eof.WAS\_EOF method}, \hyperpage{91}
+  \item \spxentry{transform()}\spxextra{wass2s.was\_mme.WAS\_mme\_MVA method}, \hyperpage{193}
+  \item \spxentry{transform()}\spxextra{wass2s.was\_mme.WAS\_mme\_NGR\_Gaussian method}, 
+		\hyperpage{192}
+  \item \spxentry{transform\_and\_shift\_cdt()}\spxextra{wass2s.ceac\_agro.CAF\_AgroClimateBase method}, 
+		\hyperpage{207}
+  \item \spxentry{transform\_cdt()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_cessation static method}, 
+		\hyperpage{67}
+  \item \spxentry{transform\_cdt()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_cessation\_dry\_spell static method}, 
+		\hyperpage{69}
+  \item \spxentry{transform\_cdt()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_onset static method}, 
+		\hyperpage{63}
+  \item \spxentry{transform\_cdt()}\spxextra{wass2s.was\_compute\_predictand.WAS\_compute\_onset\_dry\_spell static method}, 
+		\hyperpage{65}
+  \item \spxentry{transform\_cdt()}\spxextra{wass2s.was\_compute\_predictand.WAS\_count\_dry\_spells static method}, 
+		\hyperpage{71}
+  \item \spxentry{transform\_cdt()}\spxextra{wass2s.was\_compute\_predictand.WAS\_count\_rainy\_days static method}, 
+		\hyperpage{76}
+  \item \spxentry{transform\_cdt()}\spxextra{wass2s.was\_compute\_predictand.WAS\_count\_wet\_spells static method}, 
+		\hyperpage{74}
+  \item \spxentry{transform\_cdt()}\spxextra{wass2s.was\_compute\_predictand.WAS\_PrecipIndices static method}, 
+		\hyperpage{81}
+  \item \spxentry{transform\_cdt()}\spxextra{wass2s.was\_compute\_predictand.WAS\_TempPercentileIndices static method}, 
+		\hyperpage{79}
+  \item \spxentry{transform\_cdt()}\spxextra{wass2s.was\_merge\_predictand.WAS\_Merging method}, 
+		\hyperpage{87}
+  \item \spxentry{transform\_cdt()}\spxextra{wass2s.was\_merge\_predictand.WAS\_Merging\_Extended method}, 
+		\hyperpage{90}
+  \item \spxentry{transform\_cpt()}\spxextra{wass2s.was\_compute\_predictand.WAS\_count\_dry\_spells static method}, 
+		\hyperpage{72}
+  \item \spxentry{transform\_cpt()}\spxextra{wass2s.was\_merge\_predictand.WAS\_Merging method}, 
+		\hyperpage{87}
+  \item \spxentry{transform\_cpt()}\spxextra{wass2s.was\_merge\_predictand.WAS\_Merging\_Extended method}, 
+		\hyperpage{90}
+  \item \spxentry{transform\_score()}\spxextra{wass2s.was\_mme.WAS\_mme\_Weighted method}, 
+		\hyperpage{177}
+  \item \spxentry{truncated\_normal\_mean\_var()}\spxextra{in module wass2s.was\_mme}, 
+		\hyperpage{191}
+
+  \indexspace
+  \bigletter V
+  \item \spxentry{VALID\_FAMILIES}\spxextra{wass2s.was\_mme.WAS\_mme\_NGR\_NonGaussian attribute}, 
+		\hyperpage{193}
+  \item \spxentry{VALID\_OCC}\spxextra{wass2s.was\_mme.WAS\_mme\_NGR\_NonGaussian attribute}, 
+		\hyperpage{193}
+  \item \spxentry{validate\_merging\_methods()}\spxextra{wass2s.was\_merge\_predictand.WAS\_Merging\_Extended method}, 
+		\hyperpage{90}
+  \item \spxentry{VAR\_CONFIG}\spxextra{in module wass2s.was\_seasonal\_analysis}, \hyperpage{208}
+  \item \spxentry{verify\_station\_network()}\spxextra{in module wass2s.utils}, \hyperpage{58}
+
+  \indexspace
+  \bigletter W
+  \item \spxentry{WAS\_AdaBoost\_Model}\spxextra{class in wass2s.was\_machine\_learning}, 
+		\hyperpage{150}
+  \item \spxentry{WAS\_Analog}\spxextra{class in wass2s.was\_analog}, \hyperpage{152}
+  \item \spxentry{WAS\_Analog\_\_}\spxextra{class in wass2s.was\_analog}, \hyperpage{156}
+  \item \spxentry{WAS\_bias\_correction}\spxextra{class in wass2s.was\_bias\_correction}, 
+		\hyperpage{86}
+  \item \spxentry{WAS\_CCA}\spxextra{class in wass2s.was\_cca}, \hyperpage{122}
+  \item \spxentry{WAS\_CCA\_base}\spxextra{class in wass2s.was\_cca}, \hyperpage{124}
+  \item \spxentry{WAS\_CCA\_op}\spxextra{class in wass2s.was\_cca}, \hyperpage{125}
+  \item \spxentry{WAS\_CCA\_strict}\spxextra{class in wass2s.was\_cca}, \hyperpage{127}
+  \item \spxentry{WAS\_compute\_cessation}\spxextra{class in wass2s.was\_compute\_predictand}, 
+		\hyperpage{66}
+  \item \spxentry{WAS\_compute\_cessation\_dry\_spell}\spxextra{class in wass2s.was\_compute\_predictand}, 
+		\hyperpage{68}
+  \item \spxentry{WAS\_compute\_onset}\spxextra{class in wass2s.was\_compute\_predictand}, 
+		\hyperpage{62}
+  \item \spxentry{WAS\_compute\_onset\_dry\_spell}\spxextra{class in wass2s.was\_compute\_predictand}, 
+		\hyperpage{64}
+  \item \spxentry{WAS\_count\_dry\_spells}\spxextra{class in wass2s.was\_compute\_predictand}, 
+		\hyperpage{70}
+  \item \spxentry{WAS\_count\_rainy\_days}\spxextra{class in wass2s.was\_compute\_predictand}, 
+		\hyperpage{75}
+  \item \spxentry{WAS\_count\_wet\_spells}\spxextra{class in wass2s.was\_compute\_predictand}, 
+		\hyperpage{73}
+  \item \spxentry{WAS\_Cross\_Validator}\spxextra{class in wass2s.was\_cross\_validate}, 
+		\hyperpage{93}
+  \item \spxentry{WAS\_Download}\spxextra{class in wass2s.was\_download}, \hyperpage{39}
+  \item \spxentry{WAS\_Download\_AgroIndicators()}\spxextra{wass2s.was\_download.WAS\_Download method}, 
+		\hyperpage{42}
+  \item \spxentry{WAS\_Download\_AgroIndicators\_daily()}\spxextra{wass2s.was\_download.WAS\_Download method}, 
+		\hyperpage{41}
+  \item \spxentry{WAS\_Download\_CHIRPSv3\_Daily()}\spxextra{wass2s.was\_download.WAS\_Download method}, 
+		\hyperpage{44}
+  \item \spxentry{WAS\_Download\_CHIRPSv3\_Seasonal()}\spxextra{wass2s.was\_download.WAS\_Download method}, 
+		\hyperpage{45}
+  \item \spxentry{WAS\_Download\_ERA5Land()}\spxextra{wass2s.was\_download.WAS\_Download method}, 
+		\hyperpage{43}
+  \item \spxentry{WAS\_Download\_ERA5Land\_daily()}\spxextra{wass2s.was\_download.WAS\_Download method}, 
+		\hyperpage{43}
+  \item \spxentry{WAS\_Download\_Models()}\spxextra{wass2s.was\_download.WAS\_Download method}, 
+		\hyperpage{40}
+  \item \spxentry{WAS\_Download\_Models\_Daily()}\spxextra{wass2s.was\_download.WAS\_Download method}, 
+		\hyperpage{42}
+  \item \spxentry{WAS\_Download\_Reanalysis()}\spxextra{wass2s.was\_download.WAS\_Download method}, 
+		\hyperpage{43}
+  \item \spxentry{WAS\_Download\_Reanalysis\_()}\spxextra{wass2s.was\_download.WAS\_Download method}, 
+		\hyperpage{43}
+  \item \spxentry{WAS\_Download\_TAMSAT\_Daily()}\spxextra{wass2s.was\_download.WAS\_Download method}, 
+		\hyperpage{46}
+  \item \spxentry{WAS\_Download\_TAMSAT\_Seasonal()}\spxextra{wass2s.was\_download.WAS\_Download method}, 
+		\hyperpage{45}
+  \item \spxentry{WAS\_ElasticNet\_Model}\spxextra{class in wass2s.was\_linear\_models}, 
+		\hyperpage{108}
+  \item \spxentry{WAS\_EOF}\spxextra{class in wass2s.was\_eof}, \hyperpage{91}
+  \item \spxentry{WAS\_EOF\_KCCA}\spxextra{class in wass2s.was\_cca\_2}, \hyperpage{130}
+  \item \spxentry{WAS\_ExtraTrees\_Model}\spxextra{class in wass2s.was\_machine\_learning}, 
+		\hyperpage{150}
+  \item \spxentry{WAS\_GradientBoosting\_Model}\spxextra{class in wass2s.was\_machine\_learning}, 
+		\hyperpage{150}
+  \item \spxentry{WAS\_HeatWaveIndices}\spxextra{class in wass2s.was\_compute\_predictand}, 
+		\hyperpage{82}
+  \item \spxentry{WAS\_HurdleNB\_Model}\spxextra{class in wass2s.was\_machine\_learning}, 
+		\hyperpage{149}
+  \item \spxentry{WAS\_KCCA}\spxextra{class in wass2s.was\_cca\_2}, \hyperpage{130}
+  \item \spxentry{WAS\_KernelCCA\_base}\spxextra{class in wass2s.was\_cca\_2}, \hyperpage{129}
+  \item \spxentry{WAS\_KGCCA}\spxextra{class in wass2s.was\_cca\_2}, \hyperpage{130}
+  \item \spxentry{WAS\_KNN\_Model}\spxextra{class in wass2s.was\_machine\_learning}, 
+		\hyperpage{151}
+  \item \spxentry{WAS\_Lasso\_Model}\spxextra{class in wass2s.was\_linear\_models}, \hyperpage{103}
+  \item \spxentry{WAS\_LassoLars\_Model}\spxextra{class in wass2s.was\_linear\_models}, 
+		\hyperpage{113}
+  \item \spxentry{WAS\_LightGBM\_Model}\spxextra{class in wass2s.was\_machine\_learning}, 
+		\hyperpage{151}
+  \item \spxentry{WAS\_LinearRegression\_Model}\spxextra{class in wass2s.was\_linear\_models}, 
+		\hyperpage{94}
+  \item \spxentry{WAS\_LogisticRegression\_Model}\spxextra{class in wass2s.was\_machine\_learning}, 
+		\hyperpage{132}
+  \item \spxentry{WAS\_MARS\_Model}\spxextra{class in wass2s.was\_machine\_learning}, 
+		\hyperpage{144}
+  \item \spxentry{WAS\_Merging}\spxextra{class in wass2s.was\_merge\_predictand}, \hyperpage{87}
+  \item \spxentry{WAS\_Merging\_Extended}\spxextra{class in wass2s.was\_merge\_predictand}, 
+		\hyperpage{89}
+  \item \spxentry{WAS\_Min2009\_ProbWeighted}\spxextra{class in wass2s.was\_mme}, \hyperpage{181}
+  \item \spxentry{WAS\_mme\_ELR}\spxextra{class in wass2s.was\_mme}, \hyperpage{185}
+  \item \spxentry{WAS\_mme\_ExpertKnowledge}\spxextra{class in wass2s.was\_mme}, \hyperpage{205}
+  \item \spxentry{WAS\_mme\_FastBMA}\spxextra{class in wass2s.was\_mme}, \hyperpage{194}
+  \item \spxentry{WAS\_mme\_FullBMA}\spxextra{class in wass2s.was\_mme}, \hyperpage{195}
+  \item \spxentry{WAS\_mme\_gaussian\_process}\spxextra{class in wass2s.was\_mme}, \hyperpage{188}
+  \item \spxentry{WAS\_mme\_hpELM}\spxextra{class in wass2s.was\_mme}, \hyperpage{202}
+  \item \spxentry{WAS\_mme\_logistic}\spxextra{class in wass2s.was\_mme}, \hyperpage{184}
+  \item \spxentry{WAS\_mme\_MLP}\spxextra{class in wass2s.was\_mme}, \hyperpage{203}
+  \item \spxentry{WAS\_mme\_MVA}\spxextra{class in wass2s.was\_mme}, \hyperpage{193}
+  \item \spxentry{WAS\_mme\_NGR\_Gaussian}\spxextra{class in wass2s.was\_mme}, \hyperpage{192}
+  \item \spxentry{WAS\_mme\_NGR\_NonGaussian}\spxextra{class in wass2s.was\_mme}, \hyperpage{192}
+  \item \spxentry{WAS\_mme\_PCR}\spxextra{class in wass2s.was\_mme}, \hyperpage{204}
+  \item \spxentry{WAS\_mme\_RF}\spxextra{class in wass2s.was\_mme}, \hyperpage{196}
+  \item \spxentry{WAS\_mme\_Weighted}\spxextra{class in wass2s.was\_mme}, \hyperpage{177}
+  \item \spxentry{WAS\_mme\_xcELM}\spxextra{class in wass2s.was\_mme}, \hyperpage{188}
+  \item \spxentry{WAS\_mme\_xcELR}\spxextra{class in wass2s.was\_mme}, \hyperpage{183}
+  \item \spxentry{WAS\_mme\_XGBoosting}\spxextra{class in wass2s.was\_mme}, \hyperpage{199}
+  \item \spxentry{WAS\_NegativeBinomial\_Model}\spxextra{class in wass2s.was\_machine\_learning}, 
+		\hyperpage{149}
+  \item \spxentry{WAS\_PCR}\spxextra{class in wass2s.was\_pcr}, \hyperpage{119}
+  \item \spxentry{WAS\_PoissonRegression}\spxextra{class in wass2s.was\_machine\_learning}, 
+		\hyperpage{139}
+  \item \spxentry{WAS\_PolynomialRegression}\spxextra{class in wass2s.was\_machine\_learning}, 
+		\hyperpage{134}
+  \item \spxentry{WAS\_PrecipIndices}\spxextra{class in wass2s.was\_compute\_predictand}, 
+		\hyperpage{80}
+  \item \spxentry{WAS\_ProbWeighted}\spxextra{class in wass2s.was\_mme}, \hyperpage{180}
+  \item \spxentry{WAS\_Qmap}\spxextra{class in wass2s.was\_bias\_correction}, \hyperpage{84}
+  \item \spxentry{WAS\_RandomForest\_Model}\spxextra{class in wass2s.was\_machine\_learning}, 
+		\hyperpage{150}
+  \item \spxentry{WAS\_Ridge\_Model}\spxextra{class in wass2s.was\_linear\_models}, \hyperpage{99}
+  \item \spxentry{WAS\_SVR\_Model}\spxextra{class in wass2s.was\_machine\_learning}, 
+		\hyperpage{151}
+  \item \spxentry{WAS\_TempPercentileIndices}\spxextra{class in wass2s.was\_compute\_predictand}, 
+		\hyperpage{78}
+  \item \spxentry{WAS\_TransformData}\spxextra{class in wass2s.was\_transformdata}, \hyperpage{61}
+  \item \spxentry{WAS\_Verification}\spxextra{class in wass2s.was\_verification}, \hyperpage{160}
+  \item \spxentry{WAS\_XGBoost\_Model}\spxextra{class in wass2s.was\_machine\_learning}, 
+		\hyperpage{150}
+  \item \spxentry{WAS\_ZINB\_Model}\spxextra{class in wass2s.was\_machine\_learning}, 
+		\hyperpage{149}
+  \item \spxentry{wass2s.ceac\_agro}
+    \subitem \spxentry{module}, \hyperpage{206}
+  \item \spxentry{wass2s.utils}
+    \subitem \spxentry{module}, \hyperpage{47}
+  \item \spxentry{wass2s.was\_analog}
+    \subitem \spxentry{module}, \hyperpage{151}
+  \item \spxentry{wass2s.was\_bias\_correction}
+    \subitem \spxentry{module}, \hyperpage{84}
+  \item \spxentry{wass2s.was\_cca}
+    \subitem \spxentry{module}, \hyperpage{122}
+  \item \spxentry{wass2s.was\_cca\_2}
+    \subitem \spxentry{module}, \hyperpage{129}
+  \item \spxentry{wass2s.was\_compute\_predictand}
+    \subitem \spxentry{module}, \hyperpage{62}
+  \item \spxentry{wass2s.was\_cross\_validate}
+    \subitem \spxentry{module}, \hyperpage{92}
+  \item \spxentry{wass2s.was\_download}
+    \subitem \spxentry{module}, \hyperpage{38}
+  \item \spxentry{wass2s.was\_eof}
+    \subitem \spxentry{module}, \hyperpage{91}
+  \item \spxentry{wass2s.was\_linear\_models}
+    \subitem \spxentry{module}, \hyperpage{94}
+  \item \spxentry{wass2s.was\_machine\_learning}
+    \subitem \spxentry{module}, \hyperpage{131}
+  \item \spxentry{wass2s.was\_merge\_predictand}
+    \subitem \spxentry{module}, \hyperpage{87}
+  \item \spxentry{wass2s.was\_mme}
+    \subitem \spxentry{module}, \hyperpage{175}
+  \item \spxentry{wass2s.was\_pcr}
+    \subitem \spxentry{module}, \hyperpage{119}
+  \item \spxentry{wass2s.was\_seasonal\_analysis}
+    \subitem \spxentry{module}, \hyperpage{208}
+  \item \spxentry{wass2s.was\_transformdata}
+    \subitem \spxentry{module}, \hyperpage{61}
+  \item \spxentry{wass2s.was\_verification}
+    \subitem \spxentry{module}, \hyperpage{159}
+  \item \spxentry{weibull\_shape\_solver()}\spxextra{wass2s.was\_analog.WAS\_Analog static method}, 
+		\hyperpage{154}
+  \item \spxentry{weibull\_shape\_solver()}\spxextra{wass2s.was\_analog.WAS\_Analog\_\_ static method}, 
+		\hyperpage{158}
+  \item \spxentry{weibull\_shape\_solver()}\spxextra{wass2s.was\_cca.WAS\_CCA static method}, 
+		\hyperpage{123}
+  \item \spxentry{weibull\_shape\_solver()}\spxextra{wass2s.was\_cca.WAS\_CCA\_base static method}, 
+		\hyperpage{125}
+  \item \spxentry{weibull\_shape\_solver()}\spxextra{wass2s.was\_cca.WAS\_CCA\_op static method}, 
+		\hyperpage{126}
+  \item \spxentry{weibull\_shape\_solver()}\spxextra{wass2s.was\_cca.WAS\_CCA\_strict static method}, 
+		\hyperpage{128}
+  \item \spxentry{weibull\_shape\_solver()}\spxextra{wass2s.was\_cca\_2.WAS\_KernelCCA\_base static method}, 
+		\hyperpage{130}
+  \item \spxentry{weibull\_shape\_solver()}\spxextra{wass2s.was\_linear\_models.WAS\_ElasticNet\_Model static method}, 
+		\hyperpage{111}
+  \item \spxentry{weibull\_shape\_solver()}\spxextra{wass2s.was\_linear\_models.WAS\_Lasso\_Model static method}, 
+		\hyperpage{106}
+  \item \spxentry{weibull\_shape\_solver()}\spxextra{wass2s.was\_linear\_models.WAS\_LassoLars\_Model static method}, 
+		\hyperpage{116}
+  \item \spxentry{weibull\_shape\_solver()}\spxextra{wass2s.was\_linear\_models.WAS\_LinearRegression\_Model static method}, 
+		\hyperpage{97}
+  \item \spxentry{weibull\_shape\_solver()}\spxextra{wass2s.was\_linear\_models.WAS\_Ridge\_Model static method}, 
+		\hyperpage{102}
+  \item \spxentry{weibull\_shape\_solver()}\spxextra{wass2s.was\_machine\_learning.WAS\_MARS\_Model static method}, 
+		\hyperpage{146}
+  \item \spxentry{weibull\_shape\_solver()}\spxextra{wass2s.was\_machine\_learning.WAS\_PoissonRegression static method}, 
+		\hyperpage{141}
+  \item \spxentry{weibull\_shape\_solver()}\spxextra{wass2s.was\_machine\_learning.WAS\_PolynomialRegression static method}, 
+		\hyperpage{137}
+  \item \spxentry{weibull\_shape\_solver()}\spxextra{wass2s.was\_mme.WAS\_mme\_hpELM static method}, 
+		\hyperpage{203}
+  \item \spxentry{weibull\_shape\_solver()}\spxextra{wass2s.was\_mme.WAS\_mme\_MLP static method}, 
+		\hyperpage{204}
+  \item \spxentry{weibull\_shape\_solver()}\spxextra{wass2s.was\_mme.WAS\_mme\_PCR static method}, 
+		\hyperpage{205}
+  \item \spxentry{weibull\_shape\_solver()}\spxextra{wass2s.was\_mme.WAS\_mme\_RF static method}, 
+		\hyperpage{198}
+  \item \spxentry{weibull\_shape\_solver()}\spxextra{wass2s.was\_mme.WAS\_mme\_Weighted static method}, 
+		\hyperpage{178}
+  \item \spxentry{weibull\_shape\_solver()}\spxextra{wass2s.was\_mme.WAS\_mme\_xcELM static method}, 
+		\hyperpage{189}
+  \item \spxentry{weibull\_shape\_solver()}\spxextra{wass2s.was\_mme.WAS\_mme\_XGBoosting static method}, 
+		\hyperpage{200}
+  \item \spxentry{weibull\_shape\_solver()}\spxextra{wass2s.was\_verification.WAS\_Verification static method}, 
+		\hyperpage{170}
+  \item \spxentry{weighted\_gcm\_forecasts()}\spxextra{wass2s.was\_verification.WAS\_Verification method}, 
+		\hyperpage{172}
+  \item \spxentry{WSDI}\spxextra{wass2s.was\_compute\_predictand.HeatWaveMetric attribute}, 
+		\hyperpage{82}
+  \item \spxentry{wsdi()}\spxextra{wass2s.was\_compute\_predictand.ETCCDIHeatWaveIndices static method}, 
+		\hyperpage{83}
+
+  \indexspace
+  \bigletter X
+  \item \spxentry{xgboost\_merging()}\spxextra{wass2s.was\_merge\_predictand.WAS\_Merging\_Extended method}, 
+		\hyperpage{90}
+
+\end{sphinxtheindex}

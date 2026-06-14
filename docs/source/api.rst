@@ -1,140 +1,173 @@
 API Reference
 =============
 
-This page contains the API reference for the wass2s package.
+This page is auto-generated from the source-code docstrings. Each section
+corresponds to one module in the ``wass2s`` package.
 
-.. _modules:
+.. note::
+   Duplicate-object warnings (methods appearing in both ``automodule`` and
+   individual ``autoclass`` blocks) are suppressed via ``suppress_warnings``
+   in ``conf.py``. If you add new modules, add them here **and** in
+   ``conf.py``.
 
 
-
-Module Documentation
---------------------
-
-wass2s.was\_download module
-^^^^^^^^^^^^^^^^^^^^^^^^^^^                            
+Data download
+-------------
 
 .. automodule:: wass2s.was_download
    :members:
-   :show-inheritance:
    :undoc-members:
+   :show-inheritance:
 
-wass2s.was\_transformdata module
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Utilities
+---------
+
+.. automodule:: wass2s.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+Data transformation
+--------------------
 
 .. automodule:: wass2s.was_transformdata
    :members:
-   :show-inheritance:
    :undoc-members:
+   :show-inheritance:
 
 
-wass2s.was\_compute\_predictand module
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Agroclimatic predictand computation
+-------------------------------------
 
 .. automodule:: wass2s.was_compute_predictand
    :members:
-   :show-inheritance:
    :undoc-members:
+   :show-inheritance:
 
-wass2s.was\_bias\_correction module
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Bias correction
+----------------
 
 .. automodule:: wass2s.was_bias_correction
    :members:
-   :show-inheritance:
    :undoc-members:
+   :show-inheritance:
 
 
-wass2s.was\_merge\_predictand module
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Station & gridded merging
+------------------------
 
 .. automodule:: wass2s.was_merge_predictand
    :members:
-   :show-inheritance:
    :undoc-members:
-
-wass2s.was\_cross\_validate module
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. automodule:: wass2s.was_cross_validate
-   :members:
    :show-inheritance:
-   :undoc-members:
-
-wass2s.was\_linear\_models module
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. automodule:: wass2s.was_linear_models
-   :members:
-   :show-inheritance:
-   :undoc-members:
 
 
-wass2s.was\_eof module
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+EOF analysis
+-------------
 
 .. automodule:: wass2s.was_eof
    :members:
-   :show-inheritance:
    :undoc-members:
+   :show-inheritance:
 
-wass2s.was\_pcr module
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. automodule:: wass2s.was_pcr   
+Cross-validation
+-----------------
+
+.. automodule:: wass2s.was_cross_validate
    :members:
-   :show-inheritance:
    :undoc-members:
+   :show-inheritance:
 
 
-wass2s.was\_cca module
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Linear models
+--------------
+
+.. automodule:: wass2s.was_linear_models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+Principal Component Regression
+--------------------------------
+
+.. automodule:: wass2s.was_pcr
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+Canonical Correlation Analysis
+--------------------------------
 
 .. automodule:: wass2s.was_cca
    :members:
-   :show-inheritance:
    :undoc-members:
+   :show-inheritance:
 
-wass2s.was\_machine\_learning module
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Kernel CCA variants
+--------------------
+
+.. automodule:: wass2s.was_cca_2
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+Machine-learning models
+------------------------
 
 .. automodule:: wass2s.was_machine_learning
    :members:
-   :show-inheritance:
    :undoc-members:
+   :show-inheritance:
 
 
-wass2s.was\_analog module
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Analog forecasting
+-------------------
 
 .. automodule:: wass2s.was_analog
    :members:
-   :show-inheritance:
    :undoc-members:
+   :show-inheritance:
 
 
-wass2s.was\_verification module
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Forecast verification
+----------------------
 
-.. automodule:: wass2s.was_verification      
+.. automodule:: wass2s.was_verification
    :members:
-   :show-inheritance:
    :undoc-members:
+   :show-inheritance:
 
-wass2s.was\_mme module
-^^^^^^^^^^^^^^^^^^^^^^
+
+Multi-model ensemble methods
+------------------------------
 
 .. automodule:: wass2s.was_mme
    :members:
-   :show-inheritance:
    :undoc-members:
+   :show-inheritance:
 
 
-wass2s.utils module
-^^^^^^^^^^^^^^^^^^^
+CEAC agroclimatic suite
+-------------------------
 
-.. automodule:: wass2s.utils  
+.. automodule:: wass2s.ceac_agro
    :members:
-   :show-inheritance:
    :undoc-members:
+   :show-inheritance:
 
 
+Seasonal diagnostic tools
+--------------------------
+
+.. automodule:: wass2s.was_seasonal_analysis
+   :members:
+   :undoc-members:
+   :show-inheritance:

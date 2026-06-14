@@ -1,34 +1,25 @@
-Multi-Model Ensemble (MME) Techniques
-======================================
+Multi-Model Ensemble Methods
+============================
 
-The ``WAS_mme`` module provides a suite of tools to combine hindcasts and forecasts from different climate models (e.g., GCMs) in order to improve predictive skill. It includes methods ranging from simple weighted averages to advanced Machine Learning stacking and statistical calibration.
+The ``was_mme`` module combines hindcasts and forecasts from multiple GCMs
+to improve seasonal predictive skill. It provides methods ranging from simple
+weighted averaging to advanced machine-learning stacking and statistical
+calibration, all producing tercile-probability outputs.
 
 .. note::
-   This module is actively maintained. Some advanced features are still under development.
-
-**Key Features**:
-* **Spatial Clustering**: Uses ML models (RF, XGBoost, MLP) with K‑Means to cluster grid points into homogeneous zones for robust hyperparameter optimization.
-* **Hyperparameter Optimization (HPO)**: Integrated **Grid**, **Random**, and **Bayesian (Optuna)** search methods.
-* **Calibration**: Implements methods like NGR and BMA to correct bias and spread.
-* **Probabilistic Output**: All methods generate tercile probabilities (Below, Normal, Above).
+   Some classes in this module are still under active development. Check the
+   :doc:`API reference <api>` for the latest status.
 
 -------------------------------------------------------------------------------
 
 1. Data Preparation
-===================
+-------------------
 
 **Function**: ``process_datasets_for_mme``
 
-A utility function to load, interpolate, and harmonize hindcasts and forecasts from different sources (GCMs, agro‑parameters, etc.) onto a common grid (usually the observational rainfall grid).
-
-**Parameters**:
-   - ``rainfall``: Observational data.
-   - ``dir_to_save_model``: Directory to save processed data.
-   - ``best_models``: List of model identifiers to include.
-   - ``year_start``, ``year_end``: Training period.
-   - ``score_metric``: Metric used for evaluation (e.g., 'GROC').
-
-**Example**:
+Loads, regrids, and harmonises hindcasts and real-time forecasts from
+multiple models onto the common observational grid. This is always the
+first step before any MME method.
 
 .. code-block:: python
 
@@ -36,141 +27,232 @@ A utility function to load, interpolate, and harmonize hindcasts and forecasts f
 
    hdcst, fcst, obs, scores = process_datasets_for_mme(
        rainfall=obs_data,
-       dir_to_save_model="./data/",
-       best_models=['NCEP', 'ECMWF', 'UKMO'],
-       year_start=1981,
-       year_end=2010,
-       score_metric='GROC'
+       dir_to_save_model="./data/GCM/",
+       best_models=["ECMWF_51", "NCEP_2", "UKMO_604"],
+       year_start=1993,
+       year_end=2016,
+       score_metric="GROC"
    )
+
+The returned ``hdcst`` DataArray has dimensions ``(T, M, Y, X)`` where
+``M`` is the model dimension.
 
 -------------------------------------------------------------------------------
 
-2. Weighted Ensembles (Linear)
-==============================
-
-These methods combine models using linear weights based on historical performance.
+2. Weighted Ensemble Averaging
+-------------------------------
 
 **Class**: ``WAS_mme_Weighted``
 
-Combines models using weights derived from a skill score (e.g., GROC, Pearson). Supports stepwise weighting to exclude poorly performing models.
-
-**Logic**: If a model's score is below a given threshold, its weight is set to zero. Otherwise, the weight is proportional to the score (or assigned stepwise values like 0.6, 0.8, 1.0).
-
-**Example**:
+Combines model hindcasts using weights derived from a historical skill score.
+Models whose score falls below a threshold receive zero weight.
 
 .. code-block:: python
 
    from wass2s import WAS_mme_Weighted
 
-   mme_weighted = WAS_mme_Weighted(
+   mme = WAS_mme_Weighted(
        equal_weighted=False,
-       metric='GROC',
+       metric="GROC",
        threshold=0.5
    )
+   hcst_det, fcst_det = mme.compute(obs, hdcst, fcst, scores)
 
-   hcst_det, fcst_det = mme_weighted.compute(obs, hdcst, fcst, scores)
+   # Tercile probabilities from the ensemble mean
+   hcst_prob = mme.compute_prob(
+       Predictant=obs,
+       clim_year_start=1993, clim_year_end=2016,
+       hindcast_det=hcst_det
+   )
+
+**Class**: ``WAS_ProbWeighted``
+
+Computes weights at the probability level (per tercile category) rather than
+on the deterministic mean.
 
 -------------------------------------------------------------------------------
 
 3. Min et al. (2009) Probabilistic MME
-=======================================
+----------------------------------------
 
 **Class**: ``WAS_Min2009_ProbWeighted``
 
 Implements the PMME method from Min et al. (2009):
 
-1. Calculates individual model probabilities (assuming Gaussian or Lognormal distribution).
-2. Weights models based on the square root of their ensemble size.
-3. Combines probabilities directly.
-4. Computes a **Chi‑Square Combined Map** to identify areas with significant signal.
+1. Computes per-model tercile probabilities assuming a Gaussian or log-normal
+   distribution.
+2. Weights models proportionally to the square root of their ensemble size.
+3. Combines the weighted probabilities.
+4. Produces a chi-square combined map to flag areas of significant ensemble
+   signal.
+
+.. code-block:: python
+
+   from wass2s import WAS_Min2009_ProbWeighted
+
+   pmme = WAS_Min2009_ProbWeighted(ensemble_sizes={"ECMWF_51": 25, "NCEP_2": 24})
+   fcst_prob = pmme.compute_combined_map(
+       hindcasts=hdcst, obs=obs,
+       clim_year_start=1993, clim_year_end=2016,
+       new_forecasts=fcst
+   )
 
 -------------------------------------------------------------------------------
 
-4. Machine Learning Ensembles
-=============================
+4. Machine-Learning Ensemble Methods
+--------------------------------------
 
-These methods treat the MME problem as a regression/classification task: given GCM outputs (predictors), predict observed rainfall. They typically employ **spatial clustering** to group grid cells and optimize hyperparameters per cluster.
+These methods treat the MME problem as a regression task: given GCM outputs
+as predictors, learn to reproduce observed rainfall. Hyperparameters are
+optimised per spatial cluster.
 
-**Stacking (Super‑Ensemble)**
+Stacking super-ensemble — ``WAS_mme_Stacking``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Class**: ``WAS_mme_Stacking``
+A two-layer architecture:
 
-A state‑of‑the‑art method that stacks multiple base learners (RF, XGBoost, MLP, ELM) and combines them using a meta‑learner (Ridge, Lasso, or ElasticNet).
-
-* **Layer 0 (Base)**: Random Forest, XGBoost, HP‑ELM, MLP.
-* **Layer 1 (Meta)**: Linear model trained on Out‑of‑Fold (OOF) predictions from Layer 0.
-
-**Example**:
+* **Layer 0 (base)**: Random Forest, XGBoost, HP-ELM, MLP — each generates
+  out-of-fold predictions.
+* **Layer 1 (meta)**: Ridge, Lasso, or ElasticNet trained on the OOF outputs.
 
 .. code-block:: python
 
    from wass2s import WAS_mme_Stacking
 
-   stacking_model = WAS_mme_Stacking(
-       meta_learner_type='ridge',
-       meta_search_method='bayesian',
+   stacking = WAS_mme_Stacking(
+       meta_learner_type="ridge",
+       meta_search_method="bayesian",
        n_clusters=4
    )
-
-   fcst_det, fcst_prob = stacking_model.forecast(
+   fcst_det, fcst_prob = stacking.forecast(
        Predictant=obs,
-       clim_year_start=1981,
-       clim_year_end=2010,
-       hindcast_det=hdcst,            # shape: (T, M, Y, X)
-       hindcast_det_cross=hdcst_cv,   # for error variance
-       Predictor_for_year=fcst_year
+       clim_year_start=1993, clim_year_end=2016,
+       hindcast_det=hdcst,
+       hindcast_det_cross=hdcst_cv,
+       Predictor_for_year=fcst
    )
 
-**Individual ML Regressors**
+Individual machine-learning regressors
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* **Random Forest**: ``WAS_mme_RF``
-* **XGBoost**: ``WAS_mme_XGBoosting``
-* **MLP (Neural Network)**: ``WAS_mme_MLP``
-* **Extreme Learning Machine**: ``WAS_mme_hpELM``
+Each of these classes shares the same ``forecast`` signature as
+``WAS_mme_Stacking``:
+
+* **Random Forest** — ``WAS_mme_RF``
+* **XGBoost** — ``WAS_mme_XGBoosting``
+* **Multi-Layer Perceptron** — ``WAS_mme_MLP``
+* **Extreme Learning Machine** — ``WAS_mme_hpELM``
+
+.. code-block:: python
+
+   from wass2s import WAS_mme_RF
+
+   rf_mme = WAS_mme_RF(n_clusters=5, nb_cores=4)
+   fcst_det, fcst_prob = rf_mme.forecast(
+       Predictant=obs,
+       clim_year_start=1993, clim_year_end=2016,
+       hindcast_det=hdcst,
+       hindcast_det_cross=hdcst_cv,
+       Predictor_for_year=fcst
+   )
 
 -------------------------------------------------------------------------------
 
-5. Calibration & Post‑Processing
-================================
+5. Calibration and Post-Processing
+------------------------------------
 
-Methods to correct bias and reliability errors in raw ensembles.
+Non-Homogeneous Gaussian Regression — ``WAS_mme_NGR_Gaussian``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Non‑homogeneous Gaussian Regression (NGR)**
+Calibrates the ensemble mean and spread by minimising the Continuous Ranked
+Probability Score (CRPS). The calibrated forecast distribution is:
 
-**Class**: ``WAS_mme_NGR``
+.. math::
 
-Calibrates the ensemble mean and spread by minimizing the **Continuous Ranked Probability Score (CRPS)**.
+   \mu = a + b \, \bar{x}_{\mathrm{ens}}, \qquad
+   \sigma = \sqrt{c^2 + d^2 \, s^2_{\mathrm{ens}}}
 
-* **Model**:
-   .. math::
-      \mu = a + b \cdot \bar{x}_{\text{ens}}, \quad
-      \sigma = \sqrt{c^2 + d^2 \cdot s^2_{\text{ens}}}
+where :math:`a, b, c, d` are fitted coefficients, :math:`\bar{x}_{\mathrm{ens}}`
+is the ensemble mean, and :math:`s^2_{\mathrm{ens}}` is the ensemble variance.
 
-**Bayesian Model Averaging (BMA)**
+.. code-block:: python
 
-* **Class**: ``WAS_GaussianBMA_EM`` & ``WAS_EnsembleBMA``
-   * **Gaussian BMA**: Standard BMA for temperature or normally‑distributed variables using the Expectation‑Maximization (EM) algorithm.
+   from wass2s import WAS_mme_NGR_Gaussian
 
-**Extended Logistic Regression (ELR)**
+   ngr = WAS_mme_NGR_Gaussian()
+   fcst_det, fcst_prob = ngr.forecast(
+       Predictant=obs,
+       clim_year_start=1993, clim_year_end=2016,
+       hindcast_det=hdcst,
+       Predictor_for_year=fcst
+   )
 
-* **Class**: ``WAS_mme_xcELR`` & ``WAS_mme_logistic``
-   * **WAS_mme_xcELR**: Wraps `xcast` Extended Logistic Regression.
-   * **WAS_mme_logistic**: Native implementation of Multinomial Logistic Regression to predict tercile probabilities directly.
-   * **WAS_mme_Gaussian_process**: (Under development)
+Bayesian Model Averaging — ``WAS_mme_FastBMA``, ``WAS_mme_FullBMA``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Mean and Variance Adjustment (MVA)**
+BMA assigns posterior weights to each model's predictive distribution:
 
-**Class**: ``WAS_mme_MVA``
+* ``WAS_mme_FastBMA`` — EM algorithm; fast convergence for small ensembles.
+* ``WAS_mme_FullBMA`` — grid search over kernel bandwidths; more accurate.
 
-A simple bias‑correction technique that rescales the forecast to match the climatological mean and variance of the observations.
+.. code-block:: python
 
-**Example**:
+   from wass2s import WAS_mme_FastBMA
+
+   bma = WAS_mme_FastBMA()
+   fcst_det, fcst_prob = bma.forecast(
+       Predictant=obs,
+       clim_year_start=1993, clim_year_end=2016,
+       hindcast_det=hdcst,
+       forecast_det=fcst
+   )
+
+Extended Logistic Regression — ``WAS_mme_xcELR``, ``WAS_mme_ELR``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Estimates tercile probabilities directly by fitting a logistic regression
+on the ensemble mean as a continuous predictor of each category boundary.
+
+* ``WAS_mme_xcELR`` — wraps the xcast ELR implementation (splits on ``S``
+  dimension).
+* ``WAS_mme_ELR`` — native wass2s implementation.
+
+.. code-block:: python
+
+   from wass2s import WAS_mme_ELR, WAS_Cross_Validator
+
+   elr = WAS_mme_ELR()
+   cv = WAS_Cross_Validator(n_splits=len(obs.get_index("T")), nb_omit=2)
+   hindcast_det, hindcast_prob = cv.cross_validate(
+       elr, obs, hdcst, clim_year_start=1993, clim_year_end=2016
+   )
+
+Logistic MME — ``WAS_mme_logistic``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Multinomial logistic regression trained on all GCM outputs simultaneously.
+Produces direct probability estimates for each tercile category.
+
+.. code-block:: python
+
+   from wass2s import WAS_mme_logistic, WAS_Cross_Validator
+
+   logistic_mme = WAS_mme_logistic()
+   cv = WAS_Cross_Validator(n_splits=len(obs.get_index("T")), nb_omit=2)
+   hindcast_det, hindcast_prob = cv.cross_validate(
+       logistic_mme, obs, hdcst, clim_year_start=1993, clim_year_end=2016
+   )
+
+Mean and Variance Adjustment — ``WAS_mme_MVA``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A simple bias-correction technique that rescales the forecast mean and
+variance to match the observational climatology.
 
 .. code-block:: python
 
    from wass2s import WAS_mme_MVA
 
    mva = WAS_mme_MVA()
-   mva.fit(hindcast_da, obs_da)
-   calibrated_fcst = mva.transform(forecast_da)
-
+   mva.fit(hindcast_da=hdcst, obs_da=obs)
+   calibrated = mva.transform(forecast_da=fcst)

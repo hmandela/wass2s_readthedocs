@@ -1,0 +1,5 @@
+PWD /home/user/Documents/AICCRA_AGRHYMET_2024/My_ML_training/WAS_S2S_/wass2s_readthedocs/docs/build/latex
+INPUT /home/user/.TinyTeX/texmf.cnf
+INPUT /home/user/.TinyTeX/texmf-dist/web2c/texmf.cnf
+INPUT /home/user/.TinyTeX/texmf-var/web2c/xetex/xelatex.fmt
+OUTPUT texput.log
